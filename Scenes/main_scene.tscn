@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=6 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_b10hd"]
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_slo5r"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e7d48"]
+[ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/PopUp.tscn" id="3_k3m6n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmbm4"]
 radius = 18.0
@@ -23,7 +24,7 @@ size = Vector2(147.875, 27)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(325, 125)
-script = ExtResource("1_slo5r")
+script = ExtResource("1_e7d48")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CapsuleShape2D_rmbm4")
@@ -33,6 +34,14 @@ position = Vector2(-1.81899e-12, -2.38419e-07)
 scale = Vector2(0.242188, 0.242188)
 texture = ExtResource("1_b10hd")
 
+[node name="PopUp" parent="Player" instance=ExtResource("3_k3m6n")]
+visible = false
+offset_left = -40.0
+offset_top = -88.0
+offset_right = -40.0
+offset_bottom = -88.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 [node name="BottomGround" type="StaticBody2D" parent="."]
 position = Vector2(576, 615)
 

@@ -3,12 +3,13 @@ extends CharacterBody2D
 @export var move_speed: float = 700/2
 @export var gravity_intensity: float = 300*4
 @export var jump_speed = 2000/8
-
+@export var floor_y: int = 500
 
 var time_jump_pressed: float = 0
 
 var old_velx: float = 0
 
+@onready var PopUp = $PopUp
 
 func _physics_process(delta):
 	velocity.y += gravity_intensity * delta
@@ -33,7 +34,10 @@ func _physics_process(delta):
 	if is_on_wall():
 		old_velx = 0
 		
-	#print(velocity.y)
 	move_and_slide()
 
-	
+
+func _process(_delta: float):
+	if !PopUp.visible and position.y > floor_y:
+		print('fall detected')
+		PopUp.visible = true
