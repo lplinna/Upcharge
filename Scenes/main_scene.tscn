@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=11 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_b10hd"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e7d48"]
-[ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/PopUp.tscn" id="3_k3m6n"]
+[ext_resource type="PackedScene" path="res://Scenes/PopUp.tscn" id="3_k3m6n"]
+[ext_resource type="Script" path="res://Scenes/Coin.gd" id="4_fkrsh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmbm4"]
 radius = 18.0
@@ -20,10 +21,12 @@ size = Vector2(333.75, 27)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b824x"]
 size = Vector2(147.875, 27)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqlwv"]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(325, 125)
+position = Vector2(96, 29)
 script = ExtResource("1_e7d48")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -41,7 +44,6 @@ offset_top = -88.0
 offset_right = -40.0
 offset_bottom = -88.0
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
 [node name="BottomGround" type="StaticBody2D" parent="."]
 position = Vector2(576, 615)
 
@@ -114,3 +116,16 @@ position = Vector2(442, 362)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge2/TinyPlatform"]
 shape = SubResource("RectangleShape2D_c2wxe")
+
+[node name="Coin" type="RigidBody2D" parent="."]
+position = Vector2(58, 17)
+script = ExtResource("4_fkrsh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
+shape = SubResource("RectangleShape2D_sqlwv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin"]
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("1_b10hd")
+
+[connection signal="body_entered" from="Coin" to="Coin" method="_on_body_entered"]

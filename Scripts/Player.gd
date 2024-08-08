@@ -11,6 +11,8 @@ var old_velx: float = 0
 
 @onready var PopUp = $PopUp
 
+
+
 func _physics_process(delta):
 	velocity.y += gravity_intensity * delta
 
