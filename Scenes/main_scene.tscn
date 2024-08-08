@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=8 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_b10hd"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_slo5r"]
@@ -9,6 +9,12 @@ height = 48.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
 size = Vector2(1153.5, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2wxe"]
+size = Vector2(333.75, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b824x"]
+size = Vector2(147.875, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2gvx"]
 size = Vector2(283.063, 58)
@@ -32,6 +38,36 @@ position = Vector2(576, 615)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_klmyk")
+
+[node name="TinyPlatform" type="StaticBody2D" parent="."]
+position = Vector2(793, 518)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TinyPlatform"]
+shape = SubResource("RectangleShape2D_c2wxe")
+
+[node name="TinyPlatform2" type="StaticBody2D" parent="."]
+position = Vector2(417, 440)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TinyPlatform2"]
+shape = SubResource("RectangleShape2D_c2wxe")
+
+[node name="ReallyTinyPlatform" type="StaticBody2D" parent="."]
+position = Vector2(705, 369)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReallyTinyPlatform"]
+shape = SubResource("RectangleShape2D_b824x")
+
+[node name="ReallyTinyPlatform2" type="StaticBody2D" parent="."]
+position = Vector2(898, 307)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReallyTinyPlatform2"]
+shape = SubResource("RectangleShape2D_b824x")
+
+[node name="ReallyTinyPlatform3" type="StaticBody2D" parent="."]
+position = Vector2(679, 239)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReallyTinyPlatform3"]
+shape = SubResource("RectangleShape2D_b824x")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(132, 548)
