@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=9 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_b10hd"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_slo5r"]
@@ -18,6 +18,8 @@ size = Vector2(333.75, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b824x"]
 size = Vector2(147.875, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqlwv"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -105,3 +107,13 @@ position = Vector2(442, 362)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge2/TinyPlatform"]
 shape = SubResource("RectangleShape2D_c2wxe")
+
+[node name="Coin" type="RigidBody2D" parent="."]
+position = Vector2(58, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
+shape = SubResource("RectangleShape2D_sqlwv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin"]
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("1_b10hd")
