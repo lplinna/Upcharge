@@ -10,14 +10,14 @@ height = 48.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
 size = Vector2(1153.5, 58)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2gvx"]
+size = Vector2(283.063, 58)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2wxe"]
 size = Vector2(333.75, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b824x"]
 size = Vector2(147.875, 27)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2gvx"]
-size = Vector2(283.063, 58)
 
 [node name="Node2D" type="Node2D"]
 
@@ -33,41 +33,11 @@ position = Vector2(-1.81899e-12, -2.38419e-07)
 scale = Vector2(0.242188, 0.242188)
 texture = ExtResource("1_b10hd")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="BottomGround" type="StaticBody2D" parent="."]
 position = Vector2(576, 615)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomGround"]
 shape = SubResource("RectangleShape2D_klmyk")
-
-[node name="TinyPlatform" type="StaticBody2D" parent="."]
-position = Vector2(793, 518)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TinyPlatform"]
-shape = SubResource("RectangleShape2D_c2wxe")
-
-[node name="TinyPlatform2" type="StaticBody2D" parent="."]
-position = Vector2(417, 440)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TinyPlatform2"]
-shape = SubResource("RectangleShape2D_c2wxe")
-
-[node name="ReallyTinyPlatform" type="StaticBody2D" parent="."]
-position = Vector2(705, 369)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ReallyTinyPlatform"]
-shape = SubResource("RectangleShape2D_b824x")
-
-[node name="ReallyTinyPlatform2" type="StaticBody2D" parent="."]
-position = Vector2(898, 307)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ReallyTinyPlatform2"]
-shape = SubResource("RectangleShape2D_b824x")
-
-[node name="ReallyTinyPlatform3" type="StaticBody2D" parent="."]
-position = Vector2(679, 239)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ReallyTinyPlatform3"]
-shape = SubResource("RectangleShape2D_b824x")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(132, 548)
@@ -76,3 +46,62 @@ rotation = 0.560307
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 rotation = -0.073189
 shape = SubResource("RectangleShape2D_t2gvx")
+
+[node name="Challenge1" type="Node2D" parent="."]
+
+[node name="TinyPlatform" type="StaticBody2D" parent="Challenge1"]
+position = Vector2(793, 518)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge1/TinyPlatform"]
+shape = SubResource("RectangleShape2D_c2wxe")
+
+[node name="TinyPlatform2" type="StaticBody2D" parent="Challenge1"]
+position = Vector2(417, 440)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge1/TinyPlatform2"]
+shape = SubResource("RectangleShape2D_c2wxe")
+
+[node name="ReallyTinyPlatform" type="StaticBody2D" parent="Challenge1"]
+position = Vector2(705, 369)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge1/ReallyTinyPlatform"]
+shape = SubResource("RectangleShape2D_b824x")
+
+[node name="ReallyTinyPlatform2" type="StaticBody2D" parent="Challenge1"]
+position = Vector2(898, 307)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge1/ReallyTinyPlatform2"]
+shape = SubResource("RectangleShape2D_b824x")
+
+[node name="ReallyTinyPlatform3" type="StaticBody2D" parent="Challenge1"]
+position = Vector2(679, 239)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge1/ReallyTinyPlatform3"]
+shape = SubResource("RectangleShape2D_b824x")
+
+[node name="Challenge2" type="Node2D" parent="."]
+position = Vector2(-489, -270)
+
+[node name="ReallyTinyPlatform" type="StaticBody2D" parent="Challenge2"]
+position = Vector2(908, 233)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge2/ReallyTinyPlatform"]
+shape = SubResource("RectangleShape2D_b824x")
+
+[node name="ReallyTinyPlatform2" type="StaticBody2D" parent="Challenge2"]
+position = Vector2(1149, 325)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge2/ReallyTinyPlatform2"]
+shape = SubResource("RectangleShape2D_b824x")
+
+[node name="ReallyTinyPlatform3" type="StaticBody2D" parent="Challenge2"]
+position = Vector2(931, 423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge2/ReallyTinyPlatform3"]
+shape = SubResource("RectangleShape2D_b824x")
+
+[node name="TinyPlatform" type="StaticBody2D" parent="Challenge2"]
+position = Vector2(442, 362)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge2/TinyPlatform"]
+shape = SubResource("RectangleShape2D_c2wxe")
