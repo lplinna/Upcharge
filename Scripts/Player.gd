@@ -1,18 +1,20 @@
 extends CharacterBody2D
 class_name Player
 
+## Movement constants
 @export var move_speed: float = 700/2
 @export var gravity_intensity: float = 300*4
 @export var jump_speed = 2000/8
 @export var floor_y: int = 500
 
+## Movement variables
 var time_jump_pressed: float = 0
-
 var old_velx: float = 0
 
+## Game mechanic variables
+var coins: int = 0
+
 @onready var PopUp = $PopUp
-
-
 
 
 
