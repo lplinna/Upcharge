@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var move_speed: float = 700/2
 @export var gravity_intensity: float = 300*4
@@ -7,13 +8,17 @@ extends CharacterBody2D
 @export var buffer_space: int = 10
 @export var fall_threshold: float = 100
 
+@onready var PopUp = $PopUp
+
 var time_jump_pressed: float = 0
 var old_velx: float = 0
-
 var up_y: float = 0
 var down_y: float = 0
 
-@onready var PopUp = $PopUp
+var highest_platform_reached: KinematicCollision2D
+
+func _ready():
+	PopUp.init(self)
 
 func _physics_process(delta):
 	velocity.y += gravity_intensity * delta
@@ -26,6 +31,11 @@ func _physics_process(delta):
 	var fall_distance = up_y - down_y
 
 	if is_on_floor():
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			if highest_platform_reached == null or collision.get_position().y < highest_platform_reached.get_position().y:
+				highest_platform_reached = collision
+				
 		if !PopUp.visible and fall_distance > fall_threshold :
 			PopUp.visible = true
 			var timer = PopUp.get_node("Timer") as Timer
@@ -52,3 +62,6 @@ func _physics_process(delta):
 		
 	move_and_slide()
 
+func handle_button():
+	position = highest_platform_reached.get_position()
+	PopUp.visible = false
