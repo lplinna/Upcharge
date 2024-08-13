@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=10 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_b10hd"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e7d48"]
-[ext_resource type="PackedScene" path="res://Scenes/PopUp.tscn" id="3_k3m6n"]
-[ext_resource type="Script" path="res://Scenes/Coin.gd" id="4_fkrsh"]
+[ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/PopUp.tscn" id="3_k3m6n"]
+[ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Coin.tscn" id="4_l0prk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmbm4"]
 radius = 18.0
@@ -21,12 +21,10 @@ size = Vector2(333.75, 27)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b824x"]
 size = Vector2(147.875, 27)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqlwv"]
-
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(96, 29)
+position = Vector2(516, 538)
 script = ExtResource("1_e7d48")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -117,15 +115,19 @@ position = Vector2(442, 362)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge2/TinyPlatform"]
 shape = SubResource("RectangleShape2D_c2wxe")
 
-[node name="Coin" type="RigidBody2D" parent="."]
-position = Vector2(58, 17)
-script = ExtResource("4_fkrsh")
+[node name="Coins" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
-shape = SubResource("RectangleShape2D_sqlwv")
+[node name="Coin" parent="Coins" instance=ExtResource("4_l0prk")]
+position = Vector2(516, 332)
 
-[node name="Sprite2D" type="Sprite2D" parent="Coin"]
-scale = Vector2(0.155, 0.155)
-texture = ExtResource("1_b10hd")
+[node name="Coin2" parent="Coins" instance=ExtResource("4_l0prk")]
+position = Vector2(884, 429)
 
-[connection signal="body_entered" from="Coin" to="Coin" method="_on_body_entered"]
+[node name="Coin3" parent="Coins" instance=ExtResource("4_l0prk")]
+position = Vector2(908, 232)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("4_l0prk")]
+position = Vector2(681, 163)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("4_l0prk")]
+position = Vector2(418, 81)

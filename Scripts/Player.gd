@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var move_speed: float = 700/2
 @export var gravity_intensity: float = 300*4
@@ -45,3 +46,5 @@ func _process(_delta: float):
 	if !PopUp.visible and position.y > floor_y:
 		print('fall detected')
 		PopUp.visible = true
+
+
