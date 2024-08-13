@@ -5,35 +5,41 @@ extends CharacterBody2D
 @export var jump_speed = 2000/8
 @export var floor_y: int = 500
 @export var buffer_space: int = 10
+@export var fall_threshold: float = 100
 
 var time_jump_pressed: float = 0
-var height_before_jump: float = 99999999
-var floor_height: float = 0
 var old_velx: float = 0
+
+var up_y: float = 0
+var down_y: float = 0
 
 @onready var PopUp = $PopUp
 
 func _physics_process(delta):
 	velocity.y += gravity_intensity * delta
 
-	if is_on_floor():
-		floor_height = position.y - buffer_space
+	if (velocity.y < 0):
+		down_y = global_position.y
+	else:
+		up_y = global_position.y
 		
+	var fall_distance = up_y - down_y
+
+	if is_on_floor():
+		if !PopUp.visible and fall_distance > fall_threshold :
+			PopUp.visible = true
+			var timer = PopUp.get_node("Timer") as Timer
+			timer.start()
+			down_y = up_y
+			
 		if Input.is_action_just_released("move_up"):
-			height_before_jump = position.y
 			var jump_time_elapsed = Time.get_ticks_msec() - time_jump_pressed
 			var jump_factor = clamp(jump_time_elapsed/250,1,2)
 			print(jump_factor)
 			velocity.y = -jump_speed * jump_factor
 		elif Input.is_action_just_pressed("move_up"):
 			time_jump_pressed = Time.get_ticks_msec()
-		elif !PopUp.visible and height_before_jump < floor_height: # higher y values are farther down
-			height_before_jump = 0
-			PopUp.visible = true
-			var timer = PopUp.get_node("Timer") as Timer
-			timer.start()
-
-			
+	
 		var move_dir = Input.get_axis("move_left","move_right")
 		velocity.x = move_dir * move_speed
 		if velocity.x != 0:
