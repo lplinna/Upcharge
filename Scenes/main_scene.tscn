@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=9 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_b10hd"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e7d48"]
@@ -42,6 +42,7 @@ offset_right = -40.0
 offset_bottom = -88.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+
 [node name="BottomGround" type="StaticBody2D" parent="."]
 position = Vector2(576, 615)
 
