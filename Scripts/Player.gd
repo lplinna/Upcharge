@@ -1,20 +1,26 @@
 extends CharacterBody2D
 class_name Player
 
+## Movement constants
 @export var move_speed: float = 700/2
 @export var gravity_intensity: float = 300*4
 @export var jump_speed = 2000/8
 @export var floor_y: int = 500
+
+# Fall/return constants
 @export var buffer_space: int = 10
 @export var fall_threshold: float = 100
 
 @onready var PopUp = $PopUp
 
+## Movement variables
 var time_jump_pressed: float = 0
 var old_velx: float = 0
+
+## Game mechanic variables
+var coins: int = 0
 var up_y: float = 0
 var down_y: float = 0
-
 var highest_platform_reached: KinematicCollision2D
 
 func _ready():
@@ -63,5 +69,5 @@ func _physics_process(delta):
 	move_and_slide()
 
 func handle_button():
-	position = highest_platform_reached.get_position()
+	position = highest_platform_reached.get_position() + buffer_space * Vector2.UP
 	PopUp.visible = false

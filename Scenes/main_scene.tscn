@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=10 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_b10hd"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e7d48"]
 [ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/PopUp.tscn" id="3_k3m6n"]
+[ext_resource type="PackedScene" path="res://Scenes/Coin.tscn" id="4_l0prk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmbm4"]
 radius = 18.0
@@ -23,7 +24,7 @@ size = Vector2(147.875, 27)
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(325, 125)
+position = Vector2(516, 538)
 script = ExtResource("1_e7d48")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -115,3 +116,32 @@ position = Vector2(442, 362)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge2/TinyPlatform"]
 shape = SubResource("RectangleShape2D_c2wxe")
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("4_l0prk")]
+position = Vector2(516, 332)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("4_l0prk")]
+position = Vector2(884, 429)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("4_l0prk")]
+position = Vector2(908, 232)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("4_l0prk")]
+position = Vector2(681, 163)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("4_l0prk")]
+position = Vector2(418, 81)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("4_l0prk")]
+position = Vector2(42, 40)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("4_l0prk")]
+position = Vector2(42, -10)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("4_l0prk")]
+position = Vector2(42, -64)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("4_l0prk")]
+position = Vector2(42, -115)

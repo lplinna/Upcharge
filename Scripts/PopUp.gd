@@ -3,7 +3,6 @@ extends Control
 @onready var button = $Panel/VBoxContainer/Button
 
 func _on_timer_timeout():
-	print('timeout')
 	self.visible = false
 
 func init(player_ref: Player):
