@@ -71,8 +71,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 ## Updates the price based on how far the player fell down.
+## TODO: REMOVE MAX IF WE ARE DOING PAY-PER-FALL instead of PAY-FOR-ALL
 func calc_fall_price():
-	fall_price = int((up_y - down_y) / 100)
+	fall_price = max(int((up_y - down_y) / 100), fall_price)
 
 ## Response to the popup button being clicked.
 func handle_button():
