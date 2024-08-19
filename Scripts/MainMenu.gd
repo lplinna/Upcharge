@@ -1,6 +1,6 @@
 extends Control
 
-@onready var main_menu: Node2D = $AspectRatioContainer/ActualMainMenu
+@onready var main_menu = $AspectRatioContainer/ActualMainMenu
 @onready var instructions = $AspectRatioContainer/Instructions
 @onready var credits = $AspectRatioContainer/Credits
 
@@ -9,13 +9,20 @@ func _on_start_pressed():
 
 
 func _on_how_to_pressed():
-	#hide main menu
 	main_menu.visible = false
+	instructions.visible = true
 
+func _on_instructions_return_pressed():
+	instructions.visible = false
+	main_menu.visible = true
 
 func _on_credits_pressed():
-	pass # Replace with function body.
+	main_menu.visible = false
+	credits.visible = true
 
-
+func _on_credits_return_pressed():
+	credits.visible = false
+	main_menu.visible = true
+	
 func _on_exit_pressed():
-	pass # Replace with function body.
+	get_tree().quit()

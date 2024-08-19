@@ -85,10 +85,8 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Instructions"]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
+offset_right = 1000.0
+offset_bottom = 539.0
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Instructions/HBoxContainer"]
@@ -97,18 +95,66 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="TopPadding" type="ReferenceRect" parent="AspectRatioContainer/Instructions/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 75)
+custom_minimum_size = Vector2(2.08165e-12, 250)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Instructions/HBoxContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/Instructions/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 250)
 layout_mode = 2
-size_flags_horizontal = 4
-text = "Jump with buttons"
+bbcode_enabled = true
+text = "[b]Controls[/b]
+[ul]A - Left[/ul]
+[ul]D - Right[/ul]
+[ul]Hold W - Charge Jump[/ul]
+[ul]Release W - Jump[/ul]"
+
+[node name="InstructionsReturn" type="Button" parent="AspectRatioContainer/Instructions/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Return"
 
 [node name="Credits" type="Control" parent="AspectRatioContainer"]
+visible = false
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Credits/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/Credits/HBoxContainer/VBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Credits[/b]
+Team Spider Crab
+Kendrick Taylor  - Team Lead/ Producer
+Jason -Artist
+jamie  - Artist
+Jinhyo - Artist
+Luke Linna  - Programmer
+John -Programmer
+Jordan Levy -Programmer 
+CraftyNinjaSquad -Programmer
+Hazel - Sound Designer"
+
+[node name="CreditsReturn" type="Button" parent="AspectRatioContainer/Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Return"
 
 [connection signal="pressed" from="AspectRatioContainer/ActualMainMenu/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/ActualMainMenu/HBoxContainer/VBoxContainer/HowTo" to="." method="_on_how_to_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/ActualMainMenu/HBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/ActualMainMenu/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Instructions/HBoxContainer/VBoxContainer/InstructionsReturn" to="." method="_on_instructions_return_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Credits/HBoxContainer/VBoxContainer/CreditsReturn" to="." method="_on_credits_return_pressed"]
