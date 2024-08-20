@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dueqflp65rrf7"]
+[gd_scene load_steps=4 format=3 uid="uid://dueqflp65rrf7"]
 
+[ext_resource type="Script" path="res://Scripts/Pipe.gd" id="1_d174b"]
 [ext_resource type="Texture2D" uid="uid://da2u7rom4wva4" path="res://Resources/Pipe2.png" id="1_nyunf"]
 [ext_resource type="Texture2D" uid="uid://ex1gye048p47" path="res://Resources/End.png" id="2_vkp0n"]
 
@@ -13,6 +14,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.385, 0.385)
+script = ExtResource("1_d174b")
 
 [node name="PipeBody" type="TextureRect" parent="."]
 layout_mode = 1
@@ -63,6 +65,22 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="RightSprite" type="TextureRect" parent="PipeBody/LeftEnd2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vkp0n")
+
+[node name="PipeMiddle" type="Control" parent="PipeBody"]
+anchors_preset = 0
+offset_left = -7.92664e-05
+offset_top = 15.2208
+offset_right = 39.9999
+offset_bottom = 55.2208
+
+[node name="RightSprite" type="TextureRect" parent="PipeBody/PipeMiddle"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

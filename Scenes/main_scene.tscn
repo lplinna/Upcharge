@@ -67,8 +67,8 @@ position = Vector2(793, 518)
 [node name="PipeTemplate" parent="Challenge1/TinyPlatform" instance=ExtResource("4_70du2")]
 
 [node name="PipeBody" parent="Challenge1/TinyPlatform/PipeTemplate" index="0"]
-offset_left = -434.0
-offset_right = 423.0
+offset_left = -431.0
+offset_right = 429.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge1/TinyPlatform"]
 shape = SubResource("RectangleShape2D_c2wxe")
