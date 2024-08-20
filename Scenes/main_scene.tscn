@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=12 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_b7r7i"]
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_b10hd"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e7d48"]
 [ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/PopUp.tscn" id="3_k3m6n"]
+[ext_resource type="PackedScene" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Coin.tscn" id="4_l0prk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmbm4"]
@@ -31,7 +32,7 @@ script = ExtResource("1_b7r7i")
 player_ref = NodePath("../Player")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(479, 72)
+position = Vector2(479, 558)
 script = ExtResource("1_e7d48")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -70,11 +71,23 @@ shape = SubResource("RectangleShape2D_t2gvx")
 [node name="TinyPlatform" type="StaticBody2D" parent="Challenge1"]
 position = Vector2(793, 518)
 
+[node name="PipeTemplate" parent="Challenge1/TinyPlatform" instance=ExtResource("4_70du2")]
+
+[node name="PipeBody" parent="Challenge1/TinyPlatform/PipeTemplate" index="0"]
+offset_left = -431.0
+offset_right = 429.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge1/TinyPlatform"]
 shape = SubResource("RectangleShape2D_c2wxe")
 
 [node name="TinyPlatform2" type="StaticBody2D" parent="Challenge1"]
 position = Vector2(417, 440)
+
+[node name="PipeTemplate" parent="Challenge1/TinyPlatform2" instance=ExtResource("4_70du2")]
+
+[node name="PipeBody" parent="Challenge1/TinyPlatform2/PipeTemplate" index="0"]
+offset_left = -434.0
+offset_right = 423.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge1/TinyPlatform2"]
 shape = SubResource("RectangleShape2D_c2wxe")
@@ -82,17 +95,35 @@ shape = SubResource("RectangleShape2D_c2wxe")
 [node name="ReallyTinyPlatform" type="StaticBody2D" parent="Challenge1"]
 position = Vector2(705, 369)
 
+[node name="PipeTemplate" parent="Challenge1/ReallyTinyPlatform" instance=ExtResource("4_70du2")]
+
+[node name="PipeBody" parent="Challenge1/ReallyTinyPlatform/PipeTemplate" index="0"]
+offset_left = -192.0
+offset_right = 184.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge1/ReallyTinyPlatform"]
 shape = SubResource("RectangleShape2D_b824x")
 
 [node name="ReallyTinyPlatform2" type="StaticBody2D" parent="Challenge1"]
 position = Vector2(898, 307)
 
+[node name="PipeTemplate" parent="Challenge1/ReallyTinyPlatform2" instance=ExtResource("4_70du2")]
+
+[node name="PipeBody" parent="Challenge1/ReallyTinyPlatform2/PipeTemplate" index="0"]
+offset_left = -192.0
+offset_right = 182.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge1/ReallyTinyPlatform2"]
 shape = SubResource("RectangleShape2D_b824x")
 
 [node name="ReallyTinyPlatform3" type="StaticBody2D" parent="Challenge1"]
 position = Vector2(679, 239)
+
+[node name="PipeTemplate" parent="Challenge1/ReallyTinyPlatform3" instance=ExtResource("4_70du2")]
+
+[node name="PipeBody" parent="Challenge1/ReallyTinyPlatform3/PipeTemplate" index="0"]
+offset_left = -192.0
+offset_right = 184.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge1/ReallyTinyPlatform3"]
 shape = SubResource("RectangleShape2D_b824x")
@@ -106,11 +137,23 @@ position = Vector2(908, 233)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge2/ReallyTinyPlatform"]
 shape = SubResource("RectangleShape2D_b824x")
 
+[node name="PipeTemplate" parent="Challenge2/ReallyTinyPlatform" instance=ExtResource("4_70du2")]
+
+[node name="PipeBody" parent="Challenge2/ReallyTinyPlatform/PipeTemplate" index="0"]
+offset_left = -192.0
+offset_right = 184.0
+
 [node name="ReallyTinyPlatform2" type="StaticBody2D" parent="Challenge2"]
 position = Vector2(1149, 325)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge2/ReallyTinyPlatform2"]
 shape = SubResource("RectangleShape2D_b824x")
+
+[node name="PipeTemplate" parent="Challenge2/ReallyTinyPlatform2" instance=ExtResource("4_70du2")]
+
+[node name="PipeBody" parent="Challenge2/ReallyTinyPlatform2/PipeTemplate" index="0"]
+offset_left = -192.0
+offset_right = 184.0
 
 [node name="ReallyTinyPlatform3" type="StaticBody2D" parent="Challenge2"]
 position = Vector2(931, 423)
@@ -118,11 +161,23 @@ position = Vector2(931, 423)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge2/ReallyTinyPlatform3"]
 shape = SubResource("RectangleShape2D_b824x")
 
+[node name="PipeTemplate" parent="Challenge2/ReallyTinyPlatform3" instance=ExtResource("4_70du2")]
+
+[node name="PipeBody" parent="Challenge2/ReallyTinyPlatform3/PipeTemplate" index="0"]
+offset_left = -192.0
+offset_right = 184.0
+
 [node name="TinyPlatform" type="StaticBody2D" parent="Challenge2"]
 position = Vector2(442, 362)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge2/TinyPlatform"]
 shape = SubResource("RectangleShape2D_c2wxe")
+
+[node name="PipeTemplate" parent="Challenge2/TinyPlatform" instance=ExtResource("4_70du2")]
+
+[node name="PipeBody" parent="Challenge2/TinyPlatform/PipeTemplate" index="0"]
+offset_left = -439.0
+offset_right = 421.0
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -152,3 +207,13 @@ position = Vector2(42, -64)
 
 [node name="Coin9" parent="Coins" instance=ExtResource("4_l0prk")]
 position = Vector2(42, -115)
+
+[editable path="Challenge1/TinyPlatform/PipeTemplate"]
+[editable path="Challenge1/TinyPlatform2/PipeTemplate"]
+[editable path="Challenge1/ReallyTinyPlatform/PipeTemplate"]
+[editable path="Challenge1/ReallyTinyPlatform2/PipeTemplate"]
+[editable path="Challenge1/ReallyTinyPlatform3/PipeTemplate"]
+[editable path="Challenge2/ReallyTinyPlatform/PipeTemplate"]
+[editable path="Challenge2/ReallyTinyPlatform2/PipeTemplate"]
+[editable path="Challenge2/ReallyTinyPlatform3/PipeTemplate"]
+[editable path="Challenge2/TinyPlatform/PipeTemplate"]
