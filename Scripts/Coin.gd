@@ -1,6 +1,8 @@
 extends RigidBody2D
 class_name Coin
 
+const CoinCounter = preload("res://Scenes/coin_count.tscn")
+
 var claimed: bool = false
 
 func _on_area_2d_body_entered(body):
