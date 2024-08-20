@@ -1,0 +1,160 @@
+[gd_scene load_steps=4 format=3 uid="uid://mo0d0255lwyf"]
+
+[ext_resource type="Texture2D" uid="uid://ctc1wx0nljc4g" path="res://Assets/UI/Title.png" id="1_qg5s5"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_ydpn8"]
+[ext_resource type="Texture2D" uid="uid://cochf1yojpjtp" path="res://Assets/UI/background.png" id="2_wev07"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ydpn8")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 853.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer"]
+z_index = -1
+clip_contents = true
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 2
+texture = ExtResource("2_wev07")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ActualMainMenu" type="Control" parent="AspectRatioContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/ActualMainMenu"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 328.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/ActualMainMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TopPadding" type="ReferenceRect" parent="AspectRatioContainer/ActualMainMenu/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 75)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/ActualMainMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_qg5s5")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="AspectRatioContainer/ActualMainMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="AspectRatioContainer/ActualMainMenu/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start Game"
+
+[node name="HowTo" type="Button" parent="AspectRatioContainer/ActualMainMenu/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "How To Play"
+
+[node name="Credits" type="Button" parent="AspectRatioContainer/ActualMainMenu/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Credits"
+
+[node name="Exit" type="Button" parent="AspectRatioContainer/ActualMainMenu/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Exit"
+
+[node name="Instructions" type="Control" parent="AspectRatioContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Instructions"]
+layout_mode = 1
+offset_right = 1000.0
+offset_bottom = 539.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Instructions/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TopPadding" type="ReferenceRect" parent="AspectRatioContainer/Instructions/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 250)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/Instructions/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 250)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Controls[/b]
+[ul]A - Left[/ul]
+[ul]D - Right[/ul]
+[ul]Hold W - Charge Jump[/ul]
+[ul]Release W - Jump[/ul]"
+
+[node name="InstructionsReturn" type="Button" parent="AspectRatioContainer/Instructions/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Return"
+
+[node name="Credits" type="Control" parent="AspectRatioContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Credits/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/Credits/HBoxContainer/VBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Credits[/b]
+Team Spider Crab
+Kendrick Taylor  - Team Lead/ Producer
+Jason -Artist
+jamie  - Artist
+Jinhyo - Artist
+Luke Linna  - Programmer
+John -Programmer
+Jordan Levy -Programmer 
+CraftyNinjaSquad -Programmer
+Hazel - Sound Designer"
+
+[node name="CreditsReturn" type="Button" parent="AspectRatioContainer/Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Return"
+
+[connection signal="pressed" from="AspectRatioContainer/ActualMainMenu/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/ActualMainMenu/HBoxContainer/VBoxContainer/HowTo" to="." method="_on_how_to_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/ActualMainMenu/HBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/ActualMainMenu/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Instructions/HBoxContainer/VBoxContainer/InstructionsReturn" to="." method="_on_instructions_return_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Credits/HBoxContainer/VBoxContainer/CreditsReturn" to="." method="_on_credits_return_pressed"]

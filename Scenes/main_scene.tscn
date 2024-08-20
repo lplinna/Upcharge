@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_b10hd"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e7d48"]
 [ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/PopUp.tscn" id="3_k3m6n"]
-[ext_resource type="PackedScene" path="res://Scenes/Coin.tscn" id="4_l0prk"]
+[ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Coin.tscn" id="4_l0prk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmbm4"]
 radius = 18.0
