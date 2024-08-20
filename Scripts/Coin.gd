@@ -19,7 +19,7 @@ func jump_collect(player: Player):
 	$CollectionTimer.start()
 	await $CollectionTimer.timeout
 	player.coins += 1
-	print("COIN GET!")
-	print(player.coins)
+	#print("COIN GET!")
+	#print(player.coins)
 	queue_free()
 	
