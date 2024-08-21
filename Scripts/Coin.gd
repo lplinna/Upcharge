@@ -1,8 +1,6 @@
 extends RigidBody2D
 class_name Coin
 
-<<<<<<< Updated upstream
-=======
 const CoinCounter = preload("res://Scenes/coin_count.tscn")
 
 ## using an audio placeholder until the actual sound is added.
@@ -10,7 +8,6 @@ const CoinCounter = preload("res://Scenes/coin_count.tscn")
 const CoinCollectSound = preload("res://Resources/coin_collect.wav")
 @onready var collectSound = $CollectSound
 
->>>>>>> Stashed changes
 var claimed: bool = false
 
 
