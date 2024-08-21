@@ -4,9 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_b10hd"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e7d48"]
 [ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/PopUp.tscn" id="3_k3m6n"]
-[ext_resource type="PackedScene" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
+[ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Coin.tscn" id="4_l0prk"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" path="res://Scenes/WorldBlock.tscn" id="5_2x6fp"]
+=======
+[ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/WorldBlock.tscn" id="5_2x6fp"]
+>>>>>>> 3e62a29cca1e31659a9c7a6fd4d3350b1c84e371
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmbm4"]
 radius = 18.0
@@ -222,12 +226,21 @@ rotation = -1.57079
 
 [node name="WorldBlock" parent="Boundaries/Wall" instance=ExtResource("5_2x6fp")]
 offset_left = -1524.0
+<<<<<<< HEAD
 offset_top = -51.0
 offset_right = 1537.0
 offset_bottom = 986.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall"]
 position = Vector2(479, -7.00296)
+=======
+offset_top = -27.0
+offset_right = 1537.0
+offset_bottom = 1010.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall"]
+position = Vector2(478.125, 14.9996)
+>>>>>>> 3e62a29cca1e31659a9c7a6fd4d3350b1c84e371
 shape = SubResource("RectangleShape2D_klmyk")
 
 [node name="Wall2" type="StaticBody2D" parent="Boundaries"]
@@ -263,6 +276,7 @@ rotation = -0.102631
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D2"]
 position = Vector2(-46.006, 3.3732)
 rotation = -0.073189
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_t2gvx")
 
 [editable path="Challenge1/TinyPlatform/PipeTemplate"]
