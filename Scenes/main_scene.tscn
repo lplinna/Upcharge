@@ -1,15 +1,174 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=25 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_b7r7i"]
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_b10hd"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e7d48"]
 [ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/PopUp.tscn" id="3_k3m6n"]
-[ext_resource type="PackedScene" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
+[ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Coin.tscn" id="4_l0prk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmbm4"]
 radius = 18.0
 height = 48.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt1q1"]
+atlas = ExtResource("1_b10hd")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mljon"]
+atlas = ExtResource("1_b10hd")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0ckw"]
+atlas = ExtResource("1_b10hd")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wxr8"]
+atlas = ExtResource("1_b10hd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je6ce"]
+atlas = ExtResource("1_b10hd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h854p"]
+atlas = ExtResource("1_b10hd")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh6y5"]
+atlas = ExtResource("1_b10hd")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4ttr"]
+atlas = ExtResource("1_b10hd")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0nxh"]
+atlas = ExtResource("1_b10hd")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smriw"]
+atlas = ExtResource("1_b10hd")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvohh"]
+atlas = ExtResource("1_b10hd")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q5pep"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt1q1")
+}],
+"loop": true,
+"name": &"Airborn",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mljon")
+}],
+"loop": true,
+"name": &"Crouching",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0ckw")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wxr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je6ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h854p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh6y5")
+}],
+"loop": true,
+"name": &"WalkLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4ttr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0nxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smriw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvohh")
+}],
+"loop": true,
+"name": &"WalkRight",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_6eqjd"]
+script/source = "extends AnimatedSprite2D
+class_name PlayerAnimator
+
+enum animation_state {
+	WALK_RIGHT,
+	WALK_LEFT,
+	AIRBORN,
+	CROUCHING,
+	TROUBLED,
+	IDLE
+}
+
+
+var changelock: bool = false
+
+var state: animation_state = animation_state.IDLE:
+	set(new_state):
+		if state != new_state and not changelock:
+			print(new_state)
+			state = new_state
+			state_response()
+
+
+
+func update(player: Player):
+	var velx = player.velocity.x
+	if velx == 0:
+		state = animation_state.IDLE
+	if velx > 0:
+		state = animation_state.WALK_RIGHT
+	if velx < 0:
+		state = animation_state.WALK_LEFT
+	if player.crouching:
+		state = animation_state.CROUCHING
+	if player.velocity.y < 0:
+		state = animation_state.AIRBORN
+
+
+
+func state_response():
+	match state:
+		animation_state.IDLE:
+			self.play(\"Idle\")
+		animation_state.WALK_RIGHT:
+			self.play(\"WalkRight\")
+		animation_state.WALK_LEFT:
+			self.play(\"WalkLeft\")
+		animation_state.AIRBORN:
+			self.play(\"Airborn\")
+		animation_state.CROUCHING:
+			self.play(\"Crouching\")
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
 size = Vector2(1153.5, 58)
@@ -38,11 +197,6 @@ script = ExtResource("1_e7d48")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CapsuleShape2D_rmbm4")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(-1.81899e-12, -2.38419e-07)
-scale = Vector2(0.242188, 0.242188)
-texture = ExtResource("1_b10hd")
-
 [node name="PopUp" parent="Player" instance=ExtResource("3_k3m6n")]
 visible = false
 offset_left = -40.0
@@ -50,9 +204,15 @@ offset_top = -88.0
 offset_right = -40.0
 offset_bottom = -88.0
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_q5pep")
+animation = &"Crouching"
+script = SubResource("GDScript_6eqjd")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="BottomGround" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(576, 615)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomGround"]
