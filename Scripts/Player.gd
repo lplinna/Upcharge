@@ -16,6 +16,7 @@ class_name Player
 @onready var playerSounds = $PlayerSounds
 
 const PlayerJumpSound = preload("res://Resources/player_jump.wav")
+const PlayerWalkSound = preload("res://Resources/Player_step.wav")
 
 ## Movement variables
 var time_jump_pressed: float = 0
@@ -101,6 +102,12 @@ func _physics_process(delta):
 		velocity.x = move_dir * move_speed
 		if velocity.x != 0:
 			old_velx = velocity.x
+			
+		#while Input.is_action_pressed("move_left"): ##broken player walk sound (crashes game)
+			#playerSounds.stream = PlayerWalkSound
+			#playerSounds.pitch_scale = randf_range(0.6, 1.2)
+			#playerSounds.play()
+		
 	else:
 		velocity.x  = old_velx
 	
