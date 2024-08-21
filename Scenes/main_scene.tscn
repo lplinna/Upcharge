@@ -118,7 +118,6 @@ animations = [{
 
 [sub_resource type="GDScript" id="GDScript_6eqjd"]
 script/source = "extends AnimatedSprite2D
-class_name PlayerAnimator
 
 enum animation_state {
 	WALK_RIGHT,
