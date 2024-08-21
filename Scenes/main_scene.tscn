@@ -1,17 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=12 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_b7r7i"]
-[ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_b10hd"]
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e7d48"]
-[ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/PopUp.tscn" id="3_k3m6n"]
+[ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scripts/Player.tscn" id="2_i8imw"]
 [ext_resource type="PackedScene" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Coin.tscn" id="4_l0prk"]
 [ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/WorldBlock.tscn" id="5_2x6fp"]
-[ext_resource type="PackedScene" uid="uid://bf5na3qssy1ux" path="res://Scenes/coin_count.tscn" id="5_lvqi5"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmbm4"]
-radius = 18.0
-height = 48.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
+size = Vector2(2109.75, 87.9988)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2gvx"]
+size = Vector2(375.322, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2wxe"]
 size = Vector2(333.75, 27)
@@ -20,16 +19,10 @@ size = Vector2(333.75, 27)
 size = Vector2(147.875, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
-size = Vector2(2109.75, 69.9994)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
-size = Vector2(2109.75, 87.9988)
+size = Vector2(2109.75, 67.9994)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atgsu"]
 size = Vector2(2440, 86.0011)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2gvx"]
-size = Vector2(375.322, 58)
 
 [node name="Node2D" type="Node2D"]
 
@@ -39,30 +32,25 @@ position_smoothing_enabled = true
 script = ExtResource("1_b7r7i")
 player_ref = NodePath("../Player")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(479, 558)
-script = ExtResource("1_e7d48")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CapsuleShape2D_rmbm4")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(-1.81899e-12, -2.38419e-07)
-scale = Vector2(0.242188, 0.242188)
-texture = ExtResource("1_b10hd")
-
-[node name="PopUp" parent="Player" instance=ExtResource("3_k3m6n")]
-offset_left = -40.0
-offset_top = -103.0
-offset_right = -40.0
-offset_bottom = -103.0
-
-[node name="CoinCount" parent="Player" instance=ExtResource("5_lvqi5")]
-position = Vector2(-16, -33)
-
-[node name="PlayerSounds" type="AudioStreamPlayer" parent="Player"]
+[node name="Player" parent="." instance=ExtResource("2_i8imw")]
+position = Vector2(418, 522)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="BottomGround" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(576, 615)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomGround"]
+shape = SubResource("RectangleShape2D_klmyk")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(132, 548)
+rotation = 0.560307
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+rotation = -0.073189
+shape = SubResource("RectangleShape2D_t2gvx")
 
 [node name="Challenge1" type="Node2D" parent="."]
 
@@ -213,12 +201,11 @@ position = Vector2(576, 615)
 
 [node name="WorldBlock" parent="Boundaries/BottomGround" instance=ExtResource("5_2x6fp")]
 offset_left = -1517.0
-offset_top = -25.0
+offset_top = -26.0
 offset_right = 1544.0
-offset_bottom = 1012.0
+offset_bottom = 1011.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomGround"]
-position = Vector2(0, 8.99969)
 shape = SubResource("RectangleShape2D_5pbvl")
 
 [node name="Wall" type="StaticBody2D" parent="Boundaries"]
