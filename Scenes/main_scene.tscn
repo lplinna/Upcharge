@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Coin.tscn" id="4_l0prk"]
 [ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/WorldBlock.tscn" id="5_2x6fp"]
 [ext_resource type="PackedScene" uid="uid://bf5na3qssy1ux" path="res://Scenes/coin_count.tscn" id="5_lvqi5"]
+[ext_resource type="Script" path="res://Scripts/PlayerAnimator.gd" id="5_rceqx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmbm4"]
 radius = 18.0
@@ -118,62 +119,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="GDScript" id="GDScript_6eqjd"]
-script/source = "extends AnimatedSprite2D
-
-enum animation_state {
-	WALK_RIGHT,
-	WALK_LEFT,
-	AIRBORN,
-	CROUCHING,
-	TROUBLED,
-	IDLE
-}
-
-## Current animation state of the Player.
-var state: animation_state = animation_state.IDLE:
-	set(new_state):
-		if state != new_state:
-			print(new_state)
-			state = new_state
-			state_response()
-
-## Main \"animation tree\" for the player.
-func update(player: Player):
-	var velx = player.velocity.x
-	if player.crouching:
-		if velx == 0:
-			state = animation_state.CROUCHING 
-		if velx > 0:
-			state = animation_state.WALK_RIGHT
-		if velx < 0:
-			state = animation_state.WALK_LEFT
-	else:
-		if player.velocity.y < 0:
-			state = animation_state.AIRBORN
-		else:
-			if velx == 0:
-				state = animation_state.IDLE
-			if velx > 0:
-				state = animation_state.WALK_RIGHT
-			if velx < 0:
-				state = animation_state.WALK_LEFT
-
-## Response for changing the animation state.
-func state_response():
-	match state:
-		animation_state.IDLE:
-			self.play(\"Idle\")
-		animation_state.WALK_RIGHT:
-			self.play(\"WalkRight\")
-		animation_state.WALK_LEFT:
-			self.play(\"WalkLeft\")
-		animation_state.AIRBORN:
-			self.play(\"Airborn\")
-		animation_state.CROUCHING:
-			self.play(\"Crouching\")
-"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
 size = Vector2(2109.75, 87.9988)
 
@@ -221,7 +166,7 @@ position = Vector2(-16, -33)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_q5pep")
 animation = &"Airborn"
-script = SubResource("GDScript_6eqjd")
+script = ExtResource("5_rceqx")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
