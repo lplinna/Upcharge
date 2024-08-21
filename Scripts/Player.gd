@@ -12,6 +12,7 @@ class_name Player
 @export var fall_threshold: float = 100
 
 @onready var PopUp = $PopUp
+@onready var CoinCount = $CoinCount
 
 ## Movement variables
 var time_jump_pressed: float = 0
@@ -27,6 +28,7 @@ var first_fall: bool = true
 
 func _ready():
 	PopUp.init(self)
+	CoinCount.init(self)
 
 func _physics_process(delta):
 	velocity.y += gravity_intensity * delta
