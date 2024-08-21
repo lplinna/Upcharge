@@ -14,9 +14,14 @@ class_name Player
 @onready var PopUp = $PopUp
 @onready var CoinCount = $CoinCount
 @onready var playerSounds = $PlayerSounds
+@onready var animations = $AnimatedSprite2D
 
 const PlayerJumpSound = preload("res://Resources/player_jump.wav")
+<<<<<<< Updated upstream
 const PlayerWalkSound = preload("res://Resources/Player_step.wav")
+=======
+const PlayerWalkSound = preload("res://Resources/Player walk.wav")
+>>>>>>> Stashed changes
 
 ## Movement variables
 var time_jump_pressed: float = 0
@@ -74,11 +79,19 @@ func _physics_process(delta):
 		if velocity.x != 0:
 			old_velx = velocity.x
 			
+<<<<<<< Updated upstream
 		#while Input.is_action_pressed("move_left"): ##broken player walk sound (crashes game)
 			#playerSounds.stream = PlayerWalkSound
 			#playerSounds.pitch_scale = randf_range(0.6, 1.2)
 			#playerSounds.play()
 		
+=======
+		if animations.animation_state.WALK_LEFT || animations.animation_state.WALK_RIGHT:
+			if animations.frame == 3 || animations.frame == 1: ##set to the 2nd and 4th frames because if set to the first frame it overrides the jump sound.
+				playerSounds.stream = PlayerWalkSound          ##Would perfer if set to first frame without overriding jump.
+				playerSounds.pitch_scale = randf_range(0.6, 1.3)
+				playerSounds.play()
+>>>>>>> Stashed changes
 	else:
 		velocity.x  = old_velx
 	
