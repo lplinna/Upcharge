@@ -26,6 +26,7 @@ var coins: int = 0
 var fall_price: int = 0
 var up_y: float = 0
 var down_y: float = 0
+var crouching:bool = false
 var highest_platform_reached: KinematicCollision2D
 var first_fall: bool = true
 
@@ -62,11 +63,15 @@ func _physics_process(delta):
 			playerSounds.stream = PlayerJumpSound
 			playerSounds.pitch_scale = (3.0 - jump_factor)
 			playerSounds.play()
-			#print(jump_factor)
+			crouching = false
 			velocity.y = -jump_speed * jump_factor
 			first_fall = false
 		elif Input.is_action_just_pressed("move_up"):
+			crouching = true
 			time_jump_pressed = Time.get_ticks_msec()
+
+			
+		$AnimatedSprite2D.update(self)
 	
 		var move_dir = Input.get_axis("move_left","move_right")
 		velocity.x = move_dir * move_speed
@@ -74,6 +79,7 @@ func _physics_process(delta):
 			old_velx = velocity.x
 	else:
 		velocity.x  = old_velx
+	
 	
 	if is_on_wall():
 		old_velx = 0
