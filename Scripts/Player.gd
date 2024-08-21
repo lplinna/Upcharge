@@ -13,6 +13,9 @@ class_name Player
 
 @onready var PopUp = $PopUp
 @onready var CoinCount = $CoinCount
+@onready var playerSounds = $PlayerSounds
+
+const PlayerJumpSound = preload("res://Resources/player_jump.wav")
 
 ## Movement variables
 var time_jump_pressed: float = 0
@@ -56,6 +59,9 @@ func _physics_process(delta):
 		if Input.is_action_just_released("move_up"):
 			var jump_time_elapsed = Time.get_ticks_msec() - time_jump_pressed
 			var jump_factor = clamp(jump_time_elapsed/250,1,2)
+			playerSounds.stream = PlayerJumpSound
+			playerSounds.pitch_scale = (3.0 - jump_factor)
+			playerSounds.play()
 			#print(jump_factor)
 			velocity.y = -jump_speed * jump_factor
 			first_fall = false

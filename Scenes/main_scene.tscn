@@ -53,12 +53,14 @@ texture = ExtResource("1_b10hd")
 
 [node name="PopUp" parent="Player" instance=ExtResource("3_k3m6n")]
 offset_left = -40.0
-offset_top = -109.0
+offset_top = -103.0
 offset_right = -40.0
-offset_bottom = -109.0
+offset_bottom = -103.0
 
 [node name="CoinCount" parent="Player" instance=ExtResource("5_lvqi5")]
-position = Vector2(-15, -37)
+position = Vector2(-16, -33)
+
+[node name="PlayerSounds" type="AudioStreamPlayer" parent="Player"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
