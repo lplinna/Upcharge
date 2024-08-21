@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_b10hd"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e7d48"]
 [ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/PopUp.tscn" id="3_k3m6n"]
-[ext_resource type="PackedScene" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
+[ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Coin.tscn" id="4_l0prk"]
 [ext_resource type="PackedScene" uid="uid://dm8x68h7g328x" path="res://Scenes/coin_count.tscn" id="5_lvqi5"]
 
@@ -53,6 +53,8 @@ offset_bottom = -103.0
 
 [node name="CoinCount" parent="Player" instance=ExtResource("5_lvqi5")]
 position = Vector2(-16, -33)
+
+[node name="PlayerSounds" type="AudioStreamPlayer" parent="Player"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
