@@ -1,27 +1,34 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=15 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_b7r7i"]
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_b10hd"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e7d48"]
 [ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/PopUp.tscn" id="3_k3m6n"]
-[ext_resource type="PackedScene" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
+[ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Coin.tscn" id="4_l0prk"]
+[ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/WorldBlock.tscn" id="5_2x6fp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmbm4"]
 radius = 18.0
 height = 48.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
-size = Vector2(1153.5, 58)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2gvx"]
-size = Vector2(283.063, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2wxe"]
 size = Vector2(333.75, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b824x"]
 size = Vector2(147.875, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
+size = Vector2(2109.75, 69.9994)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
+size = Vector2(2109.75, 87.9988)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atgsu"]
+size = Vector2(2440, 86.0011)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2gvx"]
+size = Vector2(375.322, 58)
 
 [node name="Node2D" type="Node2D"]
 
@@ -51,20 +58,6 @@ offset_right = -40.0
 offset_bottom = -88.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="BottomGround" type="StaticBody2D" parent="."]
-position = Vector2(576, 615)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomGround"]
-shape = SubResource("RectangleShape2D_klmyk")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(132, 548)
-rotation = 0.560307
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-rotation = -0.073189
-shape = SubResource("RectangleShape2D_t2gvx")
 
 [node name="Challenge1" type="Node2D" parent="."]
 
@@ -207,6 +200,71 @@ position = Vector2(42, -64)
 
 [node name="Coin9" parent="Coins" instance=ExtResource("4_l0prk")]
 position = Vector2(42, -115)
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="BottomGround" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(576, 615)
+
+[node name="WorldBlock" parent="Boundaries/BottomGround" instance=ExtResource("5_2x6fp")]
+offset_left = -1517.0
+offset_top = -25.0
+offset_right = 1544.0
+offset_bottom = 1012.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomGround"]
+position = Vector2(0, 8.99969)
+shape = SubResource("RectangleShape2D_5pbvl")
+
+[node name="Wall" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(1024, 69)
+rotation = -1.57079
+
+[node name="WorldBlock" parent="Boundaries/Wall" instance=ExtResource("5_2x6fp")]
+offset_left = -1524.0
+offset_top = -27.0
+offset_right = 1537.0
+offset_bottom = 1010.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall"]
+position = Vector2(478.125, 14.9996)
+shape = SubResource("RectangleShape2D_klmyk")
+
+[node name="Wall2" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-44, -599)
+rotation = 1.57079
+
+[node name="WorldBlock" parent="Boundaries/Wall2" instance=ExtResource("5_2x6fp")]
+offset_left = -1524.0
+offset_top = -27.0
+offset_right = 1537.0
+offset_bottom = 1010.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall2"]
+position = Vector2(313, 15.9985)
+shape = SubResource("RectangleShape2D_atgsu")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(132, 548)
+rotation = 0.560307
+
+[node name="WorldBlock" parent="Boundaries/StaticBody2D2" instance=ExtResource("5_2x6fp")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -914.882
+offset_top = 63.9963
+offset_right = 994.118
+offset_bottom = 881.996
+grow_vertical = 1
+rotation = -0.102631
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D2"]
+position = Vector2(-46.006, 3.3732)
+rotation = -0.073189
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_t2gvx")
 
 [editable path="Challenge1/TinyPlatform/PipeTemplate"]
 [editable path="Challenge1/TinyPlatform2/PipeTemplate"]
