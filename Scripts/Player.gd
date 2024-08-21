@@ -23,6 +23,7 @@ var fall_price: int = 0
 var up_y: float = 0
 var down_y: float = 0
 var highest_platform_reached: KinematicCollision2D
+var first_fall: bool = true
 
 func _ready():
 	PopUp.init(self)
@@ -43,7 +44,7 @@ func _physics_process(delta):
 			if highest_platform_reached == null or collision.get_position().y < highest_platform_reached.get_position().y:
 				highest_platform_reached = collision
 				
-		if !PopUp.visible and fall_distance > fall_threshold :
+		if !PopUp.visible and fall_distance > fall_threshold and not first_fall:
 			calc_fall_price()
 			PopUp.display(self)
 			var timer = PopUp.get_node("Timer") as Timer
@@ -55,6 +56,7 @@ func _physics_process(delta):
 			var jump_factor = clamp(jump_time_elapsed/250,1,2)
 			#print(jump_factor)
 			velocity.y = -jump_speed * jump_factor
+			first_fall = false
 		elif Input.is_action_just_pressed("move_up"):
 			time_jump_pressed = Time.get_ticks_msec()
 	
