@@ -129,19 +129,34 @@ enum animation_state {
 	IDLE
 }
 
-
-var changelock: bool = false
-
 var state: animation_state = animation_state.IDLE:
 	set(new_state):
-		if state != new_state and not changelock:
+		if state != new_state:
 			print(new_state)
 			state = new_state
 			state_response()
 
-
-
 func update(player: Player):
+	var velx = player.velocity.x
+	if player.crouching:
+		if velx == 0:
+			state = animation_state.CROUCHING 
+		if velx > 0:
+			state = animation_state.WALK_RIGHT
+		if velx < 0:
+			state = animation_state.WALK_LEFT
+	else:
+		if player.velocity.y < 0:
+			state = animation_state.AIRBORN
+		else:
+			if velx == 0:
+				state = animation_state.IDLE
+			if velx > 0:
+				state = animation_state.WALK_RIGHT
+			if velx < 0:
+				state = animation_state.WALK_LEFT
+
+func zuupdate(player: Player):
 	var velx = player.velocity.x
 	if velx == 0:
 		state = animation_state.IDLE
@@ -153,8 +168,6 @@ func update(player: Player):
 		state = animation_state.CROUCHING
 	if player.velocity.y < 0:
 		state = animation_state.AIRBORN
-
-
 
 func state_response():
 	match state:
@@ -206,7 +219,7 @@ offset_bottom = -88.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_q5pep")
-animation = &"Crouching"
+animation = &"Airborn"
 script = SubResource("GDScript_6eqjd")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
