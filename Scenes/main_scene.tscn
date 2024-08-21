@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/PopUp.tscn" id="3_k3m6n"]
 [ext_resource type="PackedScene" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Coin.tscn" id="4_l0prk"]
-[ext_resource type="PackedScene" path="res://Scenes/WorldBlock.tscn" id="5_2x6fp"]
-[ext_resource type="PackedScene" path="res://Scenes/coin_count.tscn" id="5_lvqi5"]
+[ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/WorldBlock.tscn" id="5_2x6fp"]
+[ext_resource type="PackedScene" uid="uid://bf5na3qssy1ux" path="res://Scenes/coin_count.tscn" id="5_lvqi5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmbm4"]
 radius = 18.0

@@ -9,4 +9,3 @@ func _process(delta):
 	var bottom_screen =  self.position.y + half_screen
 	if player_ref.position.y < top_screen or player_ref.position.y > bottom_screen:
 		position.y = player_ref.position.y - (half_screen * 0.7)
-
