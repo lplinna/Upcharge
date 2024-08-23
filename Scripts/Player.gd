@@ -3,6 +3,7 @@ class_name Player
 
 ## Movement constants
 @export var move_speed: float = 700/2
+@export var slide_speed: float = 1200
 @export var gravity_intensity: float = 300*4
 @export var jump_speed = 2000/8
 
@@ -26,6 +27,7 @@ var fall_price: int = 0
 var up_y: float = 0
 var down_y: float = 0
 var crouching:bool = false
+var sliding: bool = false
 var highest_platform_reached: KinematicCollision2D
 var first_fall: bool = true
 
@@ -33,7 +35,27 @@ func _ready():
 	PopUp.init(self)
 	CoinCount.init(self)
 
+
+func slide_down_slope(delta):
+	print("SLIDING")
+	velocity.y += gravity_intensity * delta
+	if is_on_floor():
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			var way = collision.get_normal()
+			velocity.x = way.x * slide_speed
+			
+			if rad_to_deg(collision.get_angle()) < 15:
+				sliding = false
+	
+	
+	move_and_slide()
+
+
 func _physics_process(delta):
+	if sliding:
+		slide_down_slope(delta)
+		return
 	velocity.y += gravity_intensity * delta
 
 	if (velocity.y < 0):
@@ -48,6 +70,10 @@ func _physics_process(delta):
 			var collision = get_slide_collision(i)
 			if highest_platform_reached == null or collision.get_position().y < highest_platform_reached.get_position().y:
 				highest_platform_reached = collision
+			if rad_to_deg(collision.get_angle()) > 15:
+				sliding = true
+			
+				
 				
 		if !PopUp.visible and fall_distance > fall_threshold and not first_fall:
 			calc_fall_price()
@@ -82,6 +108,8 @@ func _physics_process(delta):
 	
 	if is_on_wall():
 		old_velx = 0
+		
+	
 		
 	move_and_slide()
 
