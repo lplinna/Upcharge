@@ -70,7 +70,8 @@ func _physics_process(delta):
 			var collision = get_slide_collision(i)
 			if highest_platform_reached == null or collision.get_position().y < highest_platform_reached.get_position().y:
 				highest_platform_reached = collision
-			if rad_to_deg(collision.get_angle()) > 15:
+			var slide_angle = rad_to_deg(collision.get_angle())
+			if slide_angle > 15 and slide_angle < 90:
 				sliding = true
 			
 				
