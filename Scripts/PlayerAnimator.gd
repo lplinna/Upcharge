@@ -20,6 +20,9 @@ var state: animation_state = animation_state.IDLE:
 ## Main "animation tree" for the player.
 func update(player: Player):
 	var velx = player.velocity.x
+	if player.sliding:
+		state = animation_state.AIRBORN
+		return
 	if player.crouching:
 		if velx == 0:
 			state = animation_state.CROUCHING 

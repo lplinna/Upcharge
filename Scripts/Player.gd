@@ -37,13 +37,16 @@ func _ready():
 
 
 func slide_down_slope(delta):
-	print("SLIDING")
+	#print("SLIDING")
 	velocity.y += gravity_intensity * delta
+	#velocity.x = old_velx
 	if is_on_floor():
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
-			var way = collision.get_normal()
-			velocity.x = way.x * slide_speed
+			var way = collision.get_normal().bounce(Vector2.DOWN)
+			print(way.y)
+			velocity.x  = way.x * slide_speed
+			velocity.y  = way.y * slide_speed
 			
 			if rad_to_deg(collision.get_angle()) < 15:
 				sliding = false
