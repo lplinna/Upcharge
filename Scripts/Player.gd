@@ -2,10 +2,10 @@ extends CharacterBody2D
 class_name Player
 
 ## Movement constants
-@export var move_speed: float = 700/2
-@export var slide_speed: float = 1200* 0.8
-@export var gravity_intensity: float = 300*4
-@export var jump_speed = 2000/8
+@export var move_speed: float = 350
+@export var slide_speed: float = 960
+@export var gravity_intensity: float = 1200
+@export var jump_speed = 250
 
 # Fall/return constants
 @export var buffer_space: int = 10
