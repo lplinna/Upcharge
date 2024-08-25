@@ -2,10 +2,15 @@
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_b7r7i"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_b10hd"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e7d48"]
 [ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/PopUp.tscn" id="3_k3m6n"]
 [ext_resource type="PackedScene" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
+=======
+[ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player.tscn" id="2_i8imw"]
+[ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
+>>>>>>> Stashed changes
 =======
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player.tscn" id="2_i8imw"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
