@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6pcguganbgmg"
-path="res://.godot/imported/spritesheetIdle-expor2t.png-c2f459ce52321596f9c96c57f9c65004.ctex"
+path="res://.godot/imported/IdleSheet.png-0e949dc297f972cdaa8fd8cb12f22eb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Player/FirstWalkCycle/spritesheetIdle-expor2t.png"
-dest_files=["res://.godot/imported/spritesheetIdle-expor2t.png-c2f459ce52321596f9c96c57f9c65004.ctex"]
+source_file="res://Resources/Player/FirstWalkCycle/IdleSheet.png"
+dest_files=["res://.godot/imported/IdleSheet.png-0e949dc297f972cdaa8fd8cb12f22eb5.ctex"]
 
 [params]
 

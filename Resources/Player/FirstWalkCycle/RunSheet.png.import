@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdxelnw6xsu1q"
-path="res://.godot/imported/spritesheetRun2.png-9a9313f72171c819ac6cae43c4c2dcf0.ctex"
+path="res://.godot/imported/RunSheet.png-1b705ce861227124b556a544b0a06e03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Player/FirstWalkCycle/spritesheetRun2.png"
-dest_files=["res://.godot/imported/spritesheetRun2.png-9a9313f72171c819ac6cae43c4c2dcf0.ctex"]
+source_file="res://Resources/Player/FirstWalkCycle/RunSheet.png"
+dest_files=["res://.godot/imported/RunSheet.png-1b705ce861227124b556a544b0a06e03.ctex"]
 
 [params]
 

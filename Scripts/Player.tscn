@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/PopUp.tscn" id="2_n2dd2"]
 [ext_resource type="PackedScene" uid="uid://bf5na3qssy1ux" path="res://Scenes/coin_count.tscn" id="3_e7qy3"]
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="4_8v0cl"]
-[ext_resource type="Texture2D" uid="uid://b6pcguganbgmg" path="res://Resources/Player/FirstWalkCycle/spritesheetIdle-expor2t.png" id="5_t4maw"]
+[ext_resource type="Texture2D" uid="uid://b6pcguganbgmg" path="res://Resources/Player/FirstWalkCycle/IdleSheet.png" id="5_t4maw"]
 [ext_resource type="Script" path="res://Scripts/PlayerAnimator.gd" id="5_xoc6i"]
-[ext_resource type="Texture2D" uid="uid://cdxelnw6xsu1q" path="res://Resources/Player/FirstWalkCycle/spritesheetRun2.png" id="6_2vrxg"]
+[ext_resource type="Texture2D" uid="uid://cdxelnw6xsu1q" path="res://Resources/Player/FirstWalkCycle/RunSheet.png" id="6_2vrxg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmbm4"]
 radius = 17.0
