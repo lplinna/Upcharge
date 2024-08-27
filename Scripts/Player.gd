@@ -15,6 +15,7 @@ class_name Player
 @onready var CoinCount = $CoinCount
 #@onready var playerSounds = $PlayerSounds
 @onready var animator = $AnimatedSprite2D
+@onready var timer = $Timer
 
 #const PlayerJumpSound = preload("res://Resources/Sounds/player_jump.wav")
 #const PlayerWalkSound = preload("res://Resources/Sounds/Player_step.wav")
@@ -32,6 +33,7 @@ var crouching:bool = false
 var sliding: bool = false
 var highest_platform_reached: KinematicCollision2D
 var first_fall: bool = true
+var step_sound = true
 
 func _ready():
 	PopUp.init(self)
@@ -102,11 +104,14 @@ func _physics_process(delta):
 	
 		var move_dir = Input.get_axis("move_left","move_right")
 		if move_dir != 0:
-			if animator.frame == 1 || animator.frame == 3:
+			if (animator.frame == 1 || animator.frame == 3) and step_sound:
+				
 				#playerSounds.stream = PlayerWalkSound
 				#playerSounds.pitch_scale = randf_range(1.1, 1.5)
 				#playerSounds.play()
 				SoundManager.PlayerWalk()
+				timer.start()
+				step_sound = false
 		
 		velocity.x = move_dir * move_speed
 		if velocity.x != 0:
@@ -133,3 +138,7 @@ func handle_button():
 		position = highest_platform_reached.get_position() + buffer_space * Vector2.UP
 		PopUp.visible = false
 		coins -= fall_price
+
+
+func _on_timer_timeout():
+	step_sound = true
