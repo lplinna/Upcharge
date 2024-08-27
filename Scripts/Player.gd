@@ -13,11 +13,11 @@ class_name Player
 
 @onready var PopUp = $PopUp
 @onready var CoinCount = $CoinCount
-@onready var playerSounds = $PlayerSounds
+#@onready var playerSounds = $PlayerSounds
 @onready var animator = $AnimatedSprite2D
 
-const PlayerJumpSound = preload("res://Resources/player_jump.wav")
-const PlayerWalkSound = preload("res://Resources/Player_step.wav")
+#const PlayerJumpSound = preload("res://Resources/Sounds/player_jump.wav")
+#const PlayerWalkSound = preload("res://Resources/Sounds/Player_step.wav")
 
 ## Movement variables
 var time_jump_pressed: float = 0
@@ -86,9 +86,10 @@ func _physics_process(delta):
 		if Input.is_action_just_released("move_up"):
 			var jump_time_elapsed = Time.get_ticks_msec() - time_jump_pressed
 			var jump_factor = clamp(jump_time_elapsed/250,1,2)
-			playerSounds.stream = PlayerJumpSound
-			playerSounds.pitch_scale = (3.0 - jump_factor)
-			playerSounds.play()
+			#playerSounds.stream = PlayerJumpSound
+			#playerSounds.pitch_scale = (3.0 - jump_factor)
+			#playerSounds.play()
+			SoundManager.PlayerJump(jump_factor)
 			crouching = false
 			velocity.y = -jump_speed * jump_factor
 			first_fall = false
@@ -102,9 +103,10 @@ func _physics_process(delta):
 		var move_dir = Input.get_axis("move_left","move_right")
 		if move_dir != 0:
 			if animator.frame == 1 || animator.frame == 3:
-				playerSounds.stream = PlayerWalkSound
-				playerSounds.pitch_scale = randf_range(1.1, 1.5)
-				playerSounds.play()
+				#playerSounds.stream = PlayerWalkSound
+				#playerSounds.pitch_scale = randf_range(1.1, 1.5)
+				#playerSounds.play()
+				SoundManager.PlayerWalk()
 		
 		velocity.x = move_dir * move_speed
 		if velocity.x != 0:
