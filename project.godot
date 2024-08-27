@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/image="res://Assets/UI/background.png"
 config/icon="res://icon.svg"
 
+[autoload]
+
+SoundManager="*res://Scripts/sound_manager.gd"
+
 [display]
 
 window/stretch/mode="viewport"

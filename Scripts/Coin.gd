@@ -5,8 +5,8 @@ const CoinCounter = preload("res://Scenes/coin_count.tscn")
 
 ## using an audio placeholder until the actual sound is added.
 ## yes it's just me going "ding".
-const CoinCollectSound = preload("res://Resources/coin_collect.wav")
-@onready var collectSound = $CollectSound
+#const CoinCollectSound = preload("res://Resources/Sounds/coin_collect.wav")
+#@onready var collectSound = $CollectSound
 
 var claimed: bool = false
 
@@ -14,8 +14,9 @@ var claimed: bool = false
 func _on_area_2d_body_entered(body):
 	if body is Player and not claimed:
 		jump_collect(body)
-		collectSound.stream = CoinCollectSound
-		collectSound.play()
+		#collectSound.stream = CoinCollectSound
+		#collectSound.play()
+		SoundManager.CoinCollect()
 
 ## The coin jumps into the air and is collected
 ##
