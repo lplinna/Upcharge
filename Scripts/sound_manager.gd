@@ -31,6 +31,7 @@ func PlayerJump(power):
 	JumpSound = load("res://Resources/Sounds/Jumps/Jump_Squeak_ Echo_0"+str(randjumpsound)+".wav")
 	audio_stream_player.set_script(SoundScript)
 	audio_stream_player.pitch_scale = 3.0 - power
+	audio_stream_player.volume_db = -20
 	audio_stream_player.stream = JumpSound
 	#print("BOING")
 	
@@ -43,8 +44,9 @@ func PlayerWalk():
 	var randwalksound = randi_range(1,11)
 	WalkSound = load("res://Resources/Sounds/Walking/Rat_Walking_"+str(randwalksound)+".wav")
 	audio_stream_player.set_script(SoundScript)
+	audio_stream_player.volume_db = -10
 	audio_stream_player.stream = WalkSound
-	print("STEP")
+	#print("STEP")
 	
 	add_child(audio_stream_player)
 	
