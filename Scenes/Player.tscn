@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dhm46ln55frcd"]
+[gd_scene load_steps=39 format=3 uid="uid://b8nrik5iep234"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_c1brk"]
 [ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/PopUp.tscn" id="2_n2dd2"]
@@ -268,3 +268,8 @@ sprite_frames = SubResource("SpriteFrames_q5pep")
 animation = &"Crouching"
 frame_progress = 0.728513
 script = ExtResource("5_xoc6i")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

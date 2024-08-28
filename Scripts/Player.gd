@@ -13,9 +13,12 @@ class_name Player
 
 @onready var PopUp = $PopUp
 @onready var CoinCount = $CoinCount
-@onready var playerSounds = $PlayerSounds
+#@onready var playerSounds = $PlayerSounds
+@onready var animator = $AnimatedSprite2D
+@onready var timer = $Timer
 
-const PlayerJumpSound = preload("res://Resources/player_jump.wav")
+#const PlayerJumpSound = preload("res://Resources/Sounds/player_jump.wav")
+#const PlayerWalkSound = preload("res://Resources/Sounds/Player_step.wav")
 
 ## Movement variables
 var time_jump_pressed: float = 0
@@ -30,6 +33,7 @@ var crouching:bool = false
 var sliding: bool = false
 var highest_platform_reached: KinematicCollision2D
 var first_fall: bool = true
+var step_sound = true
 
 func _ready():
 	PopUp.init(self)
@@ -77,16 +81,17 @@ func _physics_process(delta):
 		if !PopUp.visible and fall_distance > fall_threshold and not first_fall:
 			calc_fall_price()
 			PopUp.display(self)
-			var timer = PopUp.get_node("Timer") as Timer
-			timer.start()
+			var popup_timer = PopUp.get_node("Timer") as Timer
+			popup_timer.start()
 			down_y = up_y
 			
 		if Input.is_action_just_released("move_up"):
 			var jump_time_elapsed = Time.get_ticks_msec() - time_jump_pressed
 			var jump_factor = clamp(jump_time_elapsed/250,1,2)
-			playerSounds.stream = PlayerJumpSound
-			playerSounds.pitch_scale = (3.0 - jump_factor)
-			playerSounds.play()
+			#playerSounds.stream = PlayerJumpSound
+			#playerSounds.pitch_scale = (3.0 - jump_factor)
+			#playerSounds.play()
+			SoundManager.PlayerJump(jump_factor)
 			crouching = false
 			velocity.y = -jump_speed * jump_factor
 			first_fall = false
@@ -98,6 +103,16 @@ func _physics_process(delta):
 		$AnimatedSprite2D.update(self)
 	
 		var move_dir = Input.get_axis("move_left","move_right")
+		if move_dir != 0:
+			if (animator.frame == 1 || animator.frame == 3) and step_sound:
+				
+				#playerSounds.stream = PlayerWalkSound
+				#playerSounds.pitch_scale = randf_range(1.1, 1.5)
+				#playerSounds.play()
+				SoundManager.PlayerWalk()
+				timer.start()
+				step_sound = false
+		
 		velocity.x = move_dir * move_speed
 		if velocity.x != 0:
 			old_velx = velocity.x
@@ -123,3 +138,7 @@ func handle_button():
 		position = highest_platform_reached.get_position() + buffer_space * Vector2.UP
 		PopUp.visible = false
 		coins -= fall_price
+
+
+func _on_timer_timeout():
+	step_sound = true

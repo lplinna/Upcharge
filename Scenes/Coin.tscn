@@ -10,8 +10,8 @@ size = Vector2(51.5, 64)
 
 [node name="Coin" type="RigidBody2D"]
 lock_rotation = true
-max_contacts_reported = 4
 contact_monitor = true
+max_contacts_reported = 4
 script = ExtResource("1_i1fn0")
 
 [node name="CollectionTimer" type="Timer" parent="."]
