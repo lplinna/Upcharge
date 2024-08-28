@@ -25,15 +25,21 @@ shape = SubResource("RectangleShape2D_ygiaj")
 debug_color = Color(0, 1, 0.227451, 0.419608)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-visible = false
 offset_right = 1158.0
 offset_bottom = 199.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CenterContainer"]
+[node name="YouWin" type="Label" parent="CenterContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 116
 text = "YOU WIN!!!"
+
+[node name="NotEnough" type="Label" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "NOT EOUGH KROMER."
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(575, 94)
