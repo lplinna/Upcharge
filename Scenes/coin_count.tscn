@@ -1,17 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://bf5na3qssy1ux"]
 
-[ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_c742g"]
+[ext_resource type="Texture2D" uid="uid://boh0bte8hiv3m" path="res://Resources/CoinSpritesheet.png" id="1_ow6t2"]
 [ext_resource type="Script" path="res://Scripts/coin_count.gd" id="2_py0kc"]
 
 [node name="CoinCount" type="Sprite2D"]
-scale = Vector2(0.145, 0.145)
-texture = ExtResource("1_c742g")
+scale = Vector2(0.0800591, 0.0800591)
+texture = ExtResource("1_ow6t2")
+region_enabled = true
+region_rect = Rect2(5144, 81, 211, 251)
 script = ExtResource("2_py0kc")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 75.8621
-offset_top = -68.9655
-offset_right = 222.862
-offset_bottom = 69.0345
+offset_left = 137.398
+offset_top = -99.9261
+offset_right = 284.398
+offset_bottom = 38.0739
+scale = Vector2(1.61242, 1.61242)
 theme_override_font_sizes/font_size = 101
 text = "X 0"
