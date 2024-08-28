@@ -81,8 +81,8 @@ func _physics_process(delta):
 		if !PopUp.visible and fall_distance > fall_threshold and not first_fall:
 			calc_fall_price()
 			PopUp.display(self)
-			var timer = PopUp.get_node("Timer") as Timer
-			timer.start()
+			var popup_timer = PopUp.get_node("Timer") as Timer
+			popup_timer.start()
 			down_y = up_y
 			
 		if Input.is_action_just_released("move_up"):
