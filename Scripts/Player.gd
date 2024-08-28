@@ -14,9 +14,10 @@ class_name Player
 @onready var PopUp = $PopUp
 @onready var CoinCount = $CoinCount
 @onready var playerSounds = $PlayerSounds
+@onready var animator = $AnimatedSprite2D
 
 const PlayerJumpSound = preload("res://Resources/player_jump.wav")
-const PlayerWalkSound = preload("res://Resources/Player walk.wav")
+const PlayerWalkSound = preload("res://Resources/Player_step.wav")
 
 ## Movement variables
 var time_jump_pressed: float = 0
@@ -99,6 +100,12 @@ func _physics_process(delta):
 		$AnimatedSprite2D.update(self)
 	
 		var move_dir = Input.get_axis("move_left","move_right")
+		if move_dir != 0:
+			if animator.frame == 1 || animator.frame == 3:
+				playerSounds.stream = PlayerWalkSound
+				playerSounds.pitch_scale = randf_range(1.1, 1.5)
+				playerSounds.play()
+		
 		velocity.x = move_dir * move_speed
 		if velocity.x != 0:
 			old_velx = velocity.x
