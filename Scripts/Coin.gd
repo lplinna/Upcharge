@@ -12,6 +12,7 @@ var claimed: bool = false
 
 
 func _ready() -> void:
+	await get_tree().create_timer(randf()*2.5).timeout
 	$Sprite2D.play("default")
 
 func _on_area_2d_body_entered(body):
@@ -26,11 +27,13 @@ func _on_area_2d_body_entered(body):
 ## Parameters:
 ##		player - the player that collected this coin.
 func jump_collect(player: Player):
+	$Sprite2D.play("pickup")
 	claimed = true
 	collision_layer = 0
 	collision_mask = 0
 	apply_impulse(Vector2(0,-300.0),Vector2(0,0))
 	$CollectionTimer.start()
+	
 	await $CollectionTimer.timeout
 	player.coins += 1
 	#print("COIN GET!")
