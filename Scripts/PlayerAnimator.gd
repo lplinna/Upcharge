@@ -47,9 +47,12 @@ func state_response():
 		animation_state.IDLE:
 			self.play("Idle")
 		animation_state.WALK_RIGHT:
-			self.play("WalkRight")
+			#self.play("WalkRight")
+			self.play("WalkLeft")
+			self.flip_h = true
 		animation_state.WALK_LEFT:
 			self.play("WalkLeft")
+			self.flip_h = false
 		animation_state.AIRBORN:
 			self.play("Airborn")
 		animation_state.CROUCHING:
