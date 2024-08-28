@@ -1,13 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=13 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_b7r7i"]
-[ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player.tscn" id="2_i8imw"]
+[ext_resource type="PackedScene" uid="uid://b8nrik5iep234" path="res://Scenes/Player.tscn" id="2_i8imw"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Coin.tscn" id="4_l0prk"]
 [ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/WorldBlock.tscn" id="5_2x6fp"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
-size = Vector2(2109.75, 87.9988)
+[ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/WinZone.tscn" id="6_c38a8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2gvx"]
 size = Vector2(375.322, 58)
@@ -18,8 +16,11 @@ size = Vector2(333.75, 27)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b824x"]
 size = Vector2(147.875, 27)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlnhf"]
 size = Vector2(2109.75, 67.9994)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
+size = Vector2(2109.75, 87.9988)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atgsu"]
 size = Vector2(2440, 86.0011)
@@ -33,16 +34,9 @@ script = ExtResource("1_b7r7i")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_i8imw")]
-position = Vector2(418, 522)
+position = Vector2(117, 401)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="BottomGround" type="StaticBody2D" parent="."]
-visible = false
-position = Vector2(576, 615)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomGround"]
-shape = SubResource("RectangleShape2D_klmyk")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(132, 548)
@@ -206,7 +200,8 @@ offset_right = 1544.0
 offset_bottom = 1011.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomGround"]
-shape = SubResource("RectangleShape2D_5pbvl")
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_wlnhf")
 
 [node name="Wall" type="StaticBody2D" parent="Boundaries"]
 position = Vector2(1024, 69)
@@ -256,6 +251,9 @@ rotation = -0.102631
 position = Vector2(-46.006, 3.3732)
 rotation = -0.073189
 shape = SubResource("RectangleShape2D_t2gvx")
+
+[node name="WinZone" parent="." instance=ExtResource("6_c38a8")]
+position = Vector2(-107, -300)
 
 [editable path="Challenge1/TinyPlatform/PipeTemplate"]
 [editable path="Challenge1/TinyPlatform2/PipeTemplate"]
