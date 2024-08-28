@@ -11,6 +11,9 @@ const CoinCounter = preload("res://Scenes/coin_count.tscn")
 var claimed: bool = false
 
 
+func _ready() -> void:
+	$Sprite2D.play("default")
+
 func _on_area_2d_body_entered(body):
 	if body is Player and not claimed:
 		jump_collect(body)
