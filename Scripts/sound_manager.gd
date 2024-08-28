@@ -44,7 +44,7 @@ func PlayerWalk():
 	WalkSound = load("res://Resources/Sounds/Walking/Rat_Walking_"+str(randwalksound)+".wav")
 	audio_stream_player.set_script(SoundScript)
 	audio_stream_player.stream = WalkSound
-	print("STEP")
+	#print("STEP")
 	
 	add_child(audio_stream_player)
 	

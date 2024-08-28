@@ -104,7 +104,7 @@ func _physics_process(delta):
 	
 		var move_dir = Input.get_axis("move_left","move_right")
 		if move_dir != 0:
-			if (animator.frame == 1 || animator.frame == 3) and step_sound:
+			if (animator.frame == 2 || animator.frame == 7) and step_sound:
 				
 				#playerSounds.stream = PlayerWalkSound
 				#playerSounds.pitch_scale = randf_range(1.1, 1.5)
