@@ -18,14 +18,14 @@ script = ExtResource("1_d174b")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_bdi2a")
 
-[node name="Left" type="Node2D" parent="."]
+[node name="End1" type="Node2D" parent="."]
 
-[node name="LeftSprite" type="Sprite2D" parent="Left"]
+[node name="EndSprite" type="Sprite2D" parent="End1"]
 texture = ExtResource("2_vkp0n")
 
-[node name="Right" type="Node2D" parent="."]
+[node name="End2" type="Node2D" parent="."]
 
-[node name="RightSprite" type="Sprite2D" parent="Right"]
+[node name="EndSprite" type="Sprite2D" parent="End2"]
 texture = ExtResource("2_vkp0n")
 
 [node name="Rivets" type="Node2D" parent="."]
@@ -34,4 +34,5 @@ texture = ExtResource("2_vkp0n")
 texture = ExtResource("2_vkp0n")
 
 [node name="PipeBody" type="Sprite2D" parent="."]
+z_index = -1
 texture = ExtResource("1_nyunf")

@@ -6,7 +6,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdi2a"]
 resource_local_to_scene = true
-size = Vector2(450, 60)
+size = Vector2(60, 450)
 
 [node name="PipeTemplate" type="Node2D"]
 z_index = -2
@@ -18,20 +18,25 @@ script = ExtResource("1_piaqm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_bdi2a")
 
-[node name="Left" type="Node2D" parent="."]
+[node name="End1" type="Node2D" parent="."]
 
-[node name="LeftSprite" type="Sprite2D" parent="Left"]
+[node name="EndSprite" type="Sprite2D" parent="End1"]
+rotation = 1.5708
 texture = ExtResource("2_hyk15")
 
-[node name="Right" type="Node2D" parent="."]
+[node name="End2" type="Node2D" parent="."]
 
-[node name="RightSprite" type="Sprite2D" parent="Right"]
+[node name="EndSprite" type="Sprite2D" parent="End2"]
+rotation = 1.5708
 texture = ExtResource("2_hyk15")
 
 [node name="Rivets" type="Node2D" parent="."]
 
 [node name="RivetSprite" type="Sprite2D" parent="Rivets"]
+rotation = 1.5708
 texture = ExtResource("2_hyk15")
 
 [node name="PipeBody" type="Sprite2D" parent="."]
+z_index = -1
+rotation = 1.5708
 texture = ExtResource("3_k8cbm")

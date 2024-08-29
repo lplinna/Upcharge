@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=12 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_b7r7i"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_i8imw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Level/Coin.tscn" id="4_l0prk"]
 [ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/WorldBlock.tscn" id="5_2x6fp"]
 [ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/WinZone.tscn" id="6_um1hv"]
+[ext_resource type="PackedScene" uid="uid://bycgfkmjyaxm" path="res://Scenes/Level/Pipes/VerticalPipeTemplate.tscn" id="7_ocofu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
 size = Vector2(2109.75, 87.9988)
@@ -56,7 +57,7 @@ position = Vector2(516, 332)
 position = Vector2(884, 429)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("4_l0prk")]
-position = Vector2(908, 232)
+position = Vector2(895, 232)
 
 [node name="Coin4" parent="Coins" instance=ExtResource("4_l0prk")]
 position = Vector2(681, 163)
@@ -164,6 +165,7 @@ platform_length = 100.0
 
 [node name="PipeTemplate7" parent="." instance=ExtResource("4_70du2")]
 position = Vector2(583, 26)
+platform_length = 400.0
 
 [node name="PipeTemplate8" parent="." instance=ExtResource("4_70du2")]
 position = Vector2(403, -70)
@@ -177,6 +179,7 @@ platform_length = 300.0
 
 [node name="PipeTemplate10" parent="." instance=ExtResource("4_70du2")]
 position = Vector2(468, -219)
+platform_length = 400.0
 
 [node name="PipeTemplate11" parent="." instance=ExtResource("4_70du2")]
 position = Vector2(690, -321)
@@ -195,3 +198,7 @@ position = Vector2(354, -597)
 
 [node name="Coin" parent="." instance=ExtResource("4_l0prk")]
 position = Vector2(832, -479)
+
+[node name="PipeTemplate15" parent="." instance=ExtResource("7_ocofu")]
+position = Vector2(207, 348)
+is_vert = true
