@@ -1,7 +1,5 @@
 extends Control
 
-
-
 func _ready():
 	#print($PipeBody.size)
 	$PipeBody/PipeMiddle.visible = false

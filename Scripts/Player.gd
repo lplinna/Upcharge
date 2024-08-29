@@ -6,6 +6,7 @@ class_name Player
 @export var slide_speed: float = 960
 @export var gravity_intensity: float = 1200
 @export var jump_speed = 250
+@export var power_curve: Curve
 
 # Fall/return constants
 @export var buffer_space: int = 10
@@ -13,12 +14,8 @@ class_name Player
 
 @onready var PopUp = $PopUp
 @onready var CoinCount = $CoinCount
-#@onready var playerSounds = $PlayerSounds
 @onready var animator = $AnimatedSprite2D
 @onready var timer = $Timer
-
-#const PlayerJumpSound = preload("res://Resources/Sounds/player_jump.wav")
-#const PlayerWalkSound = preload("res://Resources/Sounds/Player_step.wav")
 
 ## Movement variables
 var time_jump_pressed: float = 0
@@ -88,13 +85,10 @@ func _physics_process(delta):
 			
 		if Input.is_action_just_released("move_up"):
 			var jump_time_elapsed = Time.get_ticks_msec() - time_jump_pressed
-			var jump_factor = clamp(jump_time_elapsed/250,1,2)
-			#playerSounds.stream = PlayerJumpSound
-			#playerSounds.pitch_scale = (3.0 - jump_factor)
-			#playerSounds.play()
+			var jump_factor = clamp(jump_time_elapsed * 0.001,0,1)
 			SoundManager.PlayerJump(jump_factor)
 			crouching = false
-			velocity.y = -jump_speed * jump_factor
+			velocity.y = -jump_speed * power_curve.sample(jump_factor)
 			first_fall = false
 		elif Input.is_action_just_pressed("move_up"):
 			crouching = true

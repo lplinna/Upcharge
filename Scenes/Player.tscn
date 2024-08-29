@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dhm46ln55frcd"]
+[gd_scene load_steps=40 format=3 uid="uid://dhm46ln55frcd"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_c1brk"]
 [ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/PopUp.tscn" id="2_n2dd2"]
@@ -7,6 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://b6pcguganbgmg" path="res://Resources/Player/FirstWalkCycle/IdleSheet.png" id="5_t4maw"]
 [ext_resource type="Script" path="res://Scripts/PlayerAnimator.gd" id="5_xoc6i"]
 [ext_resource type="Texture2D" uid="uid://cdxelnw6xsu1q" path="res://Resources/Player/FirstWalkCycle/RunSheet.png" id="6_2vrxg"]
+
+[sub_resource type="Curve" id="Curve_n1qsj"]
+max_value = 2.0
+_data = [Vector2(0, 0.681319), 0.0, -0.0702342, 0, 0, Vector2(1, 2), 2.94737, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmbm4"]
 radius = 17.0
@@ -245,6 +250,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_c1brk")
+power_curve = SubResource("Curve_n1qsj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_rmbm4")
