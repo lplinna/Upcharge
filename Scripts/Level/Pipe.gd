@@ -2,17 +2,53 @@
 extends Node2D
 class_name Pipe
 
-#@onready var body: Sprite2D = $PipeBody
-#@onready var end1 = $End1
-#@onready var end2 = $End2
-#@onready var collision = $StaticBody2D/CollisionShape2D
-#
-#@onready var rivet_sprite: Sprite2D = $Rivets/RivetSprite
-#@onready var rivets = $Rivets
-#
-#@onready var width = body.texture.get_width()
+var pipe_end_h = preload("res://Assets/Pipes/EndFlairH.png")
+var pipe_end_v = preload("res://Assets/Pipes/EndFlairV.png")
 
-@export var is_vert: bool
+enum EndType
+{
+	NONE,
+	VERT,
+	HORZ
+}
+
+@export var is_vert: bool:
+	set(value):
+		is_vert = value
+		if (value):
+			$PipeBody.rotation = 90 * PI/180
+		else:
+			$PipeBody.rotation = 0
+		# trigger other updates
+		platform_length = platform_length
+	get:
+		return is_vert
+
+@export var End1Type: EndType:
+	set(value):
+		End1Type = value
+		set_pipe_type(value, $End1/EndSprite)
+	get:
+		return End1Type
+
+@export var End2Type: EndType:
+	set(value):
+		End2Type = value
+		set_pipe_type(value, $End2/EndSprite)
+		$End2/EndSprite.rotation = 180 * PI/180
+
+	get:
+		return End2Type
+
+func set_pipe_type(value, sprite_to_update):
+	match value:
+			EndType.VERT:
+				sprite_to_update.texture = pipe_end_v
+			EndType.HORZ:
+				sprite_to_update.texture = pipe_end_h
+			_:
+				print('none')
+
 @export var platform_length: float = 450.0:
 	get:
 		return platform_length
@@ -35,16 +71,25 @@ func set_pipe_length(value):
 	$PipeBody.scale.x = scale_factor
 	if !is_vert:
 		$StaticBody2D/CollisionShape2D.shape.size.x = value
+		$StaticBody2D/CollisionShape2D.shape.size.y = height
 	else:
 		$StaticBody2D/CollisionShape2D.shape.size.y = value
+		$StaticBody2D/CollisionShape2D.shape.size.x = height
 	
 func set_ends(value):
 	if !is_vert:
 		$End1.position.x = -value / 2 - offset
 		$End2.position.x = value / 2 + offset
+		
+		$End1.position.y = 0
+		$End2.position.y = 0
+		
 	else:
 		$End1.position.y = -value / 2 - offset
 		$End2.position.y = value / 2 + offset
+		
+		$End1.position.x = 0
+		$End2.position.x = 0
 
 
 func place_rivet_rings():

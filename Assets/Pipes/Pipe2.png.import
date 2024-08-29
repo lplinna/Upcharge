@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://da2u7rom4wva4"
-path="res://.godot/imported/Pipe2.png-1041f5dbdbb438d9206dc5a74bc48cee.ctex"
+path="res://.godot/imported/Pipe2.png-041570ebbb3d620399b97031d470bc57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Pipe2.png"
-dest_files=["res://.godot/imported/Pipe2.png-1041f5dbdbb438d9206dc5a74bc48cee.ctex"]
+source_file="res://Assets/Pipes/Pipe2.png"
+dest_files=["res://.godot/imported/Pipe2.png-041570ebbb3d620399b97031d470bc57.ctex"]
 
 [params]
 
