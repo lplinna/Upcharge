@@ -92,63 +92,24 @@ position = Vector2(705, 369)
 
 [node name="PipeTemplate" parent="Challenge1/ReallyTinyPlatform" instance=ExtResource("4_70du2")]
 
-[node name="StaticBody2D" parent="Challenge1/ReallyTinyPlatform/PipeTemplate" index="0"]
-scale = Vector2(1, 1)
-
 [node name="CollisionShape2D" parent="Challenge1/ReallyTinyPlatform/PipeTemplate/StaticBody2D" index="0"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_fecoh")
-
-[node name="Left" parent="Challenge1/ReallyTinyPlatform/PipeTemplate" index="1"]
-scale = Vector2(1, 1)
-
-[node name="Right" parent="Challenge1/ReallyTinyPlatform/PipeTemplate" index="2"]
-scale = Vector2(1, 1)
-
-[node name="Rivets" parent="Challenge1/ReallyTinyPlatform/PipeTemplate" index="3"]
-scale = Vector2(1, 1)
 
 [node name="ReallyTinyPlatform2" type="StaticBody2D" parent="Challenge1"]
 position = Vector2(898, 307)
 
 [node name="PipeTemplate" parent="Challenge1/ReallyTinyPlatform2" instance=ExtResource("4_70du2")]
 
-[node name="StaticBody2D" parent="Challenge1/ReallyTinyPlatform2/PipeTemplate" index="0"]
-scale = Vector2(1, 1)
-
 [node name="CollisionShape2D" parent="Challenge1/ReallyTinyPlatform2/PipeTemplate/StaticBody2D" index="0"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_t124h")
-
-[node name="Left" parent="Challenge1/ReallyTinyPlatform2/PipeTemplate" index="1"]
-scale = Vector2(1, 1)
-
-[node name="Right" parent="Challenge1/ReallyTinyPlatform2/PipeTemplate" index="2"]
-scale = Vector2(1, 1)
-
-[node name="Rivets" parent="Challenge1/ReallyTinyPlatform2/PipeTemplate" index="3"]
-scale = Vector2(1, 1)
 
 [node name="ReallyTinyPlatform3" type="StaticBody2D" parent="Challenge1"]
 position = Vector2(679, 239)
 
 [node name="PipeTemplate" parent="Challenge1/ReallyTinyPlatform3" instance=ExtResource("4_70du2")]
 
-[node name="StaticBody2D" parent="Challenge1/ReallyTinyPlatform3/PipeTemplate" index="0"]
-scale = Vector2(1, 1)
-
 [node name="CollisionShape2D" parent="Challenge1/ReallyTinyPlatform3/PipeTemplate/StaticBody2D" index="0"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_s7ob0")
-
-[node name="Left" parent="Challenge1/ReallyTinyPlatform3/PipeTemplate" index="1"]
-scale = Vector2(1, 1)
-
-[node name="Right" parent="Challenge1/ReallyTinyPlatform3/PipeTemplate" index="2"]
-scale = Vector2(1, 1)
-
-[node name="Rivets" parent="Challenge1/ReallyTinyPlatform3/PipeTemplate" index="3"]
-scale = Vector2(1, 1)
 
 [node name="Challenge2" type="Node2D" parent="."]
 position = Vector2(-489, -270)
@@ -158,84 +119,32 @@ position = Vector2(908, 233)
 
 [node name="PipeTemplate" parent="Challenge2/ReallyTinyPlatform" instance=ExtResource("4_70du2")]
 
-[node name="StaticBody2D" parent="Challenge2/ReallyTinyPlatform/PipeTemplate" index="0"]
-scale = Vector2(1, 1)
-
 [node name="CollisionShape2D" parent="Challenge2/ReallyTinyPlatform/PipeTemplate/StaticBody2D" index="0"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_f788b")
-
-[node name="Left" parent="Challenge2/ReallyTinyPlatform/PipeTemplate" index="1"]
-scale = Vector2(1, 1)
-
-[node name="Right" parent="Challenge2/ReallyTinyPlatform/PipeTemplate" index="2"]
-scale = Vector2(1, 1)
-
-[node name="Rivets" parent="Challenge2/ReallyTinyPlatform/PipeTemplate" index="3"]
-scale = Vector2(1, 1)
 
 [node name="ReallyTinyPlatform2" type="StaticBody2D" parent="Challenge2"]
 position = Vector2(1149, 325)
 
 [node name="PipeTemplate" parent="Challenge2/ReallyTinyPlatform2" instance=ExtResource("4_70du2")]
 
-[node name="StaticBody2D" parent="Challenge2/ReallyTinyPlatform2/PipeTemplate" index="0"]
-scale = Vector2(1, 1)
-
 [node name="CollisionShape2D" parent="Challenge2/ReallyTinyPlatform2/PipeTemplate/StaticBody2D" index="0"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_3ic0o")
-
-[node name="Left" parent="Challenge2/ReallyTinyPlatform2/PipeTemplate" index="1"]
-scale = Vector2(1, 1)
-
-[node name="Right" parent="Challenge2/ReallyTinyPlatform2/PipeTemplate" index="2"]
-scale = Vector2(1, 1)
-
-[node name="Rivets" parent="Challenge2/ReallyTinyPlatform2/PipeTemplate" index="3"]
-scale = Vector2(1, 1)
 
 [node name="ReallyTinyPlatform3" type="StaticBody2D" parent="Challenge2"]
 position = Vector2(931, 423)
 
 [node name="PipeTemplate" parent="Challenge2/ReallyTinyPlatform3" instance=ExtResource("4_70du2")]
 
-[node name="StaticBody2D" parent="Challenge2/ReallyTinyPlatform3/PipeTemplate" index="0"]
-scale = Vector2(1, 1)
-
 [node name="CollisionShape2D" parent="Challenge2/ReallyTinyPlatform3/PipeTemplate/StaticBody2D" index="0"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6i6ub")
-
-[node name="Left" parent="Challenge2/ReallyTinyPlatform3/PipeTemplate" index="1"]
-scale = Vector2(1, 1)
-
-[node name="Right" parent="Challenge2/ReallyTinyPlatform3/PipeTemplate" index="2"]
-scale = Vector2(1, 1)
-
-[node name="Rivets" parent="Challenge2/ReallyTinyPlatform3/PipeTemplate" index="3"]
-scale = Vector2(1, 1)
 
 [node name="TinyPlatform" type="StaticBody2D" parent="Challenge2"]
 position = Vector2(442, 362)
 
 [node name="PipeTemplate" parent="Challenge2/TinyPlatform" instance=ExtResource("4_70du2")]
 
-[node name="StaticBody2D" parent="Challenge2/TinyPlatform/PipeTemplate" index="0"]
-scale = Vector2(1, 1)
-
 [node name="CollisionShape2D" parent="Challenge2/TinyPlatform/PipeTemplate/StaticBody2D" index="0"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xdwrp")
-
-[node name="Left" parent="Challenge2/TinyPlatform/PipeTemplate" index="1"]
-scale = Vector2(1, 1)
-
-[node name="Right" parent="Challenge2/TinyPlatform/PipeTemplate" index="2"]
-scale = Vector2(1, 1)
-
-[node name="Rivets" parent="Challenge2/TinyPlatform/PipeTemplate" index="3"]
-scale = Vector2(1, 1)
 
 [node name="Coins" type="Node2D" parent="."]
 
