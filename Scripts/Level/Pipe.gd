@@ -4,6 +4,12 @@ class_name Pipe
 
 var pipe_end_h = preload("res://Assets/Pipes/EndFlairH.png")
 var pipe_end_v = preload("res://Assets/Pipes/EndFlairV.png")
+var pipe_end_curve_r = preload("res://Assets/Pipes/RightPipeSmall.png")
+
+const pipe_width = 500
+const offset = -6
+const h_offset = 10
+const height = 70
 
 enum EndType
 {
@@ -47,7 +53,7 @@ func set_pipe_type(value, sprite_to_update):
 			EndType.HORZ:
 				sprite_to_update.texture = pipe_end_h
 			_:
-				print('none')
+				sprite_to_update.texture = null
 
 @export var platform_length: float = 450.0:
 	get:
@@ -58,13 +64,8 @@ func set_pipe_type(value, sprite_to_update):
 		set_ends(value)
 		place_rivet_rings()
 
-const pipe_width = 500
-const offset = -6
-const height = 76
-
 func _ready():
 	$Rivets.visible = false
-	$StaticBody2D/CollisionShape2D.shape.size.y = height
 	
 func set_pipe_length(value):
 	var scale_factor = value / $PipeBody.texture.get_width()
@@ -78,8 +79,8 @@ func set_pipe_length(value):
 	
 func set_ends(value):
 	if !is_vert:
-		$End1.position.x = -value / 2 - offset
-		$End2.position.x = value / 2 + offset
+		$End1.position.x = -value / 2 - offset + h_offset
+		$End2.position.x = value / 2 + offset - h_offset
 		
 		$End1.position.y = 0
 		$End2.position.y = 0

@@ -6,7 +6,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdi2a"]
 resource_local_to_scene = true
-size = Vector2(450, 60)
+size = Vector2(450, 76)
 
 [node name="PipeTemplate" type="Node2D"]
 z_index = -2
@@ -21,14 +21,13 @@ shape = SubResource("RectangleShape2D_bdi2a")
 [node name="End1" type="Node2D" parent="."]
 
 [node name="EndSprite" type="Sprite2D" parent="End1"]
-texture = ExtResource("2_vkp0n")
 
 [node name="End2" type="Node2D" parent="."]
 
 [node name="EndSprite" type="Sprite2D" parent="End2"]
-texture = ExtResource("2_vkp0n")
 
 [node name="Rivets" type="Node2D" parent="."]
+visible = false
 
 [node name="RivetSprite" type="Sprite2D" parent="Rivets"]
 texture = ExtResource("2_vkp0n")
