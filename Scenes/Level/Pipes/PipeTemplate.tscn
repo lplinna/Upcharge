@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnejxp27r6sib"]
+
+[ext_resource type="Script" path="res://Scripts/Level/Pipe.gd" id="1_d174b"]
+[ext_resource type="Texture2D" uid="uid://da2u7rom4wva4" path="res://Assets/Pipes/Pipe2.png" id="1_nyunf"]
+[ext_resource type="Texture2D" uid="uid://ex1gye048p47" path="res://Assets/Pipes/End.png" id="2_vkp0n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdi2a"]
+resource_local_to_scene = true
+size = Vector2(450, 76)
+
+[node name="PipeTemplate" type="Node2D"]
+z_index = -2
+scale = Vector2(0.385, 0.385)
+script = ExtResource("1_d174b")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_bdi2a")
+
+[node name="End1" type="Node2D" parent="."]
+
+[node name="EndSprite" type="Sprite2D" parent="End1"]
+
+[node name="End2" type="Node2D" parent="."]
+
+[node name="EndSprite" type="Sprite2D" parent="End2"]
+
+[node name="Rivets" type="Node2D" parent="."]
+visible = false
+
+[node name="RivetSprite" type="Sprite2D" parent="Rivets"]
+texture = ExtResource("2_vkp0n")
+
+[node name="PipeBody" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_nyunf")

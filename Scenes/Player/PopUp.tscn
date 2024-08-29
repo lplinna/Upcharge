@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://fjd6tdto2orx"]
 
 [ext_resource type="Theme" uid="uid://dpjn2yq7xgw3e" path="res://Resources/new_theme.tres" id="1_2qjdk"]
-[ext_resource type="Script" path="res://Scripts/PopUp.gd" id="1_cvphx"]
+[ext_resource type="Script" path="res://Scripts/Player/PopUp.gd" id="1_cvphx"]
 
 [node name="PopUp" type="Control"]
 layout_mode = 3
