@@ -34,6 +34,7 @@ var sliding: bool = false
 var highest_platform_reached: KinematicCollision2D
 var first_fall: bool = true
 var step_sound = true
+var horizontal_lethargy: float = 0.2
 
 func _ready():
 	PopUp.init(self)
@@ -113,9 +114,9 @@ func _physics_process(delta):
 				timer.start()
 				step_sound = false
 		
-		velocity.x = move_dir * move_speed
-		if velocity.x != 0:
-			old_velx = velocity.x
+		velocity.x = lerpf(velocity.x,move_dir * move_speed, horizontal_lethargy)
+		if move_dir * move_speed != 0:
+			old_velx = move_dir * move_speed
 	else:
 		velocity.x  = old_velx
 	
