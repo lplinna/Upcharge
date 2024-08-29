@@ -1,7 +1,7 @@
 extends RigidBody2D
 class_name Coin
 
-const CoinCounter = preload("res://Scenes/coin_count.tscn")
+const CoinCounter = preload("res://Scenes/Player/coin_count.tscn")
 
 ## using an audio placeholder until the actual sound is added.
 ## yes it's just me going "ding".

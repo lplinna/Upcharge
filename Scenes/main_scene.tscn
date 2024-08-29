@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://dmxh36lkghlvy"]
 
-[ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_b7r7i"]
-[ext_resource type="PackedScene" uid="uid://b8nrik5iep234" path="res://Scenes/Player.tscn" id="2_i8imw"]
-[ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
-[ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Coin.tscn" id="4_l0prk"]
-[ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/WorldBlock.tscn" id="5_2x6fp"]
-[ext_resource type="PackedScene" path="res://Scenes/WinZone.tscn" id="6_um1hv"]
+[ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_b7r7i"]
+[ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_i8imw"]
+[ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Pipes/HorizontalPipeTemplate.tscn" id="4_70du2"]
+[ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Level/Coin.tscn" id="4_l0prk"]
+[ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/WorldBlock.tscn" id="5_2x6fp"]
+[ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/WinZone.tscn" id="6_um1hv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
 size = Vector2(2109.75, 87.9988)
@@ -141,6 +141,7 @@ shape = SubResource("RectangleShape2D_t2gvx")
 
 [node name="PipeTemplate" parent="." instance=ExtResource("4_70du2")]
 position = Vector2(464, 384)
+platform_length = 1000.0
 
 [node name="PipeTemplate2" parent="." instance=ExtResource("4_70du2")]
 position = Vector2(832, 480)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnejxp27r6sib"]
+[gd_scene load_steps=5 format=3 uid="uid://bycgfkmjyaxm"]
 
-[ext_resource type="Script" path="res://Scripts/Pipe.gd" id="1_d174b"]
-[ext_resource type="Texture2D" uid="uid://da2u7rom4wva4" path="res://Resources/Pipe2.png" id="1_nyunf"]
-[ext_resource type="Texture2D" uid="uid://ex1gye048p47" path="res://Resources/End.png" id="2_vkp0n"]
+[ext_resource type="Script" path="res://Scripts/Level/Pipe.gd" id="1_piaqm"]
+[ext_resource type="Texture2D" uid="uid://ex1gye048p47" path="res://Resources/End.png" id="2_hyk15"]
+[ext_resource type="Texture2D" uid="uid://da2u7rom4wva4" path="res://Resources/Pipe2.png" id="3_k8cbm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdi2a"]
 resource_local_to_scene = true
@@ -11,7 +11,7 @@ size = Vector2(450, 60)
 [node name="PipeTemplate" type="Node2D"]
 z_index = -2
 scale = Vector2(0.385, 0.385)
-script = ExtResource("1_d174b")
+script = ExtResource("1_piaqm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -21,17 +21,17 @@ shape = SubResource("RectangleShape2D_bdi2a")
 [node name="Left" type="Node2D" parent="."]
 
 [node name="LeftSprite" type="Sprite2D" parent="Left"]
-texture = ExtResource("2_vkp0n")
+texture = ExtResource("2_hyk15")
 
 [node name="Right" type="Node2D" parent="."]
 
 [node name="RightSprite" type="Sprite2D" parent="Right"]
-texture = ExtResource("2_vkp0n")
+texture = ExtResource("2_hyk15")
 
 [node name="Rivets" type="Node2D" parent="."]
 
 [node name="RivetSprite" type="Sprite2D" parent="Rivets"]
-texture = ExtResource("2_vkp0n")
+texture = ExtResource("2_hyk15")
 
 [node name="PipeBody" type="Sprite2D" parent="."]
-texture = ExtResource("1_nyunf")
+texture = ExtResource("3_k8cbm")
