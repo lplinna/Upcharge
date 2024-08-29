@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=17 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_b7r7i"]
 [ext_resource type="PackedScene" uid="uid://b8nrik5iep234" path="res://Scenes/Player.tscn" id="2_i8imw"]
-[ext_resource type="PackedScene" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
+[ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/PipeTemplate.tscn" id="4_70du2"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Coin.tscn" id="4_l0prk"]
 [ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/WorldBlock.tscn" id="5_2x6fp"]
 
@@ -12,11 +12,33 @@ size = Vector2(2109.75, 87.9988)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2gvx"]
 size = Vector2(375.322, 58)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2wxe"]
-size = Vector2(333.75, 27)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fecoh"]
+resource_local_to_scene = true
+size = Vector2(450, 60)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b824x"]
-size = Vector2(147.875, 27)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t124h"]
+resource_local_to_scene = true
+size = Vector2(450, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7ob0"]
+resource_local_to_scene = true
+size = Vector2(450, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f788b"]
+resource_local_to_scene = true
+size = Vector2(450, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ic0o"]
+resource_local_to_scene = true
+size = Vector2(450, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6i6ub"]
+resource_local_to_scene = true
+size = Vector2(450, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdwrp"]
+resource_local_to_scene = true
+size = Vector2(450, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
 size = Vector2(2109.75, 67.9994)
@@ -59,60 +81,35 @@ position = Vector2(793, 518)
 
 [node name="PipeTemplate" parent="Challenge1/TinyPlatform" instance=ExtResource("4_70du2")]
 
-[node name="PipeBody" parent="Challenge1/TinyPlatform/PipeTemplate" index="0"]
-offset_left = -431.0
-offset_right = 429.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge1/TinyPlatform"]
-shape = SubResource("RectangleShape2D_c2wxe")
-
 [node name="TinyPlatform2" type="StaticBody2D" parent="Challenge1"]
 position = Vector2(417, 440)
 
 [node name="PipeTemplate" parent="Challenge1/TinyPlatform2" instance=ExtResource("4_70du2")]
-
-[node name="PipeBody" parent="Challenge1/TinyPlatform2/PipeTemplate" index="0"]
-offset_left = -434.0
-offset_right = 423.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge1/TinyPlatform2"]
-shape = SubResource("RectangleShape2D_c2wxe")
+platform_length = 600.0
 
 [node name="ReallyTinyPlatform" type="StaticBody2D" parent="Challenge1"]
 position = Vector2(705, 369)
 
 [node name="PipeTemplate" parent="Challenge1/ReallyTinyPlatform" instance=ExtResource("4_70du2")]
 
-[node name="PipeBody" parent="Challenge1/ReallyTinyPlatform/PipeTemplate" index="0"]
-offset_left = -192.0
-offset_right = 184.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge1/ReallyTinyPlatform"]
-shape = SubResource("RectangleShape2D_b824x")
+[node name="CollisionShape2D" parent="Challenge1/ReallyTinyPlatform/PipeTemplate/StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_fecoh")
 
 [node name="ReallyTinyPlatform2" type="StaticBody2D" parent="Challenge1"]
 position = Vector2(898, 307)
 
 [node name="PipeTemplate" parent="Challenge1/ReallyTinyPlatform2" instance=ExtResource("4_70du2")]
 
-[node name="PipeBody" parent="Challenge1/ReallyTinyPlatform2/PipeTemplate" index="0"]
-offset_left = -192.0
-offset_right = 182.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge1/ReallyTinyPlatform2"]
-shape = SubResource("RectangleShape2D_b824x")
+[node name="CollisionShape2D" parent="Challenge1/ReallyTinyPlatform2/PipeTemplate/StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_t124h")
 
 [node name="ReallyTinyPlatform3" type="StaticBody2D" parent="Challenge1"]
 position = Vector2(679, 239)
 
 [node name="PipeTemplate" parent="Challenge1/ReallyTinyPlatform3" instance=ExtResource("4_70du2")]
 
-[node name="PipeBody" parent="Challenge1/ReallyTinyPlatform3/PipeTemplate" index="0"]
-offset_left = -192.0
-offset_right = 184.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge1/ReallyTinyPlatform3"]
-shape = SubResource("RectangleShape2D_b824x")
+[node name="CollisionShape2D" parent="Challenge1/ReallyTinyPlatform3/PipeTemplate/StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_s7ob0")
 
 [node name="Challenge2" type="Node2D" parent="."]
 position = Vector2(-489, -270)
@@ -120,50 +117,34 @@ position = Vector2(-489, -270)
 [node name="ReallyTinyPlatform" type="StaticBody2D" parent="Challenge2"]
 position = Vector2(908, 233)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge2/ReallyTinyPlatform"]
-shape = SubResource("RectangleShape2D_b824x")
-
 [node name="PipeTemplate" parent="Challenge2/ReallyTinyPlatform" instance=ExtResource("4_70du2")]
 
-[node name="PipeBody" parent="Challenge2/ReallyTinyPlatform/PipeTemplate" index="0"]
-offset_left = -192.0
-offset_right = 184.0
+[node name="CollisionShape2D" parent="Challenge2/ReallyTinyPlatform/PipeTemplate/StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_f788b")
 
 [node name="ReallyTinyPlatform2" type="StaticBody2D" parent="Challenge2"]
 position = Vector2(1149, 325)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge2/ReallyTinyPlatform2"]
-shape = SubResource("RectangleShape2D_b824x")
-
 [node name="PipeTemplate" parent="Challenge2/ReallyTinyPlatform2" instance=ExtResource("4_70du2")]
 
-[node name="PipeBody" parent="Challenge2/ReallyTinyPlatform2/PipeTemplate" index="0"]
-offset_left = -192.0
-offset_right = 184.0
+[node name="CollisionShape2D" parent="Challenge2/ReallyTinyPlatform2/PipeTemplate/StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_3ic0o")
 
 [node name="ReallyTinyPlatform3" type="StaticBody2D" parent="Challenge2"]
 position = Vector2(931, 423)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge2/ReallyTinyPlatform3"]
-shape = SubResource("RectangleShape2D_b824x")
-
 [node name="PipeTemplate" parent="Challenge2/ReallyTinyPlatform3" instance=ExtResource("4_70du2")]
 
-[node name="PipeBody" parent="Challenge2/ReallyTinyPlatform3/PipeTemplate" index="0"]
-offset_left = -192.0
-offset_right = 184.0
+[node name="CollisionShape2D" parent="Challenge2/ReallyTinyPlatform3/PipeTemplate/StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_6i6ub")
 
 [node name="TinyPlatform" type="StaticBody2D" parent="Challenge2"]
 position = Vector2(442, 362)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Challenge2/TinyPlatform"]
-shape = SubResource("RectangleShape2D_c2wxe")
-
 [node name="PipeTemplate" parent="Challenge2/TinyPlatform" instance=ExtResource("4_70du2")]
 
-[node name="PipeBody" parent="Challenge2/TinyPlatform/PipeTemplate" index="0"]
-offset_left = -439.0
-offset_right = 421.0
+[node name="CollisionShape2D" parent="Challenge2/TinyPlatform/PipeTemplate/StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_xdwrp")
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -257,8 +238,6 @@ position = Vector2(-46.006, 3.3732)
 rotation = -0.073189
 shape = SubResource("RectangleShape2D_t2gvx")
 
-[editable path="Challenge1/TinyPlatform/PipeTemplate"]
-[editable path="Challenge1/TinyPlatform2/PipeTemplate"]
 [editable path="Challenge1/ReallyTinyPlatform/PipeTemplate"]
 [editable path="Challenge1/ReallyTinyPlatform2/PipeTemplate"]
 [editable path="Challenge1/ReallyTinyPlatform3/PipeTemplate"]
