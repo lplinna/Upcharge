@@ -123,6 +123,7 @@ position = Vector2(-96, -1480)
 [node name="PipeTemplate4" parent="Pipes" instance=ExtResource("5_5th03")]
 position = Vector2(8, 496)
 End2Type = 2
+platform_length = 451.0
 
 [node name="Zig1" type="Node2D" parent="Pipes"]
 position = Vector2(-32, 24)
