@@ -45,6 +45,9 @@ enum EndType
 	set(value):
 		End2Type = value
 		set_pipe_type(value, $End2/EndSprite)
+		if value == EndType.HORZ:
+			$End2/EndSprite.flip_v = true
+			
 		$End2/EndSprite.rotation = 180 * PI/180
 
 	get:
