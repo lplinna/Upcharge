@@ -1,15 +1,14 @@
 [gd_scene load_steps=2 format=3 uid="uid://s5qlahc6hh7d"]
 
-[ext_resource type="Texture2D" uid="uid://mw48eno4wgko" path="res://Assets/Pipes/RightPipeSmall.png" id="1_d4f6m"]
+[ext_resource type="Texture2D" uid="uid://dtsn0iyxef8o8" path="res://Assets/Pipes/TopLeftCurve.tres" id="1_dtq16"]
 
 [node name="PipeCurve" type="Node2D"]
 scale = Vector2(0.385, 0.385)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_d4f6m")
+texture = ExtResource("1_dtq16")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(72, -40, 36, -30, 0, -8, -20, 20, -35, 50, -40, 75, 33, 75, 40, 60, 60, 40, 72, 35)
