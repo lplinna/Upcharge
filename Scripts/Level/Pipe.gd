@@ -5,6 +5,8 @@ class_name Pipe
 var pipe_end_h = preload("res://Assets/Pipes/EndFlairH.png")
 var pipe_end_v = preload("res://Assets/Pipes/EndFlairV.png")
 var pipe_end_curve_r = preload("res://Assets/Pipes/RightPipeSmall.png")
+var pipe_body_v = preload("res://Assets/Pipes/PipeVRotated.png")
+var pipe_body_h = preload("res://Assets/Pipes/Pipe2.png")
 
 const pipe_width = 500
 const offset = -6
@@ -23,8 +25,10 @@ enum EndType
 		is_vert = value
 		if (value):
 			$PipeBody.rotation = 90 * PI/180
+			$PipeBody.texture = pipe_body_v
 		else:
 			$PipeBody.rotation = 0
+			$PipeBody.texture = pipe_body_h
 		# trigger other updates
 		platform_length = platform_length
 	get:
