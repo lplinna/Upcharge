@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq0pkof6tgdt4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oij6r"]
+size = Vector2(28, 5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_riohn"]
+radius = 26.0768
+
+[node name="ValveObstacle" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_oij6r")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+rotation = -1.48705
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("CircleShape2D_riohn")

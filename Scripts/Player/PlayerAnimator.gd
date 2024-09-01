@@ -9,6 +9,8 @@ enum animation_state {
 	IDLE
 }
 
+const IDLE_THRESHOLD: float = 40
+
 ## Current animation state of the Player.
 var state: animation_state = animation_state.IDLE:
 	set(new_state):
@@ -24,21 +26,21 @@ func update(player: Player):
 		state = animation_state.AIRBORN
 		return
 	if player.crouching:
-		if velx == 0:
+		if abs(velx) < IDLE_THRESHOLD:
 			state = animation_state.CROUCHING 
-		if velx > 0:
+		if velx > IDLE_THRESHOLD:
 			state = animation_state.WALK_RIGHT
-		if velx < 0:
+		if velx < -IDLE_THRESHOLD:
 			state = animation_state.WALK_LEFT
 	else:
 		if player.velocity.y < 0:
 			state = animation_state.AIRBORN
 		else:
-			if velx == 0:
+			if abs(velx) < IDLE_THRESHOLD :
 				state = animation_state.IDLE
-			if velx > 0:
+			if velx > IDLE_THRESHOLD:
 				state = animation_state.WALK_RIGHT
-			if velx < 0:
+			if velx < -IDLE_THRESHOLD:
 				state = animation_state.WALK_LEFT
 
 ## Response for changing the animation state.
@@ -47,7 +49,6 @@ func state_response():
 		animation_state.IDLE:
 			self.play("Idle")
 		animation_state.WALK_RIGHT:
-			#self.play("WalkRight")
 			self.play("WalkLeft")
 			self.flip_h = true
 		animation_state.WALK_LEFT:
