@@ -1,0 +1,267 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjsh4lfa83j54"]
+
+[ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_wlaim"]
+[ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_1785a"]
+[ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Level/Coin.tscn" id="3_kunue"]
+[ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/WorldBlock.tscn" id="4_t178r"]
+[ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Pipes/PipeTemplate.tscn" id="5_5th03"]
+[ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/WinZone.tscn" id="6_ei5yn"]
+[ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Pipes/PipeCurve.tscn" id="7_ailtu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
+size = Vector2(2109.75, 67.9994)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
+size = Vector2(2109.75, 87.9988)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atgsu"]
+size = Vector2(2440, 86.0011)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2gvx"]
+size = Vector2(487.904, 58)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player_ref")]
+position = Vector2(516, 538)
+position_smoothing_enabled = true
+script = ExtResource("1_wlaim")
+player_ref = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("2_1785a")]
+position = Vector2(16, 144)
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("3_kunue")]
+position = Vector2(384, 424)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("3_kunue")]
+position = Vector2(656, 192)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("3_kunue")]
+position = Vector2(16, -48)
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="BottomGround" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(576, 615)
+
+[node name="WorldBlock" parent="Boundaries/BottomGround" instance=ExtResource("4_t178r")]
+offset_left = -1521.0
+offset_top = -34.0
+offset_right = 1540.0
+offset_bottom = 1003.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomGround"]
+shape = SubResource("RectangleShape2D_5pbvl")
+
+[node name="Wall" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(1024, 69)
+rotation = -1.57079
+
+[node name="WorldBlock" parent="Boundaries/Wall" instance=ExtResource("4_t178r")]
+offset_left = -1524.0
+offset_top = -51.0
+offset_right = 1537.0
+offset_bottom = 986.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall"]
+position = Vector2(479, -7.00296)
+shape = SubResource("RectangleShape2D_klmyk")
+
+[node name="Wall2" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-44, -599)
+rotation = 1.57079
+
+[node name="WorldBlock" parent="Boundaries/Wall2" instance=ExtResource("4_t178r")]
+offset_left = -1524.0
+offset_top = -27.0
+offset_right = 1537.0
+offset_bottom = 1010.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall2"]
+position = Vector2(313, 15.9985)
+shape = SubResource("RectangleShape2D_atgsu")
+
+[node name="Slide1" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(852, 409)
+rotation = -0.785398
+
+[node name="WorldBlock" parent="Boundaries/Slide1" instance=ExtResource("4_t178r")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -914.882
+offset_right = 994.118
+offset_bottom = 818.0
+grow_vertical = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Slide1"]
+position = Vector2(-26.1629, 28.0001)
+shape = SubResource("RectangleShape2D_t2gvx")
+
+[node name="WallTrapezoid1" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-8, 248)
+rotation = 0.261799
+
+[node name="Polygon2D" type="Polygon2D" parent="Boundaries/WallTrapezoid1"]
+rotation = -0.261799
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-16, -72, -16, 72, 64, 40, 64, -40)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/WallTrapezoid1"]
+rotation = -0.261799
+polygon = PackedVector2Array(-16, -72, -16, 72, 64, 40, 64, -40)
+
+[node name="WinZone" parent="." instance=ExtResource("6_ei5yn")]
+position = Vector2(-96, -1480)
+
+[node name="Pipes" type="Node2D" parent="."]
+
+[node name="PipeTemplate4" parent="Pipes" instance=ExtResource("5_5th03")]
+position = Vector2(8, 496)
+End2Type = 2
+platform_length = 451.0
+
+[node name="Zig1" type="Node2D" parent="Pipes"]
+position = Vector2(-32, 24)
+
+[node name="PipeTemplate2" parent="Pipes/Zig1" instance=ExtResource("5_5th03")]
+position = Vector2(296, 384)
+End1Type = 2
+platform_length = 200.0
+
+[node name="PipeCurve" parent="Pipes/Zig1" instance=ExtResource("7_ailtu")]
+position = Vector2(360, 384)
+rotation = 1.57079
+
+[node name="PipeCurve2" parent="Pipes/Zig1" instance=ExtResource("7_ailtu")]
+position = Vector2(360, 464)
+rotation = -1.57079
+
+[node name="PipeTemplate3" parent="Pipes/Zig1" instance=ExtResource("5_5th03")]
+position = Vector2(424, 464)
+End2Type = 2
+platform_length = 200.0
+
+[node name="PipeTemplate" parent="Pipes/Zig1" instance=ExtResource("5_5th03")]
+position = Vector2(360, 424)
+is_vert = true
+platform_length = 80.0
+
+[node name="RightDown" type="Node2D" parent="Pipes"]
+position = Vector2(-56, 0)
+
+[node name="PipeTemplate2" parent="Pipes/RightDown" instance=ExtResource("5_5th03")]
+position = Vector2(24, 0)
+platform_length = 350.0
+
+[node name="PipeTemplate" parent="Pipes/RightDown" instance=ExtResource("5_5th03")]
+position = Vector2(120, 56)
+is_vert = true
+End2Type = 1
+platform_length = 150.0
+
+[node name="PipeCurve" parent="Pipes/RightDown" instance=ExtResource("7_ailtu")]
+position = Vector2(120, -4.76837e-07)
+rotation = 1.57079
+
+[node name="RightDown2" type="Node2D" parent="Pipes"]
+position = Vector2(40, 248)
+
+[node name="PipeTemplate" parent="Pipes/RightDown2" instance=ExtResource("5_5th03")]
+platform_length = 700.0
+
+[node name="PipeTemplate2" parent="Pipes/RightDown2" instance=ExtResource("5_5th03")]
+position = Vector2(160, 40)
+is_vert = true
+End2Type = 1
+platform_length = 80.0
+
+[node name="PipeCurve" parent="Pipes/RightDown2" instance=ExtResource("7_ailtu")]
+position = Vector2(160, 1.43051e-06)
+rotation = 1.57079
+
+[node name="RightUp" type="Node2D" parent="Pipes"]
+position = Vector2(664, 256)
+
+[node name="PipeTemplate" parent="Pipes/RightUp" instance=ExtResource("5_5th03")]
+position = Vector2(8, 0)
+platform_length = 225.0
+
+[node name="PipeTemplate2" parent="Pipes/RightUp" instance=ExtResource("5_5th03")]
+position = Vector2(72, -176)
+is_vert = true
+End1Type = 1
+platform_length = 800.0
+
+[node name="PipeCurve" parent="Pipes/RightUp" instance=ExtResource("7_ailtu")]
+position = Vector2(72, 0)
+rotation = 3.14159
+
+[node name="UTurn" type="Node2D" parent="Pipes"]
+position = Vector2(472, -176)
+
+[node name="PipeCurve" parent="Pipes/UTurn" instance=ExtResource("7_ailtu")]
+position = Vector2(24, 0)
+rotation = 1.57079
+
+[node name="PipeCurve2" parent="Pipes/UTurn" instance=ExtResource("7_ailtu")]
+position = Vector2(-72, 0)
+
+[node name="PipeTemplate" parent="Pipes/UTurn" instance=ExtResource("5_5th03")]
+position = Vector2(-24, 0)
+platform_length = 100.0
+
+[node name="PipeTemplate2" parent="Pipes/UTurn" instance=ExtResource("5_5th03")]
+position = Vector2(-72, 48)
+is_vert = true
+End2Type = 1
+platform_length = 90.0
+
+[node name="PipeTemplate3" parent="Pipes/UTurn" instance=ExtResource("5_5th03")]
+position = Vector2(24, 64)
+is_vert = true
+End2Type = 1
+platform_length = 180.0
+
+[node name="TripleZigZag" type="Node2D" parent="Pipes"]
+position = Vector2(216, 168)
+
+[node name="PipeTemplate2" parent="Pipes/TripleZigZag" instance=ExtResource("5_5th03")]
+position = Vector2(208, -64)
+End1Type = 2
+platform_length = 451.0
+
+[node name="PipeCurve2" parent="Pipes/TripleZigZag" instance=ExtResource("7_ailtu")]
+position = Vector2(320, -64)
+rotation = -3.14159
+
+[node name="PipeCurve" parent="Pipes/TripleZigZag" instance=ExtResource("7_ailtu")]
+position = Vector2(320, -160)
+
+[node name="PipeTemplate" parent="Pipes/TripleZigZag" instance=ExtResource("5_5th03")]
+position = Vector2(368, -160)
+End2Type = 2
+platform_length = 125.0
+
+[node name="PipeTemplate3" parent="Pipes/TripleZigZag" instance=ExtResource("5_5th03")]
+position = Vector2(176, -16)
+is_vert = true
+End1Type = 1
+platform_length = 125.0
+
+[node name="PipeTemplate4" parent="Pipes/TripleZigZag" instance=ExtResource("5_5th03")]
+position = Vector2(104, 32)
+platform_length = 225.0
+
+[node name="PipeTemplate5" parent="Pipes/TripleZigZag" instance=ExtResource("5_5th03")]
+position = Vector2(320, -112)
+is_vert = true
+platform_length = 125.0
+
+[node name="PipeCurve3" parent="Pipes/TripleZigZag" instance=ExtResource("7_ailtu")]
+position = Vector2(176, 32)
+rotation = -3.14159

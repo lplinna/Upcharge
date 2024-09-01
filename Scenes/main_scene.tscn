@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=13 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_b7r7i"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_i8imw"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Pipes/PipeTemplate.tscn" id="4_70du2"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Level/Coin.tscn" id="4_l0prk"]
 [ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/WorldBlock.tscn" id="5_2x6fp"]
+[ext_resource type="Texture2D" uid="uid://e8exnbklil1p" path="res://Assets/Pipes/BG.png" id="5_n5of3"]
 [ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/WinZone.tscn" id="6_um1hv"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Pipes/PipeCurve.tscn" id="7_aor5u"]
 
@@ -139,6 +140,12 @@ rotation = -0.102631
 position = Vector2(-46.006, 3.3732)
 rotation = -0.073189
 shape = SubResource("RectangleShape2D_t2gvx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boundaries"]
+z_index = -8
+position = Vector2(452, -376)
+scale = Vector2(0.554167, 0.333333)
+texture = ExtResource("5_n5of3")
 
 [node name="PipeTemplate" parent="." instance=ExtResource("4_70du2")]
 position = Vector2(464, 384)
