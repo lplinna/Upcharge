@@ -2,15 +2,15 @@
 extends Node2D
 class_name Pipe
 
-var pipe_end_h = preload("res://Assets/Pipes/EndFlairH.png")
-var pipe_end_v = preload("res://Assets/Pipes/EndFlairV.png")
+var pipe_end_h = preload("res://Assets/Pipes/JPipes/EndH.png")
+var pipe_end_v = preload("res://Assets/Pipes/JPipes/EndV.png")
 var pipe_end_curve_r = preload("res://Assets/Pipes/RightPipeSmall.png")
-var pipe_body_v = preload("res://Assets/Pipes/PipeVRotated.png")
-var pipe_body_h = preload("res://Assets/Pipes/Pipe2.png")
+var pipe_body_v = preload("res://Assets/Pipes/JPipes/PipeV.png")
+var pipe_body_h = preload("res://Assets/Pipes/JPipes/PipeH.png")
 
-const pipe_width = 500
-const offset = -6
-const h_offset = 10
+#const pipe_width = 500
+#const offset = -6
+#const h_offset = 10
 const height = 70
 
 enum EndType
@@ -75,7 +75,7 @@ func set_pipe_type(value, sprite_to_update):
 		platform_length = value
 		set_pipe_length(value)
 		set_ends(value)
-		place_rivet_rings()
+		#place_rivet_rings()
 
 func _ready():
 	$Rivets.visible = false
@@ -92,28 +92,28 @@ func set_pipe_length(value):
 	
 func set_ends(value):
 	if !is_vert:
-		$End1.position.x = -value / 2 - offset + h_offset
-		$End2.position.x = value / 2 + offset - h_offset
+		$End1.position.x = -value / 2# - offset + h_offset
+		$End2.position.x = value / 2# + offset - h_offset
 		
 		$End1.position.y = 0
 		$End2.position.y = 0
 		
 	else:
-		$End1.position.y = -value / 2 - offset
-		$End2.position.y = value / 2 + offset
+		$End1.position.y = -value / 2# - offset
+		$End2.position.y = value / 2# + offset
 		
 		$End1.position.x = 0
 		$End2.position.x = 0
 
 
-func place_rivet_rings():
-	var num_rivets = floor($PipeBody.texture.get_width() / pipe_width)
-	if num_rivets > 0:
-		$Rivets.visible = true
-		$Rivets.position.x = pipe_width - offset
-	
-		if num_rivets > 1:
-			for i in range(num_rivets):
-				var clone = $Rivets/RivetSprite.duplicate()
-				clone.position.x = pipe_width + (i * pipe_width) - offset
-				$Rivets.add_child(clone)
+#func place_rivet_rings():
+	#var num_rivets = floor($PipeBody.texture.get_width() / pipe_width)
+	#if num_rivets > 0:
+		#$Rivets.visible = true
+		#$Rivets.position.x = pipe_width - offset
+	#
+		#if num_rivets > 1:
+			#for i in range(num_rivets):
+				#var clone = $Rivets/RivetSprite.duplicate()
+				#clone.position.x = pipe_width + (i * pipe_width) - offset
+				#$Rivets.add_child(clone)
