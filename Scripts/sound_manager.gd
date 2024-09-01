@@ -10,20 +10,19 @@ const SoundScript = preload("res://Scripts/sound.gd")
 var CoinSound
 var JumpSound
 var WalkSound
+var SplatSound
 
 func CoinCollect():
 	var audio_stream_player = AudioStreamPlayer.new()
 	var randcoinsound = randi_range(1,6)
 	CoinSound = load("res://Resources/Sounds/Coins/Pick up Coins-0"+str(randcoinsound)+".wav")
 	audio_stream_player.set_script(SoundScript)
+	audio_stream_player.volume_db = -10
 	audio_stream_player.stream = CoinSound
 	#print("COIN GET!")
 	
 	add_child(audio_stream_player)
-	
 	audio_stream_player.play()
-	
-	
 
 func PlayerJump(power):
 	var audio_stream_player = AudioStreamPlayer.new()
@@ -36,7 +35,6 @@ func PlayerJump(power):
 	#print("BOING")
 	
 	add_child(audio_stream_player)
-	
 	audio_stream_player.play()
 
 func PlayerWalk():
@@ -49,6 +47,31 @@ func PlayerWalk():
 	#print("STEP")
 	
 	add_child(audio_stream_player)
-	
 	audio_stream_player.play()
+
+func PlayerWalkPuddle():
+	var audio_stream_player = AudioStreamPlayer.new()
+	var randwalksound = randi_range(1,7)
+	WalkSound = load("res://Resources/Sounds/Walking/Puddled/Walking_Puddled_0"+str(randwalksound)+".wav")
+	audio_stream_player.set_script(SoundScript)
+	audio_stream_player.volume_db = -10
+	audio_stream_player.stream = WalkSound
+	#print("STEP")
 	
+	add_child(audio_stream_player)
+	audio_stream_player.play()
+
+func PlayerLand(fall_length):
+	var audio_stream_player = AudioStreamPlayer.new()
+	var randSplat = randi_range(1,3)
+	var randwalksound = randi_range(1,11)
+	if fall_length == "long":
+		SplatSound = load("res://Resources/Sounds/Jumps/Landings/Fall_Pain_Ground_Impact_0"+str(randSplat)+".wav")
+	elif fall_length == "short":
+		SplatSound = load("res://Resources/Sounds/Walking/Rat_Walking_"+str(randwalksound)+".wav")
+	audio_stream_player.set_script(SoundScript)
+	audio_stream_player.volume_db = -10
+	audio_stream_player.stream = SplatSound
+	
+	add_child(audio_stream_player)
+	audio_stream_player.play()
