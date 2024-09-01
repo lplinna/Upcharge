@@ -20,6 +20,12 @@ enum EndType
 	HORZ
 }
 
+@export var show_rivets: bool:
+	set(value):
+		$Rivets.visible = value
+		show_rivets = value
+
+
 @export var is_vert: bool:
 	set(value):
 		is_vert = value

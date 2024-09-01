@@ -12,6 +12,7 @@ size = Vector2(450, 76)
 z_index = -2
 scale = Vector2(0.385, 0.385)
 script = ExtResource("1_d174b")
+show_rivets = null
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

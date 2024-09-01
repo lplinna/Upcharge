@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://s5qlahc6hh7d"]
 
-[ext_resource type="Texture2D" uid="uid://dtsn0iyxef8o8" path="res://Assets/Pipes/TopLeftCurve.tres" id="1_dtq16"]
+[ext_resource type="Texture2D" path="res://Assets/Pipes/TopLeftCurve.tres" id="1_dtq16"]
 [ext_resource type="Script" path="res://Scenes/Level/Pipes/pipe_curve.gd" id="1_ie8qg"]
 
 [node name="PipeCurve" type="Node2D"]
