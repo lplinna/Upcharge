@@ -31,7 +31,7 @@ script = ExtResource("1_wlaim")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_1785a")]
-position = Vector2(696, -88)
+position = Vector2(720, -560)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -45,19 +45,19 @@ position = Vector2(656, 192)
 position = Vector2(16, -48)
 
 [node name="Coin4" parent="Coins" instance=ExtResource("3_kunue")]
-position = Vector2(176, -576)
+position = Vector2(160, -1080)
 
 [node name="Coin5" parent="Coins" instance=ExtResource("3_kunue")]
-position = Vector2(8, -712)
+position = Vector2(-8, -1216)
 
 [node name="Coin6" parent="Coins" instance=ExtResource("3_kunue")]
-position = Vector2(208, -656)
+position = Vector2(192, -1160)
 
 [node name="Coin7" parent="Coins" instance=ExtResource("3_kunue")]
-position = Vector2(208, -608)
+position = Vector2(192, -1112)
 
 [node name="Coin8" parent="Coins" instance=ExtResource("3_kunue")]
-position = Vector2(232, -376)
+position = Vector2(224, -632)
 
 [node name="Boundaries" type="Node2D" parent="."]
 
@@ -131,6 +131,21 @@ polygon = PackedVector2Array(-16, -72, -16, 72, 64, 40, 64, -40)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/WallTrapezoid1"]
 rotation = -0.261799
 polygon = PackedVector2Array(-16, -72, -16, 72, 64, 40, 64, -40)
+
+[node name="WallTrapezoid2" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(856, -400)
+rotation = 0.261799
+
+[node name="Polygon2D" type="Polygon2D" parent="Boundaries/WallTrapezoid2"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+rotation = -0.261799
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-280, -16, -280, 48, 120, 144, 120, -112)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/WallTrapezoid2"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+rotation = -0.261799
+polygon = PackedVector2Array(-280, -16, -280, 48, 120, 144, 120, -112)
 
 [node name="WinZone" parent="." instance=ExtResource("6_ei5yn")]
 position = Vector2(-96, -1480)
@@ -281,7 +296,7 @@ position = Vector2(312, -144)
 position = Vector2(152, 24)
 
 [node name="Zig2" type="Node2D" parent="Pipes"]
-position = Vector2(-64, -200)
+position = Vector2(-64, -464)
 
 [node name="PipeTemplate2" parent="Pipes/Zig2" instance=ExtResource("5_5th03")]
 position = Vector2(96, 48)
@@ -308,7 +323,7 @@ position = Vector2(0, -3)
 show_rivets = false
 
 [node name="CoinBoxPart1" type="Node2D" parent="Pipes"]
-position = Vector2(160, -600)
+position = Vector2(160, -864)
 
 [node name="PipeTemplate3" parent="Pipes/CoinBoxPart1" instance=ExtResource("5_5th03")]
 position = Vector2(-152, -64)
@@ -336,7 +351,7 @@ show_rivets = false
 is_vert = true
 
 [node name="CoinBoxPart2" type="Node2D" parent="Pipes"]
-position = Vector2(288, -592)
+position = Vector2(288, -856)
 
 [node name="PipeTemplate3" parent="Pipes/CoinBoxPart2" instance=ExtResource("5_5th03")]
 position = Vector2(-64, 288)
