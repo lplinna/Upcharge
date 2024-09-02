@@ -277,4 +277,7 @@ script = ExtResource("5_xoc6i")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.25
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=15 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_b7r7i"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_i8imw"]
+[ext_resource type="PackedScene" uid="uid://dc41oqitmeu0a" path="res://Scenes/Music/lower_music.tscn" id="3_pcr54"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Pipes/PipeTemplate.tscn" id="4_70du2"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Level/Coin.tscn" id="4_l0prk"]
+[ext_resource type="PackedScene" uid="uid://csl1p6s085bo0" path="res://Scenes/Music/middle_music.tscn" id="4_n1mxd"]
 [ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/WorldBlock.tscn" id="5_2x6fp"]
+[ext_resource type="PackedScene" uid="uid://ce6qrxtx7cmup" path="res://Scenes/Music/upper_music.tscn" id="5_nny6y"]
 [ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/WinZone.tscn" id="6_um1hv"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Pipes/PipeCurve.tscn" id="7_aor5u"]
 
@@ -30,6 +33,15 @@ player_ref = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_i8imw")]
 position = Vector2(416, 440)
+
+[node name="LowerMusic" parent="." instance=ExtResource("3_pcr54")]
+position = Vector2(0, 649)
+
+[node name="MiddleMusic" parent="." instance=ExtResource("4_n1mxd")]
+position = Vector2(1, 26)
+
+[node name="UpperMusic" parent="." instance=ExtResource("5_nny6y")]
+position = Vector2(1, -425)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
