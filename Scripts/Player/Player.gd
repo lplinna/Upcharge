@@ -5,7 +5,7 @@ class_name Player
 @export var move_speed: float = 350
 @export var slide_speed: float = 960
 @export var gravity_intensity: float = 1200
-@export var jump_speed = 250
+@export var jump_speed: float = 250
 @export var power_curve: Curve
 
 # Fall/return constants
@@ -131,6 +131,14 @@ func _physics_process(delta):
 				#playerSounds.stream = PlayerWalkSound
 				#playerSounds.pitch_scale = randf_range(1.1, 1.5)
 				#playerSounds.play()
+		
+		if !fall_sound:
+			fall_sound = true
+			fallSound.stop()
+			if fall_distance > 200:
+				SoundManager.PlayerLand("long")
+			else:
+				SoundManager.PlayerLand("short")
 		
 		if !fall_sound:
 			fall_sound = true
