@@ -14,8 +14,13 @@ class_name Player
 
 @onready var PopUp = $PopUp
 @onready var CoinCount = $CoinCount
+@onready var fallSound = $PlayerSounds
 @onready var animator = $AnimatedSprite2D
-@onready var timer = $Timer
+@onready var timer = $StepsTimer
+
+#const PlayerJumpSound = preload("res://Resources/Sounds/player_jump.wav")
+#const PlayerWalkSound = preload("res://Resources/Sounds/Player_step.wav")
+const PlayerFallSound = preload("res://Resources/Sounds/Jumps/Falls/Long_Fall_01.wav")
 
 ## Movement variables
 var time_jump_pressed: float = 0
@@ -32,6 +37,7 @@ var highest_platform_reached: KinematicCollision2D
 var first_fall: bool = true
 var step_sound = true
 var horizontal_lethargy: float = 0.2
+var fall_sound = false
 
 func _ready():
 	PopUp.init(self)
@@ -64,7 +70,19 @@ func _physics_process(delta):
 		up_y = global_position.y
 		
 	var fall_distance = up_y - down_y
-
+	
+	#Fall sound player
+	if !is_on_floor() and velocity.y > 100:
+		var FallVolume = clamp(velocity.y/10,1,80)
+		fallSound.volume_db = -80 + FallVolume
+		if fall_sound:
+			fallSound.stream = PlayerFallSound
+			fallSound.play()
+			fall_sound = false
+		
+	
+	
+	
 	if is_on_floor():
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
@@ -98,15 +116,29 @@ func _physics_process(delta):
 		$AnimatedSprite2D.update(self)
 	
 		var move_dir = Input.get_axis("move_left","move_right")
+		
+		#Walk cycle Sound
 		if move_dir != 0:
 			if (animator.frame == 2 || animator.frame == 7) and step_sound:
-				
+				for i in get_slide_collision_count():
+					var collision = get_slide_collision(i)
+					if collision.get_collider().name == "BottomGround":
+						SoundManager.PlayerWalkPuddle()
+					else:
+						SoundManager.PlayerWalk()
+					timer.start()
+					step_sound = false
 				#playerSounds.stream = PlayerWalkSound
 				#playerSounds.pitch_scale = randf_range(1.1, 1.5)
 				#playerSounds.play()
-				SoundManager.PlayerWalk()
-				timer.start()
-				step_sound = false
+		
+		if !fall_sound:
+			fall_sound = true
+			fallSound.stop()
+			if fall_distance > 200:
+				SoundManager.PlayerLand("long")
+			else:
+				SoundManager.PlayerLand("short")
 		
 		velocity.x = lerpf(velocity.x,move_dir * move_speed, horizontal_lethargy)
 		if move_dir * move_speed != 0:
@@ -117,9 +149,8 @@ func _physics_process(delta):
 	
 	if is_on_wall():
 		old_velx = 0
-		
 	
-		
+	
 	move_and_slide()
 
 ## Updates the price based on how far the player fell down.
