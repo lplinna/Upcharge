@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cnejxp27r6sib"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Pipe.gd" id="1_d174b"]
-[ext_resource type="Texture2D" uid="uid://da2u7rom4wva4" path="res://Assets/Pipes/Pipe2.png" id="1_nyunf"]
 [ext_resource type="Texture2D" uid="uid://ex1gye048p47" path="res://Assets/Pipes/End.png" id="2_vkp0n"]
+[ext_resource type="Texture2D" uid="uid://yeb8hvduyuig" path="res://Assets/Pipes/JPipes/PipeH.png" id="3_jostp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdi2a"]
 resource_local_to_scene = true
@@ -12,7 +12,6 @@ size = Vector2(450, 76)
 z_index = -2
 scale = Vector2(0.385, 0.385)
 script = ExtResource("1_d174b")
-show_rivets = null
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -35,4 +34,4 @@ texture = ExtResource("2_vkp0n")
 
 [node name="PipeBody" type="Sprite2D" parent="."]
 z_index = -1
-texture = ExtResource("1_nyunf")
+texture = ExtResource("3_jostp")

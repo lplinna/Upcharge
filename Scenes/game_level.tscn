@@ -154,7 +154,6 @@ position = Vector2(-96, -1480)
 
 [node name="PipeTemplate4" parent="Pipes" instance=ExtResource("5_5th03")]
 position = Vector2(8, 496)
-show_rivets = false
 End2Type = 2
 platform_length = 451.0
 
@@ -163,19 +162,16 @@ position = Vector2(-8, 8)
 
 [node name="PipeTemplate2" parent="Pipes/Zig1" instance=ExtResource("5_5th03")]
 position = Vector2(296, 384)
-show_rivets = false
 End1Type = 2
 platform_length = 200.0
 
 [node name="PipeTemplate3" parent="Pipes/Zig1" instance=ExtResource("5_5th03")]
 position = Vector2(400, 472)
-show_rivets = false
 End2Type = 2
 platform_length = 200.0
 
 [node name="PipeTemplate" parent="Pipes/Zig1" instance=ExtResource("5_5th03")]
 position = Vector2(344, 432)
-show_rivets = false
 is_vert = true
 platform_length = 160.0
 
@@ -184,12 +180,10 @@ position = Vector2(-56, 0)
 
 [node name="PipeTemplate2" parent="Pipes/RightDown" instance=ExtResource("5_5th03")]
 position = Vector2(24, 0)
-show_rivets = false
 platform_length = 350.0
 
 [node name="PipeTemplate" parent="Pipes/RightDown" instance=ExtResource("5_5th03")]
 position = Vector2(120, 56)
-show_rivets = false
 is_vert = true
 End2Type = 1
 platform_length = 150.0
@@ -202,12 +196,10 @@ rotation = 1.57079
 position = Vector2(40, 248)
 
 [node name="PipeTemplate" parent="Pipes/RightDown2" instance=ExtResource("5_5th03")]
-show_rivets = false
 platform_length = 700.0
 
 [node name="PipeTemplate2" parent="Pipes/RightDown2" instance=ExtResource("5_5th03")]
 position = Vector2(160, 40)
-show_rivets = false
 is_vert = true
 End2Type = 1
 platform_length = 80.0
@@ -221,12 +213,10 @@ position = Vector2(632, 272)
 
 [node name="PipeTemplate" parent="Pipes/RightUp" instance=ExtResource("5_5th03")]
 position = Vector2(8, 0)
-show_rivets = false
 platform_length = 225.0
 
 [node name="PipeTemplate2" parent="Pipes/RightUp" instance=ExtResource("5_5th03")]
 position = Vector2(64, -168)
-show_rivets = false
 is_vert = true
 End1Type = 1
 platform_length = 800.0
@@ -236,19 +226,16 @@ position = Vector2(480, -168)
 
 [node name="PipeTemplate" parent="Pipes/UTurn" instance=ExtResource("5_5th03")]
 position = Vector2(-24, 0)
-show_rivets = false
 platform_length = 200.0
 
 [node name="PipeTemplate2" parent="Pipes/UTurn" instance=ExtResource("5_5th03")]
 position = Vector2(-80, 32)
-show_rivets = false
 is_vert = true
 End2Type = 1
 platform_length = 90.0
 
 [node name="PipeTemplate3" parent="Pipes/UTurn" instance=ExtResource("5_5th03")]
 position = Vector2(32, 48)
-show_rivets = false
 is_vert = true
 End2Type = 1
 platform_length = 180.0
@@ -258,31 +245,26 @@ position = Vector2(216, 168)
 
 [node name="PipeTemplate2" parent="Pipes/TripleZigZag" instance=ExtResource("5_5th03")]
 position = Vector2(208, -64)
-show_rivets = false
 End1Type = 2
 platform_length = 451.0
 
 [node name="PipeTemplate" parent="Pipes/TripleZigZag" instance=ExtResource("5_5th03")]
 position = Vector2(352, -144)
-show_rivets = false
 End2Type = 2
 platform_length = 125.0
 
 [node name="PipeTemplate3" parent="Pipes/TripleZigZag" instance=ExtResource("5_5th03")]
 position = Vector2(152, -16)
-show_rivets = false
 is_vert = true
 End1Type = 1
 platform_length = 125.0
 
 [node name="PipeTemplate4" parent="Pipes/TripleZigZag" instance=ExtResource("5_5th03")]
 position = Vector2(72, 24)
-show_rivets = false
 platform_length = 325.0
 
 [node name="PipeTemplate5" parent="Pipes/TripleZigZag" instance=ExtResource("5_5th03")]
 position = Vector2(312, -104)
-show_rivets = false
 is_vert = true
 platform_length = 125.0
 
@@ -300,7 +282,6 @@ position = Vector2(-64, -464)
 
 [node name="PipeTemplate2" parent="Pipes/Zig2" instance=ExtResource("5_5th03")]
 position = Vector2(96, 48)
-show_rivets = false
 is_vert = true
 platform_length = 200.0
 
@@ -314,40 +295,33 @@ rotation = -1.57079
 
 [node name="PipeTemplate" parent="Pipes/Zig2" instance=ExtResource("5_5th03")]
 position = Vector2(128, 96)
-show_rivets = false
 End2Type = 2
 platform_length = 100.0
 
 [node name="PipeTemplate3" parent="Pipes/Zig2" instance=ExtResource("5_5th03")]
 position = Vector2(0, -3)
-show_rivets = false
 
 [node name="CoinBoxPart1" type="Node2D" parent="Pipes"]
 position = Vector2(160, -864)
 
 [node name="PipeTemplate3" parent="Pipes/CoinBoxPart1" instance=ExtResource("5_5th03")]
 position = Vector2(-152, -64)
-show_rivets = false
 platform_length = 160.0
 
 [node name="PipeTemplate" parent="Pipes/CoinBoxPart1" instance=ExtResource("5_5th03")]
 position = Vector2(-112, 16)
-show_rivets = false
 is_vert = true
 platform_length = 350.0
 
 [node name="PipeTemplate2" parent="Pipes/CoinBoxPart1" instance=ExtResource("5_5th03")]
 position = Vector2(-80, 88)
-show_rivets = false
 platform_length = 100.0
 
 [node name="PipeTemplate4" parent="Pipes/CoinBoxPart1" instance=ExtResource("5_5th03")]
 position = Vector2(-152, 296)
-show_rivets = false
 
 [node name="PipeTemplate5" parent="Pipes/CoinBoxPart1" instance=ExtResource("5_5th03")]
 position = Vector2(-48, 192)
-show_rivets = false
 is_vert = true
 
 [node name="CoinBoxPart2" type="Node2D" parent="Pipes"]
@@ -355,23 +329,19 @@ position = Vector2(288, -856)
 
 [node name="PipeTemplate3" parent="Pipes/CoinBoxPart2" instance=ExtResource("5_5th03")]
 position = Vector2(-64, 288)
-show_rivets = false
 End2Type = 2
 platform_length = 160.0
 
 [node name="PipeTemplate4" parent="Pipes/CoinBoxPart2" instance=ExtResource("5_5th03")]
 position = Vector2(-80, 80)
-show_rivets = false
 platform_length = 100.0
 
 [node name="PipeTemplate" parent="Pipes/CoinBoxPart2" instance=ExtResource("5_5th03")]
 position = Vector2(-112, 184)
-show_rivets = false
 is_vert = true
 
 [node name="PipeTemplate2" parent="Pipes/CoinBoxPart2" instance=ExtResource("5_5th03")]
 position = Vector2(-48, 8)
-show_rivets = false
 is_vert = true
 End1Type = 1
 platform_length = 350.0
