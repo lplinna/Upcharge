@@ -15,7 +15,7 @@ const IDLE_THRESHOLD: float = 40
 var state: animation_state = animation_state.IDLE:
 	set(new_state):
 		if state != new_state:
-			print(new_state)
+			#print(new_state)
 			state = new_state
 			state_response()
 
