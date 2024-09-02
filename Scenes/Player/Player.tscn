@@ -271,10 +271,12 @@ position = Vector2(-16, -33)
 position = Vector2(0, -5)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_q5pep")
-animation = &"Idle"
+animation = &"Crouching"
 script = ExtResource("5_xoc6i")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="StepsTimer" type="Timer" parent="."]
 wait_time = 0.25
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="FallTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="StepsTimer" to="." method="_on_timer_timeout"]

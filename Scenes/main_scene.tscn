@@ -79,7 +79,7 @@ position = Vector2(42, -115)
 
 [node name="Boundaries" type="Node2D" parent="."]
 
-[node name="BottomGround" type="StaticBody2D" parent="Boundaries"]
+[node name="BottomGround" type="StaticBody2D" parent="Boundaries" groups=["BottomGround"]]
 position = Vector2(576, 615)
 
 [node name="WorldBlock" parent="Boundaries/BottomGround" instance=ExtResource("5_2x6fp")]
