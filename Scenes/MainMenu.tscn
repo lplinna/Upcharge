@@ -106,7 +106,8 @@ text = "[b]Controls[/b]
 [ul]A - Left[/ul]
 [ul]D - Right[/ul]
 [ul]Hold W - Charge Jump[/ul]
-[ul]Release W - Jump[/ul]"
+[ul]Release W - Jump[/ul]
+[ul]E/Return - Return to checkpoint (when available)[/ul]"
 
 [node name="InstructionsReturn" type="Button" parent="AspectRatioContainer/Instructions/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -136,15 +137,15 @@ custom_minimum_size = Vector2(500, 300)
 layout_mode = 2
 bbcode_enabled = true
 text = "[b]Credits[/b]
-Team Spider Crab
+[P1] YSL Team Spider Crab
 Kendrick Taylor  - Team Lead/ Producer
-Jason -Artist
-jamie  - Artist
+Jason - Artist
+Jamie  - Artist
 Jinhyo - Artist
 Luke Linna  - Programmer
-John -Programmer
-Jordan Levy -Programmer 
-CraftyNinjaSquad -Programmer
+John - Programmer
+Jordan Levy - Programmer 
+Noah Gardner - Programmer
 Hazel - Sound Designer"
 
 [node name="CreditsReturn" type="Button" parent="AspectRatioContainer/Credits/HBoxContainer/VBoxContainer"]

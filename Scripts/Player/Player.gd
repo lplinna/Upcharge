@@ -40,7 +40,7 @@ var horizontal_lethargy: float = 0.2
 var fall_sound = false
 
 func _ready():
-	PopUp.init(self)
+	PopUp.init()
 	CoinCount.init(self)
 
 ## Behavior for sliding down slopes.
@@ -96,7 +96,7 @@ func _physics_process(delta):
 				
 		if !PopUp.visible and fall_distance > fall_threshold and not first_fall:
 			calc_fall_price()
-			PopUp.display(self)
+			PopUp.display()
 			var popup_timer = PopUp.get_node("Timer") as Timer
 			popup_timer.start()
 			down_y = up_y
