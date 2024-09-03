@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://txmsaaco32yu"]
+[gd_scene load_steps=14 format=3 uid="uid://txmsaaco32yu"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_wlaim"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_1785a"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/WorldBlock.tscn" id="4_t178r"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Pipes/PipeTemplate.tscn" id="5_5th03"]
 [ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/WinZone.tscn" id="6_ei5yn"]
+[ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Pipes/PipeCurve.tscn" id="8_tblgv"]
 [ext_resource type="PackedScene" uid="uid://ckwk074e6bs42" path="res://Scenes/Level/Pipes/PipeCurveRightAngle.tscn" id="8_uqhcp"]
 [ext_resource type="PackedScene" uid="uid://cq0pkof6tgdt4" path="res://Scenes/ValveObstacle.tscn" id="9_q1gds"]
 
@@ -257,19 +258,27 @@ platform_length = 451.0
 position = Vector2(-8, 8)
 
 [node name="PipeTemplate2" parent="Pipes/Zig1" instance=ExtResource("5_5th03")]
-position = Vector2(296, 384)
+position = Vector2(288, 384)
 End1Type = 2
-platform_length = 200.0
+platform_length = 100.0
 
 [node name="PipeTemplate3" parent="Pipes/Zig1" instance=ExtResource("5_5th03")]
-position = Vector2(400, 472)
+position = Vector2(406, 472)
 End2Type = 2
-platform_length = 200.0
+platform_length = 120.0
 
 [node name="PipeTemplate" parent="Pipes/Zig1" instance=ExtResource("5_5th03")]
-position = Vector2(344, 432)
+position = Vector2(344, 428)
 is_vert = true
-platform_length = 160.0
+platform_length = 20.0
+
+[node name="PipeCurve" parent="Pipes/Zig1" instance=ExtResource("8_tblgv")]
+position = Vector2(331, 397)
+orientation = 1
+
+[node name="PipeCurve2" parent="Pipes/Zig1" instance=ExtResource("8_tblgv")]
+position = Vector2(357, 459)
+orientation = 2
 
 [node name="RightUp3" type="Node2D" parent="Pipes"]
 position = Vector2(-8, 64)
@@ -288,13 +297,18 @@ platform_length = 150.0
 position = Vector2(40, 248)
 
 [node name="PipeTemplate" parent="Pipes/RightDown2" instance=ExtResource("5_5th03")]
-platform_length = 1200.0
+position = Vector2(20, 0)
+platform_length = 1000.0
 
 [node name="PipeTemplate2" parent="Pipes/RightDown2" instance=ExtResource("5_5th03")]
-position = Vector2(248, 32)
+position = Vector2(248, 46)
 is_vert = true
 End2Type = 1
-platform_length = 80.0
+platform_length = 40.0
+
+[node name="PipeCurve3" parent="Pipes/RightDown2" instance=ExtResource("8_tblgv")]
+position = Vector2(235, 13)
+orientation = 1
 
 [node name="RightUp" type="Node2D" parent="Pipes"]
 position = Vector2(752, 192)

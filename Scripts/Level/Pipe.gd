@@ -4,7 +4,7 @@ class_name Pipe
 
 var pipe_end_h = preload("res://Assets/Pipes/JPipes/EndH.png")
 var pipe_end_v = preload("res://Assets/Pipes/JPipes/EndV.png")
-var pipe_end_curve_r = preload("res://Assets/Pipes/RightPipeSmall.png")
+#var pipe_end_curve_r = preload("res://Assets/Pipes/RightPipeSmall.png")
 var pipe_body_v = preload("res://Assets/Pipes/JPipes/PipeV.png")
 var pipe_body_h = preload("res://Assets/Pipes/JPipes/PipeH.png")
 
