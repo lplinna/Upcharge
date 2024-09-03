@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://txmsaaco32yu"]
+[gd_scene load_steps=15 format=3 uid="uid://txmsaaco32yu"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_wlaim"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_1785a"]
@@ -20,6 +20,13 @@ size = Vector2(2440, 86.0011)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2gvx"]
 size = Vector2(487.904, 58)
+
+[sub_resource type="Curve" id="Curve_4nn6g"]
+_data = [Vector2(0, 0), 0.0, -1.75187, 0, 0, Vector2(0.181009, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_cpjp1"]
+curve = SubResource("Curve_4nn6g")
 
 [node name="Node2D" type="Node2D"]
 
@@ -182,7 +189,9 @@ position = Vector2(88, -1040)
 
 [node name="Polygon2D" type="Polygon2D" parent="Boundaries/BigPipe2"]
 position = Vector2(24, 2.94777e-05)
-color = Color(0, 0, 0, 1)
+color = Color(0.850888, 0.776834, 0.613015, 1)
+texture = SubResource("CurveTexture_cpjp1")
+texture_rotation = 1.5708
 polygon = PackedVector2Array(-128, -32, -128, 48, -8.00001, 48, -8.00001, 56, 16, 56, 16, 48, 16, -32, 16, -40, -8.00001, -40, -8.00001, -32)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/BigPipe2"]
