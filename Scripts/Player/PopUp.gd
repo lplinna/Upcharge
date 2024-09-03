@@ -2,13 +2,18 @@ extends Control
 
 @onready var button = $Panel/VBoxContainer/Button
 @onready var price = $Panel/VBoxContainer/HBoxContainer/Price
+@onready var player_ref: Player = get_parent()
 
 func _on_timer_timeout():
 	self.visible = false
 
-func display(player_ref: Player):
+func display():
 	price.text = "%s" % player_ref.fall_price
 	self.visible = true
 
-func init(player_ref: Player):
+func init():
 	button.pressed.connect(player_ref.handle_button)
+
+func _process(delta):
+	if self.visible and Input.is_action_just_released("return"):
+		player_ref.handle_button()
