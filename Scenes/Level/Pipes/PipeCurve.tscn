@@ -8,6 +8,7 @@ scale = Vector2(0.385, 0.385)
 script = ExtResource("1_ie8qg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.658824, 0.898039, 0.611765, 1)
 texture = ExtResource("2_lww0u")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
