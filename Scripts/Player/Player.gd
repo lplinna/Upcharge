@@ -79,9 +79,9 @@ func _physics_process(delta):
 		var FallVolume = clamp(velocity.y/10,1,80)
 		fallSound.volume_db = -80 + FallVolume
 		if fall_sound:
-			falling = true
 			fallSound.stream = PlayerFallSound
 			fallSound.play()
+			falling = true
 			fall_sound = false
 	
 	
@@ -108,8 +108,9 @@ func _physics_process(delta):
 			var jump_time_elapsed = Time.get_ticks_msec() - time_jump_pressed
 			var jump_factor = clamp(jump_time_elapsed * 0.001,0,1)
 			SoundManager.PlayerJump(jump_factor)
-			crouching = false
 			velocity.y = -jump_speed * power_curve.sample(jump_factor)
+			crouching = false
+			flattened = false
 			first_fall = false
 		elif Input.is_action_just_pressed("move_up"):
 			crouching = true
@@ -132,9 +133,6 @@ func _physics_process(delta):
 						SoundManager.PlayerWalk()
 					timer.start()
 					step_sound = false
-				#playerSounds.stream = PlayerWalkSound
-				#playerSounds.pitch_scale = randf_range(1.1, 1.5)
-				#playerSounds.play()
 		
 		if !fall_sound:
 			fall_sound = true
