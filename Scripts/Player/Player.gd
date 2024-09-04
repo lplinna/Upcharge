@@ -1,26 +1,27 @@
 extends CharacterBody2D
 class_name Player
 
-## Movement constants
+## Movement settings
 @export var move_speed: float = 350
 @export var slide_speed: float = 960
 @export var gravity_intensity: float = 1200
 @export var jump_speed: float = 250
 @export var power_curve: Curve
+@export var eyeline_length: int = 20
 
-# Fall/return constants
+## Fall/return settings
 @export var buffer_space: int = 10
 @export var fall_threshold: float = 100
 
-@onready var PopUp = $PopUp
-@onready var CoinCount = $CoinCount
-@onready var fallSound = $PlayerSounds
-@onready var animator = $AnimatedSprite2D
-@onready var timer = $StepsTimer
+## Component references
+@onready var pop_up: Control = $PopUp
+@onready var coin_count: CoinCount = $CoinCount
+@onready var fallSound: AudioStreamPlayer = $PlayerSounds
+@onready var animator: AnimatedSprite2D = $AnimatedSprite2D
+@onready var timer: Timer = $StepsTimer
 
-#const PlayerJumpSound = preload("res://Resources/Sounds/player_jump.wav")
-#const PlayerWalkSound = preload("res://Resources/Sounds/Player_step.wav")
 const PlayerFallSound = preload("res://Resources/Sounds/Jumps/Falls/Long_Fall_01.wav")
+const EyeGradient: Gradient = preload("res://Resources/Player/EyeGradient.tres")
 
 ## Movement variables
 var time_jump_pressed: float = 0
@@ -40,14 +41,31 @@ var first_fall: bool = true
 var step_sound = true
 var horizontal_lethargy: float = 0.2
 var fall_sound = false
+var eye_points_queue = []
+var EyeLiner: Line2D 
 
 func _ready():
-	PopUp.init()
-	CoinCount.init(self)
-
+	pop_up.init()
+	
+	# Eye effect mvoes with player unless it is attached higher up the tree
+	EyeLiner = Line2D.new()
+	EyeLiner.gradient = EyeGradient
+	EyeLiner.width = 1
+	get_tree().root.add_child(EyeLiner)
+	
+func _process(delta):
+	var eye_pos = animator.find_eye(position)
+	eye_points_queue.push_front(eye_pos)
+	if eye_points_queue.size() > eyeline_length:
+		eye_points_queue.pop_back()
+	
+	EyeLiner.clear_points()
+	for point in eye_points_queue:
+		EyeLiner.add_point(point)
+		
+		
 ## Behavior for sliding down slopes.
 func slide_down_slope(delta):
-	#print("SLIDING")
 	velocity.y += gravity_intensity * delta
 	if is_on_floor():
 		for i in get_slide_collision_count():
@@ -84,8 +102,6 @@ func _physics_process(delta):
 			falling = true
 			fall_sound = false
 	
-	
-	
 	if is_on_floor():
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
@@ -94,13 +110,11 @@ func _physics_process(delta):
 			var slide_angle = rad_to_deg(collision.get_collider().transform.get_rotation())
 			if slide_angle != 0:
 				sliding = true
-			
-				
-				
-		if !PopUp.visible and fall_distance > fall_threshold and not first_fall:
+		
+		if !pop_up.visible and fall_distance > fall_threshold and not first_fall:
 			calc_fall_price()
-			PopUp.display()
-			var popup_timer = PopUp.get_node("Timer") as Timer
+			pop_up.display()
+			var popup_timer = pop_up.get_node("Timer") as Timer
 			popup_timer.start()
 			down_y = up_y
 			
@@ -116,7 +130,6 @@ func _physics_process(delta):
 			crouching = true
 			time_jump_pressed = Time.get_ticks_msec()
 
-			
 		$AnimatedSprite2D.update(self)
 	
 		var move_dir = Input.get_axis("move_left","move_right")
@@ -164,7 +177,6 @@ func _physics_process(delta):
 	if is_on_wall():
 		old_velx = 0
 	
-	
 	move_and_slide()
 
 ## Updates the price based on how far the player fell down.
@@ -176,7 +188,7 @@ func calc_fall_price():
 func handle_button():
 	if coins >= fall_price:
 		position = highest_platform_reached.get_position() + buffer_space * Vector2.UP
-		PopUp.visible = false
+		pop_up.visible = false
 		coins -= fall_price
 
 

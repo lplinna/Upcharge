@@ -11,6 +11,11 @@ enum animation_state {
 	IDLE
 }
 
+## Constants
+const eye_x_offset_idle = 7
+const eye_y_offset_idle = -19
+const eye_x_offset_walk = 15
+const eye_y_offset_walk = -12
 const IDLE_THRESHOLD: float = 40
 
 ## Current animation state of the Player.
@@ -71,3 +76,23 @@ func state_response():
 			self.play("Airborn")
 		animation_state.CROUCHING:
 			self.play("Crouching")
+
+func find_eye(pos):
+	var facing_right = self.flip_h
+	var offset_pos_x = pos.x
+	var offset_pos_y = pos.y
+	match state:
+		animation_state.IDLE:
+			offset_pos_x += eye_x_offset_idle
+			offset_pos_y += eye_y_offset_idle
+		animation_state.WALK_RIGHT, animation_state.WALK_LEFT:
+			offset_pos_x += eye_x_offset_walk if facing_right else -eye_x_offset_walk
+			offset_pos_y += eye_y_offset_walk
+		animation_state.AIRBORN:
+			#TODO: find offset
+			pass
+		animation_state.CROUCHING:
+			#TODO: find offset
+			pass
+		
+	return Vector2(offset_pos_x, offset_pos_y)

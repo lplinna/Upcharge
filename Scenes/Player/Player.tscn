@@ -507,8 +507,7 @@ position = Vector2(-16, -33)
 position = Vector2(0, -5)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_q5pep")
-animation = &"Sliding"
-frame_progress = 0.183662
+animation = &"WalkLeft"
 script = ExtResource("5_xoc6i")
 
 [node name="StepsTimer" type="Timer" parent="."]
