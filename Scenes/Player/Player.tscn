@@ -518,7 +518,4 @@ wait_time = 0.25
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-13, -5)
-
 [connection signal="timeout" from="StepsTimer" to="." method="_on_timer_timeout"]
