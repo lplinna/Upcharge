@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://txmsaaco32yu"]
+[gd_scene load_steps=22 format=3 uid="uid://txmsaaco32yu"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_wlaim"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_1785a"]
@@ -11,6 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://cq0pkof6tgdt4" path="res://Scenes/ValveObstacle.tscn" id="9_q1gds"]
 [ext_resource type="PackedScene" uid="uid://csl1p6s085bo0" path="res://Scenes/Music/middle_music.tscn" id="10_6fkp4"]
 [ext_resource type="PackedScene" uid="uid://ce6qrxtx7cmup" path="res://Scenes/Music/upper_music.tscn" id="11_ote5n"]
+[ext_resource type="Texture2D" uid="uid://dykpcp0kpy3y3" path="res://Assets/Background/bricks.png" id="12_6g6ng"]
+[ext_resource type="Texture2D" uid="uid://dflvnnrx2qfws" path="res://Assets/Background/Cheese Graffiti.png" id="13_0blsl"]
+[ext_resource type="Texture2D" uid="uid://xwvvklb2jbl" path="res://Assets/Background/Sewer Grate.png" id="14_enomt"]
+[ext_resource type="Texture2D" uid="uid://c2xtoyarkk4n3" path="res://Assets/Background/Web Grafitti.png" id="15_11gll"]
+[ext_resource type="Texture2D" uid="uid://xd40juv033h4" path="res://Assets/Background/Spider Crab Graffiti.png" id="16_hewga"]
+[ext_resource type="Texture2D" uid="uid://00fjyimb0dc7" path="res://Assets/Background/Peace Graffiti.png" id="17_t370t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
 size = Vector2(2109.75, 67.9994)
@@ -639,3 +645,56 @@ position = Vector2(-67, -383)
 
 [node name="UpperMusic" parent="." instance=ExtResource("11_ote5n")]
 position = Vector2(-78, -778)
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -16
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_left = -108.0
+offset_top = -1474.0
+offset_right = 8539.0
+offset_bottom = 11471.0
+scale = Vector2(0.135776, 0.163579)
+texture = ExtResource("12_6g6ng")
+stretch_mode = 1
+
+[node name="Cheese" type="Sprite2D" parent="Background"]
+position = Vector2(555, -263)
+scale = Vector2(0.12392, 0.12392)
+texture = ExtResource("13_0blsl")
+
+[node name="Cheese2" type="Sprite2D" parent="Background"]
+position = Vector2(177, -1184)
+scale = Vector2(0.12392, 0.12392)
+texture = ExtResource("13_0blsl")
+flip_h = true
+
+[node name="SewerGrate" type="Sprite2D" parent="Background"]
+position = Vector2(367, -643)
+scale = Vector2(0.0762555, 0.0762555)
+texture = ExtResource("14_enomt")
+
+[node name="SewerGrate2" type="Sprite2D" parent="Background"]
+position = Vector2(169, 163)
+scale = Vector2(0.0762555, 0.0762555)
+texture = ExtResource("14_enomt")
+
+[node name="Web" type="Sprite2D" parent="Background"]
+position = Vector2(716, 383)
+scale = Vector2(0.109323, 0.109323)
+texture = ExtResource("15_11gll")
+
+[node name="Web2" type="Sprite2D" parent="Background"]
+position = Vector2(713, -664)
+scale = Vector2(0.109323, 0.109323)
+texture = ExtResource("15_11gll")
+
+[node name="SpiderCrab" type="Sprite2D" parent="Background"]
+position = Vector2(91, -18)
+scale = Vector2(0.0614222, 0.0614222)
+texture = ExtResource("16_hewga")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(890, -45)
+scale = Vector2(0.0743307, 0.0743307)
+texture = ExtResource("17_t370t")

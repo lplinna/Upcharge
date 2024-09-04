@@ -21,17 +21,21 @@ shape = SubResource("RectangleShape2D_bdi2a")
 [node name="End1" type="Node2D" parent="."]
 
 [node name="EndSprite" type="Sprite2D" parent="End1"]
+modulate = Color(0.658824, 0.898039, 0.611765, 1)
 
 [node name="End2" type="Node2D" parent="."]
 
 [node name="EndSprite" type="Sprite2D" parent="End2"]
+modulate = Color(0.658824, 0.898039, 0.611765, 1)
 
 [node name="Rivets" type="Node2D" parent="."]
 visible = false
 
 [node name="RivetSprite" type="Sprite2D" parent="Rivets"]
+modulate = Color(0.658824, 0.898039, 0.611765, 1)
 texture = ExtResource("2_vkp0n")
 
 [node name="PipeBody" type="Sprite2D" parent="."]
+modulate = Color(0.658824, 0.898039, 0.611765, 1)
 z_index = -1
 texture = ExtResource("3_jostp")
