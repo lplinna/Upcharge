@@ -6,7 +6,8 @@ enum animation_state {
 	AIRBORN,
 	JUMPING,
 	CROUCHING,
-	TROUBLED,
+	FLAT,
+	SLIDING,
 	IDLE
 }
 
@@ -16,15 +17,20 @@ const IDLE_THRESHOLD: float = 40
 var state: animation_state = animation_state.IDLE:
 	set(new_state):
 		if state != new_state:
-			#print(new_state)
 			state = new_state
 			state_response()
 
 ## Main "animation tree" for the player.
 func update(player: Player):
 	var velx = player.velocity.x
-	if player.sliding:
+	if  player.falling:
 		state = animation_state.AIRBORN
+		return
+	if player.flattened:
+		state = animation_state.FLAT
+		return
+	if player.sliding:
+		state = animation_state.SLIDING
 		return
 	if player.crouching:
 		if abs(velx) < IDLE_THRESHOLD:
@@ -35,7 +41,7 @@ func update(player: Player):
 			state = animation_state.WALK_LEFT
 	else:
 		if player.velocity.y < 0:
-			state = animation_state.AIRBORN
+			state = animation_state.JUMPING
 		else:
 			if abs(velx) < IDLE_THRESHOLD :
 				state = animation_state.IDLE
@@ -47,6 +53,10 @@ func update(player: Player):
 ## Response for changing the animation state.
 func state_response():
 	match state:
+		animation_state.SLIDING:
+			self.play("Sliding")
+		animation_state.FLAT:
+			self.play("Splat")
 		animation_state.JUMPING:
 			self.play("Jumping")
 		animation_state.IDLE:

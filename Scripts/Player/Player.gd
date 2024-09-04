@@ -31,8 +31,10 @@ var coins: int = 0
 var fall_price: int = 0
 var up_y: float = 0
 var down_y: float = 0
+var flattened:bool = false
 var crouching:bool = false
 var sliding: bool = false
+var falling:bool = false
 var highest_platform_reached: KinematicCollision2D
 var first_fall: bool = true
 var step_sound = true
@@ -71,15 +73,16 @@ func _physics_process(delta):
 		
 	var fall_distance = up_y - down_y
 	
+	
 	#Fall sound player
 	if !is_on_floor() and velocity.y > 100:
 		var FallVolume = clamp(velocity.y/10,1,80)
 		fallSound.volume_db = -80 + FallVolume
 		if fall_sound:
+			falling = true
 			fallSound.stream = PlayerFallSound
 			fallSound.play()
 			fall_sound = false
-		
 	
 	
 	
@@ -119,6 +122,7 @@ func _physics_process(delta):
 		
 		#Walk cycle Sound
 		if move_dir != 0:
+			flattened = false
 			if (animator.frame == 2 || animator.frame == 7) and step_sound:
 				for i in get_slide_collision_count():
 					var collision = get_slide_collision(i)
@@ -135,16 +139,20 @@ func _physics_process(delta):
 		if !fall_sound:
 			fall_sound = true
 			fallSound.stop()
+			falling = false
 			if fall_distance > 200:
 				SoundManager.PlayerLand("long")
+				flattened = true
 			else:
 				SoundManager.PlayerLand("short")
 		
 		if !fall_sound:
 			fall_sound = true
 			fallSound.stop()
+			falling = false
 			if fall_distance > 200:
 				SoundManager.PlayerLand("long")
+				flattened = true
 			else:
 				SoundManager.PlayerLand("short")
 		
