@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://mo0d0255lwyf"]
 
-[ext_resource type="Texture2D" uid="uid://ctc1wx0nljc4g" path="res://Assets/UI/Title.png" id="1_qg5s5"]
-[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_ydpn8"]
-[ext_resource type="Texture2D" uid="uid://cochf1yojpjtp" path="res://Assets/UI/background.png" id="2_wev07"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_w62oy"]
+[ext_resource type="Texture2D" uid="uid://cochf1yojpjtp" path="res://Assets/UI/background.png" id="2_5hfw0"]
+[ext_resource type="Texture2D" uid="uid://ctc1wx0nljc4g" path="res://Assets/UI/Title.png" id="3_gv0km"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_ydpn8")
+script = ExtResource("1_w62oy")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1
@@ -24,7 +24,7 @@ z_index = -1
 clip_contents = true
 custom_minimum_size = Vector2(1152, 648)
 layout_mode = 2
-texture = ExtResource("2_wev07")
+texture = ExtResource("2_5hfw0")
 expand_mode = 3
 stretch_mode = 5
 
@@ -48,7 +48,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/ActualMainMenu/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_qg5s5")
+texture = ExtResource("3_gv0km")
 expand_mode = 5
 stretch_mode = 4
 
