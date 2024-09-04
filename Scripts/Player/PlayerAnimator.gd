@@ -14,8 +14,19 @@ enum animation_state {
 ## Constants
 const eye_x_offset_idle = 7
 const eye_y_offset_idle = -19
+
 const eye_x_offset_walk = 15
 const eye_y_offset_walk = -12
+
+const eye_x_offset_crouch = 13
+const eye_y_offset_crouch = -5
+
+const eye_x_offset_jump = 8
+const eye_y_offset_jump = -18
+
+const eye_x_offset_fall = 14
+const eye_y_offset_fall = -7
+
 const IDLE_THRESHOLD: float = 40
 
 ## Current animation state of the Player.
@@ -28,7 +39,7 @@ var state: animation_state = animation_state.IDLE:
 ## Main "animation tree" for the player.
 func update(player: Player):
 	var velx = player.velocity.x
-	if  player.falling:
+	if player.falling:
 		state = animation_state.AIRBORN
 		return
 	if player.flattened:
@@ -88,11 +99,14 @@ func find_eye(pos):
 		animation_state.WALK_RIGHT, animation_state.WALK_LEFT:
 			offset_pos_x += eye_x_offset_walk if facing_right else -eye_x_offset_walk
 			offset_pos_y += eye_y_offset_walk
-		animation_state.AIRBORN:
-			#TODO: find offset
-			pass
 		animation_state.CROUCHING:
-			#TODO: find offset
-			pass
+			offset_pos_x += eye_x_offset_crouch if facing_right else -eye_x_offset_crouch
+			offset_pos_y += eye_y_offset_crouch
+		animation_state.JUMPING:
+			offset_pos_x += eye_x_offset_jump if facing_right else -eye_x_offset_jump
+			offset_pos_y += eye_y_offset_jump
+		animation_state.AIRBORN:
+			offset_pos_x += eye_x_offset_fall if facing_right else -eye_x_offset_fall
+			offset_pos_y += eye_y_offset_fall
 		
 	return Vector2(offset_pos_x, offset_pos_y)
