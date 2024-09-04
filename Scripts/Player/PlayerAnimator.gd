@@ -4,6 +4,7 @@ enum animation_state {
 	WALK_RIGHT,
 	WALK_LEFT,
 	AIRBORN,
+	JUMPING,
 	CROUCHING,
 	TROUBLED,
 	IDLE
@@ -46,6 +47,8 @@ func update(player: Player):
 ## Response for changing the animation state.
 func state_response():
 	match state:
+		animation_state.JUMPING:
+			self.play("Jumping")
 		animation_state.IDLE:
 			self.play("Idle")
 		animation_state.WALK_RIGHT:
