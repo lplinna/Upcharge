@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://txmsaaco32yu"]
+[gd_scene load_steps=16 format=3 uid="uid://txmsaaco32yu"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_wlaim"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_1785a"]
@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Pipes/PipeTemplate.tscn" id="5_5th03"]
 [ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/WinZone.tscn" id="6_ei5yn"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Pipes/PipeCurve.tscn" id="8_tblgv"]
+[ext_resource type="PackedScene" uid="uid://dc41oqitmeu0a" path="res://Scenes/Music/lower_music.tscn" id="9_jtgla"]
 [ext_resource type="PackedScene" uid="uid://cq0pkof6tgdt4" path="res://Scenes/ValveObstacle.tscn" id="9_q1gds"]
+[ext_resource type="PackedScene" uid="uid://csl1p6s085bo0" path="res://Scenes/Music/middle_music.tscn" id="10_6fkp4"]
+[ext_resource type="PackedScene" uid="uid://ce6qrxtx7cmup" path="res://Scenes/Music/upper_music.tscn" id="11_ote5n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
 size = Vector2(2109.75, 67.9994)
@@ -30,7 +33,7 @@ script = ExtResource("1_wlaim")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_1785a")]
-position = Vector2(288, -1170)
+position = Vector2(428, -797)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -50,10 +53,10 @@ position = Vector2(160, -1080)
 position = Vector2(16, -1192)
 
 [node name="Coin6" parent="Coins" instance=ExtResource("3_kunue")]
-position = Vector2(176, -832)
+position = Vector2(162, -830)
 
 [node name="Coin7" parent="Coins" instance=ExtResource("3_kunue")]
-position = Vector2(176, -784)
+position = Vector2(162, -782)
 
 [node name="Coin9" parent="Coins" instance=ExtResource("3_kunue")]
 position = Vector2(824, -520)
@@ -243,7 +246,7 @@ position = Vector2(-96, -1480)
 [node name="Pipes" type="Node2D" parent="."]
 
 [node name="ValveObstacle2" parent="Pipes" instance=ExtResource("9_q1gds")]
-position = Vector2(328, -784)
+position = Vector2(296, -744)
 
 [node name="ValveObstacle" parent="Pipes" instance=ExtResource("9_q1gds")]
 position = Vector2(288, -1104)
@@ -418,7 +421,7 @@ platform_length = 100.0
 position = Vector2(0, -3)
 
 [node name="CoinBoxPart1" type="Node2D" parent="Pipes"]
-position = Vector2(144, -800)
+position = Vector2(118, -794)
 
 [node name="PipeTemplate3" parent="Pipes/CoinBoxPart1" instance=ExtResource("5_5th03")]
 z_index = -8
@@ -462,7 +465,7 @@ rotation = 6.28318
 orientation = 3
 
 [node name="CoinBoxPart2" type="Node2D" parent="Pipes"]
-position = Vector2(272, -800)
+position = Vector2(246, -794)
 
 [node name="PipeTemplate3" parent="Pipes/CoinBoxPart2" instance=ExtResource("5_5th03")]
 position = Vector2(-58, 308)
@@ -627,3 +630,12 @@ position = Vector2(608, -96)
 
 [node name="ValveObstacle2" parent="." instance=ExtResource("9_q1gds")]
 position = Vector2(488, -96)
+
+[node name="LowerMusic" parent="." instance=ExtResource("9_jtgla")]
+position = Vector2(-72, 593)
+
+[node name="MiddleMusic" parent="." instance=ExtResource("10_6fkp4")]
+position = Vector2(-67, -383)
+
+[node name="UpperMusic" parent="." instance=ExtResource("11_ote5n")]
+position = Vector2(-78, -778)
