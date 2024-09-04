@@ -331,6 +331,7 @@ position = Vector2(752, 192)
 
 [node name="PipeTemplate" parent="Pipes/RightUp" instance=ExtResource("7_rwomf")]
 position = Vector2(-9, 0)
+End1Type = 2
 platform_length = 200.0
 
 [node name="PipeTemplate3" parent="Pipes/RightUp" instance=ExtResource("7_rwomf")]
@@ -409,22 +410,6 @@ orientation = 3
 [node name="PipeCurve7" parent="Pipes/TripleZigZag" instance=ExtResource("8_cvyoc")]
 position = Vector2(326, -131)
 rotation = 12.5664
-
-[node name="Zig2" type="Node2D" parent="Pipes"]
-position = Vector2(784, -848)
-
-[node name="PipeTemplate2" parent="Pipes/Zig2" instance=ExtResource("7_rwomf")]
-position = Vector2(96, 48)
-is_vert = true
-platform_length = 200.0
-
-[node name="PipeTemplate" parent="Pipes/Zig2" instance=ExtResource("7_rwomf")]
-position = Vector2(128, 96)
-End2Type = 2
-platform_length = 100.0
-
-[node name="PipeTemplate3" parent="Pipes/Zig2" instance=ExtResource("7_rwomf")]
-position = Vector2(0, -3)
 
 [node name="CoinBoxPart1" type="Node2D" parent="Pipes"]
 position = Vector2(118, -794)
@@ -526,6 +511,12 @@ platform_length = 180.0
 [node name="PipeTemplate2" parent="Pipes/TLZag" instance=ExtResource("7_rwomf")]
 position = Vector2(8, -16)
 End1Type = 2
+End2Type = 2
+platform_length = 451.0
+
+[node name="PipeTemplate4" parent="Pipes/TLZag" instance=ExtResource("7_rwomf")]
+position = Vector2(299, -145)
+End1Type = 2
 platform_length = 451.0
 
 [node name="PipeTemplate3" parent="Pipes/TLZag" instance=ExtResource("7_rwomf")]
@@ -599,6 +590,7 @@ platform_length = 225.0
 
 [node name="PipeTemplate5" parent="Pipes/FinalZag" instance=ExtResource("7_rwomf")]
 position = Vector2(216, 224)
+End2Type = 2
 platform_length = 600.0
 
 [node name="PipeTemplate6" parent="Pipes/FinalZag" instance=ExtResource("7_rwomf")]
@@ -650,6 +642,7 @@ position = Vector2(-78, -778)
 z_index = -16
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
+visible = false
 offset_left = -108.0
 offset_top = -1474.0
 offset_right = 8539.0

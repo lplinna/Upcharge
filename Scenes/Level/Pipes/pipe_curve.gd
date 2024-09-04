@@ -1,6 +1,5 @@
 @tool
 extends Node2D
-class_name PipeCurve
 
 var top_left_texture = preload("res://Assets/Pipes/JPipes/TopL.png")
 var top_right_texture = preload("res://Assets/Pipes/JPipes/TopR.png")

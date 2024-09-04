@@ -51,9 +51,9 @@ func _ready():
 	EyeLiner = Line2D.new()
 	EyeLiner.gradient = EyeGradient
 	EyeLiner.width = 1
-	get_tree().root.add_child(EyeLiner)
+	get_tree().root.add_child.call_deferred(EyeLiner)
 	
-func _process(delta):
+func _process(_delta):
 	var eye_pos = animator.find_eye(position)
 	eye_points_queue.push_front(eye_pos)
 	if eye_points_queue.size() > eyeline_length:

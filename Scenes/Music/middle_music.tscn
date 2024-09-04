@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://csl1p6s085bo0"]
 
 [ext_resource type="AudioStream" uid="uid://djs1e4ckqt8vr" path="res://Resources/Music/Upcharge (Cellos).wav" id="1_eet8s"]
-[ext_resource type="Script" path="res://Scripts/music_movement.gd" id="1_p6bkp"]
+[ext_resource type="Script" path="res://Scripts/Player/music_movement.gd" id="1_p6bkp"]
 [ext_resource type="AudioStream" uid="uid://opt5ekcx6cw8" path="res://Resources/Music/Upcharge (Celeste).wav" id="2_vtbko"]
 [ext_resource type="AudioStream" uid="uid://bq4xs0apbt5ei" path="res://Resources/Music/Upcharge (Piano_High).wav" id="3_0t7ie"]
 

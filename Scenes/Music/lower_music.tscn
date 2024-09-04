@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dc41oqitmeu0a"]
 
-[ext_resource type="Script" path="res://Scripts/music_movement.gd" id="1_rewmr"]
+[ext_resource type="Script" path="res://Scripts/Player/music_movement.gd" id="1_rewmr"]
 [ext_resource type="AudioStream" uid="uid://bbjpwhixif2hw" path="res://Resources/Music/Upcharge (Piano_Chords).wav" id="1_wf65x"]
 [ext_resource type="AudioStream" uid="uid://bd8v7respjqt2" path="res://Resources/Music/Upcharge (Delayed Lead).wav" id="2_f0spt"]
 [ext_resource type="AudioStream" uid="uid://dgwvh2i3banlj" path="res://Resources/Music/Upcharge (Water_Drops).wav" id="3_lqded"]
