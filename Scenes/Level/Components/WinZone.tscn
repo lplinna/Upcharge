@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bs44hthsbuah6"]
 
 [ext_resource type="Script" path="res://Scripts/Level/WinZone.gd" id="1_7jvkm"]
-[ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="2_nu2cf"]
+[ext_resource type="Texture2D" uid="uid://c4lq4s7dal7be" path="res://Assets/Dew/Dew_10.png" id="2_jyvb6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygiaj"]
 size = Vector2(1153.5, 190.5)
@@ -10,9 +10,11 @@ size = Vector2(1153.5, 190.5)
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(500, 50, 1)
+angle_min = 90.0
+angle_max = 90.0
 gravity = Vector3(0, 98, 0)
 scale_min = 0.0
-scale_max = 0.2
+scale_max = 0.1
 
 [node name="WinZone" type="Node2D"]
 script = ExtResource("1_7jvkm")
@@ -45,7 +47,7 @@ text = "NOT EOUGH KROMER."
 position = Vector2(575, 94)
 amount = 80
 process_material = SubResource("ParticleProcessMaterial_7nk27")
-texture = ExtResource("2_nu2cf")
+texture = ExtResource("2_jyvb6")
 visibility_rect = Rect2(-548.836, -175.578, 1156.28, 386.963)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

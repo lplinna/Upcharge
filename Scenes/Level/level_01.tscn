@@ -39,7 +39,7 @@ script = ExtResource("1_aj38d")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_xcx2e")]
-position = Vector2(900, 0)
+position = Vector2(67, -1172)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -96,6 +96,21 @@ offset_bottom = 986.0
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall"]
+position = Vector2(479, -7.00296)
+shape = SubResource("RectangleShape2D_klmyk")
+
+[node name="Wall3" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(483, -1516)
+rotation = -3.14159
+
+[node name="WorldBlock" parent="Boundaries/Wall3" instance=ExtResource("4_tk3sx")]
+offset_left = -1524.0
+offset_top = -51.0
+offset_right = 1537.0
+offset_bottom = 986.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall3"]
 position = Vector2(479, -7.00296)
 shape = SubResource("RectangleShape2D_klmyk")
 
