@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://s5qlahc6hh7d"]
 
 [ext_resource type="Script" path="res://Scenes/Level/Pipes/pipe_curve.gd" id="1_ie8qg"]
-[ext_resource type="Texture2D" uid="uid://coe4cr3p6d8ir" path="res://Assets/Pipes/JPipes/TopL.png" id="2_lww0u"]
+[ext_resource type="Texture2D" uid="uid://coe4cr3p6d8ir" path="res://Assets/Pipes/JPipes/TopL.png" id="2_l86pr"]
 
 [node name="PipeCurve" type="Node2D"]
 scale = Vector2(0.385, 0.385)
@@ -9,7 +9,7 @@ script = ExtResource("1_ie8qg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.658824, 0.898039, 0.611765, 1)
-texture = ExtResource("2_lww0u")
+texture = ExtResource("2_l86pr")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
