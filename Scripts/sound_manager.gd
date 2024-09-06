@@ -29,7 +29,7 @@ func PlayerJump(power):
 	var randjumpsound = randi_range(1,6)
 	JumpSound = load("res://Resources/Sounds/Jumps/Jump_Squeak_ Echo_0"+str(randjumpsound)+".wav")
 	audio_stream_player.set_script(SoundScript)
-	audio_stream_player.pitch_scale = 3.0 - power
+	audio_stream_player.pitch_scale = 2.0 - power
 	audio_stream_player.volume_db = -20
 	audio_stream_player.stream = JumpSound
 	#print("BOING")
