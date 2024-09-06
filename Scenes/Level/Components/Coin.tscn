@@ -1,8 +1,7 @@
-[gd_scene load_steps=55 format=3 uid="uid://cdm56i1aanfts"]
+[gd_scene load_steps=54 format=3 uid="uid://cdm56i1aanfts"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Coin.gd" id="1_i1fn0"]
-[ext_resource type="Script" path="res://Scripts/bobbingMovement_Coin.gd" id="2_avtve"]
-[ext_resource type="Texture2D" uid="uid://boh0bte8hiv3m" path="res://Resources/CoinSpritesheet.png" id="2_ku21m"]
+[ext_resource type="Texture2D" uid="uid://boh0bte8hiv3m" path="res://Resources/CoinSpriteSheet.png" id="2_ku21m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqlwv"]
 
@@ -382,7 +381,6 @@ scale = Vector2(0.155, 0.155)
 sprite_frames = SubResource("SpriteFrames_m3u2o")
 frame = 26
 frame_progress = 0.07294
-script = ExtResource("2_avtve")
 
 [node name="CollectSound" type="AudioStreamPlayer2D" parent="."]
 
