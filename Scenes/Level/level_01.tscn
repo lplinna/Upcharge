@@ -49,7 +49,7 @@ script = ExtResource("1_aj38d")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_xcx2e")]
-position = Vector2(67, -1172)
+position = Vector2(885, 39)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -110,7 +110,7 @@ position = Vector2(479, -7.00296)
 shape = SubResource("RectangleShape2D_klmyk")
 
 [node name="Wall3" type="StaticBody2D" parent="Boundaries"]
-position = Vector2(483, -1516)
+position = Vector2(417, -1521)
 rotation = -3.14159
 
 [node name="WorldBlock" parent="Boundaries/Wall3" instance=ExtResource("4_tk3sx")]
