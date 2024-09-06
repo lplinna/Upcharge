@@ -182,15 +182,16 @@ layout_mode = 2
 bbcode_enabled = true
 text = "[b]Credits[/b]
 [P1] YSL Team Spider Crab
+Hazel - Sound Designer
 Kendrick Taylor  - Team Lead/ Producer
 Jason - Artist
-Jamie  - Artist
+Jamie - Artist
 Jinhyo - Artist
-Luke Linna  - Programmer
+Luke Linna - Programmer
 John - Programmer
 Jordan Levy - Programmer 
 Noah Gardner - Programmer
-Hazel - Sound Designer"
+Timothy Breiholz - Sound Designer"
 
 [node name="CreditsReturn" type="Button" parent="Credits/HBoxContainer/VBoxContainer"]
 layout_mode = 2
