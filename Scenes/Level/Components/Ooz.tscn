@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://db5rn4a56mkd6"]
+
+[ext_resource type="Texture2D" uid="uid://bsndys1lams2i" path="res://Assets/Pipes/JPipes/greendot.png" id="1_jgl4e"]
+
+[node name="Ooz" type="RigidBody2D"]
+scale = Vector2(0.01, 0.01)
+mass = 0.002
+gravity_scale = 0.4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_jgl4e")

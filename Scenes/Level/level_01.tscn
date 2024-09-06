@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://defkbhuutj5p1"]
+[gd_scene load_steps=33 format=3 uid="uid://defkbhuutj5p1"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_aj38d"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_xcx2e"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://xtb7k53kbaan" path="res://Assets/Dew/Dew_4.png" id="25_tmd80"]
 [ext_resource type="Texture2D" uid="uid://qnyh75tlxylf" path="res://Assets/Dew/Dew_3.png" id="26_e5siv"]
 [ext_resource type="Texture2D" uid="uid://iyexisxtoiga" path="res://Assets/Dew/Dew_2.png" id="27_w2lko"]
+[ext_resource type="Script" path="res://Scripts/goopSpawningLogic.gd" id="28_gbn8h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
 size = Vector2(2109.75, 67.9994)
@@ -767,3 +768,31 @@ region_rect = Rect2(104, 73, 682, 15)
 position = Vector2(160, -635)
 texture = ExtResource("27_w2lko")
 region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Node" type="Node" parent="Goop"]
+
+[node name="Node2D" type="Node2D" parent="Goop/Node"]
+position = Vector2(91, -231)
+script = ExtResource("28_gbn8h")
+
+[node name="Timer" type="Timer" parent="Goop/Node/Node2D"]
+
+[node name="Node2D2" type="Node2D" parent="Goop/Node"]
+position = Vector2(91, -231)
+script = ExtResource("28_gbn8h")
+
+[node name="Timer" type="Timer" parent="Goop/Node/Node2D2"]
+
+[node name="Node2" type="Node" parent="Goop"]
+
+[node name="Node2D" type="Node2D" parent="Goop/Node2"]
+position = Vector2(133, -1000)
+script = ExtResource("28_gbn8h")
+
+[node name="Timer" type="Timer" parent="Goop/Node2/Node2D"]
+
+[node name="Node2D2" type="Node2D" parent="Goop/Node2"]
+position = Vector2(133, -1000)
+script = ExtResource("28_gbn8h")
+
+[node name="Timer" type="Timer" parent="Goop/Node2/Node2D2"]
