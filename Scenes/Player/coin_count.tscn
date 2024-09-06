@@ -7,7 +7,7 @@
 scale = Vector2(0.0800591, 0.0800591)
 texture = ExtResource("1_ow6t2")
 region_enabled = true
-region_rect = Rect2(5144, 81, 211, 251)
+region_rect = Rect2(141, 81, 218, 251)
 script = ExtResource("2_py0kc")
 
 [node name="Label" type="Label" parent="."]

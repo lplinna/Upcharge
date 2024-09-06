@@ -1,7 +1,7 @@
 extends Control
 
-@onready var button = $Panel/VBoxContainer/Button
-@onready var price = $Panel/VBoxContainer/HBoxContainer/Price
+@onready var button = $Panel/VBoxContainer/TextureRect2/Button
+@onready var price = $Panel/VBoxContainer/TextureRect/HBoxContainer/Price
 @onready var player_ref: Player = get_parent()
 
 func _on_timer_timeout():

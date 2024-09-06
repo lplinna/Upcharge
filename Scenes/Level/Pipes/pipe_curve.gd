@@ -3,7 +3,7 @@ extends Node2D
 
 var top_left_texture = preload("res://Assets/Pipes/JPipes/TopL.png")
 var top_right_texture = preload("res://Assets/Pipes/JPipes/TopR.png")
-var bottom_left_texture = preload("res://Assets/Pipes/Jpipes/BotL.png")
+var bottom_left_texture = preload("res://Assets/Pipes/JPipes/BotL.png")
 var bottom_right_texture = preload("res://Assets/Pipes/JPipes/BotR.png")
 
 enum Orientation {
