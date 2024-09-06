@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://defkbhuutj5p1"]
+[gd_scene load_steps=37 format=3 uid="uid://defkbhuutj5p1"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_aj38d"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_xcx2e"]
@@ -831,7 +831,8 @@ texture = ExtResource("17_x70s7")
 [node name="Goop" type="Node2D" parent="."]
 
 [node name="Dew" type="Sprite2D" parent="Goop"]
-position = Vector2(45, -1068)
+position = Vector2(50, -1068)
+scale = Vector2(1.07143, 1)
 texture = ExtResource("18_0mxvq")
 
 [node name="Dew2" type="Sprite2D" parent="Goop"]
@@ -851,7 +852,8 @@ texture = ExtResource("21_ob7hh")
 region_rect = Rect2(104, 73, 682, 15)
 
 [node name="Dew5" type="Sprite2D" parent="Goop"]
-position = Vector2(26, -304)
+position = Vector2(32, -304)
+scale = Vector2(1.13665, 1)
 texture = ExtResource("22_pv3sb")
 region_rect = Rect2(104, 73, 682, 15)
 
