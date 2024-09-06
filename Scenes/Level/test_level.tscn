@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmxh36lkghlvy"]
+[gd_scene load_steps=16 format=3 uid="uid://dmxh36lkghlvy"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_7aigq"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_p4lq8"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="8_d4afw"]
 [ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/Components/WinZone.tscn" id="9_qurha"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="10_bjfpl"]
+[ext_resource type="PackedScene" path="res://Scenes/Level/Components/green_goop.tscn" id="11_mdrar"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
 size = Vector2(2109.75, 87.9988)
@@ -33,6 +34,7 @@ player_ref = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_p4lq8")]
 position = Vector2(416, 440)
+collision_mask = 3
 
 [node name="LowerMusic" parent="." instance=ExtResource("3_dg67k")]
 position = Vector2(0, 649)
@@ -42,8 +44,6 @@ position = Vector2(1, 26)
 
 [node name="UpperMusic" parent="." instance=ExtResource("5_pydc7")]
 position = Vector2(1, -425)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="BottomGround" type="StaticBody2D" parent="."]
 visible = false
@@ -263,3 +263,7 @@ position = Vector2(904, -226)
 is_vert = true
 End1Type = 1
 platform_length = 100.0
+
+[node name="Green Goop" parent="." instance=ExtResource("11_mdrar")]
+position = Vector2(280, 347)
+scale = Vector2(0.319999, 0.279999)
