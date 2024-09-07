@@ -38,6 +38,12 @@ var first_fall: bool = true
 var step_sound = true
 var horizontal_lethargy: float = 0.2
 var fall_sound = false
+<<<<<<< Updated upstream
+=======
+var eye_points_queue = []
+var EyeLiner: Line2D 
+var wet_floor: bool = false
+>>>>>>> Stashed changes
 
 func _ready():
 	PopUp.init()
@@ -119,10 +125,15 @@ func _physics_process(delta):
 		
 		#Walk cycle Sound
 		if move_dir != 0:
+<<<<<<< Updated upstream
 			if (animator.frame == 2 || animator.frame == 7) and step_sound:
+=======
+			flattened = false
+			if (animator.frame == 2 || animator.frame == 14) and step_sound:
+>>>>>>> Stashed changes
 				for i in get_slide_collision_count():
 					var collision = get_slide_collision(i)
-					if collision.get_collider().name == "BottomGround":
+					if wet_floor:
 						SoundManager.PlayerWalkPuddle()
 					else:
 						SoundManager.PlayerWalk()

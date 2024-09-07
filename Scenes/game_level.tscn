@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:Scenes/game_level.tscn
 [gd_scene load_steps=16 format=3 uid="uid://txmsaaco32yu"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_wlaim"]
@@ -11,6 +12,28 @@
 [ext_resource type="PackedScene" uid="uid://cq0pkof6tgdt4" path="res://Scenes/ValveObstacle.tscn" id="9_q1gds"]
 [ext_resource type="PackedScene" uid="uid://csl1p6s085bo0" path="res://Scenes/Music/middle_music.tscn" id="10_6fkp4"]
 [ext_resource type="PackedScene" uid="uid://ce6qrxtx7cmup" path="res://Scenes/Music/upper_music.tscn" id="11_ote5n"]
+=======
+[gd_scene load_steps=23 format=3 uid="uid://txmsaaco32yu"]
+
+[ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_aj38d"]
+[ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_xcx2e"]
+[ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Level/Components/Coin.tscn" id="3_iapcu"]
+[ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/Components/WorldBlock.tscn" id="4_tk3sx"]
+[ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/Components/WinZone.tscn" id="5_y1eiv"]
+[ext_resource type="PackedScene" uid="uid://cq0pkof6tgdt4" path="res://Scenes/Level/Components/ValveObstacle.tscn" id="6_18rv5"]
+[ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="7_rwomf"]
+[ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="8_cvyoc"]
+[ext_resource type="PackedScene" uid="uid://dc41oqitmeu0a" path="res://Scenes/Music/lower_music.tscn" id="9_uwel1"]
+[ext_resource type="PackedScene" uid="uid://csl1p6s085bo0" path="res://Scenes/Music/middle_music.tscn" id="10_ivrcm"]
+[ext_resource type="PackedScene" uid="uid://ce6qrxtx7cmup" path="res://Scenes/Music/upper_music.tscn" id="11_hgv55"]
+[ext_resource type="Texture2D" uid="uid://dykpcp0kpy3y3" path="res://Assets/Background/bricks.png" id="12_go6j3"]
+[ext_resource type="Texture2D" uid="uid://dflvnnrx2qfws" path="res://Assets/Background/Cheese Graffiti.png" id="13_sc7bs"]
+[ext_resource type="Texture2D" uid="uid://xwvvklb2jbl" path="res://Assets/Background/Sewer Grate.png" id="14_m4odj"]
+[ext_resource type="Texture2D" uid="uid://c2xtoyarkk4n3" path="res://Assets/Background/Web Grafitti.png" id="15_r7dqk"]
+[ext_resource type="Texture2D" uid="uid://xd40juv033h4" path="res://Assets/Background/Spider Crab Graffiti.png" id="16_nq6ns"]
+[ext_resource type="Texture2D" uid="uid://00fjyimb0dc7" path="res://Assets/Background/Peace Graffiti.png" id="17_x70s7"]
+[ext_resource type="PackedScene" uid="uid://c0uae32qstcj7" path="res://Scenes/Level/green_goop.tscn" id="18_5ufg5"]
+>>>>>>> Stashed changes:Scenes/Level/level_01.tscn
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
 size = Vector2(2109.75, 67.9994)
@@ -639,3 +662,110 @@ position = Vector2(-67, -383)
 
 [node name="UpperMusic" parent="." instance=ExtResource("11_ote5n")]
 position = Vector2(-78, -778)
+<<<<<<< Updated upstream:Scenes/game_level.tscn
+=======
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -16
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_left = -108.0
+offset_top = -1474.0
+offset_right = 8539.0
+offset_bottom = 11471.0
+scale = Vector2(0.135776, 0.163579)
+texture = ExtResource("12_go6j3")
+stretch_mode = 1
+
+[node name="Cheese" type="Sprite2D" parent="Background"]
+position = Vector2(555, -263)
+scale = Vector2(0.12392, 0.12392)
+texture = ExtResource("13_sc7bs")
+
+[node name="Cheese2" type="Sprite2D" parent="Background"]
+position = Vector2(177, -1184)
+scale = Vector2(0.12392, 0.12392)
+texture = ExtResource("13_sc7bs")
+flip_h = true
+
+[node name="SewerGrate" type="Sprite2D" parent="Background"]
+position = Vector2(367, -643)
+scale = Vector2(0.0762555, 0.0762555)
+texture = ExtResource("14_m4odj")
+
+[node name="SewerGrate2" type="Sprite2D" parent="Background"]
+position = Vector2(169, 163)
+scale = Vector2(0.0762555, 0.0762555)
+texture = ExtResource("14_m4odj")
+
+[node name="Web" type="Sprite2D" parent="Background"]
+position = Vector2(716, 383)
+scale = Vector2(0.109323, 0.109323)
+texture = ExtResource("15_r7dqk")
+
+[node name="Web2" type="Sprite2D" parent="Background"]
+position = Vector2(713, -664)
+scale = Vector2(0.109323, 0.109323)
+texture = ExtResource("15_r7dqk")
+
+[node name="SpiderCrab" type="Sprite2D" parent="Background"]
+position = Vector2(91, -18)
+scale = Vector2(0.0614222, 0.0614222)
+texture = ExtResource("16_nq6ns")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(890, -45)
+scale = Vector2(0.0743307, 0.0743307)
+texture = ExtResource("17_x70s7")
+
+[node name="SliperySurfaces" type="Node2D" parent="."]
+
+[node name="Green Goop" parent="SliperySurfaces" groups=["GreenGoop"] instance=ExtResource("18_5ufg5")]
+position = Vector2(-17, 564)
+scale = Vector2(0.617558, 0.359999)
+
+[node name="Green Goop2" parent="SliperySurfaces" groups=["GreenGoop"] instance=ExtResource("18_5ufg5")]
+position = Vector2(-16, 174)
+rotation = 0.386651
+scale = Vector2(0.0643527, 0.0545923)
+
+[node name="Green Goop3" parent="SliperySurfaces" groups=["GreenGoop"] instance=ExtResource("18_5ufg5")]
+position = Vector2(-17, -312)
+rotation = -0.000513077
+scale = Vector2(0.08, 0.055)
+
+[node name="Green Goop4" parent="SliperySurfaces" groups=["GreenGoop"] instance=ExtResource("18_5ufg5")]
+position = Vector2(574, -424)
+rotation = -0.237285
+scale = Vector2(0.09, 0.055)
+
+[node name="Green Goop5" parent="SliperySurfaces" groups=["GreenGoop"] instance=ExtResource("18_5ufg5")]
+position = Vector2(671, -460)
+rotation = 0.00197221
+scale = Vector2(0.07, 0.055)
+
+[node name="Green Goop6" parent="SliperySurfaces" groups=["GreenGoop"] instance=ExtResource("18_5ufg5")]
+position = Vector2(715, -882)
+rotation = 0.00197221
+scale = Vector2(0.13, 0.055)
+
+[node name="Green Goop8" parent="SliperySurfaces" groups=["GreenGoop"] instance=ExtResource("18_5ufg5")]
+position = Vector2(-17, -1080)
+rotation = 0.00197221
+scale = Vector2(0.107516, 0.054891)
+
+[node name="Green Goop9" parent="SliperySurfaces" groups=["GreenGoop"] instance=ExtResource("18_5ufg5")]
+position = Vector2(17, -734)
+rotation = 0.0996376
+scale = Vector2(0.033667, 0.0549791)
+
+[node name="Green Goop10" parent="SliperySurfaces" groups=["GreenGoop"] instance=ExtResource("18_5ufg5")]
+position = Vector2(194, -737)
+rotation = -0.173809
+scale = Vector2(-0.047, 0.055)
+
+[node name="Green Goop7" parent="SliperySurfaces" groups=["GreenGoop"] instance=ExtResource("18_5ufg5")]
+position = Vector2(862, -939)
+rotation = -0.661117
+scale = Vector2(0.12, 0.055)
+>>>>>>> Stashed changes:Scenes/Level/level_01.tscn
