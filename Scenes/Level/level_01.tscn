@@ -40,7 +40,7 @@ script = ExtResource("1_aj38d")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_xcx2e")]
-position = Vector2(900, 180)
+position = Vector2(873, 270)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -709,5 +709,6 @@ texture = ExtResource("17_x70s7")
 
 [node name="SewerGrateTop" type="Sprite2D" parent="Background"]
 z_index = 16
-position = Vector2(501, -1316)
+position = Vector2(508, -1376)
+scale = Vector2(0.549226, 0.552311)
 texture = ExtResource("18_y7qkp")
