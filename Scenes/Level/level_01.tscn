@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://txmsaaco32yu"]
+[gd_scene load_steps=34 format=3 uid="uid://dgwp401beeyhv"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_aj38d"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_xcx2e"]
@@ -17,7 +17,18 @@
 [ext_resource type="Texture2D" uid="uid://c2xtoyarkk4n3" path="res://Assets/Background/Web Grafitti.png" id="15_r7dqk"]
 [ext_resource type="Texture2D" uid="uid://xd40juv033h4" path="res://Assets/Background/Spider Crab Graffiti.png" id="16_nq6ns"]
 [ext_resource type="Texture2D" uid="uid://00fjyimb0dc7" path="res://Assets/Background/Peace Graffiti.png" id="17_x70s7"]
-[ext_resource type="Texture2D" uid="uid://c7le2a3r2t5bo" path="res://Assets/Background/TopGrate.png" id="18_y7qkp"]
+[ext_resource type="Texture2D" uid="uid://dvqgrreklq8y2" path="res://Assets/Dew/Dew_1.png" id="18_0mxvq"]
+[ext_resource type="Texture2D" uid="uid://dto1j6yygvnnd" path="res://Assets/Background/TopGrate.png" id="18_ujds2"]
+[ext_resource type="Texture2D" uid="uid://c4lq4s7dal7be" path="res://Assets/Dew/Dew_10.png" id="19_5gp5s"]
+[ext_resource type="Texture2D" uid="uid://cublx7kd8yqwu" path="res://Assets/Dew/Dew_9.png" id="20_t5813"]
+[ext_resource type="Texture2D" uid="uid://dxx1s21jlvxiy" path="res://Assets/Dew/Dew_8.png" id="21_ob7hh"]
+[ext_resource type="Texture2D" uid="uid://bsy3vmqgdai65" path="res://Assets/Dew/Dew_7.png" id="22_pv3sb"]
+[ext_resource type="Texture2D" uid="uid://lt1iaoeuenyf" path="res://Assets/Dew/Dew_6.png" id="23_77ewk"]
+[ext_resource type="Texture2D" uid="uid://degxihslcim02" path="res://Assets/Dew/Dew_5.png" id="24_mcg5t"]
+[ext_resource type="Texture2D" uid="uid://xtb7k53kbaan" path="res://Assets/Dew/Dew_4.png" id="25_tmd80"]
+[ext_resource type="Texture2D" uid="uid://qnyh75tlxylf" path="res://Assets/Dew/Dew_3.png" id="26_e5siv"]
+[ext_resource type="Texture2D" uid="uid://iyexisxtoiga" path="res://Assets/Dew/Dew_2.png" id="27_w2lko"]
+[ext_resource type="Script" path="res://Scripts/goopSpawningLogic.gd" id="28_gbn8h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
 size = Vector2(2109.75, 67.9994)
@@ -40,7 +51,7 @@ script = ExtResource("1_aj38d")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_xcx2e")]
-position = Vector2(873, 270)
+position = Vector2(885, 39)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -105,10 +116,10 @@ position = Vector2(417, -1521)
 rotation = -3.14159
 
 [node name="WorldBlock" parent="Boundaries/Wall3" instance=ExtResource("4_tk3sx")]
-offset_left = -1526.0
-offset_top = -62.9961
-offset_right = 1535.0
-offset_bottom = 974.004
+offset_left = -1524.0
+offset_top = -51.0
+offset_right = 1537.0
+offset_bottom = 986.0
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall3"]
@@ -633,16 +644,16 @@ position = Vector2(155, 13)
 rotation = 12.5664
 orientation = 1
 
-[node name="PipeTemplate" parent="." instance=ExtResource("7_rwomf")]
+[node name="PipeTemplate" parent="Pipes" instance=ExtResource("7_rwomf")]
 position = Vector2(192, -200)
 End1Type = 2
 End2Type = 2
 platform_length = 200.0
 
-[node name="ValveObstacle" parent="." instance=ExtResource("6_18rv5")]
+[node name="ValveObstacle4" parent="Pipes" instance=ExtResource("6_18rv5")]
 position = Vector2(608, -96)
 
-[node name="ValveObstacle2" parent="." instance=ExtResource("6_18rv5")]
+[node name="ValveObstacle5" parent="Pipes" instance=ExtResource("6_18rv5")]
 position = Vector2(488, -96)
 
 [node name="LowerMusic" parent="." instance=ExtResource("9_uwel1")]
@@ -707,8 +718,88 @@ position = Vector2(890, -45)
 scale = Vector2(0.0743307, 0.0743307)
 texture = ExtResource("17_x70s7")
 
-[node name="SewerGrateTop" type="Sprite2D" parent="Background"]
-z_index = 16
-position = Vector2(508, -1376)
-scale = Vector2(0.549226, 0.552311)
-texture = ExtResource("18_y7qkp")
+[node name="LevelEndGrate" type="Sprite2D" parent="Background"]
+z_index = 18
+position = Vector2(540, -1420)
+scale = Vector2(0.380779, 0.380779)
+texture = ExtResource("18_ujds2")
+
+[node name="Goop" type="Node2D" parent="."]
+
+[node name="Dew" type="Sprite2D" parent="Goop"]
+position = Vector2(45, -1068)
+texture = ExtResource("18_0mxvq")
+
+[node name="Dew2" type="Sprite2D" parent="Goop"]
+position = Vector2(332, 588)
+texture = ExtResource("19_5gp5s")
+region_enabled = true
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Dew3" type="Sprite2D" parent="Goop"]
+position = Vector2(14, 199)
+texture = ExtResource("20_t5813")
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Dew4" type="Sprite2D" parent="Goop"]
+position = Vector2(112, 129)
+texture = ExtResource("21_ob7hh")
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Dew5" type="Sprite2D" parent="Goop"]
+position = Vector2(26, -304)
+texture = ExtResource("22_pv3sb")
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Dew6" type="Sprite2D" parent="Goop"]
+position = Vector2(696, -432)
+texture = ExtResource("23_77ewk")
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Dew7" type="Sprite2D" parent="Goop"]
+position = Vector2(850, -914)
+texture = ExtResource("24_mcg5t")
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Dew8" type="Sprite2D" parent="Goop"]
+position = Vector2(177, -724)
+texture = ExtResource("25_tmd80")
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Dew9" type="Sprite2D" parent="Goop"]
+position = Vector2(55, -713)
+texture = ExtResource("26_e5siv")
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Dew10" type="Sprite2D" parent="Goop"]
+position = Vector2(160, -635)
+texture = ExtResource("27_w2lko")
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Node" type="Node" parent="Goop"]
+
+[node name="Node2D" type="Node2D" parent="Goop/Node"]
+position = Vector2(91, -231)
+script = ExtResource("28_gbn8h")
+
+[node name="Timer" type="Timer" parent="Goop/Node/Node2D"]
+
+[node name="Node2D2" type="Node2D" parent="Goop/Node"]
+position = Vector2(91, -231)
+script = ExtResource("28_gbn8h")
+
+[node name="Timer" type="Timer" parent="Goop/Node/Node2D2"]
+
+[node name="Node2" type="Node" parent="Goop"]
+
+[node name="Node2D" type="Node2D" parent="Goop/Node2"]
+position = Vector2(133, -1000)
+script = ExtResource("28_gbn8h")
+
+[node name="Timer" type="Timer" parent="Goop/Node2/Node2D"]
+
+[node name="Node2D2" type="Node2D" parent="Goop/Node2"]
+position = Vector2(133, -1000)
+script = ExtResource("28_gbn8h")
+
+[node name="Timer" type="Timer" parent="Goop/Node2/Node2D2"]

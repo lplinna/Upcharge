@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bs44hthsbuah6"]
 
 [ext_resource type="Script" path="res://Scripts/Level/WinZone.gd" id="1_7jvkm"]
-[ext_resource type="Texture2D" uid="uid://bsndys1lams2i" path="res://Assets/Pipes/JPipes/greendot.png" id="2_rv22x"]
+[ext_resource type="Texture2D" uid="uid://bsndys1lams2i" path="res://Assets/Pipes/JPipes/greendot.png" id="2_0gyhg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygiaj"]
 size = Vector2(1153.5, 190.5)
@@ -47,7 +47,7 @@ text = "NOT EOUGH KROMER."
 position = Vector2(575, 94)
 amount = 80
 process_material = SubResource("ParticleProcessMaterial_7nk27")
-texture = ExtResource("2_rv22x")
+texture = ExtResource("2_0gyhg")
 visibility_rect = Rect2(-548.836, -175.578, 1156.28, 386.963)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
