@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://defkbhuutj5p1"]
+[gd_scene load_steps=34 format=3 uid="uid://dgwp401beeyhv"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_aj38d"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_xcx2e"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://xd40juv033h4" path="res://Assets/Background/Spider Crab Graffiti.png" id="16_nq6ns"]
 [ext_resource type="Texture2D" uid="uid://00fjyimb0dc7" path="res://Assets/Background/Peace Graffiti.png" id="17_x70s7"]
 [ext_resource type="Texture2D" uid="uid://dvqgrreklq8y2" path="res://Assets/Dew/Dew_1.png" id="18_0mxvq"]
+[ext_resource type="Texture2D" uid="uid://dto1j6yygvnnd" path="res://Assets/Background/TopGrate.png" id="18_ujds2"]
 [ext_resource type="Texture2D" uid="uid://c4lq4s7dal7be" path="res://Assets/Dew/Dew_10.png" id="19_5gp5s"]
 [ext_resource type="Texture2D" uid="uid://cublx7kd8yqwu" path="res://Assets/Dew/Dew_9.png" id="20_t5813"]
 [ext_resource type="Texture2D" uid="uid://dxx1s21jlvxiy" path="res://Assets/Dew/Dew_8.png" id="21_ob7hh"]
@@ -716,6 +717,12 @@ texture = ExtResource("16_nq6ns")
 position = Vector2(890, -45)
 scale = Vector2(0.0743307, 0.0743307)
 texture = ExtResource("17_x70s7")
+
+[node name="LevelEndGrate" type="Sprite2D" parent="Background"]
+z_index = 18
+position = Vector2(540, -1420)
+scale = Vector2(0.380779, 0.380779)
+texture = ExtResource("18_ujds2")
 
 [node name="Goop" type="Node2D" parent="."]
 
