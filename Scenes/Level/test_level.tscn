@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="8_d4afw"]
 [ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/Components/WinZone.tscn" id="9_qurha"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="10_bjfpl"]
-[ext_resource type="PackedScene" path="res://Scenes/Level/Components/green_goop.tscn" id="11_mdrar"]
+[ext_resource type="PackedScene" uid="uid://c0uae32qstcj7" path="res://Scenes/Level/Components/green_goop.tscn" id="11_mdrar"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
 size = Vector2(2109.75, 87.9988)
