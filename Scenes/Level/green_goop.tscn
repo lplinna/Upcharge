@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0uae32qstcj7"]
+[gd_scene load_steps=5 format=3 uid="uid://d5h7xwdhknen"]
 
 [ext_resource type="Script" path="res://Scripts/Level/green_goop.gd" id="1_4qvh3"]
 [ext_resource type="Texture2D" uid="uid://bsndys1lams2i" path="res://Assets/Pipes/JPipes/greendot.png" id="2_e461p"]
@@ -13,6 +13,8 @@ emission_box_extents = Vector3(500, 50, 1)
 gravity = Vector3(0, -98, 0)
 scale_min = 0.0
 scale_max = 0.03
+hue_variation_min = -1.0
+hue_variation_max = -1.0
 
 [node name="Green Goop" type="Node2D"]
 script = ExtResource("1_4qvh3")
