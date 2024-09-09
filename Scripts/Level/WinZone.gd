@@ -16,3 +16,5 @@ func _on_area_2d_body_entered(body):
 			$CenterContainer/NotEnough.visible = true
 			await get_tree().create_timer(2.0).timeout
 			$CenterContainer/NotEnough.visible = false
+			get_tree().change_scene_to_file("res://Scenes/Level/level_01.tscn")
+			
