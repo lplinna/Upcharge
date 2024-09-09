@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1a32i6rg0wcv"]
+
+[ext_resource type="Texture2D" uid="uid://crpmffpy7yrij" path="res://Assets/Pipes/JPipes/BigPipe.png" id="1_bbyoa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytq6y"]
+resource_local_to_scene = true
+size = Vector2(465, 223.5)
+
+[node name="BigPipe" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.658824, 0.898039, 0.611765, 1)
+texture = ExtResource("1_bbyoa")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 0.75)
+shape = SubResource("RectangleShape2D_ytq6y")

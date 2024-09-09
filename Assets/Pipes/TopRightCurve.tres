@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bwr5ww1mygqwj"]
+
+[ext_resource type="Texture2D" uid="uid://bxudpd6fiunwq" path="res://Assets/Pipes/PipeCurves.png" id="1_572ma"]
+
+[resource]
+atlas = ExtResource("1_572ma")
+region = Rect2(344, 344, 160, 160)

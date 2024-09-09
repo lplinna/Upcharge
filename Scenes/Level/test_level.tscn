@@ -1,0 +1,269 @@
+[gd_scene load_steps=16 format=3 uid="uid://dmxh36lkghlvy"]
+
+[ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_7aigq"]
+[ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_p4lq8"]
+[ext_resource type="PackedScene" uid="uid://dc41oqitmeu0a" path="res://Scenes/Music/lower_music.tscn" id="3_dg67k"]
+[ext_resource type="PackedScene" uid="uid://csl1p6s085bo0" path="res://Scenes/Music/middle_music.tscn" id="4_60odn"]
+[ext_resource type="PackedScene" uid="uid://ce6qrxtx7cmup" path="res://Scenes/Music/upper_music.tscn" id="5_pydc7"]
+[ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Level/Components/Coin.tscn" id="6_absj1"]
+[ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/Components/WorldBlock.tscn" id="7_b8owm"]
+[ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="8_d4afw"]
+[ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/Components/WinZone.tscn" id="9_qurha"]
+[ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="10_bjfpl"]
+[ext_resource type="PackedScene" uid="uid://c0uae32qstcj7" path="res://Scenes/Level/Components/green_goop.tscn" id="11_mdrar"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
+size = Vector2(2109.75, 87.9988)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2gvx"]
+size = Vector2(375.322, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
+size = Vector2(2109.75, 67.9994)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atgsu"]
+size = Vector2(2440, 86.0011)
+
+[node name="Level" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player_ref")]
+position = Vector2(516, 538)
+position_smoothing_enabled = true
+script = ExtResource("1_7aigq")
+player_ref = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("2_p4lq8")]
+position = Vector2(416, 440)
+collision_mask = 3
+
+[node name="LowerMusic" parent="." instance=ExtResource("3_dg67k")]
+position = Vector2(0, 649)
+
+[node name="MiddleMusic" parent="." instance=ExtResource("4_60odn")]
+position = Vector2(1, 26)
+
+[node name="UpperMusic" parent="." instance=ExtResource("5_pydc7")]
+position = Vector2(1, -425)
+
+[node name="BottomGround" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(576, 615)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomGround"]
+shape = SubResource("RectangleShape2D_klmyk")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(132, 548)
+rotation = 0.560307
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+rotation = -0.073189
+shape = SubResource("RectangleShape2D_t2gvx")
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("6_absj1")]
+position = Vector2(516, 332)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("6_absj1")]
+position = Vector2(884, 429)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("6_absj1")]
+position = Vector2(895, 232)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("6_absj1")]
+position = Vector2(681, 163)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("6_absj1")]
+position = Vector2(418, 81)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("6_absj1")]
+position = Vector2(42, 40)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("6_absj1")]
+position = Vector2(42, -10)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("6_absj1")]
+position = Vector2(42, -64)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("6_absj1")]
+position = Vector2(42, -115)
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="BottomGround" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(576, 615)
+
+[node name="WorldBlock" parent="Boundaries/BottomGround" instance=ExtResource("7_b8owm")]
+offset_left = -1517.0
+offset_top = -26.0
+offset_right = 1544.0
+offset_bottom = 1011.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomGround"]
+shape = SubResource("RectangleShape2D_5pbvl")
+
+[node name="Wall" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(1024, 69)
+rotation = -1.57079
+
+[node name="WorldBlock" parent="Boundaries/Wall" instance=ExtResource("7_b8owm")]
+offset_left = -1524.0
+offset_top = -51.0
+offset_right = 1537.0
+offset_bottom = 986.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall"]
+position = Vector2(479, -7.00296)
+shape = SubResource("RectangleShape2D_klmyk")
+
+[node name="Wall2" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-44, -599)
+rotation = 1.57079
+
+[node name="WorldBlock" parent="Boundaries/Wall2" instance=ExtResource("7_b8owm")]
+offset_left = -1524.0
+offset_top = -27.0
+offset_right = 1537.0
+offset_bottom = 1010.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall2"]
+position = Vector2(313, 15.9985)
+shape = SubResource("RectangleShape2D_atgsu")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(132, 548)
+rotation = 0.560307
+
+[node name="WorldBlock" parent="Boundaries/StaticBody2D2" instance=ExtResource("7_b8owm")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -914.882
+offset_top = 63.9963
+offset_right = 994.118
+offset_bottom = 881.996
+grow_vertical = 1
+rotation = -0.102631
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D2"]
+position = Vector2(-46.006, 3.3732)
+rotation = -0.073189
+shape = SubResource("RectangleShape2D_t2gvx")
+
+[node name="PipeTemplate" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(464, 384)
+End1Type = 2
+End2Type = 2
+platform_length = 1000.0
+
+[node name="PipeTemplate2" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(803, 482)
+End1Type = 2
+End2Type = 2
+platform_length = 800.0
+
+[node name="PipeTemplate3" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(815, 300)
+End1Type = 2
+End2Type = 2
+platform_length = 600.0
+
+[node name="PipeTemplate4" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(627, 211)
+End1Type = 2
+End2Type = 2
+platform_length = 440.0
+
+[node name="PipeTemplate5" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(405, 129)
+End1Type = 2
+End2Type = 2
+platform_length = 220.0
+
+[node name="PipeTemplate6" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(43, 99)
+End1Type = 2
+End2Type = 2
+platform_length = 110.0
+
+[node name="PipeTemplate7" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(583, 26)
+End1Type = 2
+End2Type = 2
+platform_length = 420.0
+
+[node name="PipeTemplate8" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(403, -70)
+End1Type = 2
+End2Type = 2
+platform_length = 400.0
+
+[node name="WinZone" parent="." instance=ExtResource("9_qurha")]
+position = Vector2(-100, -803)
+
+[node name="PipeTemplate9" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(630, -116)
+End1Type = 2
+End2Type = 2
+platform_length = 350.0
+
+[node name="PipeTemplate10" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(468, -219)
+End1Type = 2
+End2Type = 2
+platform_length = 400.0
+
+[node name="PipeTemplate11" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(690, -321)
+End1Type = 2
+End2Type = 2
+platform_length = 220.0
+
+[node name="PipeTemplate12" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(832, -426)
+End1Type = 2
+End2Type = 2
+platform_length = 110.0
+
+[node name="PipeTemplate13" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(579, -526)
+End1Type = 2
+End2Type = 2
+platform_length = 600.0
+
+[node name="PipeTemplate14" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(354, -597)
+End1Type = 2
+End2Type = 2
+platform_length = 400.0
+
+[node name="Coin" parent="." instance=ExtResource("6_absj1")]
+position = Vector2(832, -479)
+
+[node name="PipeTemplate15" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(325, -223)
+is_vert = true
+End1Type = 1
+End2Type = 1
+
+[node name="PipeTemplate16" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(837, -178)
+End1Type = 2
+platform_length = 200.0
+
+[node name="PipeCurve" parent="." instance=ExtResource("10_bjfpl")]
+position = Vector2(903, -179)
+rotation = 3.14159
+script = null
+
+[node name="PipeTemplate17" parent="." instance=ExtResource("8_d4afw")]
+position = Vector2(904, -226)
+is_vert = true
+End1Type = 1
+platform_length = 100.0
+
+[node name="Green Goop" parent="." instance=ExtResource("11_mdrar")]
+position = Vector2(280, 347)
+scale = Vector2(0.319999, 0.279999)
