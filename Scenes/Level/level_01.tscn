@@ -50,7 +50,7 @@ script = ExtResource("1_aj38d")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_xcx2e")]
-position = Vector2(885, 39)
+position = Vector2(843, 344)
 
 [node name="Coins" type="Node2D" parent="."]
 
