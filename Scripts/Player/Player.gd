@@ -43,6 +43,7 @@ var horizontal_lethargy: float = 0.2
 var fall_sound = false
 var eye_points_queue = []
 var EyeLiner: Line2D 
+var wet_floor: bool = false
 
 func _ready():
 	pop_up.init()
@@ -137,10 +138,10 @@ func _physics_process(delta):
 		#Walk cycle Sound
 		if move_dir != 0:
 			flattened = false
-			if (animator.frame == 2 || animator.frame == 7) and step_sound:
+			if (animator.frame == 2 || animator.frame == 15) and step_sound:
 				for i in get_slide_collision_count():
 					var collision = get_slide_collision(i)
-					if collision.get_collider().name == "BottomGround":
+					if wet_floor:
 						SoundManager.PlayerWalkPuddle()
 					else:
 						SoundManager.PlayerWalk()
