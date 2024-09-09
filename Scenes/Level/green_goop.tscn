@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0uae32qstcj7"]
+[gd_scene load_steps=5 format=3 uid="uid://jgxv4c76bjis"]
 
 [ext_resource type="Script" path="res://Scripts/Level/green_goop.gd" id="1_4qvh3"]
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="2_kag7t"]
