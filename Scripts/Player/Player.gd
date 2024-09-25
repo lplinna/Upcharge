@@ -53,6 +53,7 @@ func _ready():
 	EyeLiner.gradient = EyeGradient
 	EyeLiner.width = 1
 	get_tree().root.add_child.call_deferred(EyeLiner)
+	$AnimatedSprite2D.material.set("shader_param/line_thickness", 0)
 	
 func _process(_delta):
 	var eye_pos = animator.find_eye(position)
@@ -79,7 +80,15 @@ func slide_down_slope(delta):
 	move_and_slide()
 
 
+func charging_visuals():
+	if crouching:
+		var jump_time_elapsed = Time.get_ticks_msec() - time_jump_pressed
+		var jump_factor = clamp(jump_time_elapsed * 0.001,0,1) * 10
+		$AnimatedSprite2D.material.set("shader_param/line_thickness", jump_factor)
+
+
 func _physics_process(delta):
+	charging_visuals()
 	if sliding:
 		slide_down_slope(delta)
 		return
