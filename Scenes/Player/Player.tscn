@@ -22,8 +22,8 @@ height = 44.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_osqt2"]
 shader = ExtResource("4_du2aj")
-shader_parameter/line_color = Color(0, 1, 0, 1)
-shader_parameter/line_thickness = 7.565
+shader_parameter/line_color = Color(0, 1, 0, 0.388235)
+shader_parameter/line_thickness = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_26d75"]
 atlas = ExtResource("4_yr7fb")

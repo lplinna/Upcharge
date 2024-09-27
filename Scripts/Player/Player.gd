@@ -83,8 +83,11 @@ func slide_down_slope(delta):
 func charging_visuals():
 	if crouching:
 		var jump_time_elapsed = Time.get_ticks_msec() - time_jump_pressed
-		var jump_factor = clamp(jump_time_elapsed * 0.001,0,1) * 10
+		var jump_factor = clamp(jump_time_elapsed * 0.001,0,1) * 20
 		$AnimatedSprite2D.material.set("shader_param/line_thickness", jump_factor)
+
+func reset_charging_visuals():
+	$AnimatedSprite2D.material.set("shader_param/line_thickness", 0)
 
 
 func _physics_process(delta):
@@ -136,6 +139,7 @@ func _physics_process(delta):
 			crouching = false
 			flattened = false
 			first_fall = false
+			reset_charging_visuals()
 		elif Input.is_action_just_pressed("move_up"):
 			crouching = true
 			time_jump_pressed = Time.get_ticks_msec()
