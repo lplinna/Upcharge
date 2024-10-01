@@ -130,10 +130,12 @@ func _physics_process(delta):
 		elif Input.is_action_just_pressed("move_up"):
 			crouching = true
 			time_jump_pressed = Time.get_ticks_msec()
-
-		$AnimatedSprite2D.update(self)
-	
+			
 		var move_dir = Input.get_axis("move_left","move_right")
+		if crouching:
+			if move_dir !=0:
+				old_velx = move_speed * move_dir
+			move_dir = 0
 		
 		#Walk cycle Sound
 		if move_dir != 0:
@@ -175,9 +177,11 @@ func _physics_process(delta):
 		velocity.x  = old_velx
 	
 	
+	
 	if is_on_wall():
 		old_velx = 0
 	
+	$AnimatedSprite2D.update(self)
 	move_and_slide()
 
 ## Updates the price based on how far the player fell down.
