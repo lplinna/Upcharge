@@ -52,11 +52,9 @@ func update(player: Player):
 		state = animation_state.SLIDING
 		return
 	if player.crouching:
-		print(player.old_velx)
 		if abs(velx) < IDLE_THRESHOLD:
 			state = animation_state.CROUCHING 
 		self.flip_h = player.old_velx > 0
-	
 	else:
 		if player.velocity.y < 0:
 			state = animation_state.JUMPING

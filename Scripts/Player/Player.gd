@@ -53,7 +53,9 @@ func _ready():
 	EyeLiner.gradient = EyeGradient
 	EyeLiner.width = 1
 	get_tree().root.add_child.call_deferred(EyeLiner)
-	
+
+
+
 func _process(_delta):
 	var eye_pos = animator.find_eye(position)
 	eye_points_queue.push_front(eye_pos)
@@ -159,17 +161,7 @@ func _physics_process(delta):
 				flattened = true
 			else:
 				SoundManager.PlayerLand("short")
-		
-		if !fall_sound:
-			fall_sound = true
-			fallSound.stop()
-			falling = false
-			if fall_distance > 200:
-				SoundManager.PlayerLand("long")
-				flattened = true
-			else:
-				SoundManager.PlayerLand("short")
-		
+
 		velocity.x = lerpf(velocity.x,move_dir * move_speed, horizontal_lethargy)
 		if move_dir * move_speed != 0:
 			old_velx = move_dir * move_speed
