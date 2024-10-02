@@ -22,12 +22,14 @@ class_name Player
 
 const PlayerFallSound = preload("res://Resources/Sounds/Jumps/Falls/Long_Fall_01.wav")
 const EyeGradient: Gradient = preload("res://Resources/Player/EyeGradient.tres")
+const falling_threshold: float = 160
 
 ## Movement variables
 var time_jump_pressed: float = 0
 var old_velx: float = 0
 
 ## Game mechanic variables
+var horizontal_lethargy: float = 0.2
 var coins: int = 0
 var fall_price: int = 0
 var up_y: float = 0
@@ -39,7 +41,6 @@ var falling:bool = false
 var highest_platform_reached: KinematicCollision2D
 var first_fall: bool = true
 var step_sound = true
-var horizontal_lethargy: float = 0.2
 var fall_sound = false
 var eye_points_queue = []
 var EyeLiner: Line2D 
@@ -99,10 +100,12 @@ func _physics_process(delta):
 	if !is_on_floor() and velocity.y > 100:
 		var FallVolume = clamp(velocity.y/10,1,80)
 		fallSound.volume_db = -80 + FallVolume
+		if fall_distance > falling_threshold:
+			falling = true
+		
 		if fall_sound:
 			fallSound.stream = PlayerFallSound
 			fallSound.play()
-			falling = true
 			fall_sound = false
 	
 	if is_on_floor():
