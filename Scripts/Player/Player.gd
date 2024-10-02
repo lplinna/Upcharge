@@ -44,6 +44,7 @@ var fall_sound = false
 var eye_points_queue = []
 var EyeLiner: Line2D 
 var wet_floor: bool = false
+var held_item: int = 0
 
 func _ready():
 	pop_up.init()
@@ -208,3 +209,15 @@ func handle_button():
 
 func _on_timer_timeout():
 	step_sound = true
+
+func use_item(id):
+	if id == 1:
+		print("Used crowbar.")
+		
+	if id == 2:
+		print("Used wrench.")
+		
+	if id == 3:
+		print("Used cheese.")
+	held_item = 0
+	
