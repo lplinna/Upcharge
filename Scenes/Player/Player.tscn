@@ -1,8 +1,9 @@
-[gd_scene load_steps=74 format=3 uid="uid://dhm46ln55frcd"]
+[gd_scene load_steps=76 format=3 uid="uid://dhm46ln55frcd"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_c1brk"]
 [ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/Player/PopUp.tscn" id="2_n2dd2"]
 [ext_resource type="PackedScene" uid="uid://bf5na3qssy1ux" path="res://Scenes/Player/coin_count.tscn" id="3_e7qy3"]
+[ext_resource type="Shader" path="res://Resources/Player/Player.gdshader" id="4_du2aj"]
 [ext_resource type="Texture2D" uid="uid://duuuu0cnjbln5" path="res://Resources/Player/FallingSpriteSheet.png" id="4_yr7fb"]
 [ext_resource type="Texture2D" uid="uid://bmnibep7xkdq3" path="res://Resources/Player/ChargeSpriteSheet.png" id="5_4jeto"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerAnimator.gd" id="5_xoc6i"]
@@ -18,6 +19,12 @@ point_count = 2
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmbm4"]
 radius = 17.0
 height = 44.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_osqt2"]
+shader = ExtResource("4_du2aj")
+shader_parameter/line_color = Color(0, 1, 0, 0.388235)
+shader_parameter/line_thickness = 14.608
+shader_parameter/glow_coverage = 16
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_26d75"]
 atlas = ExtResource("4_yr7fb")
@@ -504,6 +511,7 @@ position = Vector2(-16, -33)
 [node name="PlayerSounds" type="AudioStreamPlayer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_osqt2")
 position = Vector2(0, -5)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_q5pep")
