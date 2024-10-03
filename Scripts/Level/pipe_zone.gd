@@ -17,14 +17,12 @@ func _ready():
 	print(neighbors)
 
 func move_player_here():
-	var player = get_tree().root.find_child("Player")
+	var player = get_tree().get_first_node_in_group("Player")
 	player.global_position = self.global_position
 
 
-func _on_button_pressed() -> void:
-	print("glorbus")
-	if selectable:
-		closed = false
-		move_player_here()
-		
-	pass # Replace with function body.
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == 1 and event.pressed == true:
+		if selectable:
+			closed = false
+			move_player_here()
