@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://txmsaaco32yu"]
+[gd_scene load_steps=35 format=3 uid="uid://txmsaaco32yu"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_aj38d"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_xcx2e"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cq0pkof6tgdt4" path="res://Scenes/Level/Components/ValveObstacle.tscn" id="6_18rv5"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="7_rwomf"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="8_cvyoc"]
+[ext_resource type="PackedScene" uid="uid://c1xt83id8ben0" path="res://Scenes/Level/Components/PipeZone.tscn" id="9_gvcky"]
 [ext_resource type="PackedScene" uid="uid://dc41oqitmeu0a" path="res://Scenes/Music/lower_music.tscn" id="9_uwel1"]
 [ext_resource type="PackedScene" uid="uid://csl1p6s085bo0" path="res://Scenes/Music/middle_music.tscn" id="10_ivrcm"]
 [ext_resource type="PackedScene" uid="uid://ce6qrxtx7cmup" path="res://Scenes/Music/upper_music.tscn" id="11_hgv55"]
@@ -587,6 +588,16 @@ position = Vector2(0, 56)
 is_vert = true
 End2Type = 1
 platform_length = 225.0
+
+[node name="PipeEnds" type="Node2D" parent="Pipes/BottomT"]
+
+[node name="PipeZone" parent="Pipes/BottomT/PipeEnds" instance=ExtResource("9_gvcky")]
+position = Vector2(-106, 3)
+scale = Vector2(0.2, 0.2)
+
+[node name="PipeZone2" parent="Pipes/BottomT/PipeEnds" instance=ExtResource("9_gvcky")]
+position = Vector2(-3, 123)
+scale = Vector2(0.2, 0.2)
 
 [node name="FinalZag" type="Node2D" parent="Pipes"]
 position = Vector2(536, -1200)
