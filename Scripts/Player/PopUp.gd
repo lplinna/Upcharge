@@ -13,7 +13,3 @@ func display():
 
 func init():
 	button.pressed.connect(player_ref.handle_button)
-
-func _process(delta):
-	if self.visible and Input.is_action_just_released("return"):
-		player_ref.handle_button()

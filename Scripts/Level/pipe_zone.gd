@@ -20,12 +20,7 @@ func _ready():
 	print(neighbors)
 
 func move_player_here():
-	stored_player.process_mode = Node.PROCESS_MODE_INHERIT
 	stored_player.global_position = self.global_position
-	await get_tree().create_timer(1.0).timeout
-	stop_eating = false
-	selectable = false
-
 
 func make_neighbors_selectable():
 	for neighbor in neighbors:
@@ -38,11 +33,12 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			closed = false
 			move_player_here()
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("return"):
+		var next_neighbor = neighbors.pick_random()
+		next_neighbor.move_player_here()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if stop_eating:
-		return
 	if body is Player:
 		stored_player = body
-		stored_player.process_mode = Node.PROCESS_MODE_DISABLED
 		make_neighbors_selectable()
