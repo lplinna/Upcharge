@@ -1,9 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://txmsaaco32yu"]
+[gd_scene load_steps=35 format=3 uid="uid://txmsaaco32yu"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_aj38d"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_xcx2e"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Level/Components/Coin.tscn" id="3_iapcu"]
 [ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/Components/WorldBlock.tscn" id="4_tk3sx"]
+[ext_resource type="PackedScene" uid="uid://b35x8dvw3k6h6" path="res://Scenes/Level/Shop/shop.tscn" id="5_85oyg"]
 [ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/Components/WinZone.tscn" id="5_y1eiv"]
 [ext_resource type="PackedScene" uid="uid://cq0pkof6tgdt4" path="res://Scenes/Level/Components/ValveObstacle.tscn" id="6_18rv5"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="7_rwomf"]
@@ -139,6 +140,11 @@ offset_bottom = 1010.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall2"]
 position = Vector2(313, 15.9985)
 shape = SubResource("RectangleShape2D_atgsu")
+
+[node name="Shop" parent="Boundaries/Wall2" instance=ExtResource("5_85oyg")]
+position = Vector2(1149, -135.993)
+rotation = -1.57079
+scale = Vector2(0.812508, 0.458673)
 
 [node name="Slide1" type="StaticBody2D" parent="Boundaries"]
 position = Vector2(852, 409)

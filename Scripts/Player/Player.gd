@@ -15,6 +15,7 @@ class_name Player
 
 ## Component references
 @onready var pop_up: Control = $PopUp
+@onready var shop_pop_up = $Shop_Popup
 @onready var coin_count: CoinCount = $CoinCount
 @onready var fallSound: AudioStreamPlayer = $PlayerSounds
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
@@ -221,3 +222,5 @@ func use_item(id):
 		print("Used cheese.")
 	held_item = 0
 	
+func shop_display(id):
+	shop_pop_up.display(id)
