@@ -20,7 +20,8 @@ func _ready():
 	print(neighbors)
 
 func move_player_here():
-	stored_player.global_position = self.global_position
+	if stored_player != null:
+		stored_player.global_position = self.global_position
 
 func make_neighbors_selectable():
 	for neighbor in neighbors:
@@ -37,8 +38,14 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("return"):
 		var next_neighbor = neighbors.pick_random()
 		next_neighbor.move_player_here()
+		stored_player = null
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		stored_player = body
 		make_neighbors_selectable()
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body == stored_player:
+		stored_player = null
