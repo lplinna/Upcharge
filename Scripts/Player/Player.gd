@@ -22,12 +22,14 @@ class_name Player
 
 const PlayerFallSound = preload("res://Resources/Sounds/Jumps/Falls/Long_Fall_01.wav")
 const EyeGradient: Gradient = preload("res://Resources/Player/EyeGradient.tres")
+const falling_threshold: float = 160
 
 ## Movement variables
 var time_jump_pressed: float = 0
 var old_velx: float = 0
 
 ## Game mechanic variables
+var horizontal_lethargy: float = 0.2
 var coins: int = 0
 var fall_price: int = 0
 var up_y: float = 0
@@ -39,7 +41,6 @@ var falling:bool = false
 var highest_platform_reached: KinematicCollision2D
 var first_fall: bool = true
 var step_sound = true
-var horizontal_lethargy: float = 0.2
 var fall_sound = false
 var eye_points_queue = []
 var EyeLiner: Line2D 
@@ -109,10 +110,12 @@ func _physics_process(delta):
 	if !is_on_floor() and velocity.y > 100:
 		var FallVolume = clamp(velocity.y/10,1,80)
 		fallSound.volume_db = -80 + FallVolume
+		if fall_distance > falling_threshold:
+			falling = true
+		
 		if fall_sound:
 			fallSound.stream = PlayerFallSound
 			fallSound.play()
-			falling = true
 			fall_sound = false
 	
 	if is_on_floor():
@@ -143,10 +146,12 @@ func _physics_process(delta):
 		elif Input.is_action_just_pressed("move_up"):
 			crouching = true
 			time_jump_pressed = Time.get_ticks_msec()
-
-		$AnimatedSprite2D.update(self)
-	
+			
 		var move_dir = Input.get_axis("move_left","move_right")
+		if crouching:
+			if move_dir !=0:
+				old_velx = move_speed * move_dir
+			move_dir = 0
 		
 		#Walk cycle Sound
 		if move_dir != 0:
@@ -170,17 +175,7 @@ func _physics_process(delta):
 				flattened = true
 			else:
 				SoundManager.PlayerLand("short")
-		
-		if !fall_sound:
-			fall_sound = true
-			fallSound.stop()
-			falling = false
-			if fall_distance > 200:
-				SoundManager.PlayerLand("long")
-				flattened = true
-			else:
-				SoundManager.PlayerLand("short")
-		
+
 		velocity.x = lerpf(velocity.x,move_dir * move_speed, horizontal_lethargy)
 		if move_dir * move_speed != 0:
 			old_velx = move_dir * move_speed
@@ -188,9 +183,11 @@ func _physics_process(delta):
 		velocity.x  = old_velx
 	
 	
+	
 	if is_on_wall():
 		old_velx = 0
 	
+	$AnimatedSprite2D.update(self)
 	move_and_slide()
 
 ## Updates the price based on how far the player fell down.

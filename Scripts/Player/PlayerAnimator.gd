@@ -36,6 +36,9 @@ var state: animation_state = animation_state.IDLE:
 			state = new_state
 			state_response()
 
+
+
+
 ## Main "animation tree" for the player.
 func update(player: Player):
 	var velx = player.velocity.x
@@ -51,10 +54,7 @@ func update(player: Player):
 	if player.crouching:
 		if abs(velx) < IDLE_THRESHOLD:
 			state = animation_state.CROUCHING 
-		if velx > IDLE_THRESHOLD:
-			state = animation_state.WALK_RIGHT
-		if velx < -IDLE_THRESHOLD:
-			state = animation_state.WALK_LEFT
+		self.flip_h = player.old_velx > 0
 	else:
 		if player.velocity.y < 0:
 			state = animation_state.JUMPING
