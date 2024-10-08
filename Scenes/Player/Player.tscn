@@ -506,7 +506,7 @@ offset_top = -103.0
 offset_right = -40.0
 offset_bottom = -103.0
 
-[node name="Shop Popup" parent="." instance=ExtResource("3_3kahm")]
+[node name="Shop_Popup" parent="." instance=ExtResource("3_3kahm")]
 visible = false
 offset_left = -40.0
 offset_top = -103.0

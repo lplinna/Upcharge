@@ -141,11 +141,6 @@ offset_bottom = 1010.0
 position = Vector2(313, 15.9985)
 shape = SubResource("RectangleShape2D_atgsu")
 
-[node name="Shop" parent="Boundaries/Wall2" instance=ExtResource("5_85oyg")]
-position = Vector2(1149, -135.993)
-rotation = -1.57079
-scale = Vector2(0.812508, 0.458673)
-
 [node name="Slide1" type="StaticBody2D" parent="Boundaries"]
 position = Vector2(852, 409)
 rotation = -0.785398
@@ -837,3 +832,7 @@ scale = Vector2(0.065, 0.12)
 position = Vector2(-62, -16)
 rotation = -0.00194502
 scale = Vector2(0.105, 0.12)
+
+[node name="Shop" parent="." instance=ExtResource("5_85oyg")]
+position = Vector2(102, 550)
+scale = Vector2(0.812508, 0.458673)

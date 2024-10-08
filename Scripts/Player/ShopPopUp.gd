@@ -25,4 +25,9 @@ func init():
 
 func _process(delta):
 	if self.visible and Input.is_action_just_released("return"):
-		player_ref.handle_button()
+		if button.text == "Crowbar":
+			player_ref.handle_button(1)
+		if button.text == "Wrench":
+			player_ref.handle_button(2)
+		if button.text == "Cheese":
+			player_ref.handle_button(3)

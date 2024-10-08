@@ -27,3 +27,6 @@ func _on_area_cheese_entered(body):
 func _on_area_cheese_exited(body):
 	if body is Player:
 		body.shop_pop_up.visible = false
+
+func _process(delta):
+	pass

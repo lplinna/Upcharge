@@ -201,11 +201,28 @@ func calc_fall_price():
 	fall_price = max(int((up_y - down_y) / 100), fall_price)
 
 ## Response to the popup button being clicked.
-func handle_button():
-	if coins >= fall_price:
-		position = highest_platform_reached.get_position() + buffer_space * Vector2.UP
-		pop_up.visible = false
-		coins -= fall_price
+func handle_button(actionID):
+	if  actionID == 0:
+		if coins >= fall_price:
+			position = highest_platform_reached.get_position() + buffer_space * Vector2.UP
+			pop_up.visible = false
+			coins -= fall_price
+	if actionID == 1:
+		if coins >= shop_pop_up.crowbar_price:
+			held_item = 1
+			coins -= shop_pop_up.crowbar_price
+			shop_pop_up.crowbar_price += 1
+			shop_pop_up.price.text = "%s" % shop_pop_up.crowbar_price
+	if actionID == 2:
+		if coins >= shop_pop_up.wrench_price:
+			held_item = 2
+			coins -= shop_pop_up.wrench_price
+			shop_pop_up.wrench_price += 1
+			shop_pop_up.price.text = "%s" % shop_pop_up.wrench_price
+	if actionID == 3:
+		if coins >= shop_pop_up.cheese_price:
+			held_item = 3
+			coins -= shop_pop_up.cheese_price
 
 
 func _on_timer_timeout():

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://put1v678r2w3" path="res://Assets/UI/ReturnNoText.png" id="2_ccqpc"]
 [ext_resource type="Texture2D" uid="uid://bcsa12k3b25o7" path="res://Assets/UI/CostNoText.png" id="3_3ffkn"]
 
-[node name="Shop Popup" type="Control"]
+[node name="Shop_Popup" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_0g8wp")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_left = -4.0
 offset_top = -4.0
 offset_right = 80.0
