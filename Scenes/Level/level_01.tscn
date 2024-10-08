@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://txmsaaco32yu"]
+[gd_scene load_steps=36 format=3 uid="uid://txmsaaco32yu"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_aj38d"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_xcx2e"]
@@ -373,6 +373,16 @@ platform_length = 750.0
 position = Vector2(52, -13)
 rotation = 6.28318
 orientation = 3
+
+[node name="PipeEnds" type="Node2D" parent="Pipes/RightUp"]
+
+[node name="PipeZone" parent="Pipes/RightUp/PipeEnds" instance=ExtResource("9_gvcky")]
+position = Vector2(-78, 2)
+scale = Vector2(0.2, 0.2)
+
+[node name="PipeZone3" parent="Pipes/RightUp/PipeEnds" instance=ExtResource("9_gvcky")]
+position = Vector2(59, -353)
+scale = Vector2(0.2, 0.2)
 
 [node name="UTurn" type="Node2D" parent="Pipes"]
 position = Vector2(400, -208)

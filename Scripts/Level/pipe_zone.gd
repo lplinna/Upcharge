@@ -7,10 +7,14 @@ class_name PipeZone
 var neighbors: Array[PipeZone] 
 
 var stop_eating: bool = false
-var closed: bool = true
 var selectable: bool = true
 var stored_player: Player = null
 var player_there: bool = false
+var closed: bool = true:
+	set(new_closed):
+		closed = new_closed
+		if not new_closed:
+			$Sprite2D.texture = open_sprite
 
 
 func _ready():
@@ -21,11 +25,16 @@ func _ready():
 
 func move_player_here():
 	stored_player.global_position = self.global_position
+	closed = false
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("return") and player_there:
-		var next_neighbor = neighbors.pick_random()
-		next_neighbor.move_player_here()
+		if closed and stored_player.held_item == 1:
+			closed = false
+			stored_player.use_item(1)
+		if not closed:
+			var next_neighbor = neighbors.pick_random()
+			next_neighbor.move_player_here()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
