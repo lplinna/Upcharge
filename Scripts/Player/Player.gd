@@ -14,7 +14,6 @@ class_name Player
 @export var fall_threshold: float = 100
 
 ## Component references
-@onready var pop_up: Control = $PopUp
 @onready var shop_pop_up = $Shop_Popup
 @onready var coin_count: CoinCount = $CoinCount
 @onready var fallSound: AudioStreamPlayer = $PlayerSounds
@@ -49,7 +48,6 @@ var wet_floor: bool = false
 var held_item: int = 0
 
 func _ready():
-	pop_up.init()
 	
 	# Eye effect mvoes with player unless it is attached higher up the tree
 	EyeLiner = Line2D.new()
@@ -128,14 +126,7 @@ func _physics_process(delta):
 			var slide_angle = rad_to_deg(collision.get_collider().transform.get_rotation())
 			if slide_angle != 0:
 				sliding = true
-		
-		if !pop_up.visible and fall_distance > fall_threshold and not first_fall:
-			calc_fall_price()
-			pop_up.display()
-			var popup_timer = pop_up.get_node("Timer") as Timer
-			popup_timer.start()
-			down_y = up_y
-			
+
 		if Input.is_action_just_released("move_up"):
 			var jump_time_elapsed = Time.get_ticks_msec() - time_jump_pressed
 			var jump_factor = clamp(jump_time_elapsed * 0.001,0,1)
@@ -199,11 +190,6 @@ func calc_fall_price():
 
 ## Response to the popup button being clicked.
 func handle_button(actionID):
-	if  actionID == 0:
-		if coins >= fall_price:
-			position = highest_platform_reached.get_position() + buffer_space * Vector2.UP
-			pop_up.visible = false
-			coins -= fall_price
 	if actionID == 1:
 		if coins >= shop_pop_up.crowbar_price:
 			held_item = 1
