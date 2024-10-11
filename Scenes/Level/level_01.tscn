@@ -855,5 +855,4 @@ rotation = -0.00194502
 scale = Vector2(0.105, 0.12)
 
 [node name="Shop" parent="." instance=ExtResource("5_85oyg")]
-position = Vector2(102, 550)
-scale = Vector2(0.812508, 0.458673)
+position = Vector2(576, 563)
