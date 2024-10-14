@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://dhm46ln55frcd"]
+[gd_scene load_steps=86 format=3 uid="uid://dhm46ln55frcd"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_c1brk"]
 [ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/Player/PopUp.tscn" id="2_n2dd2"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dif81nev1urok" path="res://Resources/Player/IdleSpriteSheet.png" id="6_3ev16"]
 [ext_resource type="Texture2D" uid="uid://4vrsild7wwwx" path="res://Resources/Player/FirstWalkCycle/RunCycleSpriteSheet.png" id="6_qowr6"]
 [ext_resource type="Texture2D" uid="uid://dg57e3vqsplch" path="res://Resources/Player/JumpSpriteSheet.png" id="7_wtu5p"]
+[ext_resource type="Texture2D" uid="uid://co6npmwjjc5wr" path="res://Resources/Player/FirstWalkCycle/PipeAnimationSpriteSheet.png" id="10_pov8x"]
 
 [sub_resource type="Curve" id="Curve_n1qsj"]
 max_value = 2.0
@@ -162,6 +163,38 @@ region = Rect2(1500, 500, 500, 500)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ms48i"]
 atlas = ExtResource("7_wtu5p")
 region = Rect2(2000, 500, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuliw"]
+atlas = ExtResource("10_pov8x")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0jy5"]
+atlas = ExtResource("10_pov8x")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihvry"]
+atlas = ExtResource("10_pov8x")
+region = Rect2(1000, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f6kf"]
+atlas = ExtResource("10_pov8x")
+region = Rect2(1500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dfql"]
+atlas = ExtResource("10_pov8x")
+region = Rect2(0, 500, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snf4t"]
+atlas = ExtResource("10_pov8x")
+region = Rect2(500, 500, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0qms"]
+atlas = ExtResource("10_pov8x")
+region = Rect2(1000, 500, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bpm1"]
+atlas = ExtResource("10_pov8x")
+region = Rect2(1500, 500, 500, 500)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ov1r"]
 atlas = ExtResource("7_wtu5p")
@@ -397,6 +430,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_xuliw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0jy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihvry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6f6kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dfql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snf4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0qms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bpm1")
+}],
+"loop": false,
+"name": &"PipeEscape",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5ov1r")
 }],
 "loop": true,
@@ -523,7 +585,9 @@ material = SubResource("ShaderMaterial_osqt2")
 position = Vector2(0, -5)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_q5pep")
-animation = &"WalkLeft"
+animation = &"PipeEscape"
+frame = 7
+frame_progress = 1.0
 script = ExtResource("5_xoc6i")
 
 [node name="StepsTimer" type="Timer" parent="."]

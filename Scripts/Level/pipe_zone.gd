@@ -26,6 +26,7 @@ func _ready():
 func move_player_here():
 	stored_player.global_position = self.global_position
 	closed = false
+	stored_player.animator.state = stored_player.animator.animation_state.ESCAPED
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("return") and player_there:

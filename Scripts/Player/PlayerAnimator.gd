@@ -8,7 +8,8 @@ enum animation_state {
 	CROUCHING,
 	FLAT,
 	SLIDING,
-	IDLE
+	IDLE,
+	ESCAPED
 }
 
 ## Constants
@@ -41,6 +42,8 @@ var state: animation_state = animation_state.IDLE:
 
 ## Main "animation tree" for the player.
 func update(player: Player):
+	if state == animation_state.ESCAPED:
+		return
 	var velx = player.velocity.x
 	if player.falling:
 		state = animation_state.AIRBORN
@@ -87,6 +90,12 @@ func state_response():
 			self.play("Airborn")
 		animation_state.CROUCHING:
 			self.play("Crouching")
+		animation_state.ESCAPED:
+			self.play("PipeEscape")
+			await self.animation_finished
+			state = animation_state.AIRBORN
+			print("transition to airborn")
+			state_response()
 
 func find_eye(pos):
 	var facing_right = self.flip_h
