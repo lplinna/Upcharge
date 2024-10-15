@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b35x8dvw3k6h6"]
+[gd_scene load_steps=7 format=3 uid="uid://b35x8dvw3k6h6"]
 
 [ext_resource type="Texture2D" uid="uid://cvbnb4mkv6l7g" path="res://Assets/Shop/Statue.png" id="1_0dmtm"]
 [ext_resource type="Texture2D" uid="uid://ccc2yu17f42bt" path="res://icon.svg" id="1_pjbgh"]
 [ext_resource type="Script" path="res://Scripts/Level/shop_manager.gd" id="2_r2agx"]
+[ext_resource type="Texture2D" uid="uid://hghlwrn5npyg" path="res://Assets/Shop/Final_Crowbar.png" id="3_5mdbf"]
+[ext_resource type="Texture2D" uid="uid://bgeypxqlttnet" path="res://Assets/Shop/Final_CHeese.png" id="5_5xl2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fw16i"]
 size = Vector2(126.197, 126.826)
@@ -23,10 +25,11 @@ scale = Vector2(0.53, 0.53)
 
 [node name="Crowbar" type="Sprite2D" parent="Items"]
 position = Vector2(-162.028, 28.5377)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("1_pjbgh")
+scale = Vector2(0.105, 0.105)
+texture = ExtResource("3_5mdbf")
 
 [node name="Area2D" type="Area2D" parent="Items/Crowbar"]
+scale = Vector2(7, 7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Crowbar/Area2D"]
 position = Vector2(3.05176e-05, 1.52588e-05)
@@ -45,11 +48,12 @@ shape = SubResource("RectangleShape2D_fw16i")
 
 [node name="Cheese" type="Sprite2D" parent="Items"]
 position = Vector2(175.708, 26.6509)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("1_pjbgh")
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("5_5xl2r")
 
 [node name="Area2D" type="Area2D" parent="Items/Cheese"]
 position = Vector2(3.05176e-05, -7.62939e-06)
+scale = Vector2(3.61, 3.61)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Cheese/Area2D"]
 shape = SubResource("RectangleShape2D_fw16i")
