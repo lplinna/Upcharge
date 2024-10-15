@@ -24,9 +24,14 @@ func _ready():
 			neighbors.append(node)
 
 func move_player_here():
-	stored_player.global_position = self.global_position
 	closed = false
+	stored_player.frozen = true
+	stored_player.animator.state = stored_player.animator.animation_state.ENTERED
+	await stored_player.animator.animation_finished
+	stored_player.global_position = self.global_position
 	stored_player.animator.state = stored_player.animator.animation_state.ESCAPED
+	await stored_player.animator.animation_finished
+	stored_player.frozen = false
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("return") and player_there:

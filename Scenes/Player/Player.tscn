@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://dhm46ln55frcd"]
+[gd_scene load_steps=93 format=3 uid="uid://dhm46ln55frcd"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_c1brk"]
 [ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/Player/PopUp.tscn" id="2_n2dd2"]
@@ -163,6 +163,34 @@ region = Rect2(1500, 500, 500, 500)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ms48i"]
 atlas = ExtResource("7_wtu5p")
 region = Rect2(2000, 500, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oms3w"]
+atlas = ExtResource("10_pov8x")
+region = Rect2(1000, 500, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaay2"]
+atlas = ExtResource("10_pov8x")
+region = Rect2(500, 500, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp6cb"]
+atlas = ExtResource("10_pov8x")
+region = Rect2(0, 500, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp0qx"]
+atlas = ExtResource("10_pov8x")
+region = Rect2(1500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edb2g"]
+atlas = ExtResource("10_pov8x")
+region = Rect2(1000, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovxry"]
+atlas = ExtResource("10_pov8x")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6f1o"]
+atlas = ExtResource("10_pov8x")
+region = Rect2(0, 0, 500, 500)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xuliw"]
 atlas = ExtResource("10_pov8x")
@@ -430,6 +458,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_oms3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaay2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp6cb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp0qx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edb2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovxry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6f1o")
+}],
+"loop": false,
+"name": &"PipeEntry",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xuliw")
 }, {
 "duration": 1.0,
@@ -585,9 +639,9 @@ material = SubResource("ShaderMaterial_osqt2")
 position = Vector2(0, -5)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_q5pep")
-animation = &"PipeEscape"
-frame = 7
-frame_progress = 1.0
+animation = &"PipeEntry"
+frame = 1
+frame_progress = 0.948387
 script = ExtResource("5_xoc6i")
 
 [node name="StepsTimer" type="Timer" parent="."]

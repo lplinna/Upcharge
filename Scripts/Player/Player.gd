@@ -47,6 +47,15 @@ var EyeLiner: Line2D
 var wet_floor: bool = false
 var held_item: int = 0
 
+var frozen: bool = false:
+	set(new_frozen):
+		#print("Frozen velocity", velocity)
+		if new_frozen:
+			set_physics_process(false)
+		else:
+			set_physics_process(true)
+		frozen = new_frozen
+
 func _ready():
 	
 	# Eye effect mvoes with player unless it is attached higher up the tree
@@ -92,6 +101,8 @@ func reset_charging_visuals():
 
 
 func _physics_process(delta):
+	if frozen:
+		return
 	charging_visuals()
 	if sliding:
 		slide_down_slope(delta)
