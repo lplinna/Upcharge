@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 
 #Crowbar
 func _on_area_crowbar_entered(body):
