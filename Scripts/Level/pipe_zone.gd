@@ -64,7 +64,7 @@ func shoot_grate():
 
 func show_e_prompt():
 	$TheE.visible = true
-	await get_tree().create_timer(4.0).timeout
+	await get_tree().create_timer(8.0).timeout
 	$TheE.visible = false
 
 
@@ -79,13 +79,19 @@ func _ready():
 		if node is PipeZone and node != self:
 			neighbors.append(node)
 
-func move_player_here():
+func move_player_here(original_entrance: PipeZone):
+	var neighbor_distance = original_entrance.global_position.distance_to(self.global_position)
+	var time_adjust = neighbor_distance / 200
+	
 	closed = false
 	stored_player.frozen = true
 	stored_player.animator.state = stored_player.animator.animation_state.ENTERED
 	await stored_player.animator.animation_finished
+	stored_player.visible = false
+	await get_tree().create_timer(time_adjust).timeout
 	stored_player.global_position = self.global_position
 	stored_player.animator.state = stored_player.animator.animation_state.ESCAPED
+	stored_player.visible = true
 	shoot_grate()
 	await stored_player.animator.animation_finished
 	stored_player.frozen = false
@@ -98,7 +104,7 @@ func _process(delta: float) -> void:
 			shoot_grate()
 		if not closed:
 			var next_neighbor = neighbors.pick_random()
-			next_neighbor.move_player_here()
+			next_neighbor.move_player_here(self)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
