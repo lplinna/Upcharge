@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cq0pkof6tgdt4" path="res://Scenes/Level/Components/ValveObstacle.tscn" id="6_18rv5"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="7_rwomf"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="8_cvyoc"]
-[ext_resource type="PackedScene" uid="uid://c1xt83id8ben0" path="res://Scenes/Level/Components/PipeZone.tscn" id="9_gvcky"]
+[ext_resource type="PackedScene" uid="uid://c3qham63b1sy5" path="res://Scenes/Level/Components/PipeZone.tscn" id="9_gvcky"]
 [ext_resource type="PackedScene" uid="uid://dc41oqitmeu0a" path="res://Scenes/Music/lower_music.tscn" id="9_uwel1"]
 [ext_resource type="PackedScene" uid="uid://csl1p6s085bo0" path="res://Scenes/Music/middle_music.tscn" id="10_ivrcm"]
 [ext_resource type="PackedScene" uid="uid://ce6qrxtx7cmup" path="res://Scenes/Music/upper_music.tscn" id="11_hgv55"]
@@ -858,5 +858,4 @@ rotation = -0.00194502
 scale = Vector2(0.105, 0.12)
 
 [node name="Shop" parent="." instance=ExtResource("5_85oyg")]
-position = Vector2(165, 201)
-scale = Vector2(0.812508, 0.458673)
+position = Vector2(556, 554)
