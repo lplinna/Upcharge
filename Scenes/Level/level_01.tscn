@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dc41oqitmeu0a" path="res://Scenes/Music/lower_music.tscn" id="9_uwel1"]
 [ext_resource type="PackedScene" uid="uid://csl1p6s085bo0" path="res://Scenes/Music/middle_music.tscn" id="10_ivrcm"]
 [ext_resource type="PackedScene" uid="uid://ce6qrxtx7cmup" path="res://Scenes/Music/upper_music.tscn" id="11_hgv55"]
-[ext_resource type="Texture2D" uid="uid://dykpcp0kpy3y3" path="res://Assets/Background/bricks.png" id="12_go6j3"]
+[ext_resource type="Texture2D" uid="uid://icd7yqv0eahn" path="res://Assets/Background/New Background smaller bricks.png" id="12_nxut1"]
 [ext_resource type="Texture2D" uid="uid://dflvnnrx2qfws" path="res://Assets/Background/Cheese Graffiti.png" id="13_sc7bs"]
 [ext_resource type="Texture2D" uid="uid://xwvvklb2jbl" path="res://Assets/Background/Sewer Grate.png" id="14_m4odj"]
 [ext_resource type="Texture2D" uid="uid://c2xtoyarkk4n3" path="res://Assets/Background/Web Grafitti.png" id="15_r7dqk"]
@@ -676,8 +676,8 @@ offset_top = -1474.0
 offset_right = 8539.0
 offset_bottom = 11471.0
 scale = Vector2(0.135776, 0.163579)
-texture = ExtResource("12_go6j3")
-stretch_mode = 1
+texture = ExtResource("12_nxut1")
+stretch_mode = 6
 
 [node name="Cheese" type="Sprite2D" parent="Background"]
 position = Vector2(555, -263)
