@@ -2,7 +2,6 @@
 extends Node2D
 class_name PipeZone
 
-@onready var open_sprite = preload("res://icon.svg")
 @onready var closed_sprite = preload("res://Assets/Pipes/JPipes/greendot.png")
 @onready var horizontal_sprite = preload("res://Assets/Pipes/PipeGrate.png")
 @onready var vertical_sprite = preload("res://Assets/Pipes/PipeGrateBottom.png")
@@ -12,6 +11,13 @@ enum FACING {
 	LEFT,
 	DOWN,
 	RIGHT
+}
+
+var facing_vector = {
+ FACING.UP: Vector2.UP,
+ FACING.LEFT: Vector2.LEFT,
+ FACING.DOWN: Vector2.DOWN,
+ FACING.RIGHT: Vector2.RIGHT
 }
 
 @export var direction: FACING:
@@ -42,7 +48,18 @@ var closed: bool = true:
 	set(new_closed):
 		closed = new_closed
 		if not new_closed:
-			$Sprite2D.texture = open_sprite
+			#$Sprite2D.texture = open_sprite
+			pass
+
+
+func shoot_grate():
+	var new_grate_position = self.global_position + (facing_vector[direction] * 18)
+	new_grate_position += (Vector2.DOWN * 200)
+	var new_t = get_tree().create_tween()
+	new_t.tween_property($Sprite2D,"global_position",new_grate_position,3.0)
+	new_t.parallel().tween_property($Sprite2D,"rotation", 45 * [-1,1].pick_random(), 3.0)
+	await new_t.finished
+	$Sprite2D.visible = false
 
 
 func _ready():
@@ -59,6 +76,7 @@ func move_player_here():
 	await stored_player.animator.animation_finished
 	stored_player.global_position = self.global_position
 	stored_player.animator.state = stored_player.animator.animation_state.ESCAPED
+	shoot_grate()
 	await stored_player.animator.animation_finished
 	stored_player.frozen = false
 
@@ -67,6 +85,7 @@ func _process(delta: float) -> void:
 		if closed and stored_player.held_item == 1:
 			closed = false
 			stored_player.use_item(1)
+			shoot_grate()
 		if not closed:
 			var next_neighbor = neighbors.pick_random()
 			next_neighbor.move_player_here()
