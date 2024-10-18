@@ -62,9 +62,19 @@ func shoot_grate():
 	$Sprite2D.visible = false
 
 
+func show_e_prompt():
+	$TheE.visible = true
+	await get_tree().create_timer(4.0).timeout
+	$TheE.visible = false
+
+
 func _ready():
 	direction = direction
 	stored_player = get_tree().get_first_node_in_group("Player")
+	stored_player.shop_pop_up.item_purchased.connect(func(item: int):
+		if item == 1:
+			show_e_prompt()
+	)
 	for node in get_parent().get_children():
 		if node is PipeZone and node != self:
 			neighbors.append(node)

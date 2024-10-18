@@ -4,6 +4,8 @@ extends Control
 @onready var price = $Panel/VBoxContainer/TextureRect/HBoxContainer/Price
 @onready var player_ref: Player = get_parent()
 
+signal item_purchased(item: int)
+
 var crowbar_price = 1
 var wrench_price = 1
 var cheese_price = 50

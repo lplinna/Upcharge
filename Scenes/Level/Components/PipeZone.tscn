@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c1xt83id8ben0"]
 
 [ext_resource type="Script" path="res://Scripts/Level/pipe_zone.gd" id="1_vj8rw"]
-[ext_resource type="Texture2D" uid="uid://bdunjtc61sqo" path="res://Assets/Pipes/PipeGrate.png" id="2_dxd4w"]
+[ext_resource type="Texture2D" uid="uid://dr7q6qvw526va" path="res://Assets/Pipes/PipeGrateBottom.png" id="2_xtocm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3npt"]
 size = Vector2(245, 202)
@@ -10,12 +10,23 @@ size = Vector2(245, 202)
 script = ExtResource("1_vj8rw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_dxd4w")
+texture = ExtResource("2_xtocm")
+flip_v = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_h3npt")
+
+[node name="TheE" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -30.0
+offset_top = -186.0
+offset_right = 93.0
+offset_bottom = -54.0
+theme_override_font_sizes/normal_font_size = 121
+text = "E"
+scroll_active = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -207,16 +207,19 @@ func handle_button(actionID):
 			coins -= shop_pop_up.crowbar_price
 			shop_pop_up.crowbar_price += 1
 			shop_pop_up.price.text = "%s" % shop_pop_up.crowbar_price
+			shop_pop_up.item_purchased.emit(1)
 	if actionID == 2:
 		if coins >= shop_pop_up.wrench_price:
 			held_item = 2
 			coins -= shop_pop_up.wrench_price
 			shop_pop_up.wrench_price += 1
 			shop_pop_up.price.text = "%s" % shop_pop_up.wrench_price
+			shop_pop_up.item_purchased.emit(2)
 	if actionID == 3:
 		if coins >= shop_pop_up.cheese_price:
 			held_item = 3
 			coins -= shop_pop_up.cheese_price
+			shop_pop_up.item_purchased.emit(3)
 
 
 func _on_timer_timeout():

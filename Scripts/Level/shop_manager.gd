@@ -1,6 +1,5 @@
 extends Sprite2D
 
-
 #Crowbar
 func _on_area_crowbar_entered(body):
 	if body is Player:
