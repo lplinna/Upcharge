@@ -58,7 +58,7 @@ position = Vector2(516, 233)
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("3_iapcu")]
-position = Vector2(384, 424)
+position = Vector2(445, 243)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("3_iapcu")]
 position = Vector2(760, 128)
@@ -377,11 +377,12 @@ orientation = 3
 [node name="PipeEnds" type="Node2D" parent="Pipes/RightUp"]
 
 [node name="PipeZone" parent="Pipes/RightUp/PipeEnds" instance=ExtResource("9_gvcky")]
-position = Vector2(-78, 2)
+position = Vector2(-56, 2)
 scale = Vector2(0.2, 0.2)
+direction = 1
 
 [node name="PipeZone3" parent="Pipes/RightUp/PipeEnds" instance=ExtResource("9_gvcky")]
-position = Vector2(59, -353)
+position = Vector2(63, -334)
 scale = Vector2(0.2, 0.2)
 
 [node name="UTurn" type="Node2D" parent="Pipes"]
@@ -603,12 +604,14 @@ platform_length = 225.0
 [node name="PipeEnds" type="Node2D" parent="Pipes/BottomT"]
 
 [node name="PipeZone" parent="Pipes/BottomT/PipeEnds" instance=ExtResource("9_gvcky")]
-position = Vector2(-106, 3)
+position = Vector2(-96, 1)
 scale = Vector2(0.2, 0.2)
+direction = 1
 
 [node name="PipeZone3" parent="Pipes/BottomT/PipeEnds" instance=ExtResource("9_gvcky")]
-position = Vector2(115, 1)
+position = Vector2(96, 1.19209e-07)
 scale = Vector2(0.2, 0.2)
+direction = 3
 
 [node name="FinalZag" type="Node2D" parent="Pipes"]
 position = Vector2(536, -1200)
@@ -855,5 +858,5 @@ rotation = -0.00194502
 scale = Vector2(0.105, 0.12)
 
 [node name="Shop" parent="." instance=ExtResource("5_85oyg")]
-position = Vector2(102, 550)
+position = Vector2(165, 201)
 scale = Vector2(0.812508, 0.458673)

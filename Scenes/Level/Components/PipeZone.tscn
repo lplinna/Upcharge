@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c1xt83id8ben0"]
 
-[ext_resource type="Texture2D" uid="uid://bsndys1lams2i" path="res://Assets/Pipes/JPipes/greendot.png" id="1_geb2p"]
 [ext_resource type="Script" path="res://Scripts/Level/pipe_zone.gd" id="1_vj8rw"]
+[ext_resource type="Texture2D" uid="uid://bdunjtc61sqo" path="res://Assets/Pipes/PipeGrate.png" id="2_dxd4w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3npt"]
 size = Vector2(245, 202)
@@ -10,7 +10,7 @@ size = Vector2(245, 202)
 script = ExtResource("1_vj8rw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_geb2p")
+texture = ExtResource("2_dxd4w")
 
 [node name="Area2D" type="Area2D" parent="."]
 

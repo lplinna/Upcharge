@@ -1,8 +1,36 @@
+@tool
 extends Node2D
 class_name PipeZone
 
 @onready var open_sprite = preload("res://icon.svg")
 @onready var closed_sprite = preload("res://Assets/Pipes/JPipes/greendot.png")
+@onready var horizontal_sprite = preload("res://Assets/Pipes/PipeGrate.png")
+@onready var vertical_sprite = preload("res://Assets/Pipes/PipeGrateBottom.png")
+
+enum FACING {
+	UP,
+	LEFT,
+	DOWN,
+	RIGHT
+}
+
+@export var direction: FACING:
+	set(value):
+		direction = value
+		match value:
+			FACING.LEFT:
+				$Sprite2D.texture = horizontal_sprite
+				$Sprite2D.flip_h = false
+			FACING.RIGHT:
+				$Sprite2D.texture = horizontal_sprite
+				$Sprite2D.flip_h = true
+			FACING.UP:
+				$Sprite2D.texture = vertical_sprite
+				$Sprite2D.flip_v = true
+			FACING.DOWN:
+				$Sprite2D.texture = vertical_sprite
+				$Sprite2D.flip_v = false
+
 
 var neighbors: Array[PipeZone] 
 
@@ -18,6 +46,7 @@ var closed: bool = true:
 
 
 func _ready():
+	direction = direction
 	stored_player = get_tree().get_first_node_in_group("Player")
 	for node in get_parent().get_children():
 		if node is PipeZone and node != self:
