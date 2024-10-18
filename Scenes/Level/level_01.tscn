@@ -655,6 +655,7 @@ platform_length = 200.0
 position = Vector2(608, -96)
 
 [node name="ValveObstacle5" parent="Pipes" instance=ExtResource("6_18rv5")]
+texture_filter = 5
 position = Vector2(488, -96)
 
 [node name="LowerMusic" parent="." instance=ExtResource("9_uwel1")]
