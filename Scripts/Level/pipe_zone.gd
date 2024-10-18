@@ -81,7 +81,7 @@ func _ready():
 
 func move_player_here(original_entrance: PipeZone):
 	var neighbor_distance = original_entrance.global_position.distance_to(self.global_position)
-	var time_adjust = neighbor_distance / 200
+	var time_adjust = neighbor_distance / 300
 	
 	closed = false
 	stored_player.frozen = true
