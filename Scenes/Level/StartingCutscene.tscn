@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bah1r6vahv3wx"]
 
-[ext_resource type="VideoStream" path="res://Assets/UpchargeTrailerUpdated.ogv" id="1_1sown"]
+[ext_resource type="VideoStream" path="res://Assets/UpchargeOpeningCutsceneOgv3.ogv" id="1_1sown"]
 [ext_resource type="Script" path="res://Scripts/Level/starting_cutscene.gd" id="1_de5e5"]
 
 [node name="StartingCutscene" type="Node2D"]
