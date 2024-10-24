@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://txmsaaco32yu"]
+[gd_scene load_steps=36 format=3 uid="uid://txmsaaco32yu"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_aj38d"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_xcx2e"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cq0pkof6tgdt4" path="res://Scenes/Level/Components/ValveObstacle.tscn" id="6_18rv5"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="7_rwomf"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="8_cvyoc"]
+[ext_resource type="PackedScene" uid="uid://c3qham63b1sy5" path="res://Scenes/Level/Components/PipeZone.tscn" id="9_gvcky"]
 [ext_resource type="PackedScene" uid="uid://dc41oqitmeu0a" path="res://Scenes/Music/lower_music.tscn" id="9_uwel1"]
 [ext_resource type="PackedScene" uid="uid://csl1p6s085bo0" path="res://Scenes/Music/middle_music.tscn" id="10_ivrcm"]
 [ext_resource type="PackedScene" uid="uid://ce6qrxtx7cmup" path="res://Scenes/Music/upper_music.tscn" id="11_hgv55"]
@@ -51,13 +52,13 @@ position_smoothing_enabled = true
 script = ExtResource("1_aj38d")
 player_ref = NodePath("../Player")
 
-[node name="Player" parent="." instance=ExtResource("2_xcx2e")]
-position = Vector2(843, 344)
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_xcx2e")]
+position = Vector2(516, 233)
 
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("3_iapcu")]
-position = Vector2(384, 424)
+position = Vector2(445, 243)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("3_iapcu")]
 position = Vector2(760, 128)
@@ -373,6 +374,17 @@ position = Vector2(52, -13)
 rotation = 6.28318
 orientation = 3
 
+[node name="PipeEnds" type="Node2D" parent="Pipes/RightUp"]
+
+[node name="PipeZone" parent="Pipes/RightUp/PipeEnds" instance=ExtResource("9_gvcky")]
+position = Vector2(-56, 2)
+scale = Vector2(0.2, 0.2)
+direction = 1
+
+[node name="PipeZone3" parent="Pipes/RightUp/PipeEnds" instance=ExtResource("9_gvcky")]
+position = Vector2(63, -334)
+scale = Vector2(0.2, 0.2)
+
 [node name="UTurn" type="Node2D" parent="Pipes"]
 position = Vector2(400, -208)
 
@@ -588,6 +600,18 @@ position = Vector2(0, 56)
 is_vert = true
 End2Type = 1
 platform_length = 225.0
+
+[node name="PipeEnds" type="Node2D" parent="Pipes/BottomT"]
+
+[node name="PipeZone" parent="Pipes/BottomT/PipeEnds" instance=ExtResource("9_gvcky")]
+position = Vector2(-96, 1)
+scale = Vector2(0.2, 0.2)
+direction = 1
+
+[node name="PipeZone3" parent="Pipes/BottomT/PipeEnds" instance=ExtResource("9_gvcky")]
+position = Vector2(96, 1.19209e-07)
+scale = Vector2(0.2, 0.2)
+direction = 3
 
 [node name="FinalZag" type="Node2D" parent="Pipes"]
 position = Vector2(536, -1200)
@@ -834,5 +858,4 @@ rotation = -0.00194502
 scale = Vector2(0.105, 0.12)
 
 [node name="Shop" parent="." instance=ExtResource("5_85oyg")]
-position = Vector2(102, 550)
-scale = Vector2(0.812508, 0.458673)
+position = Vector2(556, 554)

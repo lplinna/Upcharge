@@ -4,6 +4,8 @@ extends Control
 @onready var price = $Panel/VBoxContainer/TextureRect/HBoxContainer/Price
 @onready var player_ref: Player = get_parent()
 
+signal item_purchased(item: int)
+
 var crowbar_price = 1
 var wrench_price = 1
 var cheese_price = 50
@@ -13,7 +15,7 @@ func display(id):
 		button.text = "Crowbar"
 		price.text = "%s" % crowbar_price
 	if id == 2:
-		button.text = "Wrench"
+		button.text = "Hint"
 		price.text = "%s" % wrench_price
 	if id == 3:
 		button.text = "Cheese"
@@ -27,7 +29,7 @@ func _process(delta):
 	if self.visible and Input.is_action_just_released("return"):
 		if button.text == "Crowbar":
 			player_ref.handle_button(1)
-		if button.text == "Wrench":
+		if button.text == "Hint":
 			player_ref.handle_button(2)
 		if button.text == "Cheese":
 			player_ref.handle_button(3)
