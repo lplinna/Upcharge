@@ -16,6 +16,7 @@ script = ExtResource("2_r2agx")
 
 [node name="Statue" type="Sprite2D" parent="."]
 modulate = Color(0.658824, 0.898039, 0.611765, 1)
+z_index = -8
 position = Vector2(-12.125, -115.125)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_0dmtm")

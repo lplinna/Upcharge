@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cq0pkof6tgdt4" path="res://Scenes/Level/Components/ValveObstacle.tscn" id="6_18rv5"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="7_rwomf"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="8_cvyoc"]
-[ext_resource type="PackedScene" uid="uid://c3qham63b1sy5" path="res://Scenes/Level/Components/PipeZone.tscn" id="9_gvcky"]
+[ext_resource type="PackedScene" uid="uid://b61d7nabuwyvh" path="res://Scenes/Level/Components/PipeZone.tscn" id="9_gvcky"]
 [ext_resource type="PackedScene" uid="uid://dc41oqitmeu0a" path="res://Scenes/Music/lower_music.tscn" id="9_uwel1"]
 [ext_resource type="PackedScene" uid="uid://csl1p6s085bo0" path="res://Scenes/Music/middle_music.tscn" id="10_ivrcm"]
 [ext_resource type="PackedScene" uid="uid://ce6qrxtx7cmup" path="res://Scenes/Music/upper_music.tscn" id="11_hgv55"]
@@ -378,12 +378,10 @@ orientation = 3
 
 [node name="PipeZone" parent="Pipes/RightUp/PipeEnds" instance=ExtResource("9_gvcky")]
 position = Vector2(-56, 2)
-scale = Vector2(0.2, 0.2)
 direction = 1
 
 [node name="PipeZone3" parent="Pipes/RightUp/PipeEnds" instance=ExtResource("9_gvcky")]
 position = Vector2(63, -334)
-scale = Vector2(0.2, 0.2)
 
 [node name="UTurn" type="Node2D" parent="Pipes"]
 position = Vector2(400, -208)
@@ -605,12 +603,10 @@ platform_length = 225.0
 
 [node name="PipeZone" parent="Pipes/BottomT/PipeEnds" instance=ExtResource("9_gvcky")]
 position = Vector2(-96, 1)
-scale = Vector2(0.2, 0.2)
 direction = 1
 
 [node name="PipeZone3" parent="Pipes/BottomT/PipeEnds" instance=ExtResource("9_gvcky")]
 position = Vector2(96, 1.19209e-07)
-scale = Vector2(0.2, 0.2)
 direction = 3
 
 [node name="FinalZag" type="Node2D" parent="Pipes"]

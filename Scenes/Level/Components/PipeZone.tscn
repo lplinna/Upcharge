@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://damjb7jnd4o8q"]
+[gd_scene load_steps=4 format=3 uid="uid://b61d7nabuwyvh"]
 
 [ext_resource type="Script" path="res://Scripts/Level/pipe_zone.gd" id="1_vj8rw"]
 [ext_resource type="Texture2D" uid="uid://dr7q6qvw526va" path="res://Assets/Pipes/PipeGrateBottom.png" id="2_xtocm"]
