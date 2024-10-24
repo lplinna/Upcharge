@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bah1r6vahv3wx"]
+
+[ext_resource type="VideoStream" path="res://Assets/UpchargeOpeningCutsceneOgv3.ogv" id="1_1sown"]
+[ext_resource type="Script" path="res://Scripts/Level/starting_cutscene.gd" id="1_de5e5"]
+
+[node name="StartingCutscene" type="Node2D"]
+script = ExtResource("1_de5e5")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("1_1sown")
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 904.0
+offset_top = 1026.0
+offset_right = 1069.0
+offset_bottom = 1049.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Press <Space> to skip"
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
