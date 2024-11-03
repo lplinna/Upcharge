@@ -11,6 +11,7 @@ var CoinSound
 var JumpSound
 var WalkSound
 var SplatSound
+var PipeTravel
 
 func CoinCollect():
 	var audio_stream_player = AudioStreamPlayer.new()
@@ -73,5 +74,14 @@ func PlayerLand(fall_length):
 	audio_stream_player.volume_db = -10
 	audio_stream_player.stream = SplatSound
 	
+	add_child(audio_stream_player)
+	audio_stream_player.play()
+
+func PlayerPipeTravel():
+	var audio_stream_player = AudioStreamPlayer.new()
+	var randpipesound = randi_range(1,5)
+	PipeTravel = load("res://Resources/Sounds/Pipe_Travel/SFX_Single_Shot_IN_PIPE_0"+str(randpipesound)+".wav")
+	audio_stream_player.set_script(SoundScript)
+	audio_stream_player.stream = PipeTravel
 	add_child(audio_stream_player)
 	audio_stream_player.play()

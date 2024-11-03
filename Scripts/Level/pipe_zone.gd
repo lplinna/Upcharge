@@ -86,12 +86,14 @@ func move_player_here(original_entrance: PipeZone):
 	closed = false
 	stored_player.frozen = true
 	stored_player.animator.state = stored_player.animator.animation_state.ENTERED
+	#SoundManager.PlayerPipeTravel()
 	await stored_player.animator.animation_finished
 	stored_player.visible = false
 	await get_tree().create_timer(time_adjust).timeout
 	stored_player.global_position = self.global_position
 	stored_player.animator.state = stored_player.animator.animation_state.ESCAPED
 	stored_player.visible = true
+	#SoundManager.PlayerPipeTravel()
 	shoot_grate()
 	await stored_player.animator.animation_finished
 	stored_player.frozen = false

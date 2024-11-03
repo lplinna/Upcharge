@@ -640,8 +640,6 @@ position = Vector2(0, -5)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_q5pep")
 animation = &"PipeEntry"
-frame = 1
-frame_progress = 0.948387
 script = ExtResource("5_xoc6i")
 
 [node name="StepsTimer" type="Timer" parent="."]
