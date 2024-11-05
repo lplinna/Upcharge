@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://txmsaaco32yu"]
+[gd_scene load_steps=37 format=3 uid="uid://txmsaaco32yu"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_aj38d"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_xcx2e"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cq0pkof6tgdt4" path="res://Scenes/Level/Components/ValveObstacle.tscn" id="6_18rv5"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="7_rwomf"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="8_cvyoc"]
-[ext_resource type="PackedScene" uid="uid://c3qham63b1sy5" path="res://Scenes/Level/Components/PipeZone.tscn" id="9_gvcky"]
+[ext_resource type="PackedScene" uid="uid://damjb7jnd4o8q" path="res://Scenes/Level/Components/PipeZone.tscn" id="9_gvcky"]
 [ext_resource type="PackedScene" uid="uid://dc41oqitmeu0a" path="res://Scenes/Music/lower_music.tscn" id="9_uwel1"]
 [ext_resource type="PackedScene" uid="uid://csl1p6s085bo0" path="res://Scenes/Music/middle_music.tscn" id="10_ivrcm"]
 [ext_resource type="PackedScene" uid="uid://ce6qrxtx7cmup" path="res://Scenes/Music/upper_music.tscn" id="11_hgv55"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://qnyh75tlxylf" path="res://Assets/Dew/Dew_3.png" id="26_e5siv"]
 [ext_resource type="Texture2D" uid="uid://iyexisxtoiga" path="res://Assets/Dew/Dew_2.png" id="27_w2lko"]
 [ext_resource type="PackedScene" uid="uid://qarfxgr4ovaq" path="res://Scenes/Level/Components/green_goop.tscn" id="29_v1u2g"]
+[ext_resource type="PackedScene" uid="uid://cs5er1xoalqq1" path="res://Scenes/Level/Components/RatGuard.tscn" id="32_bc6kg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
 size = Vector2(2109.75, 67.9994)
@@ -53,7 +54,7 @@ script = ExtResource("1_aj38d")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_xcx2e")]
-position = Vector2(516, 233)
+position = Vector2(888, -1148)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -378,12 +379,10 @@ orientation = 3
 
 [node name="PipeZone" parent="Pipes/RightUp/PipeEnds" instance=ExtResource("9_gvcky")]
 position = Vector2(-56, 2)
-scale = Vector2(0.2, 0.2)
 direction = 1
 
 [node name="PipeZone3" parent="Pipes/RightUp/PipeEnds" instance=ExtResource("9_gvcky")]
 position = Vector2(63, -334)
-scale = Vector2(0.2, 0.2)
 
 [node name="UTurn" type="Node2D" parent="Pipes"]
 position = Vector2(400, -208)
@@ -605,12 +604,10 @@ platform_length = 225.0
 
 [node name="PipeZone" parent="Pipes/BottomT/PipeEnds" instance=ExtResource("9_gvcky")]
 position = Vector2(-96, 1)
-scale = Vector2(0.2, 0.2)
 direction = 1
 
 [node name="PipeZone3" parent="Pipes/BottomT/PipeEnds" instance=ExtResource("9_gvcky")]
 position = Vector2(96, 1.19209e-07)
-scale = Vector2(0.2, 0.2)
 direction = 3
 
 [node name="FinalZag" type="Node2D" parent="Pipes"]
@@ -695,6 +692,7 @@ position = Vector2(-78, -778)
 z_index = -16
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
+visible = false
 offset_left = -108.0
 offset_top = -1474.0
 offset_right = 8539.0
@@ -860,3 +858,6 @@ scale = Vector2(0.105, 0.12)
 
 [node name="Shop" parent="." instance=ExtResource("5_85oyg")]
 position = Vector2(556, 554)
+
+[node name="RatGuard" parent="." instance=ExtResource("32_bc6kg")]
+position = Vector2(540, -1395)
