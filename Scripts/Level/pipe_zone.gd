@@ -97,6 +97,8 @@ func move_player_here(original_entrance: PipeZone):
 	stored_player.frozen = false
 
 func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
 	if Input.is_action_just_pressed("return") and player_there:
 		if closed and stored_player.held_item == 1:
 			closed = false
