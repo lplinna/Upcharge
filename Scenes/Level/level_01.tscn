@@ -1,11 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://txmsaaco32yu"]
+[gd_scene load_steps=36 format=3 uid="uid://txmsaaco32yu"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_aj38d"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_xcx2e"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Level/Components/Coin.tscn" id="3_iapcu"]
 [ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/Components/WorldBlock.tscn" id="4_tk3sx"]
 [ext_resource type="PackedScene" uid="uid://b35x8dvw3k6h6" path="res://Scenes/Level/Shop/shop.tscn" id="5_85oyg"]
-[ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/Components/WinZone.tscn" id="5_y1eiv"]
 [ext_resource type="PackedScene" uid="uid://cq0pkof6tgdt4" path="res://Scenes/Level/Components/ValveObstacle.tscn" id="6_18rv5"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="7_rwomf"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="8_cvyoc"]
@@ -275,9 +274,6 @@ polygon = PackedVector2Array(-56, -232, -56, 168, 56, 168, 56, -232)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/LadderWall"]
 position = Vector2(7.89852e-06, 2.94777e-05)
 polygon = PackedVector2Array(-56, -232, -56, 168, 56, 168, 56, -232)
-
-[node name="WinZone" parent="." instance=ExtResource("5_y1eiv")]
-position = Vector2(-96, -1480)
 
 [node name="Pipes" type="Node2D" parent="."]
 
