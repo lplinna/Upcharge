@@ -78,10 +78,20 @@ func PlayerLand(fall_length):
 	audio_stream_player.play()
 
 func PlayerPipeTravel():
-	var audio_stream_player = AudioStreamPlayer.new()
+	var audio_PipeTravel = AudioStreamPlayer.new()
 	var randpipesound = randi_range(1,5)
 	PipeTravel = load("res://Resources/Sounds/Pipe_Travel/SFX_Single_Shot_IN_PIPE_0"+str(randpipesound)+".wav")
-	audio_stream_player.set_script(SoundScript)
-	audio_stream_player.stream = PipeTravel
-	add_child(audio_stream_player)
-	audio_stream_player.play()
+	audio_PipeTravel.set_script(SoundScript)
+	audio_PipeTravel.stream = PipeTravel
+	add_child(audio_PipeTravel)
+	audio_PipeTravel.play()
+
+func PipeCap():
+	var audio_PipeCap = AudioStreamPlayer.new()
+	var randPipeCap = randi_range(1,8)
+	var PipeCap = load("res://Resources/Sounds/Pipe_Travel/Pipe_Cap/SFX_Pipe_Cap_0"+str(randPipeCap)+".wav")
+	audio_PipeCap.set_script(SoundScript)
+	audio_PipeCap.stream = PipeCap
+	audio_PipeCap.volume_db = 5
+	add_child(audio_PipeCap)
+	audio_PipeCap.play()

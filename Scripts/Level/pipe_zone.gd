@@ -53,6 +53,8 @@ var closed: bool = true:
 
 
 func shoot_grate():
+	if $Sprite2D.visible:
+		SoundManager.PipeCap()
 	var new_grate_position = self.global_position + (facing_vector[direction] * 18)
 	new_grate_position += (Vector2.DOWN * 200)
 	var new_t = get_tree().create_tween()
