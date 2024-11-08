@@ -45,7 +45,7 @@ size = Vector2(2023, 86.0011)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2gvx"]
 size = Vector2(487.904, 58)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player_ref")]
 position = Vector2(516, 538)
