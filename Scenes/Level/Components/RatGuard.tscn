@@ -33,6 +33,7 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_gvpfn")
 
 [node name="SpeechZone" type="Area2D" parent="."]
+collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpeechZone"]
@@ -47,4 +48,5 @@ process_material = SubResource("ParticleProcessMaterial_2vgfh")
 texture = SubResource("AtlasTexture_flchq")
 visibility_rect = Rect2(-200, -100, 400, 200)
 
-[connection signal="area_entered" from="SpeechZone" to="." method="_on_speech_zone_area_entered"]
+[connection signal="body_entered" from="SpeechZone" to="." method="_on_speech_zone_body_entered"]
+[connection signal="body_exited" from="SpeechZone" to="." method="_on_speech_zone_body_exited"]
