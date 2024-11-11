@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://bin8wy2cq6th5"]
+[gd_scene load_steps=34 format=3 uid="uid://bin8wy2cq6th5"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_hp66c"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_gtpp1"]
+[ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Level/Components/Coin.tscn" id="3_nvtv7"]
 [ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/Components/WorldBlock.tscn" id="4_auj55"]
 [ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/Components/WinZone.tscn" id="5_1arn6"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="7_x113n"]
@@ -51,6 +52,33 @@ player_ref = NodePath("../Player")
 position = Vector2(61, 681)
 
 [node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("3_nvtv7")]
+position = Vector2(563, 635)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("3_nvtv7")]
+position = Vector2(725, 658)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("3_nvtv7")]
+position = Vector2(292, 684)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("3_nvtv7")]
+position = Vector2(853, -515)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("3_nvtv7")]
+position = Vector2(417, -599)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("3_nvtv7")]
+position = Vector2(1009, -889)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("3_nvtv7")]
+position = Vector2(245, -1087)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("3_nvtv7")]
+position = Vector2(106, -334)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("3_nvtv7")]
+position = Vector2(957, -433)
 
 [node name="Boundaries" type="Node2D" parent="."]
 scale = Vector2(1.25, 1.25)
@@ -505,7 +533,7 @@ End1Type = 2
 platform_length = 100.0
 
 [node name="RightUpWarp" type="Node2D" parent="Pipes"]
-position = Vector2(931, 357)
+position = Vector2(939, 411)
 
 [node name="PipeTemplate" parent="Pipes/RightUpWarp" instance=ExtResource("7_x113n")]
 position = Vector2(-9, 0)
@@ -804,7 +832,7 @@ End2Type = 2
 platform_length = 50.0
 
 [node name="TurnedT" type="Node2D" parent="Pipes"]
-position = Vector2(595, 410)
+position = Vector2(607, 450)
 
 [node name="PipeTemplate" parent="Pipes/TurnedT" instance=ExtResource("7_x113n")]
 position = Vector2(159, 60)
@@ -819,7 +847,7 @@ End1Type = 2
 platform_length = 250.0
 
 [node name="Twist1" type="Node2D" parent="Pipes"]
-position = Vector2(514, 565)
+position = Vector2(519, 590)
 
 [node name="PipeTemplate" parent="Pipes/Twist1" instance=ExtResource("7_x113n")]
 position = Vector2(-121, 54)
@@ -1016,7 +1044,7 @@ rotation = -0.00194502
 scale = Vector2(0.105, 0.12)
 
 [node name="Shop" parent="." instance=ExtResource("31_3slce")]
-position = Vector2(1125, 713)
+position = Vector2(1054, 691)
 
 [node name="PipeTemplate1" parent="." instance=ExtResource("7_x113n")]
 position = Vector2(1061, -618)
