@@ -5,6 +5,7 @@ class_name PipeZone
 @onready var closed_sprite = preload("res://Assets/Pipes/JPipes/greendot.png")
 @onready var horizontal_sprite = preload("res://Assets/Pipes/PipeGrate.png")
 @onready var vertical_sprite = preload("res://Assets/Pipes/PipeGrateBottom.png")
+@onready var crowbar_sprite = preload("res://Scenes/Player/CrowbarAnim.tscn")
 
 enum FACING {
 	UP,
@@ -51,6 +52,18 @@ var closed: bool = true:
 			#$Sprite2D.texture = open_sprite
 			pass
 
+
+func animate_crowbar():
+	var crowbar = crowbar_sprite.instantiate()
+	add_sibling(crowbar)
+	crowbar.position = position
+	match direction:
+		FACING.UP:
+			crowbar.rotate(PI/2)
+		FACING.DOWN:
+			crowbar.rotate(-PI/2)
+		FACING.RIGHT:
+			crowbar.rotate(PI)
 
 func shoot_grate():
 	var new_grate_position = self.global_position + (facing_vector[direction] * 18)
@@ -104,6 +117,7 @@ func _process(delta: float) -> void:
 			closed = false
 			stored_player.use_item(1)
 			shoot_grate()
+			animate_crowbar()
 		if not closed:
 			var next_neighbor = neighbors.pick_random()
 			next_neighbor.move_player_here(self)
