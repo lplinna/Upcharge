@@ -84,6 +84,8 @@ func show_e_prompt():
 
 
 func _ready():
+	if Engine.is_editor_hint():
+		return	
 	direction = direction
 	stored_player = get_tree().get_first_node_in_group("Player")
 	stored_player.shop_pop_up.item_purchased.connect(func(item: int):
