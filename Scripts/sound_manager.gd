@@ -95,3 +95,13 @@ func PipeCap():
 	audio_PipeCap.volume_db = 5
 	add_child(audio_PipeCap)
 	audio_PipeCap.play()
+
+func Crowbar():
+	var audio_Crowbar = AudioStreamPlayer.new()
+	var randCrowbar = randi_range(1,15)
+	var Crowbar_Sound = load("res://Resources/Sounds/Crowbar/SFX_Crowbar_ Swoosh_0"+str(randCrowbar)+".wav")
+	audio_Crowbar.set_script(SoundScript)
+	audio_Crowbar.stream = Crowbar_Sound
+	audio_Crowbar.volume_db = -5
+	add_child(audio_Crowbar)
+	audio_Crowbar.play()

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://i2fgps7rwy3e"
+path="res://.godot/imported/SFX_Crowbar_ Swoosh_09.wav-d3b85792efe1e57219c21d51f9ad0059.sample"
+
+[deps]
+
+source_file="res://Resources/Sounds/Crowbar/SFX_Crowbar_ Swoosh_09.wav"
+dest_files=["res://.godot/imported/SFX_Crowbar_ Swoosh_09.wav-d3b85792efe1e57219c21d51f9ad0059.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

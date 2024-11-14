@@ -54,6 +54,7 @@ var closed: bool = true:
 
 
 func animate_crowbar():
+	SoundManager.Crowbar()
 	var crowbar = crowbar_sprite.instantiate()
 	add_sibling(crowbar)
 	crowbar.position = position
