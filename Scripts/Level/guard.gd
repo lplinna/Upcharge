@@ -13,20 +13,33 @@ extends Node2D
 #@onready var bubble_plain_close: CompressedTexture2D = preload("res://Assets/Guard/Speech Bubbles/Guard_Rat_Bubble_3_plain.png")
 #@onready var bubble_plain_lumpy: CompressedTexture2D = preload("res://Assets/Guard/Speech Bubbles/Guard_Rat_Bubble_4_plain.png")
 
+@onready var textLabel = $SpeechBubble/Label
+@onready var cheese = $SpeechBubble/Cheese
 @onready var particles = $CoinParticles
 
-var coins_paid = false
-var payment_ready = false
+@onready var ladder_texture: CompressedTexture2D = preload("res://Assets/Guard/Ladder_final.png")
+
+@export var exit_price: int = 0
+
+var payment_ready := false
+var can_interact := false
 
 func _ready() -> void:
 	# Leaving a valid texture is useful for placement in-level, so we reset it
 	# to empty here, and dynamically load it back later 
 	speech_bubble.texture = null
+	textLabel.visible = false
+	cheese.visible = false
 	
 func _process(delta: float) -> void:
-	if payment_ready:
-		if Input.is_action_just_released("interact"):
+	if !can_interact:
+		return
+	
+	if Input.is_action_just_released("interact"):
+		if payment_ready:
 			particles.visible = true
+		else:
+			pass # TODO: play negative sound
 
 ## defunct winzone code
 #@export var coins_to_win: int = 4
@@ -49,13 +62,25 @@ func _process(delta: float) -> void:
 
 
 func _on_speech_zone_body_entered(body: Node2D) -> void:
-	print('speech zone entered')
-	speech_bubble.visible = true
-	speech_bubble.texture = coin_ask
-	payment_ready = true
+	if body is Player:
+		can_interact = true
+		speech_bubble.visible = true
+		
+		# TODO: revisit player items--this will need refactoring 
+		if body.held_item == 3: # cheese
+			speech_bubble.texture = bubble_plain
+			textLabel.visible = true
+			textLabel.text = "?"
+			cheese.visible = true
+			payment_ready = true
+		else:
+			speech_bubble.texture = coin_ask
+			
+			if body.coins >= exit_price:
+				payment_ready = true
 	
 
 
 func _on_speech_zone_body_exited(body: Node2D) -> void:
-	payment_ready = false
+	can_interact = false
 	speech_bubble.visible = false
