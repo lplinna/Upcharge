@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://csl1p6s085bo0"]
+
+[ext_resource type="AudioStream" uid="uid://djs1e4ckqt8vr" path="res://Resources/Music/Upcharge (Cellos).wav" id="1_eet8s"]
+[ext_resource type="Script" path="res://Scripts/Player/music_movement.gd" id="1_p6bkp"]
+[ext_resource type="AudioStream" uid="uid://opt5ekcx6cw8" path="res://Resources/Music/Upcharge (Celeste).wav" id="2_vtbko"]
+[ext_resource type="AudioStream" uid="uid://bq4xs0apbt5ei" path="res://Resources/Music/Upcharge (Piano_High).wav" id="3_0t7ie"]
+
+[node name="MiddleMusic" type="Node2D"]
+script = ExtResource("1_p6bkp")
+
+[node name="Cellos" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_eet8s")
+volume_db = -15.0
+autoplay = true
+max_distance = 200.0
+
+[node name="Celeste" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_vtbko")
+volume_db = -15.0
+autoplay = true
+max_distance = 200.0
+
+[node name="PianoHigh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0t7ie")
+volume_db = -15.0
+autoplay = true
+max_distance = 200.0

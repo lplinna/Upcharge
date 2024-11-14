@@ -1,0 +1,869 @@
+[gd_scene load_steps=34 format=3 uid="uid://cmgq0ml3jwtlh"]
+
+[ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_hp66c"]
+[ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_gtpp1"]
+[ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/Components/WorldBlock.tscn" id="4_auj55"]
+[ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/Components/WinZone.tscn" id="5_1arn6"]
+[ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="7_x113n"]
+[ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="8_tr804"]
+[ext_resource type="PackedScene" uid="uid://damjb7jnd4o8q" path="res://Scenes/Level/Components/PipeZone.tscn" id="9_nvxet"]
+[ext_resource type="PackedScene" uid="uid://dc41oqitmeu0a" path="res://Scenes/Music/lower_music.tscn" id="10_pq26x"]
+[ext_resource type="PackedScene" uid="uid://csl1p6s085bo0" path="res://Scenes/Music/middle_music.tscn" id="11_x6avx"]
+[ext_resource type="PackedScene" uid="uid://ce6qrxtx7cmup" path="res://Scenes/Music/upper_music.tscn" id="12_2tk55"]
+[ext_resource type="Texture2D" uid="uid://dykpcp0kpy3y3" path="res://Assets/Background/bricks.png" id="13_6qedb"]
+[ext_resource type="Texture2D" uid="uid://dflvnnrx2qfws" path="res://Assets/Background/Cheese Graffiti.png" id="14_u3jhy"]
+[ext_resource type="Texture2D" uid="uid://xwvvklb2jbl" path="res://Assets/Background/Sewer Grate.png" id="15_n7583"]
+[ext_resource type="Texture2D" uid="uid://c2xtoyarkk4n3" path="res://Assets/Background/Web Grafitti.png" id="16_6mu8r"]
+[ext_resource type="Texture2D" uid="uid://xd40juv033h4" path="res://Assets/Background/Spider Crab Graffiti.png" id="17_2k2jp"]
+[ext_resource type="Texture2D" uid="uid://00fjyimb0dc7" path="res://Assets/Background/Peace Graffiti.png" id="18_t8rkg"]
+[ext_resource type="Texture2D" uid="uid://dto1j6yygvnnd" path="res://Assets/Background/TopGrate.png" id="19_18xog"]
+[ext_resource type="Texture2D" uid="uid://dvqgrreklq8y2" path="res://Assets/Dew/Dew_1.png" id="20_gxi0v"]
+[ext_resource type="Texture2D" uid="uid://c4lq4s7dal7be" path="res://Assets/Dew/Dew_10.png" id="21_qdpy7"]
+[ext_resource type="Texture2D" uid="uid://cublx7kd8yqwu" path="res://Assets/Dew/Dew_9.png" id="22_u0myp"]
+[ext_resource type="Texture2D" uid="uid://dxx1s21jlvxiy" path="res://Assets/Dew/Dew_8.png" id="23_7uiv0"]
+[ext_resource type="Texture2D" uid="uid://bsy3vmqgdai65" path="res://Assets/Dew/Dew_7.png" id="24_udsva"]
+[ext_resource type="Texture2D" uid="uid://lt1iaoeuenyf" path="res://Assets/Dew/Dew_6.png" id="25_srih0"]
+[ext_resource type="Texture2D" uid="uid://degxihslcim02" path="res://Assets/Dew/Dew_5.png" id="26_n861u"]
+[ext_resource type="Texture2D" uid="uid://xtb7k53kbaan" path="res://Assets/Dew/Dew_4.png" id="27_m7q75"]
+[ext_resource type="Texture2D" uid="uid://qnyh75tlxylf" path="res://Assets/Dew/Dew_3.png" id="28_0hj8j"]
+[ext_resource type="Texture2D" uid="uid://iyexisxtoiga" path="res://Assets/Dew/Dew_2.png" id="29_22lcs"]
+[ext_resource type="PackedScene" uid="uid://qarfxgr4ovaq" path="res://Scenes/Level/Components/green_goop.tscn" id="30_u02fl"]
+[ext_resource type="PackedScene" uid="uid://b35x8dvw3k6h6" path="res://Scenes/Level/Shop/shop.tscn" id="31_3slce"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
+size = Vector2(2109.75, 67.9994)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klmyk"]
+size = Vector2(2109.75, 87.9988)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atgsu"]
+size = Vector2(2440, 86.0011)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2gvx"]
+size = Vector2(487.904, 58)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player_ref")]
+position = Vector2(516, 538)
+position_smoothing_enabled = true
+script = ExtResource("1_hp66c")
+player_ref = NodePath("../Player")
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_gtpp1")]
+position = Vector2(516, 233)
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="BottomGround" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(576, 615)
+
+[node name="WorldBlock" parent="Boundaries/BottomGround" instance=ExtResource("4_auj55")]
+offset_left = -1521.0
+offset_top = -34.0
+offset_right = 1540.0
+offset_bottom = 1003.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomGround"]
+shape = SubResource("RectangleShape2D_5pbvl")
+
+[node name="Wall" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(1024, 69)
+rotation = -1.57079
+
+[node name="WorldBlock" parent="Boundaries/Wall" instance=ExtResource("4_auj55")]
+offset_left = -1524.0
+offset_top = -51.0
+offset_right = 1537.0
+offset_bottom = 986.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall"]
+position = Vector2(479, -7.00296)
+shape = SubResource("RectangleShape2D_klmyk")
+
+[node name="Wall3" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(417, -1521)
+rotation = -3.14159
+
+[node name="WorldBlock" parent="Boundaries/Wall3" instance=ExtResource("4_auj55")]
+offset_left = -1524.0
+offset_top = -51.0
+offset_right = 1537.0
+offset_bottom = 986.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall3"]
+position = Vector2(479, -7.00296)
+shape = SubResource("RectangleShape2D_klmyk")
+
+[node name="Wall2" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-44, -599)
+rotation = 1.57079
+
+[node name="WorldBlock" parent="Boundaries/Wall2" instance=ExtResource("4_auj55")]
+offset_left = -1524.0
+offset_top = -27.0
+offset_right = 1537.0
+offset_bottom = 1010.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall2"]
+position = Vector2(313, 15.9985)
+shape = SubResource("RectangleShape2D_atgsu")
+
+[node name="Slide1" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(852, 409)
+rotation = -0.785398
+
+[node name="WorldBlock" parent="Boundaries/Slide1" instance=ExtResource("4_auj55")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -914.882
+offset_right = 994.118
+offset_bottom = 818.0
+grow_vertical = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Slide1"]
+position = Vector2(-26.1629, 28.0001)
+shape = SubResource("RectangleShape2D_t2gvx")
+
+[node name="WallTrapezoid1" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-8, 248)
+rotation = 0.261799
+
+[node name="Polygon2D" type="Polygon2D" parent="Boundaries/WallTrapezoid1"]
+rotation = -0.261799
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-16, -72, -16, 72, 64, 40, 64, -40)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/WallTrapezoid1"]
+rotation = -0.261799
+polygon = PackedVector2Array(-16, -72, -16, 72, 64, 40, 64, -40)
+
+[node name="WallTrapezoid2" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(856, -400)
+rotation = 0.261799
+
+[node name="Polygon2D" type="Polygon2D" parent="Boundaries/WallTrapezoid2"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+rotation = -0.261799
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-280, -16, -280, 48, 120, 144, 120, -112)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/WallTrapezoid2"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+rotation = -0.261799
+polygon = PackedVector2Array(-280, -16, -280, 48, 120, 144, 120, -112)
+
+[node name="WallTrapezoid3" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(856, -400)
+rotation = 0.261799
+
+[node name="Polygon2D" type="Polygon2D" parent="Boundaries/WallTrapezoid3"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+rotation = -0.261799
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(8, -536, 64, -536, 64, -136, 8, -136, 120, -48, 120, -624)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/WallTrapezoid3"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+rotation = -0.261799
+polygon = PackedVector2Array(8, -536, 64, -536, 64, -136, 8, -136, 120, -48, 120, -624)
+
+[node name="BigPipe1" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(72, -272)
+
+[node name="Polygon2D" type="Polygon2D" parent="Boundaries/BigPipe1"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-88, -32, -88, 48, -8.00001, 48, -8.00001, 56, 16, 56, 16, 48, 16, -32, 16, -40, -8.00001, -40, -8.00001, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/BigPipe1"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+polygon = PackedVector2Array(-88, -32, -88, 48, -8.00001, 48, 16, 48, 16, -32, -8.00001, -32)
+
+[node name="BigPipe2" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(88, -1040)
+
+[node name="Polygon2D" type="Polygon2D" parent="Boundaries/BigPipe2"]
+position = Vector2(24, 2.94777e-05)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-128, -32, -128, 48, -8.00001, 48, -8.00001, 56, 16, 56, 16, 48, 16, -32, 16, -40, -8.00001, -40, -8.00001, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/BigPipe2"]
+position = Vector2(24, 2.94777e-05)
+polygon = PackedVector2Array(-128, -32, -128, 48, -8.00001, 48, 16, 48, 16, -32, -8.00001, -32)
+
+[node name="SmallPlatform" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(760, -424)
+
+[node name="Polygon2D" type="Polygon2D" parent="Boundaries/SmallPlatform"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-88, -32, -88, 48, -8.00001, 48, 16, 48, 16, -32, -8.00001, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/SmallPlatform"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+polygon = PackedVector2Array(-88, -32, -88, 48, -8.00001, 48, 16, 48, 16, -32, -8.00001, -32)
+
+[node name="LadderPlatform" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(920, -560)
+
+[node name="Polygon2D" type="Polygon2D" parent="Boundaries/LadderPlatform"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-88, 0, -88, 16, 16, 16, 16, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/LadderPlatform"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+polygon = PackedVector2Array(-88, 0, -88, 16, 16, 16, 16, 0)
+
+[node name="LadderPlatform2" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(920, -680)
+
+[node name="Polygon2D" type="Polygon2D" parent="Boundaries/LadderPlatform2"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-88, 0, -88, 16, 16, 16, 16, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/LadderPlatform2"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+polygon = PackedVector2Array(-88, 0, -88, 16, 16, 16, 16, 0)
+
+[node name="LadderWall" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(920, -704)
+
+[node name="Polygon2D" type="Polygon2D" parent="Boundaries/LadderWall"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-56, -232, -56, 168, 56, 168, 56, -232)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/LadderWall"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+polygon = PackedVector2Array(-56, -232, -56, 168, 56, 168, 56, -232)
+
+[node name="WinZone" parent="." instance=ExtResource("5_1arn6")]
+position = Vector2(-96, -1480)
+
+[node name="Pipes" type="Node2D" parent="."]
+
+[node name="RightDown2" type="Node2D" parent="Pipes"]
+position = Vector2(40, 248)
+
+[node name="PipeTemplate" parent="Pipes/RightDown2" instance=ExtResource("7_x113n")]
+position = Vector2(20, 0)
+platform_length = 1000.0
+
+[node name="PipeTemplate2" parent="Pipes/RightDown2" instance=ExtResource("7_x113n")]
+position = Vector2(248, 46)
+is_vert = true
+End2Type = 1
+platform_length = 40.0
+
+[node name="PipeCurve3" parent="Pipes/RightDown2" instance=ExtResource("8_tr804")]
+position = Vector2(235, 13)
+orientation = 1
+
+[node name="CShapedWarp" type="Node2D" parent="Pipes"]
+position = Vector2(2831, -480)
+
+[node name="PipeCurve" parent="Pipes/CShapedWarp" instance=ExtResource("8_tr804")]
+position = Vector2(13, -160)
+
+[node name="PipeCurve2" parent="Pipes/CShapedWarp" instance=ExtResource("8_tr804")]
+position = Vector2(13, 160)
+orientation = 2
+
+[node name="PipeTemplate" parent="Pipes/CShapedWarp" instance=ExtResource("7_x113n")]
+is_vert = true
+platform_length = 700.0
+
+[node name="PipeTemplate2" parent="Pipes/CShapedWarp" instance=ExtResource("7_x113n")]
+position = Vector2(95, 173)
+End2Type = 2
+platform_length = 300.0
+
+[node name="PipeTemplate3" parent="Pipes/CShapedWarp" instance=ExtResource("7_x113n")]
+position = Vector2(94, -173)
+End2Type = 2
+platform_length = 300.0
+
+[node name="PipeEnds" type="Node2D" parent="Pipes/CShapedWarp"]
+
+[node name="PipeZone" parent="Pipes/CShapedWarp/PipeEnds" instance=ExtResource("9_nvxet")]
+position = Vector2(161, -173)
+direction = 3
+
+[node name="PipeZone2" parent="Pipes/CShapedWarp/PipeEnds" instance=ExtResource("9_nvxet")]
+position = Vector2(161, 173)
+direction = 3
+
+[node name="RightDownLeftWarp" type="Node2D" parent="Pipes"]
+position = Vector2(3356, -512)
+
+[node name="PipeTemplate" parent="Pipes/RightDownLeftWarp" instance=ExtResource("7_x113n")]
+position = Vector2(-99, -168)
+End1Type = 2
+platform_length = 600.0
+
+[node name="PipeTemplate2" parent="Pipes/RightDownLeftWarp" instance=ExtResource("7_x113n")]
+position = Vector2(112, -33)
+is_vert = true
+platform_length = 300.0
+
+[node name="PipeTemplate3" parent="Pipes/RightDownLeftWarp" instance=ExtResource("7_x113n")]
+position = Vector2(-13, 58)
+End1Type = 2
+
+[node name="PipeCurve" parent="Pipes/RightDownLeftWarp" instance=ExtResource("8_tr804")]
+position = Vector2(44, -157)
+orientation = 1
+
+[node name="PipeCurve2" parent="Pipes/RightDownLeftWarp" instance=ExtResource("8_tr804")]
+position = Vector2(44, -101)
+orientation = 3
+
+[node name="PipeCurve3" parent="Pipes/RightDownLeftWarp" instance=ExtResource("8_tr804")]
+position = Vector2(98, 47)
+orientation = 3
+
+[node name="PipeCurve4" parent="Pipes/RightDownLeftWarp" instance=ExtResource("8_tr804")]
+position = Vector2(98, -118)
+orientation = 1
+
+[node name="PipeEnds" type="Node2D" parent="Pipes/RightDownLeftWarp"]
+
+[node name="PipeZone" parent="Pipes/RightDownLeftWarp/PipeEnds" instance=ExtResource("9_nvxet")]
+position = Vector2(-108, 58)
+direction = 1
+
+[node name="PipeZone2" parent="Pipes/RightDownLeftWarp/PipeEnds" instance=ExtResource("9_nvxet")]
+position = Vector2(-223, -168)
+direction = 1
+
+[node name="OtherBits" type="Node2D" parent="Pipes/RightDownLeftWarp"]
+
+[node name="PipeTemplate" parent="Pipes/RightDownLeftWarp/OtherBits" instance=ExtResource("7_x113n")]
+position = Vector2(-34, -86)
+End1Type = 2
+platform_length = 300.0
+
+[node name="DownLeftDownRightWarp" type="Node2D" parent="Pipes"]
+position = Vector2(3760, -664)
+
+[node name="PipeTemplate3" parent="Pipes/DownLeftDownRightWarp" instance=ExtResource("7_x113n")]
+position = Vector2(-99, 253)
+End2Type = 2
+platform_length = 50.0
+
+[node name="PipeEnds" type="Node2D" parent="Pipes/DownLeftDownRightWarp"]
+
+[node name="PipeZone" parent="Pipes/DownLeftDownRightWarp/PipeEnds" instance=ExtResource("9_nvxet")]
+position = Vector2(-66, -66)
+
+[node name="PipeZone2" parent="Pipes/DownLeftDownRightWarp/PipeEnds" instance=ExtResource("9_nvxet")]
+position = Vector2(-81, 253)
+direction = 3
+
+[node name="PipeTemplate" parent="Pipes/DownLeftDownRightWarp" instance=ExtResource("7_x113n")]
+position = Vector2(-66, -16)
+is_vert = true
+End1Type = 1
+platform_length = 200.0
+
+[node name="PipeTemplate2" parent="Pipes/DownLeftDownRightWarp" instance=ExtResource("7_x113n")]
+position = Vector2(-145, 160)
+is_vert = true
+platform_length = 300.0
+
+[node name="PipeCurve" parent="Pipes/DownLeftDownRightWarp" instance=ExtResource("8_tr804")]
+position = Vector2(-79, 50)
+orientation = 3
+
+[node name="PipeCurve2" parent="Pipes/DownLeftDownRightWarp" instance=ExtResource("8_tr804")]
+position = Vector2(-132, 76)
+
+[node name="PipeCurve3" parent="Pipes/DownLeftDownRightWarp" instance=ExtResource("8_tr804")]
+position = Vector2(-132, 240)
+orientation = 2
+
+[node name="LeftDownWarp" type="Node2D" parent="Pipes"]
+position = Vector2(4052, -695)
+
+[node name="PipeTemplate4" parent="Pipes/LeftDownWarp" instance=ExtResource("7_x113n")]
+position = Vector2(-99, 233)
+End1Type = 2
+platform_length = 50.0
+
+[node name="PipeCurve2" parent="Pipes/LeftDownWarp" instance=ExtResource("8_tr804")]
+position = Vector2(-66, 220)
+orientation = 3
+
+[node name="PipeTemplate3" parent="Pipes/LeftDownWarp" instance=ExtResource("7_x113n")]
+position = Vector2(107, -72)
+is_vert = true
+End1Type = 1
+platform_length = 50.0
+
+[node name="PipeCurve" parent="Pipes/LeftDownWarp" instance=ExtResource("8_tr804")]
+position = Vector2(94, -35)
+orientation = 3
+
+[node name="PipeTemplate2" parent="Pipes/LeftDownWarp" instance=ExtResource("7_x113n")]
+position = Vector2(28, -22)
+platform_length = 200.0
+
+[node name="PipeTemplate" parent="Pipes/LeftDownWarp" instance=ExtResource("7_x113n")]
+position = Vector2(-53, 106)
+is_vert = true
+
+[node name="PipeEnds" type="Node2D" parent="Pipes/LeftDownWarp"]
+
+[node name="PipeZone2" parent="Pipes/LeftDownWarp/PipeEnds" instance=ExtResource("9_nvxet")]
+position = Vector2(107, -93)
+
+[node name="PipeZone" parent="Pipes/LeftDownWarp/PipeEnds" instance=ExtResource("9_nvxet")]
+position = Vector2(-117, 233)
+direction = 1
+
+[node name="PipeCurve3" parent="Pipes/LeftDownWarp" instance=ExtResource("8_tr804")]
+position = Vector2(-38, -9)
+
+[node name="SideBits" type="Node2D" parent="Pipes/LeftDownWarp"]
+
+[node name="PipeTemplate" parent="Pipes/LeftDownWarp/SideBits" instance=ExtResource("7_x113n")]
+position = Vector2(-94, 55)
+End1Type = 2
+platform_length = 150.0
+
+[node name="PipeTemplate2" parent="Pipes/LeftDownWarp/SideBits" instance=ExtResource("7_x113n")]
+position = Vector2(-85, 133)
+End1Type = 2
+platform_length = 100.0
+
+[node name="RightUpWarp" type="Node2D" parent="Pipes"]
+position = Vector2(752, 192)
+
+[node name="PipeTemplate" parent="Pipes/RightUpWarp" instance=ExtResource("7_x113n")]
+position = Vector2(-9, 0)
+End1Type = 2
+platform_length = 200.0
+
+[node name="PipeTemplate3" parent="Pipes/RightUpWarp" instance=ExtResource("7_x113n")]
+position = Vector2(64, -178)
+is_vert = true
+End1Type = 1
+platform_length = 750.0
+
+[node name="PipeCurve16" parent="Pipes/RightUpWarp" instance=ExtResource("8_tr804")]
+position = Vector2(52, -13)
+rotation = 6.28318
+orientation = 3
+
+[node name="PipeEnds" type="Node2D" parent="Pipes/RightUpWarp"]
+
+[node name="PipeZone" parent="Pipes/RightUpWarp/PipeEnds" instance=ExtResource("9_nvxet")]
+position = Vector2(-56, 2)
+direction = 1
+
+[node name="PipeZone3" parent="Pipes/RightUpWarp/PipeEnds" instance=ExtResource("9_nvxet")]
+position = Vector2(63, -334)
+
+[node name="TLZag" type="Node2D" parent="Pipes"]
+position = Vector2(2594, -1008)
+
+[node name="PipeTemplate" parent="Pipes/TLZag" instance=ExtResource("7_x113n")]
+position = Vector2(0, 24)
+is_vert = true
+End1Type = 1
+platform_length = 100.0
+
+[node name="PipeTemplate2" parent="Pipes/TLZag" instance=ExtResource("7_x113n")]
+position = Vector2(-25, -15)
+End1Type = 2
+End2Type = 2
+platform_length = 451.0
+
+[node name="PipeTemplate3" parent="Pipes/TLZag" instance=ExtResource("7_x113n")]
+position = Vector2(95, 84)
+End2Type = 2
+platform_length = 300.0
+
+[node name="PipeCurve10" parent="Pipes/TLZag" instance=ExtResource("8_tr804")]
+position = Vector2(13, 71)
+rotation = 6.28318
+orientation = 2
+
+[node name="TripleZigZag" type="Node2D" parent="Pipes"]
+position = Vector2(3024, -885)
+
+[node name="PipeTemplate2" parent="Pipes/TripleZigZag" instance=ExtResource("7_x113n")]
+position = Vector2(192, -64)
+End2Type = 2
+platform_length = 451.0
+
+[node name="PipeTemplate" parent="Pipes/TripleZigZag" instance=ExtResource("7_x113n")]
+position = Vector2(15, -142)
+End1Type = 2
+platform_length = 90.0
+
+[node name="PipeTemplate3" parent="Pipes/TripleZigZag" instance=ExtResource("7_x113n")]
+position = Vector2(224, -28)
+is_vert = true
+End1Type = 1
+platform_length = 80.0
+
+[node name="PipeTemplate4" parent="Pipes/TripleZigZag" instance=ExtResource("7_x113n")]
+position = Vector2(322, 28)
+End2Type = 2
+platform_length = 300.0
+
+[node name="PipeCurve5" parent="Pipes/TripleZigZag" instance=ExtResource("8_tr804")]
+position = Vector2(237, 15)
+rotation = 6.28318
+orientation = 2
+
+[node name="PipeCurve6" parent="Pipes/TripleZigZag" instance=ExtResource("8_tr804")]
+position = Vector2(83, -77)
+rotation = 6.28318
+orientation = 2
+
+[node name="PipeCurve7" parent="Pipes/TripleZigZag" instance=ExtResource("8_tr804")]
+position = Vector2(57, -129)
+rotation = 12.5664
+orientation = 1
+
+[node name="TripleZigZag2" type="Node2D" parent="Pipes"]
+position = Vector2(3322, -964)
+
+[node name="PipeTemplate2" parent="Pipes/TripleZigZag2" instance=ExtResource("7_x113n")]
+position = Vector2(192, -64)
+End2Type = 2
+platform_length = 451.0
+
+[node name="PipeTemplate" parent="Pipes/TripleZigZag2" instance=ExtResource("7_x113n")]
+position = Vector2(15, -142)
+End1Type = 2
+platform_length = 90.0
+
+[node name="PipeTemplate3" parent="Pipes/TripleZigZag2" instance=ExtResource("7_x113n")]
+position = Vector2(224, -28)
+is_vert = true
+End1Type = 1
+platform_length = 80.0
+
+[node name="PipeTemplate4" parent="Pipes/TripleZigZag2" instance=ExtResource("7_x113n")]
+position = Vector2(322, 28)
+End2Type = 2
+platform_length = 300.0
+
+[node name="PipeCurve5" parent="Pipes/TripleZigZag2" instance=ExtResource("8_tr804")]
+position = Vector2(237, 15)
+rotation = 6.28318
+orientation = 2
+
+[node name="PipeCurve6" parent="Pipes/TripleZigZag2" instance=ExtResource("8_tr804")]
+position = Vector2(83, -77)
+rotation = 6.28318
+orientation = 2
+
+[node name="PipeCurve7" parent="Pipes/TripleZigZag2" instance=ExtResource("8_tr804")]
+position = Vector2(57, -129)
+rotation = 12.5664
+orientation = 1
+
+[node name="RightUp2" type="Node2D" parent="Pipes"]
+position = Vector2(2930, -1205)
+
+[node name="PipeTemplate" parent="Pipes/RightUp2" instance=ExtResource("7_x113n")]
+position = Vector2(-101, 0)
+platform_length = 750.0
+
+[node name="PipeTemplate2" parent="Pipes/RightUp2" instance=ExtResource("7_x113n")]
+position = Vector2(80, -44)
+is_vert = true
+End1Type = 1
+platform_length = 40.0
+
+[node name="PipeCurve17" parent="Pipes/RightUp2" instance=ExtResource("8_tr804")]
+position = Vector2(67, -13)
+rotation = 6.28318
+orientation = 3
+
+[node name="RightRight" type="Node2D" parent="Pipes"]
+position = Vector2(2543, -1421)
+
+[node name="PipeTemplate" parent="Pipes/RightRight" instance=ExtResource("7_x113n")]
+position = Vector2(-163, -13)
+platform_length = 700.0
+
+[node name="PipeCurve" parent="Pipes/RightRight" instance=ExtResource("8_tr804")]
+position = Vector2(26, 55)
+orientation = 2
+
+[node name="PipeCurve2" parent="Pipes/RightRight" instance=ExtResource("8_tr804")]
+orientation = 1
+
+[node name="PipeTemplate2" parent="Pipes/RightRight" instance=ExtResource("7_x113n")]
+position = Vector2(109, 69)
+End2Type = 2
+platform_length = 300.0
+
+[node name="RightRight2" type="Node2D" parent="Pipes"]
+position = Vector2(2668, -1562)
+
+[node name="PipeTemplate" parent="Pipes/RightRight2" instance=ExtResource("7_x113n")]
+position = Vector2(-159, -13)
+End1Type = 2
+platform_length = 700.0
+
+[node name="PipeCurve" parent="Pipes/RightRight2" instance=ExtResource("8_tr804")]
+position = Vector2(26, 55)
+orientation = 2
+
+[node name="PipeCurve2" parent="Pipes/RightRight2" instance=ExtResource("8_tr804")]
+orientation = 1
+
+[node name="PipeTemplate2" parent="Pipes/RightRight2" instance=ExtResource("7_x113n")]
+position = Vector2(138, 68)
+
+[node name="UTurn" type="Node2D" parent="Pipes"]
+position = Vector2(3545, -1476)
+
+[node name="PipeTemplate" parent="Pipes/UTurn" instance=ExtResource("7_x113n")]
+position = Vector2(-24, 0)
+platform_length = 100.0
+
+[node name="PipeTemplate2" parent="Pipes/UTurn" instance=ExtResource("7_x113n")]
+position = Vector2(-80, -44)
+is_vert = true
+End1Type = 1
+platform_length = 50.0
+
+[node name="PipeTemplate3" parent="Pipes/UTurn" instance=ExtResource("7_x113n")]
+position = Vector2(35, -54)
+is_vert = true
+End1Type = 1
+platform_length = 100.0
+
+[node name="PipeCurve8" parent="Pipes/UTurn" instance=ExtResource("8_tr804")]
+position = Vector2(-67, -13)
+rotation = 12.5664
+orientation = 2
+
+[node name="PipeCurve9" parent="Pipes/UTurn" instance=ExtResource("8_tr804")]
+position = Vector2(22, -13)
+rotation = 12.5664
+orientation = 3
+
+[node name="UTurn2" type="Node2D" parent="Pipes"]
+position = Vector2(3421, -1614)
+
+[node name="PipeTemplate" parent="Pipes/UTurn2" instance=ExtResource("7_x113n")]
+position = Vector2(-24, 0)
+platform_length = 100.0
+
+[node name="PipeTemplate2" parent="Pipes/UTurn2" instance=ExtResource("7_x113n")]
+position = Vector2(35, -48)
+is_vert = true
+End1Type = 1
+platform_length = 50.0
+
+[node name="PipeTemplate3" parent="Pipes/UTurn2" instance=ExtResource("7_x113n")]
+position = Vector2(-80, -55)
+is_vert = true
+End1Type = 1
+platform_length = 100.0
+
+[node name="PipeCurve8" parent="Pipes/UTurn2" instance=ExtResource("8_tr804")]
+position = Vector2(-67, -13)
+rotation = 12.5664
+orientation = 2
+
+[node name="PipeCurve9" parent="Pipes/UTurn2" instance=ExtResource("8_tr804")]
+position = Vector2(22, -13)
+rotation = 12.5664
+orientation = 3
+
+[node name="LowerMusic" parent="." instance=ExtResource("10_pq26x")]
+position = Vector2(-72, 593)
+
+[node name="MiddleMusic" parent="." instance=ExtResource("11_x6avx")]
+position = Vector2(-67, -383)
+
+[node name="UpperMusic" parent="." instance=ExtResource("12_2tk55")]
+position = Vector2(-78, -778)
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -16
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_left = -108.0
+offset_top = -1474.0
+offset_right = 8539.0
+offset_bottom = 11471.0
+scale = Vector2(0.135776, 0.163579)
+texture = ExtResource("13_6qedb")
+stretch_mode = 1
+
+[node name="Cheese" type="Sprite2D" parent="Background"]
+position = Vector2(555, -263)
+scale = Vector2(0.12392, 0.12392)
+texture = ExtResource("14_u3jhy")
+
+[node name="Cheese2" type="Sprite2D" parent="Background"]
+position = Vector2(177, -1184)
+scale = Vector2(0.12392, 0.12392)
+texture = ExtResource("14_u3jhy")
+flip_h = true
+
+[node name="SewerGrate" type="Sprite2D" parent="Background"]
+position = Vector2(367, -643)
+scale = Vector2(0.0762555, 0.0762555)
+texture = ExtResource("15_n7583")
+
+[node name="SewerGrate2" type="Sprite2D" parent="Background"]
+position = Vector2(169, 163)
+scale = Vector2(0.0762555, 0.0762555)
+texture = ExtResource("15_n7583")
+
+[node name="Web" type="Sprite2D" parent="Background"]
+position = Vector2(716, 383)
+scale = Vector2(0.109323, 0.109323)
+texture = ExtResource("16_6mu8r")
+
+[node name="Web2" type="Sprite2D" parent="Background"]
+position = Vector2(713, -664)
+scale = Vector2(0.109323, 0.109323)
+texture = ExtResource("16_6mu8r")
+
+[node name="SpiderCrab" type="Sprite2D" parent="Background"]
+position = Vector2(91, -18)
+scale = Vector2(0.0614222, 0.0614222)
+texture = ExtResource("17_2k2jp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(890, -45)
+scale = Vector2(0.0743307, 0.0743307)
+texture = ExtResource("18_t8rkg")
+
+[node name="LevelEndGrate" type="Sprite2D" parent="Background"]
+z_index = 18
+position = Vector2(540, -1420)
+scale = Vector2(0.380779, 0.380779)
+texture = ExtResource("19_18xog")
+
+[node name="Goop" type="Node2D" parent="."]
+
+[node name="Dew" type="Sprite2D" parent="Goop"]
+position = Vector2(45, -1068)
+texture = ExtResource("20_gxi0v")
+
+[node name="Dew2" type="Sprite2D" parent="Goop"]
+position = Vector2(332, 588)
+texture = ExtResource("21_qdpy7")
+region_enabled = true
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Dew3" type="Sprite2D" parent="Goop"]
+position = Vector2(14, 199)
+texture = ExtResource("22_u0myp")
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Dew4" type="Sprite2D" parent="Goop"]
+position = Vector2(112, 129)
+texture = ExtResource("23_7uiv0")
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Dew5" type="Sprite2D" parent="Goop"]
+position = Vector2(26, -304)
+texture = ExtResource("24_udsva")
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Dew6" type="Sprite2D" parent="Goop"]
+position = Vector2(696, -432)
+texture = ExtResource("25_srih0")
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Dew7" type="Sprite2D" parent="Goop"]
+position = Vector2(850, -914)
+texture = ExtResource("26_n861u")
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Dew8" type="Sprite2D" parent="Goop"]
+position = Vector2(177, -724)
+texture = ExtResource("27_m7q75")
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Dew9" type="Sprite2D" parent="Goop"]
+position = Vector2(55, -713)
+texture = ExtResource("28_0hj8j")
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="Dew10" type="Sprite2D" parent="Goop"]
+position = Vector2(160, -635)
+texture = ExtResource("29_22lcs")
+region_rect = Rect2(104, 73, 682, 15)
+
+[node name="GoopPhysics" type="Node2D" parent="."]
+position = Vector2(45, -1068)
+
+[node name="Green Goop" parent="GoopPhysics" instance=ExtResource("30_u02fl")]
+position = Vector2(-61, 1644)
+scale = Vector2(0.6, 0.119998)
+
+[node name="Green Goop2" parent="GoopPhysics" instance=ExtResource("30_u02fl")]
+position = Vector2(-61, 759)
+scale = Vector2(0.07, 0.12)
+
+[node name="Green Goop3" parent="GoopPhysics" instance=ExtResource("30_u02fl")]
+position = Vector2(-64, 1239)
+rotation = 0.409248
+scale = Vector2(0.07, 0.12)
+
+[node name="Green Goop4" parent="GoopPhysics" instance=ExtResource("30_u02fl")]
+position = Vector2(528, 642)
+rotation = -0.199331
+scale = Vector2(0.1, 0.12)
+
+[node name="Green Goop5" parent="GoopPhysics" instance=ExtResource("30_u02fl")]
+position = Vector2(624, 601)
+rotation = 0.00344974
+scale = Vector2(0.100142, 0.12)
+
+[node name="Green Goop6" parent="GoopPhysics" instance=ExtResource("30_u02fl")]
+position = Vector2(668, 175)
+rotation = 0.00344974
+scale = Vector2(0.135, 0.12)
+
+[node name="Green Goop7" parent="GoopPhysics" instance=ExtResource("30_u02fl")]
+position = Vector2(806, 127)
+rotation = -0.631687
+scale = Vector2(0.135, 0.12)
+
+[node name="Green Goop8" parent="GoopPhysics" instance=ExtResource("30_u02fl")]
+position = Vector2(805, 183)
+rotation = -1.57263
+scale = Vector2(0.055293, 0.12)
+
+[node name="Green Goop9" parent="GoopPhysics" instance=ExtResource("30_u02fl")]
+position = Vector2(-30, 323)
+rotation = 0.369639
+scale = Vector2(0.065, 0.12)
+
+[node name="Green Goop10" parent="GoopPhysics" instance=ExtResource("30_u02fl")]
+position = Vector2(80, 342)
+rotation = -0.287783
+scale = Vector2(0.065, 0.12)
+
+[node name="Green Goop11" parent="GoopPhysics" instance=ExtResource("30_u02fl")]
+position = Vector2(-62, -16)
+rotation = -0.00194502
+scale = Vector2(0.105, 0.12)
+
+[node name="Shop" parent="." instance=ExtResource("31_3slce")]
+position = Vector2(556, 554)

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cxxrxh3s2irhe"
+path="res://.godot/imported/Jump_Squeak_ Echo_06.wav-13755f916529a76d86b6bd0ebdc32bdb.sample"
+
+[deps]
+
+source_file="res://Resources/Sounds/Jumps/Jump_Squeak_ Echo_06.wav"
+dest_files=["res://.godot/imported/Jump_Squeak_ Echo_06.wav-13755f916529a76d86b6bd0ebdc32bdb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://s5qlahc6hh7d"]
+
+[ext_resource type="Script" path="res://Scenes/Level/Pipes/pipe_curve.gd" id="1_ie8qg"]
+[ext_resource type="Texture2D" uid="uid://coe4cr3p6d8ir" path="res://Assets/Pipes/JPipes/TopL.png" id="2_l86pr"]
+
+[node name="PipeCurve" type="Node2D"]
+scale = Vector2(0.385, 0.385)
+script = ExtResource("1_ie8qg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.658824, 0.898039, 0.611765, 1)
+texture = ExtResource("2_l86pr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(72.7273, -67.5325, 36.3637, -64.9351, 9.08289e-06, -51.9481, -31.1688, -31.1688, -49.3507, -5.19481, -67.5325, 36.3636, -67.5325, 70.1299, 2.59739, 70.1299, 2.5974, 44.1559, 20.7792, 18.1818, 49.3507, 2.59741, 72.7273, 2.59742)

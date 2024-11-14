@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dgwvh2i3banlj"
+path="res://.godot/imported/Upcharge (Water_Drops).wav-5f273b3cba0e8c0a54ab5a52f926d24c.sample"
+
+[deps]
+
+source_file="res://Resources/Music/Upcharge (Water_Drops).wav"
+dest_files=["res://.godot/imported/Upcharge (Water_Drops).wav-5f273b3cba0e8c0a54ab5a52f926d24c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

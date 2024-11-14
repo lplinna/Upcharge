@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbjpwhixif2hw"
+path="res://.godot/imported/Upcharge (Piano_Chords).wav-94846abbf78c89f706a19347ae50f583.sample"
+
+[deps]
+
+source_file="res://Resources/Music/Upcharge (Piano_Chords).wav"
+dest_files=["res://.godot/imported/Upcharge (Piano_Chords).wav-94846abbf78c89f706a19347ae50f583.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
