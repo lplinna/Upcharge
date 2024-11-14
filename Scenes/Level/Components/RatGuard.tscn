@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cs5er1xoalqq1"]
 
 [ext_resource type="Script" path="res://Scripts/Level/rat_guard.gd" id="1_3pjci"]
-[ext_resource type="Texture2D" uid="uid://byxe3q1ydgwrv" path="res://Assets/placeholder.png" id="2_cr72t"]
+[ext_resource type="Texture2D" uid="uid://pepl4ofnqrui" path="res://Assets/Guard/Final_Racoon_Guard.png" id="2_ve4nl"]
 [ext_resource type="Texture2D" uid="uid://deajqlskwo84w" path="res://Assets/Guard/Speech Bubbles/Guard_Rat_Bubble_1.png" id="3_gvpfn"]
 [ext_resource type="Texture2D" uid="uid://boh0bte8hiv3m" path="res://Resources/CoinSpritesheet.png" id="4_ttrqf"]
 
@@ -24,11 +24,12 @@ region = Rect2(138.163, 82.5617, 223.217, 258.648)
 script = ExtResource("1_3pjci")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(10, 0)
 scale = Vector2(0.125, 0.125)
-texture = ExtResource("2_cr72t")
+texture = ExtResource("2_ve4nl")
 
 [node name="SpeechBubble" type="Sprite2D" parent="."]
-position = Vector2(-56, 97)
+position = Vector2(-57, 47)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_gvpfn")
 
