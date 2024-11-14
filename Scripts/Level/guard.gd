@@ -17,12 +17,12 @@ extends Node2D
 @onready var cheese = $SpeechBubble/Cheese
 @onready var particles = $CoinParticles
 
+@onready var ladder_texture: CompressedTexture2D = preload("res://Assets/Guard/Ladder_final.png")
+
 @export var exit_price: int = 0
 
 var payment_ready := false
 var can_interact := false
-
-signal toll_paid
 
 func _ready() -> void:
 	# Leaving a valid texture is useful for placement in-level, so we reset it
@@ -38,9 +38,28 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("interact"):
 		if payment_ready:
 			particles.visible = true
-			emit_signal("toll_paid")
 		else:
 			pass # TODO: play negative sound
+
+## defunct winzone code
+#@export var coins_to_win: int = 4
+#
+#var win_state: bool = false
+#
+#func _on_area_2d_body_entered(body):
+#	if body is Player and not win_state:
+#		if body.coins >= coins_to_win or body.held_item == 3:
+#			win_state = true
+#			$CenterContainer/YouWin.visible = true
+#			$CenterContainer/NotEnough.visible = false
+#			await get_tree().create_timer(2.0).timeout
+#			get_tree().change_scene_to_file("res://Scenes/Level/MainMenu.tscn")
+#		else:
+#			$CenterContainer/NotEnough.visible = true
+#			await get_tree().create_timer(2.0).timeout
+#			$CenterContainer/NotEnough.visible = false
+#			get_tree().change_scene_to_file("res://Scenes/Level/level_01.tscn")
+
 
 func _on_speech_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -59,6 +78,7 @@ func _on_speech_zone_body_entered(body: Node2D) -> void:
 			
 			if body.coins >= exit_price:
 				payment_ready = true
+	
 
 
 func _on_speech_zone_body_exited(body: Node2D) -> void:
