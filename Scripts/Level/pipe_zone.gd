@@ -66,6 +66,8 @@ func animate_crowbar():
 			crowbar.rotate(PI)
 
 func shoot_grate():
+	if $Sprite2D.visible:
+		SoundManager.PipeCap()
 	var new_grate_position = self.global_position + (facing_vector[direction] * 18)
 	new_grate_position += (Vector2.DOWN * 200)
 	var new_t = get_tree().create_tween()
@@ -99,12 +101,14 @@ func move_player_here(original_entrance: PipeZone):
 	closed = false
 	stored_player.frozen = true
 	stored_player.animator.state = stored_player.animator.animation_state.ENTERED
+	#SoundManager.PlayerPipeTravel()
 	await stored_player.animator.animation_finished
 	stored_player.visible = false
 	await get_tree().create_timer(time_adjust).timeout
 	stored_player.global_position = self.global_position
 	stored_player.animator.state = stored_player.animator.animation_state.ESCAPED
 	stored_player.visible = true
+	#SoundManager.PlayerPipeTravel()
 	shoot_grate()
 	await stored_player.animator.animation_finished
 	stored_player.frozen = false
