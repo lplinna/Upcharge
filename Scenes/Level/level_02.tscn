@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://iyexisxtoiga" path="res://Assets/Dew/Dew_2.png" id="29_22lcs"]
 [ext_resource type="PackedScene" uid="uid://qarfxgr4ovaq" path="res://Scenes/Level/Components/green_goop.tscn" id="30_u02fl"]
 [ext_resource type="PackedScene" uid="uid://b35x8dvw3k6h6" path="res://Scenes/Level/Shop/shop.tscn" id="31_3slce"]
-[ext_resource type="Texture2D" uid="uid://endxoruqg7o5" path="res://Assets/cave.png" id="32_qfrxd"]
+[ext_resource type="PackedScene" uid="uid://dm8pohh64w8t3" path="res://Scenes/Level/level_02_cave.tscn" id="32_qrj74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
 size = Vector2(2174.88, 67.9994)
@@ -54,7 +54,7 @@ script = ExtResource("1_hp66c")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_gtpp1")]
-position = Vector2(516, 233)
+position = Vector2(-370, 505)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -906,8 +906,4 @@ scale = Vector2(0.105, 0.12)
 [node name="Shop" parent="." instance=ExtResource("31_3slce")]
 position = Vector2(556, 554)
 
-[node name="Cave" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(-302, 465)
-scale = Vector2(1.18958, 1.18148)
-texture = ExtResource("32_qfrxd")
+[node name="Cave" parent="." instance=ExtResource("32_qrj74")]
