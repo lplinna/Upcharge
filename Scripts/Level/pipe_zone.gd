@@ -133,7 +133,7 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	if Input.is_action_just_pressed("return") and player_there:
-		if closed and "Crowbar" in stored_player.items :
+		if closed and "Crowbar" in stored_player.items and stored_player.coins >= 5:
 			closed = false
 			stored_player.use_item("Crowbar")
 			shoot_grate()
