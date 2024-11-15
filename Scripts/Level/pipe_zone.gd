@@ -44,14 +44,22 @@ var neighbors: Array[PipeZone]
 var stop_eating: bool = false
 var selectable: bool = true
 var stored_player: Player = null
-var player_there: bool = false
+
 var closed: bool = true:
 	set(new_closed):
 		closed = new_closed
 		if not new_closed:
-			#$Sprite2D.texture = open_sprite
 			pass
 
+var player_there: bool = false:
+	set(new_player_there):
+		player_there = new_player_there
+		$TheE.visible = player_there
+		if player_there:
+			show_arrow()
+		else:
+			$GrateArrow.visible = false
+			$GrateArrow/ArrowAnimator.stop()
 
 func animate_crowbar():
 	var crowbar = crowbar_sprite.instantiate()
@@ -64,6 +72,14 @@ func animate_crowbar():
 			crowbar.rotate(-PI/2)
 		FACING.RIGHT:
 			crowbar.rotate(PI)
+
+
+func show_arrow():
+	$GrateArrow.visible = true
+	$GrateArrow.look_at(global_position + (facing_vector[direction]*8))
+	$GrateArrow.rotate(PI/2)
+	$GrateArrow/ArrowAnimator.play("ArrowMotion")
+
 
 func shoot_grate():
 	if $Sprite2D.visible:
@@ -125,6 +141,9 @@ func _process(delta: float) -> void:
 		if not closed:
 			var next_neighbor = neighbors.pick_random()
 			next_neighbor.move_player_here(self)
+	if player_there:
+		$TheE.global_position = global_position.lerp(stored_player.global_position, 0.5)
+		
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
