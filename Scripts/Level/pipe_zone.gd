@@ -94,9 +94,10 @@ func shoot_grate():
 
 
 func show_e_prompt():
-	$TheE.visible = true
+	$PipePrompt.global_position = global_position
+	$PipePrompt.visible = true
 	await get_tree().create_timer(8.0).timeout
-	$TheE.visible = false
+	$PipePrompt.visible = false
 
 func not_enough_coins():
 	$PipePrompt/TheE.visible = false
