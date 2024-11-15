@@ -117,9 +117,9 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	if Input.is_action_just_pressed("return") and player_there:
-		if closed and stored_player.held_item == 1:
+		if closed and "Crowbar" in stored_player.items :
 			closed = false
-			stored_player.use_item(1)
+			stored_player.use_item("Crowbar")
 			shoot_grate()
 			animate_crowbar()
 		if not closed:
