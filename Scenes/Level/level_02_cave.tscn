@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm8pohh64w8t3"]
+
+[ext_resource type="Texture2D" uid="uid://endxoruqg7o5" path="res://Assets/cave.png" id="1_l52l4"]
+
+[node name="Cave" type="Sprite2D"]
+z_index = -2
+position = Vector2(-302, 465)
+scale = Vector2(1.18958, 1.18148)
+texture = ExtResource("1_l52l4")
+
+[node name="BottomGround" type="StaticBody2D" parent="."]
+position = Vector2(576, 615)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BottomGround"]
+position = Vector2(-576, -615)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-7.5657, -48.2446, 71.4538, 44.859, 240.421, 44.859, 239.58, -134.577, -240.421, -135.423, -240.421, 135.423, 239.58, 135.423, 239.58, 99.0283, -198.389, 99.0283, -198.389, -48.2446)
