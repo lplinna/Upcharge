@@ -54,7 +54,7 @@ var closed: bool = true:
 var player_there: bool = false:
 	set(new_player_there):
 		player_there = new_player_there
-		$TheE.visible = player_there
+		$PipePrompt.visible = player_there
 		if player_there:
 			show_arrow()
 		else:
@@ -98,6 +98,12 @@ func show_e_prompt():
 	await get_tree().create_timer(8.0).timeout
 	$TheE.visible = false
 
+func not_enough_coins():
+	$PipePrompt/TheE.visible = false
+	$PipePrompt/MoneyIndicator.visible = true
+	await get_tree().create_timer(8.0).timeout
+	$PipePrompt/TheE.visible = true
+	$PipePrompt/MoneyIndicator.visible = false
 
 func _ready():
 	direction = direction
@@ -133,16 +139,21 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	if Input.is_action_just_pressed("return") and player_there:
-		if closed and "Crowbar" in stored_player.items and stored_player.coins >= 5:
-			closed = false
-			stored_player.use_item("Crowbar")
-			shoot_grate()
-			animate_crowbar()
+		if closed and "Crowbar" in stored_player.items:
+			if stored_player.coins >= 5:
+				closed = false
+				stored_player.use_item("Crowbar")
+				shoot_grate()
+				animate_crowbar()
+			else:
+				not_enough_coins()
+				
 		if not closed:
 			var next_neighbor = neighbors.pick_random()
+			stored_player.global_position = $GrateArrow/ArrowPolygon.global_position
 			next_neighbor.move_player_here(self)
 	if player_there:
-		$TheE.global_position = global_position.lerp(stored_player.global_position, 0.5)
+		$PipePrompt.global_position = global_position.lerp(stored_player.global_position, 0.5)
 		
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

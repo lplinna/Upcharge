@@ -56,19 +56,7 @@ flip_v = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_h3npt")
-
-[node name="TheE" type="RichTextLabel" parent="."]
-visible = false
-modulate = Color(0.658824, 0.898039, 0.611765, 1)
-offset_left = -30.0
-offset_top = -186.0
-offset_right = 93.0
-offset_bottom = -54.0
-theme_override_font_sizes/normal_font_size = 121
-text = "E"
-scroll_active = false
 
 [node name="GrateArrow" type="Node2D" parent="."]
 visible = false
@@ -83,6 +71,33 @@ polygon = PackedVector2Array(0, -40, 20, -60, 10, -60, 10, -115, -10, -115, -10,
 libraries = {
 "": SubResource("AnimationLibrary_2ksf8")
 }
+
+[node name="PipePrompt" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TheE" type="RichTextLabel" parent="PipePrompt"]
+modulate = Color(0.658824, 0.898039, 0.611765, 1)
+offset_left = -30.0
+offset_top = -95.0
+offset_right = 93.0
+offset_bottom = 37.0
+theme_override_font_sizes/normal_font_size = 121
+text = "E"
+scroll_active = false
+
+[node name="MoneyIndicator" type="RichTextLabel" parent="PipePrompt"]
+visible = false
+modulate = Color(0.658824, 0.898039, 0.611765, 1)
+offset_left = -175.0
+offset_top = -45.0
+offset_right = 705.0
+offset_bottom = 121.0
+theme_override_font_sizes/normal_font_size = 56
+text = "NEED 5 COINS"
+scroll_active = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
