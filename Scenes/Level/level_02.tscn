@@ -757,7 +757,6 @@ texture = ExtResource("18_t8rkg")
 position = Vector2(800, 143)
 
 [node name="SmallerBricksV3Bg" type="Sprite2D" parent="Background"]
-visible = false
 z_index = -5
 position = Vector2(481.5, -396)
 scale = Vector2(0.865352, 1)
@@ -908,3 +907,5 @@ platform_length = 100.0
 
 [node name="Coin" parent="." instance=ExtResource("33_8ylrw")]
 position = Vector2(-474, 515)
+
+[connection signal="toll_paid" from="Guard" to="Background/Exit" method="_on_guard_toll_paid"]
