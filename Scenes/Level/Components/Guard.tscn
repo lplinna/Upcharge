@@ -9,6 +9,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_ca3yu"]
 font_names = PackedStringArray("Marlett")
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_m6d1h"]
 font = SubResource("SystemFont_ca3yu")
