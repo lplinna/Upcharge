@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bf5na3qssy1ux"]
 
-[ext_resource type="Texture2D" uid="uid://boh0bte8hiv3m" path="res://Resources/CoinSpritesheet.png" id="1_ow6t2"]
+[ext_resource type="Texture2D" uid="uid://boh0bte8hiv3m" path="res://Assets/CoinSpritesheet.png" id="1_ow6t2"]
 [ext_resource type="Script" path="res://Scripts/Player/coin_count.gd" id="2_py0kc"]
 
 [node name="CoinCount" type="Sprite2D"]
