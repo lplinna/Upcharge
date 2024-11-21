@@ -3,22 +3,21 @@
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_hp66c"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_gtpp1"]
 [ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/Components/WorldBlock.tscn" id="4_auj55"]
-[ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/Components/WinZone.tscn" id="5_1arn6"]
+[ext_resource type="PackedScene" uid="uid://cs5er1xoalqq1" path="res://Scenes/Level/Components/Guard.tscn" id="5_1arn6"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="7_x113n"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="8_tr804"]
 [ext_resource type="PackedScene" uid="uid://damjb7jnd4o8q" path="res://Scenes/Level/Components/PipeZone.tscn" id="9_nvxet"]
 [ext_resource type="PackedScene" uid="uid://dc41oqitmeu0a" path="res://Scenes/Music/lower_music.tscn" id="10_pq26x"]
 [ext_resource type="PackedScene" uid="uid://csl1p6s085bo0" path="res://Scenes/Music/middle_music.tscn" id="11_x6avx"]
 [ext_resource type="PackedScene" uid="uid://ce6qrxtx7cmup" path="res://Scenes/Music/upper_music.tscn" id="12_2tk55"]
-[ext_resource type="Texture2D" uid="uid://dykpcp0kpy3y3" path="res://Assets/Background/bricks.png" id="13_6qedb"]
 [ext_resource type="Texture2D" uid="uid://dflvnnrx2qfws" path="res://Assets/Background/Cheese Graffiti.png" id="14_u3jhy"]
 [ext_resource type="Texture2D" uid="uid://xwvvklb2jbl" path="res://Assets/Background/Sewer Grate.png" id="15_n7583"]
 [ext_resource type="Texture2D" uid="uid://c2xtoyarkk4n3" path="res://Assets/Background/Web Grafitti.png" id="16_6mu8r"]
+[ext_resource type="PackedScene" uid="uid://ujs2ssp6oorj" path="res://Scenes/Level/Components/Exit.tscn" id="16_k05h3"]
 [ext_resource type="Texture2D" uid="uid://xd40juv033h4" path="res://Assets/Background/Spider Crab Graffiti.png" id="17_2k2jp"]
-[ext_resource type="Texture2D" uid="uid://bx3p2gb6q0ivw" path="res://Assets/SmallerBricks_V3_BG.png" id="18_kgf0i"]
+[ext_resource type="Texture2D" uid="uid://bx3p2gb6q0ivw" path="res://Assets/Background/SmallerBricks_V3_BG.png" id="18_kgf0i"]
 [ext_resource type="Texture2D" uid="uid://00fjyimb0dc7" path="res://Assets/Background/Peace Graffiti.png" id="18_t8rkg"]
-[ext_resource type="Texture2D" uid="uid://dto1j6yygvnnd" path="res://Assets/Background/TopGrate.png" id="19_18xog"]
-[ext_resource type="Texture2D" uid="uid://ch64etuk5m6ra" path="res://Scenes/Level/Dew_9.png" id="19_whjro"]
+[ext_resource type="Texture2D" uid="uid://ch64etuk5m6ra" path="res://Assets/Background/Dew_9.png" id="19_whjro"]
 [ext_resource type="Texture2D" uid="uid://dvqgrreklq8y2" path="res://Assets/Dew/Dew_1.png" id="20_gxi0v"]
 [ext_resource type="Texture2D" uid="uid://c4lq4s7dal7be" path="res://Assets/Dew/Dew_10.png" id="21_qdpy7"]
 [ext_resource type="Texture2D" uid="uid://cublx7kd8yqwu" path="res://Assets/Dew/Dew_9.png" id="22_u0myp"]
@@ -31,7 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://iyexisxtoiga" path="res://Assets/Dew/Dew_2.png" id="29_22lcs"]
 [ext_resource type="PackedScene" uid="uid://qarfxgr4ovaq" path="res://Scenes/Level/Components/green_goop.tscn" id="30_u02fl"]
 [ext_resource type="PackedScene" uid="uid://b35x8dvw3k6h6" path="res://Scenes/Level/Shop/shop.tscn" id="31_3slce"]
-[ext_resource type="PackedScene" uid="uid://dm8pohh64w8t3" path="res://Scenes/Level/level_02_cave.tscn" id="32_qrj74"]
+[ext_resource type="PackedScene" path="res://Scenes/Level/level_02_cave.tscn" id="32_qrj74"]
+[ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Level/Components/Coin.tscn" id="33_8ylrw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
 size = Vector2(2174.88, 67.9994)
@@ -257,8 +257,8 @@ polygon = PackedVector2Array(-56, -232, -56, 168, 56, 168, 56, -232)
 position = Vector2(7.89852e-06, 2.94777e-05)
 polygon = PackedVector2Array(-56, -232, -56, 168, 56, 168, 56, -232)
 
-[node name="WinZone" parent="." instance=ExtResource("5_1arn6")]
-position = Vector2(-96, -1480)
+[node name="Guard" parent="." instance=ExtResource("5_1arn6")]
+position = Vector2(602, 376)
 
 [node name="Pipes" type="Node2D" parent="."]
 
@@ -457,7 +457,7 @@ End1Type = 2
 platform_length = 100.0
 
 [node name="RightUpWarp" type="Node2D" parent="Pipes"]
-position = Vector2(752, 192)
+position = Vector2(526, 173)
 
 [node name="PipeTemplate" parent="Pipes/RightUpWarp" instance=ExtResource("7_x113n")]
 position = Vector2(-9, 0)
@@ -712,16 +712,6 @@ position = Vector2(-78, -778)
 [node name="Background" type="Node2D" parent="."]
 z_index = -16
 
-[node name="TextureRect" type="TextureRect" parent="Background"]
-visible = false
-offset_left = -108.0
-offset_top = -1474.0
-offset_right = 8539.0
-offset_bottom = 11471.0
-scale = Vector2(0.135776, 0.163579)
-texture = ExtResource("13_6qedb")
-stretch_mode = 1
-
 [node name="Cheese" type="Sprite2D" parent="Background"]
 position = Vector2(555, -263)
 scale = Vector2(0.12392, 0.12392)
@@ -763,13 +753,11 @@ position = Vector2(890, -45)
 scale = Vector2(0.0743307, 0.0743307)
 texture = ExtResource("18_t8rkg")
 
-[node name="LevelEndGrate" type="Sprite2D" parent="Background"]
-z_index = 18
-position = Vector2(540, -1420)
-scale = Vector2(0.380779, 0.380779)
-texture = ExtResource("19_18xog")
+[node name="Exit" parent="Background" instance=ExtResource("16_k05h3")]
+position = Vector2(800, 143)
 
 [node name="SmallerBricksV3Bg" type="Sprite2D" parent="Background"]
+visible = false
 z_index = -5
 position = Vector2(481.5, -396)
 scale = Vector2(0.865352, 1)
@@ -904,6 +892,19 @@ rotation = -0.00194502
 scale = Vector2(0.105, 0.12)
 
 [node name="Shop" parent="." instance=ExtResource("31_3slce")]
-position = Vector2(556, 554)
+position = Vector2(160, 554)
 
 [node name="Cave" parent="." instance=ExtResource("32_qrj74")]
+
+[node name="PipeCurve" parent="." instance=ExtResource("8_tr804")]
+position = Vector2(678, 424)
+orientation = 3
+
+[node name="PipeTemplate" parent="." instance=ExtResource("7_x113n")]
+position = Vector2(691, 378)
+is_vert = true
+End1Type = 1
+platform_length = 100.0
+
+[node name="Coin" parent="." instance=ExtResource("33_8ylrw")]
+position = Vector2(-474, 515)
