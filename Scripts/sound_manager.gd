@@ -34,7 +34,6 @@ func PlayerJump(power):
 	audio_stream_player.volume_db = -20
 	audio_stream_player.stream = JumpSound
 	#print("BOING")
-	
 	add_child(audio_stream_player)
 	audio_stream_player.play()
 
