@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bin8wy2cq6th5"]
+[gd_scene load_steps=34 format=3 uid="uid://bin8wy2cq6th5"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_hp66c"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_gtpp1"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://xtb7k53kbaan" path="res://Assets/Dew/Dew_4.png" id="27_m7q75"]
 [ext_resource type="Texture2D" uid="uid://qnyh75tlxylf" path="res://Assets/Dew/Dew_3.png" id="28_0hj8j"]
 [ext_resource type="Texture2D" uid="uid://iyexisxtoiga" path="res://Assets/Dew/Dew_2.png" id="29_22lcs"]
+[ext_resource type="PackedScene" uid="uid://cq0pkof6tgdt4" path="res://Scenes/Level/Components/ValveObstacle.tscn" id="30_bgx37"]
 [ext_resource type="PackedScene" uid="uid://qarfxgr4ovaq" path="res://Scenes/Level/Components/green_goop.tscn" id="30_u02fl"]
 [ext_resource type="PackedScene" uid="uid://b35x8dvw3k6h6" path="res://Scenes/Level/Shop/shop.tscn" id="31_3slce"]
 
@@ -48,7 +49,7 @@ script = ExtResource("1_hp66c")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_gtpp1")]
-position = Vector2(540, -592)
+position = Vector2(844, -679)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -239,6 +240,19 @@ color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-88, 0, -88, 16, 16, 16, 16, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/LadderGroup/LadderPlatform2"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+polygon = PackedVector2Array(-88, 0, -88, 16, 16, 16, 16, 0)
+
+[node name="LadderPlatform3" type="StaticBody2D" parent="Boundaries/LadderGroup"]
+position = Vector2(880.4, -632.4)
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Boundaries/LadderGroup/LadderPlatform3"]
+position = Vector2(7.89852e-06, 2.94777e-05)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-88, 0, -88, 16, 16, 16, 16, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/LadderGroup/LadderPlatform3"]
 position = Vector2(7.89852e-06, 2.94777e-05)
 polygon = PackedVector2Array(-88, 0, -88, 16, 16, 16, 16, 0)
 
@@ -804,12 +818,6 @@ orientation = 3
 [node name="PipeCurve2" parent="Pipes/Twist1" instance=ExtResource("8_tr804")]
 position = Vector2(-32, -12)
 
-[node name="PipeTemplate" parent="Pipes" instance=ExtResource("7_x113n")]
-position = Vector2(795, -589)
-End1Type = 2
-End2Type = 2
-platform_length = 300.0
-
 [node name="PipeTemplate3" parent="Pipes" instance=ExtResource("7_x113n")]
 position = Vector2(806, -1152)
 End1Type = 2
@@ -881,6 +889,12 @@ orientation = 2
 position = Vector2(22, -13)
 rotation = 12.5664
 orientation = 3
+
+[node name="PipeTemplate5" parent="Pipes" instance=ExtResource("7_x113n")]
+position = Vector2(412, -1588)
+End1Type = 2
+End2Type = 2
+platform_length = 300.0
 
 [node name="LowerMusic" parent="." instance=ExtResource("10_pq26x")]
 position = Vector2(-72, 593)
@@ -1088,12 +1102,6 @@ polygon = PackedVector2Array(-88, 0, -88, 16, 16, 16, 16, 0)
 position = Vector2(7.89852e-06, 2.94777e-05)
 polygon = PackedVector2Array(-88, 0, -88, 16, 16, 16, 16, 0)
 
-[node name="PipeTemplate" parent="." instance=ExtResource("7_x113n")]
-position = Vector2(412, -1588)
-End1Type = 2
-End2Type = 2
-platform_length = 300.0
-
 [node name="LadderPlatform4" type="StaticBody2D" parent="."]
 position = Vector2(64, -852)
 scale = Vector2(1, 3)
@@ -1120,3 +1128,9 @@ polygon = PackedVector2Array(-88, 0, -88, 16, 16, 16, 16, 0)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LadderPlatform5"]
 position = Vector2(7.89852e-06, 2.94777e-05)
 polygon = PackedVector2Array(-88, 0, -88, 16, 16, 16, 16, 0)
+
+[node name="ValveObstacle" parent="." instance=ExtResource("30_bgx37")]
+position = Vector2(848, -620)
+
+[node name="ValveObstacle2" parent="." instance=ExtResource("30_bgx37")]
+position = Vector2(713, -620)
