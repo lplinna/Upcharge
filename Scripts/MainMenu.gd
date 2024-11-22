@@ -9,7 +9,7 @@ var sounds = preload("res://Scripts/sound.gd")
 
 func _on_start_pressed():
 	SoundManager.PlayerJump(2)
-	await get_tree().create_timer(1).timeout
+	await SoundManager.done
 	get_tree().change_scene_to_file("res://Scenes/Level/StartingCutscene.tscn")
 
 
@@ -35,7 +35,7 @@ func _on_credits_return_pressed():
 	
 func _on_exit_pressed():
 	SoundManager.PlayerLand("long")
-	await get_tree().create_timer(1).timeout
+	await SoundManager.done
 	get_tree().quit()
 
 func _on_mouse_entered():

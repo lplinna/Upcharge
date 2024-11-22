@@ -12,6 +12,7 @@ var JumpSound
 var WalkSound
 var SplatSound
 var PipeTravel
+signal done
 
 func CoinCollect():
 	var audio_stream_player = AudioStreamPlayer.new()
@@ -24,6 +25,8 @@ func CoinCollect():
 	
 	add_child(audio_stream_player)
 	audio_stream_player.play()
+	await audio_stream_player.finished
+	emit_signal("done")
 
 func PlayerJump(power):
 	var audio_stream_player = AudioStreamPlayer.new()
@@ -36,6 +39,8 @@ func PlayerJump(power):
 	#print("BOING")
 	add_child(audio_stream_player)
 	audio_stream_player.play()
+	await audio_stream_player.finished
+	emit_signal("done")
 
 func PlayerWalk():
 	var audio_stream_player = AudioStreamPlayer.new()
@@ -45,9 +50,10 @@ func PlayerWalk():
 	audio_stream_player.volume_db = -10
 	audio_stream_player.stream = WalkSound
 	#print("STEP")
-	
 	add_child(audio_stream_player)
 	audio_stream_player.play()
+	await audio_stream_player.finished
+	emit_signal("done")
 
 func PlayerWalkPuddle():
 	var audio_stream_player = AudioStreamPlayer.new()
@@ -57,9 +63,10 @@ func PlayerWalkPuddle():
 	audio_stream_player.volume_db = -10
 	audio_stream_player.stream = WalkSound
 	#print("STEP")
-	
 	add_child(audio_stream_player)
 	audio_stream_player.play()
+	await audio_stream_player.finished
+	emit_signal("done")
 
 func PlayerLand(fall_length):
 	var audio_stream_player = AudioStreamPlayer.new()
@@ -72,9 +79,10 @@ func PlayerLand(fall_length):
 	audio_stream_player.set_script(SoundScript)
 	audio_stream_player.volume_db = -10
 	audio_stream_player.stream = SplatSound
-	
 	add_child(audio_stream_player)
 	audio_stream_player.play()
+	await audio_stream_player.finished
+	emit_signal("done")
 
 func PlayerPipeTravel():
 	var audio_PipeTravel = AudioStreamPlayer.new()
@@ -84,6 +92,8 @@ func PlayerPipeTravel():
 	audio_PipeTravel.stream = PipeTravel
 	add_child(audio_PipeTravel)
 	audio_PipeTravel.play()
+	await audio_PipeTravel.finished
+	emit_signal("done")
 
 func PipeCap():
 	var audio_PipeCap = AudioStreamPlayer.new()
@@ -94,3 +104,5 @@ func PipeCap():
 	audio_PipeCap.volume_db = 5
 	add_child(audio_PipeCap)
 	audio_PipeCap.play()
+	await audio_PipeCap.finished
+	emit_signal("done")
