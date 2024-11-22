@@ -48,7 +48,7 @@ script = ExtResource("1_hp66c")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_gtpp1")]
-position = Vector2(194, -1307)
+position = Vector2(540, -592)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -291,7 +291,7 @@ platform_length = 300.0
 position = Vector2(2640, -26)
 
 [node name="PipeTemplate" parent="Pipes/HorizontalBasic2" instance=ExtResource("7_x113n")]
-position = Vector2(-2408, -1479)
+position = Vector2(-2502, -1477)
 End1Type = 2
 End2Type = 2
 platform_length = 300.0
@@ -396,9 +396,9 @@ End1Type = 2
 platform_length = 300.0
 
 [node name="PipeCurve5" parent="Pipes/RightDownLeftWarp" instance=ExtResource("8_tr804")]
-position = Vector2(42.9999, -187)
-rotation = 3.14159
-orientation = 1
+position = Vector2(43, -187)
+rotation = 6.28318
+orientation = 2
 
 [node name="DownLeftDownRightWarp" type="Node2D" parent="Pipes"]
 position = Vector2(638, -922)
@@ -668,8 +668,7 @@ position = Vector2(253, -627)
 
 [node name="PipeTemplate" parent="Pipes/RightRight2" instance=ExtResource("7_x113n")]
 position = Vector2(208, 94)
-rotation = 3.14159
-End1Type = 2
+End2Type = 2
 platform_length = 650.0
 
 [node name="PipeCurve" parent="Pipes/RightRight2" instance=ExtResource("8_tr804")]
@@ -749,14 +748,21 @@ position = Vector2(-16, -57)
 platform_length = 100.0
 
 [node name="PipeTemplate2" parent="Pipes/BackwardsJ" instance=ExtResource("7_x113n")]
-position = Vector2(16, -70)
+position = Vector2(16, -52)
 is_vert = true
-End1Type = 1
-platform_length = 300.0
+platform_length = 200.0
 
 [node name="PipeCurve" parent="Pipes/BackwardsJ" instance=ExtResource("8_tr804")]
 position = Vector2(29, 14)
 orientation = 2
+
+[node name="PipeCurve2" parent="Pipes/BackwardsJ" instance=ExtResource("8_tr804")]
+position = Vector2(29, -115)
+
+[node name="PipeTemplate4" parent="Pipes/BackwardsJ" instance=ExtResource("7_x113n")]
+position = Vector2(61, -129)
+End2Type = 2
+platform_length = 15.0
 
 [node name="PipeTemplate3" parent="Pipes/BackwardsJ" instance=ExtResource("7_x113n")]
 position = Vector2(66, 27)
