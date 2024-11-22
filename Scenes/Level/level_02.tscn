@@ -49,7 +49,7 @@ script = ExtResource("1_hp66c")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_gtpp1")]
-position = Vector2(844, -679)
+position = Vector2(986, -1131)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -856,7 +856,7 @@ End2Type = 2
 platform_length = 300.0
 
 [node name="PipeTemplate4" parent="Pipes" instance=ExtResource("7_x113n")]
-position = Vector2(1172, -1224)
+position = Vector2(1184, -1137)
 End1Type = 2
 End2Type = 2
 platform_length = 300.0
@@ -1134,3 +1134,9 @@ position = Vector2(848, -620)
 
 [node name="ValveObstacle2" parent="." instance=ExtResource("30_bgx37")]
 position = Vector2(713, -620)
+
+[node name="ValveObstacle3" parent="." instance=ExtResource("30_bgx37")]
+position = Vector2(1144, -960)
+
+[node name="ValveObstacle4" parent="." instance=ExtResource("30_bgx37")]
+position = Vector2(983, -1067)
