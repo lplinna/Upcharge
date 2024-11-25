@@ -1,10 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://b61d7nabuwyvh"]
+[gd_scene load_steps=7 format=3 uid="uid://damjb7jnd4o8q"]
 
 [ext_resource type="Script" path="res://Scripts/Level/pipe_zone.gd" id="1_vj8rw"]
 [ext_resource type="Texture2D" uid="uid://dr7q6qvw526va" path="res://Assets/Pipes/PipeGrateBottom.png" id="2_xtocm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3npt"]
-size = Vector2(245, 202)
+size = Vector2(571.25, 415.5)
+
+[sub_resource type="Animation" id="Animation_xaqpg"]
+resource_name = "ArrowMotion"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArrowPolygon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5),
+"transitions": PackedFloat32Array(3.13834, 2.21914, 0.267943),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-0.000133276, -60), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gaqo4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArrowPolygon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ksf8"]
+_data = {
+"ArrowMotion": SubResource("Animation_xaqpg"),
+"RESET": SubResource("Animation_gaqo4")
+}
 
 [node name="PipeZone" type="Node2D"]
 scale = Vector2(0.2, 0.2)
@@ -20,15 +58,45 @@ flip_v = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_h3npt")
 
-[node name="TheE" type="RichTextLabel" parent="."]
+[node name="GrateArrow" type="Node2D" parent="."]
 visible = false
+rotation = -1.57079
+
+[node name="ArrowPolygon" type="Polygon2D" parent="GrateArrow"]
+scale = Vector2(2.385, 2.385)
+color = Color(0.160784, 1, 0.0666667, 1)
+polygon = PackedVector2Array(0, -40, 20, -60, 10, -60, 10, -115, -10, -115, -10, -60, -20, -60)
+
+[node name="ArrowAnimator" type="AnimationPlayer" parent="GrateArrow"]
+libraries = {
+"": SubResource("AnimationLibrary_2ksf8")
+}
+
+[node name="PipePrompt" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TheE" type="RichTextLabel" parent="PipePrompt"]
 modulate = Color(0.658824, 0.898039, 0.611765, 1)
 offset_left = -30.0
-offset_top = -186.0
+offset_top = -95.0
 offset_right = 93.0
-offset_bottom = -54.0
+offset_bottom = 37.0
 theme_override_font_sizes/normal_font_size = 121
 text = "E"
+scroll_active = false
+
+[node name="MoneyIndicator" type="RichTextLabel" parent="PipePrompt"]
+visible = false
+modulate = Color(0.658824, 0.898039, 0.611765, 1)
+offset_left = -175.0
+offset_top = -45.0
+offset_right = 705.0
+offset_bottom = 121.0
+theme_override_font_sizes/normal_font_size = 56
+text = "NEED 5 COINS"
 scroll_active = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

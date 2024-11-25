@@ -5,6 +5,7 @@ class_name PipeZone
 @onready var closed_sprite = preload("res://Assets/Pipes/JPipes/greendot.png")
 @onready var horizontal_sprite = preload("res://Assets/Pipes/PipeGrate.png")
 @onready var vertical_sprite = preload("res://Assets/Pipes/PipeGrateBottom.png")
+@onready var crowbar_sprite = preload("res://Scenes/Player/CrowbarAnim.tscn")
 
 enum FACING {
 	UP,
@@ -43,16 +44,46 @@ var neighbors: Array[PipeZone]
 var stop_eating: bool = false
 var selectable: bool = true
 var stored_player: Player = null
-var player_there: bool = false
+
 var closed: bool = true:
 	set(new_closed):
 		closed = new_closed
 		if not new_closed:
-			#$Sprite2D.texture = open_sprite
 			pass
+
+var player_there: bool = false:
+	set(new_player_there):
+		player_there = new_player_there
+		$PipePrompt.visible = player_there
+		if player_there:
+			show_arrow()
+		else:
+			$GrateArrow.visible = false
+			$GrateArrow/ArrowAnimator.stop()
+
+func animate_crowbar():
+	var crowbar = crowbar_sprite.instantiate()
+	add_sibling(crowbar)
+	crowbar.position = position
+	match direction:
+		FACING.UP:
+			crowbar.rotate(PI/2)
+		FACING.DOWN:
+			crowbar.rotate(-PI/2)
+		FACING.RIGHT:
+			crowbar.rotate(PI)
+
+
+func show_arrow():
+	$GrateArrow.visible = true
+	$GrateArrow.look_at(global_position + (facing_vector[direction]*8))
+	$GrateArrow.rotate(PI/2)
+	$GrateArrow/ArrowAnimator.play("ArrowMotion")
 
 
 func shoot_grate():
+	if $Sprite2D.visible:
+		SoundManager.PipeCap()
 	var new_grate_position = self.global_position + (facing_vector[direction] * 18)
 	new_grate_position += (Vector2.DOWN * 200)
 	var new_t = get_tree().create_tween()
@@ -63,10 +94,17 @@ func shoot_grate():
 
 
 func show_e_prompt():
-	$TheE.visible = true
+	$PipePrompt.global_position = global_position
+	$PipePrompt.visible = true
 	await get_tree().create_timer(8.0).timeout
-	$TheE.visible = false
+	$PipePrompt.visible = false
 
+func not_enough_coins():
+	$PipePrompt/TheE.visible = false
+	$PipePrompt/MoneyIndicator.visible = true
+	await get_tree().create_timer(8.0).timeout
+	$PipePrompt/TheE.visible = true
+	$PipePrompt/MoneyIndicator.visible = false
 
 func _ready():
 	direction = direction
@@ -86,12 +124,14 @@ func move_player_here(original_entrance: PipeZone):
 	closed = false
 	stored_player.frozen = true
 	stored_player.animator.state = stored_player.animator.animation_state.ENTERED
+	#SoundManager.PlayerPipeTravel()
 	await stored_player.animator.animation_finished
 	stored_player.visible = false
 	await get_tree().create_timer(time_adjust).timeout
 	stored_player.global_position = self.global_position
 	stored_player.animator.state = stored_player.animator.animation_state.ESCAPED
 	stored_player.visible = true
+	#SoundManager.PlayerPipeTravel()
 	shoot_grate()
 	await stored_player.animator.animation_finished
 	stored_player.frozen = false
@@ -100,13 +140,22 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	if Input.is_action_just_pressed("return") and player_there:
-		if closed and stored_player.held_item == 1:
-			closed = false
-			stored_player.use_item(1)
-			shoot_grate()
+		if closed and "Crowbar" in stored_player.items:
+			if stored_player.coins >= 5:
+				closed = false
+				stored_player.use_item("Crowbar")
+				shoot_grate()
+				animate_crowbar()
+			else:
+				not_enough_coins()
+				
 		if not closed:
 			var next_neighbor = neighbors.pick_random()
+			stored_player.global_position = $GrateArrow/ArrowPolygon.global_position
 			next_neighbor.move_player_here(self)
+	if player_there:
+		$PipePrompt.global_position = global_position.lerp(stored_player.global_position, 0.5)
+		
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:

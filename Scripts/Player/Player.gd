@@ -45,7 +45,9 @@ var fall_sound = false
 var eye_points_queue = []
 var EyeLiner: Line2D 
 var wet_floor: bool = false
-var held_item: int = 0
+
+## The player's items. A simple string array, could hold multiples of the same 'item' in the future.
+var items: Array = ["Crowbar"]
 
 var frozen: bool = false:
 	set(new_frozen):
@@ -203,38 +205,32 @@ func calc_fall_price():
 func handle_button(actionID):
 	if actionID == 1:
 		if coins >= shop_pop_up.crowbar_price:
-			held_item = 1
+			items.append("Crowbar")
 			coins -= shop_pop_up.crowbar_price
 			shop_pop_up.crowbar_price += 1
 			shop_pop_up.price.text = "%s" % shop_pop_up.crowbar_price
 			shop_pop_up.item_purchased.emit(1)
 	if actionID == 2:
 		if coins >= shop_pop_up.wrench_price:
-			held_item = 2
+			items.append("Wrench")
 			coins -= shop_pop_up.wrench_price
 			shop_pop_up.wrench_price += 1
 			shop_pop_up.price.text = "%s" % shop_pop_up.wrench_price
 			shop_pop_up.item_purchased.emit(2)
 	if actionID == 3:
 		if coins >= shop_pop_up.cheese_price:
-			held_item = 3
+			items.append("Cheese")
 			coins -= shop_pop_up.cheese_price
 			shop_pop_up.item_purchased.emit(3)
-
 
 func _on_timer_timeout():
 	step_sound = true
 
-func use_item(id):
-	if id == 1:
-		print("Used crowbar.")
+func use_item(name):
+	if name == "Crowbar": # Pay money when crowbar is used
+		coins -= 5 
+	if name in items:
+		print("Used ", name)
 		
-	if id == 2:
-		print("Used wrench.")
-		
-	if id == 3:
-		print("Used cheese.")
-	held_item = 0
-	
 func shop_display(id):
 	shop_pop_up.display(id)

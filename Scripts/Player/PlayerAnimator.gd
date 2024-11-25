@@ -93,6 +93,7 @@ func state_response():
 			self.play("Crouching")
 		animation_state.ESCAPED:
 			self.play("PipeEscape")
+			SoundManager.PlayerPipeTravel()
 			await self.animation_finished
 			state = animation_state.AIRBORN
 			print("transition to airborn")
@@ -100,6 +101,7 @@ func state_response():
 		animation_state.ENTERED:
 			self.play("PipeEntry")
 			await self.animation_finished
+			SoundManager.PlayerPipeTravel()
 			state = animation_state.AIRBORN
 			print("transition to airborn")
 			state_response()
