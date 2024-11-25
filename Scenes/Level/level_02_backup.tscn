@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://caw7avdd6uvsx"]
+[gd_scene load_steps=39 format=3 uid="uid://caw7avdd6uvsx"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_vcte5"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_v0n8d"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/Components/WinZone.tscn" id="4_gbx4l"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="5_sxyi6"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="6_00jr6"]
-[ext_resource type="PackedScene" uid="uid://b61d7nabuwyvh" path="res://Scenes/Level/Components/PipeZone.tscn" id="7_sp3m5"]
+[ext_resource type="PackedScene" uid="uid://damjb7jnd4o8q" path="res://Scenes/Level/Components/PipeZone.tscn" id="7_sp3m5"]
 [ext_resource type="PackedScene" uid="uid://dc41oqitmeu0a" path="res://Scenes/Music/lower_music.tscn" id="8_8fkuu"]
 [ext_resource type="PackedScene" uid="uid://csl1p6s085bo0" path="res://Scenes/Music/middle_music.tscn" id="9_68og4"]
 [ext_resource type="PackedScene" uid="uid://ce6qrxtx7cmup" path="res://Scenes/Music/upper_music.tscn" id="10_dfkeu"]
@@ -20,8 +20,12 @@
 [ext_resource type="Texture2D" uid="uid://dto1j6yygvnnd" path="res://Assets/Background/TopGrate.png" id="17_atjsd"]
 [ext_resource type="Texture2D" uid="uid://dvqgrreklq8y2" path="res://Assets/Dew/Dew_1.png" id="18_krqn1"]
 [ext_resource type="Texture2D" uid="uid://c4lq4s7dal7be" path="res://Assets/Dew/Dew_10.png" id="19_1jpfb"]
+[ext_resource type="Texture2D" uid="uid://0aoo5cw18ncy" path="res://Assets/Background/Tutorial/Concept_Blue_W.png" id="19_08dqt"]
+[ext_resource type="Texture2D" uid="uid://b2lsm2o51agwu" path="res://Assets/Background/Tutorial/Blue_UpRight_Arrow.png" id="20_hen54"]
 [ext_resource type="Texture2D" uid="uid://cublx7kd8yqwu" path="res://Assets/Dew/Dew_9.png" id="20_m5aoe"]
+[ext_resource type="Texture2D" uid="uid://dyq3jnxd50xtm" path="res://Assets/Background/Tutorial/Concept_Purple_E.png" id="21_7wty3"]
 [ext_resource type="Texture2D" uid="uid://dxx1s21jlvxiy" path="res://Assets/Dew/Dew_8.png" id="21_nirpt"]
+[ext_resource type="Texture2D" uid="uid://c2kioaehiwkfd" path="res://Assets/Background/Tutorial/Purple_Right_Arrow.png" id="22_kda0m"]
 [ext_resource type="Texture2D" uid="uid://bsy3vmqgdai65" path="res://Assets/Dew/Dew_7.png" id="22_yjc14"]
 [ext_resource type="Texture2D" uid="uid://lt1iaoeuenyf" path="res://Assets/Dew/Dew_6.png" id="23_v6lbu"]
 [ext_resource type="Texture2D" uid="uid://degxihslcim02" path="res://Assets/Dew/Dew_5.png" id="24_fknh6"]
@@ -50,7 +54,7 @@ script = ExtResource("1_vcte5")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_v0n8d")]
-position = Vector2(1071, -1595)
+position = Vector2(666, 393)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -876,16 +880,16 @@ platform_length = 50.0
 position = Vector2(595, 410)
 
 [node name="PipeTemplate" parent="Pipes/TurnedT" instance=ExtResource("5_sxyi6")]
-position = Vector2(159, 60)
+position = Vector2(198, 60)
 is_vert = true
 End1Type = 1
 End2Type = 1
 platform_length = 200.0
 
 [node name="PipeTemplate2" parent="Pipes/TurnedT" instance=ExtResource("5_sxyi6")]
-position = Vector2(98, 60)
+position = Vector2(107, 60)
 End1Type = 2
-platform_length = 250.0
+platform_length = 400.0
 
 [node name="Twist1" type="Node2D" parent="Pipes"]
 position = Vector2(518, 584)
@@ -1093,6 +1097,26 @@ scale = Vector2(0.380779, 0.380779)
 texture = ExtResource("17_atjsd")
 
 [node name="Graffiti" type="Node2D" parent="Background"]
+
+[node name="ConceptBlueW" type="Sprite2D" parent="Background/Graffiti"]
+position = Vector2(238, 655)
+scale = Vector2(0.0799988, 0.0799988)
+texture = ExtResource("19_08dqt")
+
+[node name="BlueUpRightArrow" type="Sprite2D" parent="Background/Graffiti"]
+position = Vector2(276, 535)
+scale = Vector2(0.130542, 0.0976801)
+texture = ExtResource("20_hen54")
+
+[node name="ConceptPurpleE" type="Sprite2D" parent="Background/Graffiti"]
+position = Vector2(804, 620)
+scale = Vector2(0.0816059, 0.100705)
+texture = ExtResource("21_7wty3")
+
+[node name="PurpleRightArrow" type="Sprite2D" parent="Background/Graffiti"]
+position = Vector2(889, 657)
+scale = Vector2(0.0418999, 0.0895629)
+texture = ExtResource("22_kda0m")
 
 [node name="Goop" type="Node2D" parent="."]
 visible = false

@@ -228,7 +228,8 @@ func _on_timer_timeout():
 
 func use_item(name):
 	if name == "Crowbar": # Pay money when crowbar is used
-		coins -= 5 
+		coins -= 5
+		print(coins)
 	if name in items:
 		print("Used ", name)
 		
