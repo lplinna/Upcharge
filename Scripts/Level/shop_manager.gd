@@ -4,7 +4,8 @@ var hints = [
 	'''You will need to pay money at the top,
 	but if you have the cheese, winning is free!'''
 	,
-	'Use the crowbar for shortcuts in pipes.'
+	'Use the crowbar for shortcuts in pipes. BE CAREFUL - it costs money to use it!',
+	'Hold up BEFORE holding left or right to pull off normally impossible jumps.'
 	]
 
 
@@ -42,6 +43,8 @@ func _on_area_cheese_exited(body):
 func show_hint():
 	$HintIndicator.visible = true
 	$HintIndicator.text = "[center]%s[center]" % hints.pick_random() 
+	await get_tree().create_timer(10.0).timeout
+	$HintIndicator.visible = false
 
 func _process(delta):
 	pass
