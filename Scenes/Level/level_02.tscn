@@ -49,7 +49,7 @@ script = ExtResource("1_hp66c")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_gtpp1")]
-position = Vector2(986, -1131)
+position = Vector2(1071, -1595)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -270,7 +270,7 @@ position = Vector2(7.89852e-06, 2.94777e-05)
 polygon = PackedVector2Array(-56, -232, -56, 168, 56, 168, 56, -232)
 
 [node name="WinZone" parent="." instance=ExtResource("5_1arn6")]
-position = Vector2(-86, -1908)
+position = Vector2(-1680, -1908)
 scale = Vector2(1.2, 1.2)
 
 [node name="Pipes" type="Node2D" parent="."]
@@ -304,12 +304,6 @@ platform_length = 300.0
 [node name="HorizontalBasic2" type="Node2D" parent="Pipes"]
 position = Vector2(2640, -26)
 
-[node name="PipeTemplate" parent="Pipes/HorizontalBasic2" instance=ExtResource("7_x113n")]
-position = Vector2(-2502, -1477)
-End1Type = 2
-End2Type = 2
-platform_length = 300.0
-
 [node name="HorizontalBasic3" type="Node2D" parent="Pipes"]
 position = Vector2(2816, -77)
 
@@ -317,7 +311,7 @@ position = Vector2(2816, -77)
 position = Vector2(2816, -26)
 
 [node name="PipeTemplate" parent="Pipes/HorizontalBasic4" instance=ExtResource("7_x113n")]
-position = Vector2(-2233, -1385)
+position = Vector2(-2285, -1372)
 End1Type = 2
 End2Type = 2
 platform_length = 300.0
@@ -697,6 +691,26 @@ orientation = 1
 position = Vector2(-189, 13)
 platform_length = 1000.0
 
+[node name="RightRight3" type="Node2D" parent="Pipes"]
+position = Vector2(40, -1611)
+
+[node name="PipeTemplate" parent="Pipes/RightRight3" instance=ExtResource("7_x113n")]
+position = Vector2(-34, 13)
+platform_length = 200.0
+
+[node name="PipeTemplate2" parent="Pipes/RightRight3" instance=ExtResource("7_x113n")]
+position = Vector2(123, 94)
+End2Type = 2
+platform_length = 200.0
+
+[node name="PipeCurve" parent="Pipes/RightRight3" instance=ExtResource("8_tr804")]
+position = Vector2(57, 81)
+orientation = 2
+
+[node name="PipeCurve2" parent="Pipes/RightRight3" instance=ExtResource("8_tr804")]
+position = Vector2(31, 26)
+orientation = 1
+
 [node name="UTurn" type="Node2D" parent="Pipes"]
 position = Vector2(887, -867)
 
@@ -722,6 +736,35 @@ rotation = 12.5664
 orientation = 2
 
 [node name="PipeCurve9" parent="Pipes/UTurn" instance=ExtResource("8_tr804")]
+position = Vector2(61, -13)
+rotation = 12.5664
+orientation = 3
+
+[node name="UTurn3" type="Node2D" parent="Pipes"]
+position = Vector2(557, -1629)
+
+[node name="PipeTemplate" parent="Pipes/UTurn3" instance=ExtResource("7_x113n")]
+position = Vector2(-24, 0)
+platform_length = 300.0
+
+[node name="PipeTemplate2" parent="Pipes/UTurn3" instance=ExtResource("7_x113n")]
+position = Vector2(74, -50)
+is_vert = true
+End1Type = 1
+platform_length = 50.0
+
+[node name="PipeTemplate3" parent="Pipes/UTurn3" instance=ExtResource("7_x113n")]
+position = Vector2(-122, -69)
+is_vert = true
+End1Type = 1
+platform_length = 200.0
+
+[node name="PipeCurve8" parent="Pipes/UTurn3" instance=ExtResource("8_tr804")]
+position = Vector2(-109, -13)
+rotation = 12.5664
+orientation = 2
+
+[node name="PipeCurve9" parent="Pipes/UTurn3" instance=ExtResource("8_tr804")]
 position = Vector2(61, -13)
 rotation = 12.5664
 orientation = 3
@@ -819,7 +862,7 @@ orientation = 3
 position = Vector2(-32, -12)
 
 [node name="TLZag2" type="Node2D" parent="Pipes"]
-position = Vector2(834, -1379)
+position = Vector2(844, -1348)
 
 [node name="PipeTemplate2" parent="Pipes/TLZag2" instance=ExtResource("7_x113n")]
 position = Vector2(-28, -2)
@@ -884,12 +927,6 @@ position = Vector2(22, -13)
 rotation = 12.5664
 orientation = 3
 
-[node name="PipeTemplate5" parent="Pipes" instance=ExtResource("7_x113n")]
-position = Vector2(412, -1588)
-End1Type = 2
-End2Type = 2
-platform_length = 300.0
-
 [node name="ScoopedPipe" type="Node2D" parent="Pipes"]
 
 [node name="PipeTemplate2" parent="Pipes/ScoopedPipe" instance=ExtResource("7_x113n")]
@@ -911,6 +948,35 @@ platform_length = 150.0
 [node name="PipeCurve" parent="Pipes/ScoopedPipe" instance=ExtResource("8_tr804")]
 position = Vector2(912, -1092)
 orientation = 2
+
+[node name="TripleZigZag3" type="Node2D" parent="Pipes"]
+position = Vector2(952, -1479)
+
+[node name="PipeTemplate2" parent="Pipes/TripleZigZag3" instance=ExtResource("7_x113n")]
+position = Vector2(192, -64)
+End1Type = 2
+platform_length = 451.0
+
+[node name="PipeTemplate" parent="Pipes/TripleZigZag3" instance=ExtResource("7_x113n")]
+position = Vector2(360, -144)
+End2Type = 2
+platform_length = 90.0
+
+[node name="PipeTemplate3" parent="Pipes/TripleZigZag3" instance=ExtResource("7_x113n")]
+position = Vector2(153, -29)
+is_vert = true
+End1Type = 1
+platform_length = 80.0
+
+[node name="PipeTemplate4" parent="Pipes/TripleZigZag3" instance=ExtResource("7_x113n")]
+position = Vector2(64, 24)
+End1Type = 2
+platform_length = 300.0
+
+[node name="PipeCurve5" parent="Pipes/TripleZigZag3" instance=ExtResource("8_tr804")]
+position = Vector2(140, 11)
+rotation = 6.28318
+orientation = 3
 
 [node name="LowerMusic" parent="." instance=ExtResource("10_pq26x")]
 position = Vector2(-72, 593)
@@ -1153,3 +1219,15 @@ position = Vector2(713, -620)
 
 [node name="ValveObstacle3" parent="." instance=ExtResource("30_bgx37")]
 position = Vector2(1144, -960)
+
+[node name="ValveObstacle4" parent="." instance=ExtResource("30_bgx37")]
+position = Vector2(585, -1249)
+
+[node name="ValveObstacle7" parent="." instance=ExtResource("30_bgx37")]
+position = Vector2(829, -1575)
+
+[node name="ValveObstacle5" parent="." instance=ExtResource("30_bgx37")]
+position = Vector2(209, -1696)
+
+[node name="ValveObstacle6" parent="." instance=ExtResource("30_bgx37")]
+position = Vector2(330, -1687)
