@@ -45,6 +45,3 @@ func show_hint():
 	$HintIndicator.text = "[center]%s[center]" % hints.pick_random() 
 	await get_tree().create_timer(10.0).timeout
 	$HintIndicator.visible = false
-
-func _process(delta):
-	pass

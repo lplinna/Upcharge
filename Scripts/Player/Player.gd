@@ -28,6 +28,10 @@ const falling_threshold: float = 160
 var time_jump_pressed: float = 0
 var old_velx: float = 0
 
+## Signals
+signal player_fell
+signal player_landed
+
 ## Game mechanic variables
 var horizontal_lethargy: float = 0.2
 var coins: int = 0
@@ -178,8 +182,11 @@ func _physics_process(delta):
 			falling = false
 			if fall_distance > 200:
 				SoundManager.PlayerLand("long")
+				player_fell.emit()
+				player_landed.emit()
 				flattened = true
 			else:
+				player_landed.emit()
 				SoundManager.PlayerLand("short")
 
 		velocity.x = lerpf(velocity.x,move_dir * move_speed, horizontal_lethargy)
@@ -205,10 +212,8 @@ func calc_fall_price():
 func handle_button(actionID):
 	if actionID == 1:
 		if coins >= shop_pop_up.crowbar_price:
-			items.append("Crowbar")
+			items.append("Legacy Mechanic")
 			coins -= shop_pop_up.crowbar_price
-			shop_pop_up.crowbar_price += 1
-			shop_pop_up.price.text = "%s" % shop_pop_up.crowbar_price
 			shop_pop_up.item_purchased.emit(1)
 	if actionID == 2:
 		if coins >= shop_pop_up.wrench_price:
