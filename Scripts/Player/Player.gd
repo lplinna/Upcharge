@@ -51,7 +51,7 @@ var EyeLiner: Line2D
 var wet_floor: bool = false
 
 ## The player's items. A simple string array, could hold multiples of the same 'item' in the future.
-var items: Array = ["Crowbar"]
+var items: Array = ["Crowbar","Legacy Mechanic"]
 
 var frozen: bool = false:
 	set(new_frozen):

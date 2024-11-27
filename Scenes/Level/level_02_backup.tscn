@@ -54,7 +54,7 @@ script = ExtResource("1_vcte5")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_v0n8d")]
-position = Vector2(590, -123)
+position = Vector2(33, -879)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -405,9 +405,9 @@ direction = 3
 position = Vector2(309, -773)
 
 [node name="PipeTemplate" parent="Pipes/RightDownLeftWarp" instance=ExtResource("5_sxyi6")]
-position = Vector2(-78, -255)
+position = Vector2(-58, -255)
 End1Type = 2
-platform_length = 350.0
+platform_length = 250.0
 
 [node name="PipeTemplate2" parent="Pipes/RightDownLeftWarp" instance=ExtResource("5_sxyi6")]
 position = Vector2(111, -57)
@@ -443,7 +443,7 @@ position = Vector2(23, 61)
 direction = 1
 
 [node name="PipeZone2" parent="Pipes/RightDownLeftWarp/PipeEnds" instance=ExtResource("7_sp3m5")]
-position = Vector2(-154, -254)
+position = Vector2(-115, -255)
 direction = 1
 
 [node name="OtherBits" type="Node2D" parent="Pipes/RightDownLeftWarp"]
@@ -1280,7 +1280,7 @@ position = Vector2(7.89852e-06, 2.94777e-05)
 polygon = PackedVector2Array(-88, 0, -88, 16, 16, 16, 16, 0)
 
 [node name="LadderPlatform5" type="StaticBody2D" parent="."]
-position = Vector2(20, -1084)
+position = Vector2(-3, -1062)
 metadata/_edit_group_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="LadderPlatform5"]

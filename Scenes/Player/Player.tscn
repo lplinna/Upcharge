@@ -618,6 +618,7 @@ shape = SubResource("CapsuleShape2D_rmbm4")
 
 [node name="PopUp" parent="." instance=ExtResource("2_n2dd2")]
 unique_name_in_owner = true
+visible = false
 offset_left = -40.0
 offset_top = -103.0
 offset_right = -40.0
