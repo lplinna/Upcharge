@@ -1,20 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://cs5er1xoalqq1"]
+[gd_scene load_steps=12 format=3 uid="uid://cs5er1xoalqq1"]
 
 [ext_resource type="Script" path="res://Scripts/Level/guard.gd" id="1_ppydl"]
 [ext_resource type="Texture2D" uid="uid://pepl4ofnqrui" path="res://Assets/Guard/Final_Racoon_Guard.png" id="2_cf1fh"]
 [ext_resource type="Texture2D" uid="uid://deajqlskwo84w" path="res://Assets/Guard/Speech Bubbles/Guard_Rat_Bubble_1.png" id="3_3cwk8"]
-[ext_resource type="Texture2D" uid="uid://boh0bte8hiv3m" path="res://Resources/CoinSpritesheet.png" id="4_1b771"]
+[ext_resource type="Texture2D" uid="uid://boh0bte8hiv3m" path="res://Assets/CoinSpritesheet.png" id="4_1b771"]
 [ext_resource type="Texture2D" uid="uid://bgeypxqlttnet" path="res://Assets/Shop/Final_CHeese.png" id="4_6wd5p"]
+[ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="5_uaukf"]
 
 [sub_resource type="SystemFont" id="SystemFont_ca3yu"]
 font_names = PackedStringArray("Marlett")
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_m6d1h"]
 font = SubResource("SystemFont_ca3yu")
 font_size = 160
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hg43"]
-size = Vector2(450, 200)
+size = Vector2(225, 200)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2vgfh"]
 particle_flag_disable_z = true
@@ -28,7 +30,7 @@ scale_max = 0.1
 atlas = ExtResource("4_1b771")
 region = Rect2(138.163, 82.5617, 223.217, 258.648)
 
-[node name="RatGuard" type="Node2D"]
+[node name="Guard" type="Node2D"]
 script = ExtResource("1_ppydl")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -61,8 +63,13 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpeechZone"]
-position = Vector2(0, 82.5)
+position = Vector2(-112.5, 82.5)
 shape = SubResource("RectangleShape2D_0hg43")
+
+[node name="PipeTemplate" parent="SpeechZone" instance=ExtResource("5_uaukf")]
+position = Vector2(10, 61)
+End1Type = 2
+platform_length = 200.0
 
 [node name="CoinParticles" type="GPUParticles2D" parent="."]
 visible = false
