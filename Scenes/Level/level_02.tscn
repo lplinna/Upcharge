@@ -258,7 +258,7 @@ position = Vector2(7.89852e-06, 2.94777e-05)
 polygon = PackedVector2Array(-56, -232, -56, 168, 56, 168, 56, -232)
 
 [node name="Guard" parent="." instance=ExtResource("5_1arn6")]
-position = Vector2(602, 376)
+position = Vector2(602, 436)
 
 [node name="Pipes" type="Node2D" parent="."]
 
@@ -774,7 +774,6 @@ scale = Vector2(0.0722622, 0.0714859)
 texture = ExtResource("15_n7583")
 
 [node name="Dew9" type="Sprite2D" parent="Background"]
-z_index = 100
 position = Vector2(-260, 474.395)
 rotation = 0.666716
 scale = Vector2(1.32526, 1.3604)
@@ -896,11 +895,11 @@ position = Vector2(160, 554)
 [node name="Cave" parent="." instance=ExtResource("32_qrj74")]
 
 [node name="PipeCurve" parent="." instance=ExtResource("8_tr804")]
-position = Vector2(678, 424)
+position = Vector2(678, 484)
 orientation = 3
 
 [node name="PipeTemplate" parent="." instance=ExtResource("7_x113n")]
-position = Vector2(691, 378)
+position = Vector2(691, 438)
 is_vert = true
 End1Type = 1
 platform_length = 100.0

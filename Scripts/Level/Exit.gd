@@ -57,3 +57,6 @@ func fade_to_black():
 func _on_fade_complete(rect):
 	rect.queue_free()
 	get_tree().change_scene_to_file("res://Scenes/Level/MainMenu.tscn")
+	
+	
+	

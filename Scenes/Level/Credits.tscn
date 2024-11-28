@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3 uid="uid://d21n0lgvx3qes"]
+
+[ext_resource type="Script" path="res://Scripts/Credits.gd" id="1_dxqji"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dxqji")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 2
+offset_left = 710.0
+offset_top = 209.0
+offset_right = 1210.0
+offset_bottom = 1214.0
+bbcode_enabled = true
+text = "[b]Credits[/b]
+
+
+[P1] YSL Team Spider Crab
+
+
+Jinhyo 
+
+
+Timothy Breiholz 
+
+
+Avery
+
+
+Parker 
+
+
+Jason 
+
+
+Noah Gardner 
+
+
+Jordan Levy 
+
+
+Jamie 
+
+
+Hazel 
+
+
+Veronica Stonebraker 
+
+
+Luke Linna"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

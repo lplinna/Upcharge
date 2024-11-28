@@ -79,5 +79,8 @@ process_material = SubResource("ParticleProcessMaterial_2vgfh")
 texture = SubResource("AtlasTexture_flchq")
 visibility_rect = Rect2(-200, -100, 400, 200)
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = 10.0
+
 [connection signal="body_entered" from="SpeechZone" to="." method="_on_speech_zone_body_entered"]
 [connection signal="body_exited" from="SpeechZone" to="." method="_on_speech_zone_body_exited"]
