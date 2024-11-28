@@ -47,8 +47,7 @@ func _on_speech_zone_body_entered(body: Node2D) -> void:
 		can_interact = true
 		speech_bubble.visible = true
 		
-		# TODO: revisit player items--this will need refactoring 
-		if body.held_item == 3: # cheese
+		if "Cheese" in body.items: 
 			speech_bubble.texture = bubble_plain
 			textLabel.visible = true
 			textLabel.text = "?"
