@@ -3,8 +3,26 @@ extends Control
 @onready var main_menu = $ActualMainMenu
 @onready var instructions = $Instructions
 @onready var credits = $Credits
+@onready var parallax_layer = $ParallaxBackground/ParallaxLayer
 
 var sounds = preload("res://Scripts/sound.gd")
+
+@export var smoke_speed : float = 50.0 
+var motion_offset : Vector2
+
+const smoke_x_limit = 2474
+const smoke_x_start = 0
+
+func _ready():
+	motion_offset = parallax_layer.motion_offset
+
+func _process(delta):
+	motion_offset.x += smoke_speed * delta 
+
+	parallax_layer.motion_offset = motion_offset
+
+	if motion_offset.x > smoke_x_limit: 
+		motion_offset.x = smoke_x_start 
 
 
 func _on_start_pressed():
