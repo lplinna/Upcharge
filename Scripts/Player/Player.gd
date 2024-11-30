@@ -28,10 +28,13 @@ const falling_threshold: float = 160
 var time_jump_pressed: float = 0
 var old_velx: float = 0
 
+## Signals
+signal player_fell
+signal player_landed
+
 ## Game mechanic variables
 var horizontal_lethargy: float = 0.2
 var coins: int = 0
-var fall_price: int = 0
 var up_y: float = 0
 var down_y: float = 0
 var flattened:bool = false
@@ -178,8 +181,11 @@ func _physics_process(delta):
 			falling = false
 			if fall_distance > 200:
 				SoundManager.PlayerLand("long")
+				player_fell.emit()
+				player_landed.emit()
 				flattened = true
 			else:
+				player_landed.emit()
 				SoundManager.PlayerLand("short")
 
 		velocity.x = lerpf(velocity.x,move_dir * move_speed, horizontal_lethargy)
@@ -196,19 +202,12 @@ func _physics_process(delta):
 	$AnimatedSprite2D.update(self)
 	move_and_slide()
 
-## Updates the price based on how far the player fell down.
-## TODO: REMOVE MAX IF WE ARE DOING PAY-PER-FALL instead of PAY-FOR-ALL
-func calc_fall_price():
-	fall_price = max(int((up_y - down_y) / 100), fall_price)
-
 ## Response to the popup button being clicked.
 func handle_button(actionID):
 	if actionID == 1:
 		if coins >= shop_pop_up.crowbar_price:
-			items.append("Crowbar")
+			items.append("Legacy Mechanic")
 			coins -= shop_pop_up.crowbar_price
-			shop_pop_up.crowbar_price += 1
-			shop_pop_up.price.text = "%s" % shop_pop_up.crowbar_price
 			shop_pop_up.item_purchased.emit(1)
 	if actionID == 2:
 		if coins >= shop_pop_up.wrench_price:
@@ -222,13 +221,15 @@ func handle_button(actionID):
 			items.append("Cheese")
 			coins -= shop_pop_up.cheese_price
 			shop_pop_up.item_purchased.emit(3)
+	SoundManager.CoinCollect()
 
 func _on_timer_timeout():
 	step_sound = true
 
 func use_item(name):
 	if name == "Crowbar": # Pay money when crowbar is used
-		coins -= 5 
+		coins -= 5
+		print(coins)
 	if name in items:
 		print("Used ", name)
 		

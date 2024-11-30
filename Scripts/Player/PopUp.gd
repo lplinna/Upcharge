@@ -2,14 +2,12 @@ extends Control
 
 @onready var button = $Panel/VBoxContainer/TextureRect2/Button
 @onready var price = $Panel/VBoxContainer/TextureRect/HBoxContainer/Price
-@onready var player_ref: Player = get_parent()
+@onready var timer = $Timer
 
 func _on_timer_timeout():
 	self.visible = false
 
-func display():
-	price.text = "%s" % player_ref.fall_price
+func display(price_value):
+	price.text = "%s" % price_value
 	self.visible = true
-
-func init():
-	button.pressed.connect(player_ref.handle_button)
+	timer.start()

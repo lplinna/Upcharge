@@ -48,7 +48,7 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-text = "Return"
+text = "(E) Return"
 flat = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer"]

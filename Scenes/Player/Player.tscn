@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://dhm46ln55frcd"]
+[gd_scene load_steps=94 format=3 uid="uid://dhm46ln55frcd"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_c1brk"]
 [ext_resource type="PackedScene" uid="uid://fjd6tdto2orx" path="res://Scenes/Player/PopUp.tscn" id="2_n2dd2"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://4vrsild7wwwx" path="res://Resources/Player/FirstWalkCycle/RunCycleSpriteSheet.png" id="6_qowr6"]
 [ext_resource type="Texture2D" uid="uid://dg57e3vqsplch" path="res://Resources/Player/JumpSpriteSheet.png" id="7_wtu5p"]
 [ext_resource type="Texture2D" uid="uid://co6npmwjjc5wr" path="res://Resources/Player/FirstWalkCycle/PipeAnimationSpriteSheet.png" id="10_pov8x"]
+[ext_resource type="Script" path="res://Scenes/Player/legacy_mechanic.gd" id="13_q7tgx"]
 
 [sub_resource type="Curve" id="Curve_n1qsj"]
 max_value = 2.0
@@ -617,6 +618,7 @@ power_curve = SubResource("Curve_n1qsj")
 shape = SubResource("CapsuleShape2D_rmbm4")
 
 [node name="PopUp" parent="." instance=ExtResource("2_n2dd2")]
+unique_name_in_owner = true
 visible = false
 offset_left = -40.0
 offset_top = -103.0
@@ -651,4 +653,9 @@ wait_time = 0.25
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
 
+[node name="LegacyMechanic" type="Node2D" parent="."]
+script = ExtResource("13_q7tgx")
+
+[connection signal="player_fell" from="." to="LegacyMechanic" method="_on_player_player_fell"]
+[connection signal="player_landed" from="." to="LegacyMechanic" method="_on_player_player_landed"]
 [connection signal="timeout" from="StepsTimer" to="." method="_on_timer_timeout"]

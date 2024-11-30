@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_hp66c"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_gtpp1"]
 [ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/Components/WorldBlock.tscn" id="4_auj55"]
-[ext_resource type="PackedScene" uid="uid://cs5er1xoalqq1" path="res://Scenes/Level/Components/Guard.tscn" id="5_1arn6"]
+[ext_resource type="PackedScene" uid="uid://bmu60gxamcx11" path="res://Scenes/Level/Components/Guard.tscn" id="5_1arn6"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="7_x113n"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="8_tr804"]
 [ext_resource type="PackedScene" uid="uid://damjb7jnd4o8q" path="res://Scenes/Level/Components/PipeZone.tscn" id="9_nvxet"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dflvnnrx2qfws" path="res://Assets/Background/Cheese Graffiti.png" id="14_u3jhy"]
 [ext_resource type="Texture2D" uid="uid://xwvvklb2jbl" path="res://Assets/Background/Sewer Grate.png" id="15_n7583"]
 [ext_resource type="Texture2D" uid="uid://c2xtoyarkk4n3" path="res://Assets/Background/Web Grafitti.png" id="16_6mu8r"]
-[ext_resource type="PackedScene" uid="uid://ujs2ssp6oorj" path="res://Scenes/Level/Components/Exit.tscn" id="16_k05h3"]
+[ext_resource type="PackedScene" uid="uid://cxd1l0sro08jg" path="res://Scenes/Level/Components/Exit.tscn" id="16_k05h3"]
 [ext_resource type="Texture2D" uid="uid://xd40juv033h4" path="res://Assets/Background/Spider Crab Graffiti.png" id="17_2k2jp"]
 [ext_resource type="Texture2D" uid="uid://bx3p2gb6q0ivw" path="res://Assets/Background/SmallerBricks_V3_BG.png" id="18_kgf0i"]
 [ext_resource type="Texture2D" uid="uid://00fjyimb0dc7" path="res://Assets/Background/Peace Graffiti.png" id="18_t8rkg"]
@@ -30,7 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://iyexisxtoiga" path="res://Assets/Dew/Dew_2.png" id="29_22lcs"]
 [ext_resource type="PackedScene" uid="uid://qarfxgr4ovaq" path="res://Scenes/Level/Components/green_goop.tscn" id="30_u02fl"]
 [ext_resource type="PackedScene" uid="uid://b35x8dvw3k6h6" path="res://Scenes/Level/Shop/shop.tscn" id="31_3slce"]
-[ext_resource type="PackedScene" path="res://Scenes/Level/level_02_cave.tscn" id="32_qrj74"]
+[ext_resource type="PackedScene" uid="uid://dm8pohh64w8t3" path="res://Scenes/Level/level_02_cave.tscn" id="32_qrj74"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Level/Components/Coin.tscn" id="33_8ylrw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
@@ -54,7 +54,7 @@ script = ExtResource("1_hp66c")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_gtpp1")]
-position = Vector2(-370, 505)
+position = Vector2(-368, 557)
 
 [node name="Coins" type="Node2D" parent="."]
 

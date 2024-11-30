@@ -20,19 +20,21 @@ func _on_grate_animation_finished() -> void:
 	var tween = create_tween()
 
 	var start_position = ladder.position
-	var end_position = Vector2(start_position.x, start_position.y + 100) # Move down by 100 pixels
+	var end_position = start_position + ladder_final_pos # Move down by 100 pixels
 	var duration = 1.0 # 1 second
 
 	# Start the tween
-	tween.tween_property(ladder, "position", ladder_final_pos, 3.0)
+	tween.tween_property(ladder, "position", end_position, 3.0)
 	tween.play()
 	win_zone.disabled = false
+	await tween.finished
+	%TheE.visible = true
 
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player:
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("return") and %TheE.visible == true:
+		%TheE.visible = false
 		fade_to_black()
-		
+
 func fade_to_black():
 	if is_fading:
 		return
@@ -56,7 +58,4 @@ func fade_to_black():
 
 func _on_fade_complete(rect):
 	rect.queue_free()
-	get_tree().change_scene_to_file("res://Scenes/Level/MainMenu.tscn")
-	
-	
-	
+	get_tree().change_scene_to_file("res://Scenes/Level/Credits.tscn")

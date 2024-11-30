@@ -30,7 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://qnyh75tlxylf" path="res://Assets/Dew/Dew_3.png" id="26_e5siv"]
 [ext_resource type="Texture2D" uid="uid://iyexisxtoiga" path="res://Assets/Dew/Dew_2.png" id="27_w2lko"]
 [ext_resource type="PackedScene" uid="uid://qarfxgr4ovaq" path="res://Scenes/Level/Components/green_goop.tscn" id="29_v1u2g"]
-[ext_resource type="PackedScene" uid="uid://cs5er1xoalqq1" path="res://Scenes/Level/Components/Guard.tscn" id="32_bc6kg"]
+[ext_resource type="PackedScene" uid="uid://bmu60gxamcx11" path="res://Scenes/Level/Components/Guard.tscn" id="32_bc6kg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
 size = Vector2(2109.75, 67.9994)

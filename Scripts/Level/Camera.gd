@@ -4,8 +4,8 @@ extends Camera2D
 @export var player_ref: Player
 
 func _process(delta):
-	var half_screen = (0.5 * get_viewport_rect().size.y)
-	var top_screen = self.position.y - half_screen * 0.5
-	var bottom_screen =  self.position.y + half_screen
-	if player_ref.position.y < top_screen or player_ref.position.y > bottom_screen:
-		position.y = player_ref.position.y - (half_screen * 0.7)
+	var full_screen_height = get_viewport_rect().size.y
+	var center_line = position.y
+	var difference = center_line - player_ref.position.y
+	if abs(center_line - player_ref.position.y) > 0.25 * full_screen_height:
+		position.y -= difference

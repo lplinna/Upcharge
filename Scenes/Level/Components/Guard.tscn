@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cs5er1xoalqq1"]
+[gd_scene load_steps=11 format=3 uid="uid://bmu60gxamcx11"]
 
 [ext_resource type="Script" path="res://Scripts/Level/guard.gd" id="1_ppydl"]
 [ext_resource type="Texture2D" uid="uid://pepl4ofnqrui" path="res://Assets/Guard/Final_Racoon_Guard.png" id="2_cf1fh"]
 [ext_resource type="Texture2D" uid="uid://deajqlskwo84w" path="res://Assets/Guard/Speech Bubbles/Guard_Rat_Bubble_1.png" id="3_3cwk8"]
 [ext_resource type="Texture2D" uid="uid://boh0bte8hiv3m" path="res://Assets/CoinSpritesheet.png" id="4_1b771"]
 [ext_resource type="Texture2D" uid="uid://bgeypxqlttnet" path="res://Assets/Shop/Final_CHeese.png" id="4_6wd5p"]
-[ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="5_uaukf"]
 
 [sub_resource type="SystemFont" id="SystemFont_ca3yu"]
 font_names = PackedStringArray("Marlett")
@@ -65,11 +64,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpeechZone"]
 position = Vector2(-112.5, 82.5)
 shape = SubResource("RectangleShape2D_0hg43")
-
-[node name="PipeTemplate" parent="SpeechZone" instance=ExtResource("5_uaukf")]
-position = Vector2(10, 61)
-End1Type = 2
-platform_length = 200.0
 
 [node name="CoinParticles" type="GPUParticles2D" parent="."]
 visible = false
