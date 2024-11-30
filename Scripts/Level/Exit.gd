@@ -32,6 +32,7 @@ func _on_grate_animation_finished() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("return") and %TheE.visible == true:
+		%TheE.visible = false
 		fade_to_black()
 
 func fade_to_black():
@@ -57,7 +58,4 @@ func fade_to_black():
 
 func _on_fade_complete(rect):
 	rect.queue_free()
-	get_tree().change_scene_to_file("res://Scenes/Level/MainMenu.tscn")
-	
-	
-	
+	get_tree().change_scene_to_file("res://Scenes/Level/Credits.tscn")
