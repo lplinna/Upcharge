@@ -1,9 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://caw7avdd6uvsx"]
+[gd_scene load_steps=40 format=3 uid="uid://caw7avdd6uvsx"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_vcte5"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_v0n8d"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Level/Components/Coin.tscn" id="3_7q7tc"]
 [ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/Components/WorldBlock.tscn" id="3_n3tpe"]
+[ext_resource type="PackedScene" uid="uid://dm8pohh64w8t3" path="res://Scenes/Level/level_02_cave.tscn" id="5_ojolr"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="5_sxyi6"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="6_00jr6"]
 [ext_resource type="PackedScene" uid="uid://damjb7jnd4o8q" path="res://Scenes/Level/Components/PipeZone.tscn" id="7_sp3m5"]
@@ -43,7 +44,7 @@ size = Vector2(2109.75, 67.9994)
 size = Vector2(2109.75, 87.9988)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atgsu"]
-size = Vector2(2440, 86.0011)
+size = Vector2(2024.4, 86.0011)
 
 [node name="Node2D" type="Node2D"]
 
@@ -54,7 +55,7 @@ script = ExtResource("1_vcte5")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_v0n8d")]
-position = Vector2(156, -1585)
+position = Vector2(-452, 644)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -63,6 +64,9 @@ position = Vector2(696, 423)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("3_7q7tc")]
 position = Vector2(538, 511)
+
+[node name="Coin16" parent="Coins" instance=ExtResource("3_7q7tc")]
+position = Vector2(72, 625)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("3_7q7tc")]
 position = Vector2(931, 296)
@@ -156,12 +160,23 @@ rotation = 1.57079
 [node name="WorldBlock" parent="Boundaries/Wall2" instance=ExtResource("3_n3tpe")]
 offset_left = -1524.0
 offset_top = -27.0
-offset_right = 1537.0
+offset_right = 919.0
 offset_bottom = 1010.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall2"]
-position = Vector2(313, 15.9985)
+position = Vector2(105.2, 15.9985)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_atgsu")
+
+[node name="Wall4" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-629.6, 404.8)
+rotation = 1.57079
+
+[node name="WorldBlock" parent="Boundaries/Wall4" instance=ExtResource("3_n3tpe")]
+offset_left = -1518.4
+offset_top = -49.6095
+offset_right = 924.6
+offset_bottom = 987.39
 
 [node name="Slide1" type="StaticBody2D" parent="Boundaries"]
 position = Vector2(852, 409)
@@ -319,6 +334,11 @@ polygon = PackedVector2Array(-56, -232, -56, 168, 56, 168, 56, -232)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/LadderGroup/LadderWall"]
 position = Vector2(7.89852e-06, 2.94777e-05)
 polygon = PackedVector2Array(-56, -232, -56, 168, 56, 168, 56, -232)
+
+[node name="Cave" parent="Boundaries" instance=ExtResource("5_ojolr")]
+position = Vector2(-303.2, 464.8)
+rotation = -6.28318
+scale = Vector2(1.18958, 1.18148)
 
 [node name="Pipes" type="Node2D" parent="."]
 
@@ -1051,6 +1071,15 @@ offset_left = -202.0
 offset_top = -1957.0
 offset_right = 8445.0
 offset_bottom = 10988.0
+scale = Vector2(0.18, 0.217)
+texture = ExtResource("11_n2dou")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Background"]
+offset_left = -1594.0
+offset_top = -1993.0
+offset_right = 7053.0
+offset_bottom = 10952.0
 scale = Vector2(0.18, 0.217)
 texture = ExtResource("11_n2dou")
 stretch_mode = 1
