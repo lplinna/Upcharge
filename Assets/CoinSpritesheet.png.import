@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch64etuk5m6ra"
-path="res://.godot/imported/Dew_9.png-452999f55af169d0aa7fa12674c0c523.ctex"
+uid="uid://boh0bte8hiv3m"
+path="res://.godot/imported/CoinSpritesheet.png-1e7bf05a65d1cb26cf9bfcd30f3465bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Level/Dew_9.png"
-dest_files=["res://.godot/imported/Dew_9.png-452999f55af169d0aa7fa12674c0c523.ctex"]
+source_file="res://Assets/CoinSpritesheet.png"
+dest_files=["res://.godot/imported/CoinSpritesheet.png-1e7bf05a65d1cb26cf9bfcd30f3465bf.ctex"]
 
 [params]
 
