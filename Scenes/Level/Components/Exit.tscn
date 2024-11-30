@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=3 uid="uid://ujs2ssp6oorj"]
+[gd_scene load_steps=127 format=3 uid="uid://cxd1l0sro08jg"]
 
 [ext_resource type="Texture2D" uid="uid://ci2cq4721tym0" path="res://Assets/Background/GrateOpeningSpriteSheet.png" id="1_sto5q"]
 [ext_resource type="Script" path="res://Scripts/Level/Exit.gd" id="2_iwe6v"]
@@ -862,19 +862,20 @@ ladder_final_pos = Vector2(0, 100)
 
 [node name="Ladder" type="Sprite2D" parent="."]
 visible = false
-z_index = 1
+z_index = 13
 position = Vector2(0, -350)
 texture = ExtResource("3_k4yd1")
 
 [node name="GrateCover" type="Sprite2D" parent="."]
-z_index = 2
-position = Vector2(0.499999, -142.5)
-scale = Vector2(0.381727, 0.568182)
+z_index = 14
+position = Vector2(0.499999, -426.5)
+scale = Vector2(0.381727, 13.4773)
 texture = ExtResource("3_qv8mn")
 region_enabled = true
 region_rect = Rect2(183, 27.2821, 799.7, 44.7078)
 
 [node name="Grate" type="AnimatedSprite2D" parent="."]
+z_index = 12
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_h6sbm")
 

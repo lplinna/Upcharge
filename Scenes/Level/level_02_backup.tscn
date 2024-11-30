@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_v0n8d"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Level/Components/Coin.tscn" id="3_7q7tc"]
 [ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/Components/WorldBlock.tscn" id="3_n3tpe"]
-[ext_resource type="PackedScene" uid="uid://bs44hthsbuah6" path="res://Scenes/Level/Components/WinZone.tscn" id="4_gbx4l"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="5_sxyi6"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="6_00jr6"]
 [ext_resource type="PackedScene" uid="uid://damjb7jnd4o8q" path="res://Scenes/Level/Components/PipeZone.tscn" id="7_sp3m5"]
@@ -17,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://c2xtoyarkk4n3" path="res://Assets/Background/Web Grafitti.png" id="14_jp3kl"]
 [ext_resource type="Texture2D" uid="uid://xd40juv033h4" path="res://Assets/Background/Spider Crab Graffiti.png" id="15_gpjtr"]
 [ext_resource type="Texture2D" uid="uid://00fjyimb0dc7" path="res://Assets/Background/Peace Graffiti.png" id="16_0rae3"]
-[ext_resource type="Texture2D" uid="uid://dto1j6yygvnnd" path="res://Assets/Background/TopGrate.png" id="17_atjsd"]
 [ext_resource type="Texture2D" uid="uid://dvqgrreklq8y2" path="res://Assets/Dew/Dew_1.png" id="18_krqn1"]
 [ext_resource type="Texture2D" uid="uid://c4lq4s7dal7be" path="res://Assets/Dew/Dew_10.png" id="19_1jpfb"]
 [ext_resource type="Texture2D" uid="uid://0aoo5cw18ncy" path="res://Assets/Background/Tutorial/Concept_Blue_W.png" id="19_08dqt"]
@@ -35,6 +33,8 @@
 [ext_resource type="PackedScene" uid="uid://qarfxgr4ovaq" path="res://Scenes/Level/Components/green_goop.tscn" id="28_mynp0"]
 [ext_resource type="PackedScene" uid="uid://b35x8dvw3k6h6" path="res://Scenes/Level/Shop/shop.tscn" id="29_73b7j"]
 [ext_resource type="PackedScene" uid="uid://cq0pkof6tgdt4" path="res://Scenes/Level/Components/ValveObstacle.tscn" id="30_pbrqc"]
+[ext_resource type="PackedScene" uid="uid://bmu60gxamcx11" path="res://Scenes/Level/Components/Guard.tscn" id="34_axiy3"]
+[ext_resource type="PackedScene" uid="uid://cxd1l0sro08jg" path="res://Scenes/Level/Components/Exit.tscn" id="35_3fkuc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
 size = Vector2(2109.75, 67.9994)
@@ -54,7 +54,7 @@ script = ExtResource("1_vcte5")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_v0n8d")]
-position = Vector2(33, -879)
+position = Vector2(156, -1585)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -95,7 +95,7 @@ position = Vector2(843, -1202)
 position = Vector2(194, -1311)
 
 [node name="Coin13" parent="Coins" instance=ExtResource("3_7q7tc")]
-position = Vector2(140, -1563)
+position = Vector2(13, -1653)
 
 [node name="Coin14" parent="Coins" instance=ExtResource("3_7q7tc")]
 position = Vector2(1175, -1190)
@@ -138,6 +138,7 @@ position = Vector2(417, -1521)
 rotation = -3.14159
 
 [node name="WorldBlock" parent="Boundaries/Wall3" instance=ExtResource("3_n3tpe")]
+z_index = 10
 offset_left = -1524.0
 offset_top = -51.0
 offset_right = 1537.0
@@ -318,10 +319,6 @@ polygon = PackedVector2Array(-56, -232, -56, 168, 56, 168, 56, -232)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/LadderGroup/LadderWall"]
 position = Vector2(7.89852e-06, 2.94777e-05)
 polygon = PackedVector2Array(-56, -232, -56, 168, 56, 168, 56, -232)
-
-[node name="WinZone" parent="." instance=ExtResource("4_gbx4l")]
-position = Vector2(-1680, -1908)
-scale = Vector2(1.2, 1.2)
 
 [node name="Pipes" type="Node2D" parent="."]
 
@@ -1099,12 +1096,6 @@ position = Vector2(890, -45)
 scale = Vector2(0.0743307, 0.0743307)
 texture = ExtResource("16_0rae3")
 
-[node name="LevelEndGrate" type="Sprite2D" parent="Background"]
-z_index = 18
-position = Vector2(584, -1773)
-scale = Vector2(0.380779, 0.380779)
-texture = ExtResource("17_atjsd")
-
 [node name="Graffiti" type="Node2D" parent="Background"]
 
 [node name="ConceptBlueW" type="Sprite2D" parent="Background/Graffiti"]
@@ -1311,4 +1302,14 @@ position = Vector2(829, -1575)
 position = Vector2(209, -1696)
 
 [node name="ValveObstacle6" parent="." instance=ExtResource("30_pbrqc")]
-position = Vector2(330, -1687)
+position = Vector2(336, -1696)
+
+[node name="End of Level" type="Node2D" parent="."]
+
+[node name="Guard" parent="End of Level" instance=ExtResource("34_axiy3")]
+position = Vector2(630, -1742)
+
+[node name="Exit" parent="End of Level" instance=ExtResource("35_3fkuc")]
+position = Vector2(531, -1772)
+
+[connection signal="toll_paid" from="End of Level/Guard" to="End of Level/Exit" method="_on_guard_toll_paid"]
