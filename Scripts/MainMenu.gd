@@ -6,7 +6,6 @@ extends Control
 
 var sounds = preload("res://Scripts/sound.gd")
 
-
 func _on_start_pressed():
 	var jump = SoundManager.PlayerJump(2)
 	await jump.finished
@@ -24,15 +23,8 @@ func _on_instructions_return_pressed():
 	main_menu.visible = true
 
 func _on_credits_pressed():
-	SoundManager.PlayerJump(2)
-	main_menu.visible = false
-	credits.visible = true
+	get_tree().change_scene_to_file("res://Scenes/Level/Credits.tscn")
 
-func _on_credits_return_pressed():
-	SoundManager.PlayerJump(2)
-	credits.visible = false
-	main_menu.visible = true
-	
 func _on_exit_pressed():
 	var land = SoundManager.PlayerLand("long")
 	await land.finished

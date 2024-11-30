@@ -610,6 +610,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 3
 script = ExtResource("1_c1brk")
 power_curve = SubResource("Curve_n1qsj")
 

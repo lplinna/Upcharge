@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boh0bte8hiv3m"
-path="res://.godot/imported/CoinSpritesheet.png-3e0f7e47ee174af2c659c955d729957a.ctex"
+uid="uid://ckx7t1ri4xg8q"
+path="res://.godot/imported/Rat_Player_Bubble_3.png-308b4b6d511116b69f60ee463629d7f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/CoinSpritesheet.png"
-dest_files=["res://.godot/imported/CoinSpritesheet.png-3e0f7e47ee174af2c659c955d729957a.ctex"]
+source_file="res://Assets/Guard/Speech Bubbles/Rat_Player_Bubble_3.png"
+dest_files=["res://.godot/imported/Rat_Player_Bubble_3.png-308b4b6d511116b69f60ee463629d7f5.ctex"]
 
 [params]
 

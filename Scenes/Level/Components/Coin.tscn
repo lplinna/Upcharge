@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Level/Coin.gd" id="1_i1fn0"]
 [ext_resource type="Script" path="res://Scripts/bobbingMovement_Coin.gd" id="2_avtve"]
-[ext_resource type="Texture2D" uid="uid://boh0bte8hiv3m" path="res://Resources/CoinSpritesheet.png" id="2_ku21m"]
+[ext_resource type="Texture2D" uid="uid://boh0bte8hiv3m" path="res://Assets/CoinSpritesheet.png" id="2_ku21m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqlwv"]
 
