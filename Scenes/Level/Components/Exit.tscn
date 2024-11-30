@@ -861,10 +861,21 @@ script = ExtResource("2_iwe6v")
 ladder_final_pos = Vector2(0, 100)
 
 [node name="Ladder" type="Sprite2D" parent="."]
-visible = false
 z_index = 13
 position = Vector2(0, -350)
 texture = ExtResource("3_k4yd1")
+
+[node name="TheE" type="RichTextLabel" parent="Ladder"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.658824, 0.898039, 0.611765, 1)
+offset_left = -30.0
+offset_top = 61.0
+offset_right = 93.0
+offset_bottom = 193.0
+theme_override_font_sizes/normal_font_size = 121
+text = "E"
+scroll_active = false
 
 [node name="GrateCover" type="Sprite2D" parent="."]
 z_index = 14

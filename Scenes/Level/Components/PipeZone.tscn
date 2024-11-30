@@ -80,6 +80,7 @@ offset_bottom = 40.0
 
 [node name="TheE" type="RichTextLabel" parent="PipePrompt"]
 modulate = Color(0.658824, 0.898039, 0.611765, 1)
+layout_mode = 0
 offset_left = -30.0
 offset_top = -95.0
 offset_right = 93.0
@@ -91,6 +92,7 @@ scroll_active = false
 [node name="MoneyIndicator" type="RichTextLabel" parent="PipePrompt"]
 visible = false
 modulate = Color(0.658824, 0.898039, 0.611765, 1)
+layout_mode = 0
 offset_left = -175.0
 offset_top = -45.0
 offset_right = 705.0
