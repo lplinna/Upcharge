@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bin8wy2cq6th5"]
+[gd_scene load_steps=35 format=3 uid="uid://bin8wy2cq6th5"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_hp66c"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_gtpp1"]
@@ -27,8 +27,10 @@
 [ext_resource type="Texture2D" uid="uid://xtb7k53kbaan" path="res://Assets/Dew/Dew_4.png" id="27_m7q75"]
 [ext_resource type="Texture2D" uid="uid://qnyh75tlxylf" path="res://Assets/Dew/Dew_3.png" id="28_0hj8j"]
 [ext_resource type="Texture2D" uid="uid://iyexisxtoiga" path="res://Assets/Dew/Dew_2.png" id="29_22lcs"]
+[ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Level/Components/Coin.tscn" id="30_4qpu8"]
 [ext_resource type="PackedScene" uid="uid://qarfxgr4ovaq" path="res://Scenes/Level/Components/green_goop.tscn" id="30_u02fl"]
 [ext_resource type="PackedScene" uid="uid://b35x8dvw3k6h6" path="res://Scenes/Level/Shop/shop.tscn" id="31_3slce"]
+[ext_resource type="Texture2D" uid="uid://crpmffpy7yrij" path="res://Assets/Pipes/JPipes/BigPipe.png" id="31_jv45q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pbvl"]
 size = Vector2(2109.75, 67.9994)
@@ -48,7 +50,7 @@ script = ExtResource("1_hp66c")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_gtpp1")]
-position = Vector2(194, -1307)
+position = Vector2(36, 686)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -889,10 +891,10 @@ position = Vector2(-78, -778)
 z_index = -16
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
-offset_left = -1833.0
-offset_top = -1957.0
-offset_right = 6814.0
-offset_bottom = 10988.0
+offset_left = -201.0
+offset_top = -1919.0
+offset_right = 8446.0
+offset_bottom = 11026.0
 scale = Vector2(0.18, 0.217)
 texture = ExtResource("13_6qedb")
 stretch_mode = 1
@@ -1114,3 +1116,48 @@ polygon = PackedVector2Array(-88, 0, -88, 16, 16, 16, 16, 0)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LadderPlatform5"]
 position = Vector2(7.89852e-06, 2.94777e-05)
 polygon = PackedVector2Array(-88, 0, -88, 16, 16, 16, 16, 0)
+
+[node name="Coin" parent="." instance=ExtResource("30_4qpu8")]
+position = Vector2(1149, 64)
+
+[node name="BigPipe" type="Sprite2D" parent="."]
+position = Vector2(1187, 140)
+rotation = 3.14159
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_jv45q")
+
+[node name="Coin2" parent="." instance=ExtResource("30_4qpu8")]
+position = Vector2(169, -297)
+
+[node name="Coin3" parent="." instance=ExtResource("30_4qpu8")]
+position = Vector2(2, -535)
+
+[node name="Coin4" parent="." instance=ExtResource("30_4qpu8")]
+position = Vector2(1111, -453)
+
+[node name="Coin5" parent="." instance=ExtResource("30_4qpu8")]
+position = Vector2(455, -801)
+
+[node name="Coin6" parent="." instance=ExtResource("30_4qpu8")]
+position = Vector2(314, -942)
+
+[node name="Coin7" parent="." instance=ExtResource("30_4qpu8")]
+position = Vector2(374, -745)
+
+[node name="Coin8" parent="." instance=ExtResource("30_4qpu8")]
+position = Vector2(-2, -1375)
+
+[node name="Coin9" parent="." instance=ExtResource("30_4qpu8")]
+position = Vector2(859, -896)
+
+[node name="Coin10" parent="." instance=ExtResource("30_4qpu8")]
+position = Vector2(537, -830)
+
+[node name="Coin11" parent="." instance=ExtResource("30_4qpu8")]
+position = Vector2(1071, -1473)
+
+[node name="Coin12" parent="." instance=ExtResource("30_4qpu8")]
+position = Vector2(440, -1240)
+
+[node name="Coin13" parent="." instance=ExtResource("30_4qpu8")]
+position = Vector2(223, -115)
