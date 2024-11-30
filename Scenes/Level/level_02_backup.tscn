@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://caw7avdd6uvsx"]
+[gd_scene load_steps=40 format=3 uid="uid://c6exlt17qeu2g"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Camera.gd" id="1_vcte5"]
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_v0n8d"]
@@ -165,7 +165,6 @@ offset_bottom = 1010.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall2"]
 position = Vector2(105.2, 15.9985)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_atgsu")
 
 [node name="Wall4" type="StaticBody2D" parent="Boundaries"]
@@ -338,7 +337,6 @@ polygon = PackedVector2Array(-56, -232, -56, 168, 56, 168, 56, -232)
 [node name="Cave" parent="Boundaries" instance=ExtResource("5_ojolr")]
 position = Vector2(-303.2, 464.8)
 rotation = -6.28318
-scale = Vector2(1.18958, 1.18148)
 
 [node name="Pipes" type="Node2D" parent="."]
 
