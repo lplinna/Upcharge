@@ -1,8 +1,9 @@
-[gd_scene load_steps=127 format=3 uid="uid://cxd1l0sro08jg"]
+[gd_scene load_steps=128 format=3 uid="uid://cxd1l0sro08jg"]
 
 [ext_resource type="Texture2D" uid="uid://ci2cq4721tym0" path="res://Assets/Background/GrateOpeningSpriteSheet.png" id="1_sto5q"]
 [ext_resource type="Script" path="res://Scripts/Level/Exit.gd" id="2_iwe6v"]
 [ext_resource type="Texture2D" uid="uid://dr66vh83pj2iy" path="res://Assets/Guard/Ladder_final.png" id="3_k4yd1"]
+[ext_resource type="Texture2D" uid="uid://dyq3jnxd50xtm" path="res://Assets/Background/Tutorial/Concept_Purple_E.png" id="3_nakfe"]
 [ext_resource type="Texture2D" uid="uid://dto1j6yygvnnd" path="res://Assets/Background/TopGrate.png" id="3_qv8mn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ut3gt"]
@@ -865,17 +866,12 @@ z_index = 13
 position = Vector2(0, -350)
 texture = ExtResource("3_k4yd1")
 
-[node name="TheE" type="RichTextLabel" parent="Ladder"]
+[node name="TheE" type="Sprite2D" parent="Ladder"]
 unique_name_in_owner = true
 visible = false
-modulate = Color(0.658824, 0.898039, 0.611765, 1)
-offset_left = -30.0
-offset_top = 61.0
-offset_right = 93.0
-offset_bottom = 193.0
-theme_override_font_sizes/normal_font_size = 121
-text = "E"
-scroll_active = false
+position = Vector2(3.63798e-12, 129)
+scale = Vector2(0.0816059, 0.100705)
+texture = ExtResource("3_nakfe")
 
 [node name="GrateCover" type="Sprite2D" parent="."]
 z_index = 14

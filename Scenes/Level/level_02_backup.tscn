@@ -55,7 +55,7 @@ script = ExtResource("1_vcte5")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_v0n8d")]
-position = Vector2(155, -1583)
+position = Vector2(338, -1759)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -99,7 +99,7 @@ position = Vector2(843, -1202)
 position = Vector2(194, -1311)
 
 [node name="Coin13" parent="Coins" instance=ExtResource("3_7q7tc")]
-position = Vector2(27, -1659)
+position = Vector2(375, -1528)
 
 [node name="Coin14" parent="Coins" instance=ExtResource("3_7q7tc")]
 position = Vector2(1175, -1190)
