@@ -50,7 +50,7 @@ var EyeLiner: Line2D
 var wet_floor: bool = false
 
 ## The player's items. A simple string array, could hold multiples of the same 'item' in the future.
-var items: Array = ["Crowbar","Legacy Mechanic"]
+var items: Array = ["Crowbar"]
 
 var frozen: bool = false:
 	set(new_frozen):
@@ -221,6 +221,7 @@ func handle_button(actionID):
 			items.append("Cheese")
 			coins -= shop_pop_up.cheese_price
 			shop_pop_up.item_purchased.emit(3)
+	SoundManager.CoinCollect()
 
 func _on_timer_timeout():
 	step_sound = true

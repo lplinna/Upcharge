@@ -6,11 +6,13 @@ extends Control
 
 signal item_purchased(item: int)
 
-var crowbar_price = 1
+var crowbar_price = 5
 var wrench_price = 1
 var cheese_price = 50
+var current_id: int = 0
 
 func display(id):
+	current_id = id
 	if id == 1:
 		button.text = "Buy this to\nplay the old way  (E to Return after falling)                             "
 		price.text = "%s" % crowbar_price
@@ -25,11 +27,6 @@ func display(id):
 func init():
 	button.pressed.connect(player_ref.handle_button)
 
-func _process(delta):
-	if self.visible and Input.is_action_just_released("return"):
-		if button.text == "Crowbar":
-			player_ref.handle_button(1)
-		if button.text == "Hint":
-			player_ref.handle_button(2)
-		if button.text == "Cheese":
-			player_ref.handle_button(3)
+func _input(event: InputEvent):
+	if self.visible and event.is_action_pressed("return"):
+		player_ref.handle_button(current_id)
