@@ -5,7 +5,8 @@ var hints = [
 	but if you have the cheese, winning is free!'''
 	,
 	'Use the crowbar for shortcuts in pipes. BE CAREFUL - it costs money to use it!',
-	'Hold up BEFORE holding left or right to pull off normally impossible jumps.'
+	'Hold up BEFORE holding left or right to pull off normally impossible jumps.',
+	'Buy the "crowbar" to play Upcharge the old way - every time you fall, you can press E to go back up\nimmediately.'
 	]
 
 

@@ -12,7 +12,7 @@ var cheese_price = 50
 
 func display(id):
 	if id == 1:
-		button.text = "Crowbar"
+		button.text = "Buy this to\nplay the old way  (E to Return after falling)                             "
 		price.text = "%s" % crowbar_price
 	if id == 2:
 		button.text = "Hint"
