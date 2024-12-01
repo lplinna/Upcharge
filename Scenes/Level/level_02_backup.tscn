@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dhm46ln55frcd" path="res://Scenes/Player/Player.tscn" id="2_v0n8d"]
 [ext_resource type="PackedScene" uid="uid://cdm56i1aanfts" path="res://Scenes/Level/Components/Coin.tscn" id="3_7q7tc"]
 [ext_resource type="PackedScene" uid="uid://cp44fnkd3icw4" path="res://Scenes/Level/Components/WorldBlock.tscn" id="3_n3tpe"]
-[ext_resource type="PackedScene" uid="uid://dm8pohh64w8t3" path="res://Scenes/Level/level_02_cave.tscn" id="5_ojolr"]
+[ext_resource type="PackedScene" uid="uid://u3thtw4gr5ky" path="res://Scenes/Level/level_02_cave.tscn" id="5_ojolr"]
 [ext_resource type="PackedScene" uid="uid://cnejxp27r6sib" path="res://Scenes/Level/Components/Pipes/PipeTemplate.tscn" id="5_sxyi6"]
 [ext_resource type="PackedScene" uid="uid://s5qlahc6hh7d" path="res://Scenes/Level/Components/Pipes/PipeCurve.tscn" id="6_00jr6"]
 [ext_resource type="PackedScene" uid="uid://damjb7jnd4o8q" path="res://Scenes/Level/Components/PipeZone.tscn" id="7_sp3m5"]
@@ -55,7 +55,7 @@ script = ExtResource("1_vcte5")
 player_ref = NodePath("../Player")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_v0n8d")]
-position = Vector2(338, -1759)
+position = Vector2(-409, 693)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -99,7 +99,7 @@ position = Vector2(843, -1202)
 position = Vector2(194, -1311)
 
 [node name="Coin13" parent="Coins" instance=ExtResource("3_7q7tc")]
-position = Vector2(375, -1528)
+position = Vector2(27, -1646)
 
 [node name="Coin14" parent="Coins" instance=ExtResource("3_7q7tc")]
 position = Vector2(1175, -1190)

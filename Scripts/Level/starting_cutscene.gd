@@ -5,4 +5,4 @@ func _process(delta):
 		_on_video_stream_player_finished()
 
 func _on_video_stream_player_finished():
-	get_tree().change_scene_to_file("res://Scenes/Level/level_02.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Level/level_02_backup.tscn")
