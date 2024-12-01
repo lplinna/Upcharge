@@ -48,6 +48,7 @@ var fall_sound = false
 var eye_points_queue = []
 var EyeLiner: Line2D 
 var wet_floor: bool = false
+var crowbar_usage_price: int = 5
 
 ## The player's items. A simple string array, could hold multiples of the same 'item' in the future.
 var items: Array = ["Crowbar"]
@@ -228,7 +229,6 @@ func _on_timer_timeout():
 
 func use_item(name):
 	if name == "Crowbar": # Pay money when crowbar is used
-		coins -= 5
 		print(coins)
 	if name in items:
 		print("Used ", name)

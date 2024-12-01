@@ -143,7 +143,9 @@ func _process(delta: float) -> void:
 		return
 	if Input.is_action_just_pressed("return") and player_there:
 		if closed and "Crowbar" in stored_player.items:
-			if stored_player.coins >= 5:
+			if stored_player.coins >= stored_player.crowbar_usage_price:
+				stored_player.coins -= stored_player.crowbar_usage_price
+				stored_player.crowbar_usage_price *= 1.8
 				closed = false
 				stored_player.use_item("Crowbar")
 				shoot_grate()
